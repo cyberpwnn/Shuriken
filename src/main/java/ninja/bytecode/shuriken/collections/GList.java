@@ -1,13 +1,121 @@
-package ninja.bytecode.shuriken.lang;
+package ninja.bytecode.shuriken.collections;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Function;
+
+import ninja.bytecode.shuriken.math.M;
+import ninja.bytecode.shuriken.queue.Queue;
 
 public class GList<T> extends ArrayList<T> implements List<T>
 {
 	private static final long serialVersionUID = -2892550695744823337L;
+
+	public GList(Collection<T> values)
+	{
+		super();
+		add(values);
+	}
+
+	public GList()
+	{
+		super();
+	}
+
+	public Queue<T> enqueue()
+	{
+		return Queue.create(this);
+	}
+
+	public GList<T> add(Collection<T> values)
+	{
+		addAll(values);
+		return this;
+	}
+
+	/**
+	 * Create a Map out of this list where this list becomes the values of the
+	 * returned map. You must specify each key for each value in this list. In the
+	 * function, returning null will not add the keyval pair.
+	 *
+	 * @param <K>
+	 *            the inferred key type
+	 * @param f
+	 *            the function
+	 * @return the new map
+	 */
+	public <K> GMap<K, T> asValues(Function<T, K> f)
+	{
+		GMap<K, T> m = new GMap<K, T>();
+		forEach((i) -> m.putNonNull(f.apply(i), i));
+		return m;
+	}
+
+	/**
+	 * Create a Map out of this list where this list becomes the keys of the
+	 * returned map. You must specify each value for each key in this list. In the
+	 * function, returning null will not add the keyval pair.
+	 *
+	 * @param <V>
+	 *            the inferred value type
+	 * @param f
+	 *            the function
+	 * @return the new map
+	 */
+	public <V> GMap<T, V> asKeys(Function<T, V> f)
+	{
+		GMap<T, V> m = new GMap<T, V>();
+		forEach((i) -> m.putNonNull(i, f.apply(i)));
+		return m;
+	}
+
+	/**
+	 * Cut this list into targetCount sublists
+	 *
+	 * @param targetCount
+	 *            the target count of sublists
+	 * @return the list of sublists
+	 */
+	public GList<GList<T>> divide(int targetCount)
+	{
+		return split(size() / targetCount);
+	}
+
+	/**
+	 * Split this list into a list of sublists with roughly targetSize elements of T
+	 * per sublist
+	 *
+	 * @param targetSize
+	 *            the target size
+	 * @return the list of sublists
+	 */
+	public GList<GList<T>> split(int targetSize)
+	{
+		targetSize = targetSize < 1 ? 1 : targetSize;
+		GList<GList<T>> gg = new GList<>();
+		GList<T> b = new GList<>();
+
+		for(T i : this)
+		{
+			if(b.size() >= targetSize)
+			{
+				gg.add(b.copy());
+				b.clear();
+			}
+
+			b.add(i);
+		}
+
+		if(!b.isEmpty())
+		{
+			gg.add(b);
+		}
+
+		return gg;
+	}
 
 	/**
 	 * Rewrite this list by checking each value and changing the value (or not).
@@ -241,5 +349,81 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	public int last()
 	{
 		return size() - 1;
+	}
+
+	/**
+	 * Deduplicate this list by converting to linked hash set and back
+	 *
+	 * @return the deduplicated list
+	 */
+	public GList<T> dedupe()
+	{
+		return qclear().add(new LinkedHashSet<T>(this));
+	}
+
+	/**
+	 * Clear this list (and return it)
+	 *
+	 * @return the same list
+	 */
+	public GList<T> qclear()
+	{
+		super.clear();
+		return this;
+	}
+
+	/**
+	 * Simply !isEmpty()
+	 *
+	 * @return true if this list has 1 or more element(s)
+	 */
+	public boolean hasElements()
+	{
+		return !isEmpty();
+	}
+
+	/**
+	 * Pop the first item off this list and return it
+	 *
+	 * @return the popped off item or null if the list is empty
+	 */
+	public T pop()
+	{
+		if(isEmpty())
+		{
+			return null;
+		}
+
+		return remove(0);
+	}
+
+	/**
+	 * Pop the last item off this list and return it
+	 *
+	 * @return the popped off item or null if the list is empty
+	 */
+	public T popLast()
+	{
+		if(isEmpty())
+		{
+			return null;
+		}
+
+		return remove(last());
+	}
+
+	public T popRandom()
+	{
+		if(isEmpty())
+		{
+			return null;
+		}
+
+		if(size() == 1)
+		{
+			return pop();
+		}
+
+		return remove(M.irand(0, last()));
 	}
 }
