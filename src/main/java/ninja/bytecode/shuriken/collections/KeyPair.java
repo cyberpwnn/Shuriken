@@ -1,10 +1,22 @@
 package ninja.bytecode.shuriken.collections;
 
+/**
+ * Represents a keypair
+ * @author cyberpwn
+ *
+ * @param <K> the key type
+ * @param <V> the value type
+ */
 public class KeyPair<K, V>
 {
 	private K k;
 	private V v;
 
+	/**
+	 * Create a keypair
+	 * @param k the key
+	 * @param v the value
+	 */
 	public KeyPair(K k, V v)
 	{
 		this.k = k;

@@ -14,15 +14,22 @@ public class GList<T> extends ArrayList<T> implements List<T>
 {
 	private static final long serialVersionUID = -2892550695744823337L;
 
-	public GList(Collection<T> values)
+	@SafeVarargs
+	public GList(T... ts)
 	{
 		super();
-		add(values);
+		add(ts);
 	}
 
 	public GList()
 	{
 		super();
+	}
+
+	public GList(Collection<T> values) 
+	{
+		super();
+		add(values);
 	}
 
 	public Queue<T> enqueue()
