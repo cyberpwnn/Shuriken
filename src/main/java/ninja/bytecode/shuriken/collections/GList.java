@@ -7,10 +7,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Function;
 
-import mortar.lang.collection.GList;
+import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.math.M;
-import ninja.bytecode.shuriken.queue.Queue;
 
 public class GList<T> extends ArrayList<T> implements List<T>
 {

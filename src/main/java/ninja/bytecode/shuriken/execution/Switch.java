@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.queue;
+package ninja.bytecode.shuriken.execution;
 
 public class Switch
 {

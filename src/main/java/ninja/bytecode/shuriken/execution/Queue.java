@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.queue;
+package ninja.bytecode.shuriken.execution;
 
 import ninja.bytecode.shuriken.collections.GList;
 
