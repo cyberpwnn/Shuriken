@@ -293,6 +293,19 @@ public class VIO
 	{
 		return fullTransfer(in, out, 8192);
 	}
+	
+	public static void deleteUp(File f)
+	{
+		if(f.exists())
+		{
+			f.delete();
+
+			if(f.getParentFile().list().length == 0)
+			{
+				deleteUp(f.getParentFile());
+			}
+		}
+	}
 
 	/**
 	 * Fully move data from a finite inputstream to an output stream using a given

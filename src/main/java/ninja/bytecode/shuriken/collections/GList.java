@@ -7,6 +7,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Function;
 
+import mortar.lang.collection.GList;
+import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.queue.Queue;
 
@@ -30,6 +32,16 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	{
 		super();
 		add(values);
+	}
+	
+	/**
+	 * Remove the last element
+	 */
+	public GList<T> removeLast()
+	{
+		remove(last());
+
+		return this;
 	}
 
 	public Queue<T> enqueue()
@@ -432,5 +444,53 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		}
 
 		return remove(M.irand(0, last()));
+	}
+
+	public static GList<String> fromJSONAny(JSONArray oo)
+	{
+		GList<String> s = new GList<String>();
+
+		for(int i = 0; i < oo.length(); i++)
+		{
+			s.add(oo.get(i).toString());
+		}
+
+		return s;
+	}
+
+	public GList<T> sub(int f, int t)
+	{
+		GList<T> g = new GList<>();
+
+		for(int i = f; i < M.min(size(), t); i++)
+		{
+			g.add(get(i));
+		}
+
+		return g;
+	}
+
+	public JSONArray toJSONStringArray()
+	{
+		JSONArray j = new JSONArray();
+
+		for(Object i : this)
+		{
+			j.put(i.toString());
+		}
+
+		return j;
+	}
+
+	public static GList<String> asStringList(List<?> oo)
+	{
+		GList<String> s = new GList<String>();
+
+		for(Object i : oo)
+		{
+			s.add(i.toString());
+		}
+
+		return s;
 	}
 }
