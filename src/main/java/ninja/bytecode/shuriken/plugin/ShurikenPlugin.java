@@ -1,6 +1,8 @@
 package ninja.bytecode.shuriken.plugin;
 
-public abstract class ShurikenPlugin implements Plugin
+import ninja.bytecode.shuriken.logging.L;
+
+public abstract class ShurikenPlugin extends L implements Plugin
 {
 	private boolean enabled;
 	private PluginManager manager;
@@ -25,6 +27,7 @@ public abstract class ShurikenPlugin implements Plugin
 		
 		enabled = true;
 		onEnable();
+		info(getPluginManager().getConfig().getName() + " Enabled");
 	}
 
 	@Override
@@ -36,6 +39,7 @@ public abstract class ShurikenPlugin implements Plugin
 		
 		enabled = false;
 		onDisable();
+		info(getPluginManager().getConfig().getName() + " Disabled");
 	}
 
 	@Override
