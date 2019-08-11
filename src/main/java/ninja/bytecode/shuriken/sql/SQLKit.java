@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.sql;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import ninja.bytecode.shuriken.collections.GList;
@@ -197,6 +199,94 @@ public class SQLKit
 
 		return false;
 	}
+	
+	public long getTableSize(Class<?> object) throws SQLException, IllegalArgumentException, IllegalAccessException
+	{
+		String table = object.getDeclaredAnnotation(Table.class).value();
+		PreparedStatement exists = prepareCount(table);
+		ResultSet r = exists.executeQuery();
+		
+		if(r.next())
+		{
+			return r.getLong(1);
+		}
+		
+		return -1;
+	}
+	
+	//TODO: Test
+	@SuppressWarnings("unchecked")
+	public <T> void getAllFieldsFor(Class<?> tclass, String field, String condition, Consumer<T> t, long chunkSize) throws SQLException, IllegalArgumentException, IllegalAccessException
+	{
+		long m = 0;
+		long count = getTableSize(tclass);
+		
+		while(m < count)
+		{
+			PreparedStatement exists = prepareGetAllFor(tclass, field, condition, m, chunkSize);
+			m+= chunkSize;
+			ResultSet r = exists.executeQuery();
+			
+			while(r.next())
+			{
+				t.accept((T) r.getObject(1));
+			}
+		}
+	}
+	
+	//TODO: Test
+	public <T> void getAllFor(Supplier<T> tsup, String condition, Consumer<T> c, long chunkSize) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		T to = tsup.get();
+		@SuppressWarnings("unchecked")
+		Class<T> tclass = (Class<T>) to.getClass();
+		long m = 0;
+		long count = getTableSize(tclass);
+		
+		while(m < count)
+		{
+			PreparedStatement exists = prepareGetAllFor(tclass, condition, m, chunkSize);
+			m+= chunkSize;
+			ResultSet r = exists.executeQuery();
+			
+			while(r.next())
+			{
+				T o = tsup.get();
+				ingest(o, r);
+				c.accept(o);
+			}
+		}
+	}
+	
+	//TODO: Test
+	public <T> T get(Class<T> t, Object idx) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, SQLException
+	{
+		T o = t.getConstructor(idx.getClass()).newInstance(idx);
+		
+		if(!get(o))
+		{
+			return null;
+		}
+		
+		return o;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> T getTableField(Object idh, String field) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		if(validate(idh))
+		{
+			PreparedStatement exists = prepareGetSingleton(idh, field);
+			ResultSet r = exists.executeQuery();
+			
+			if(r.next())
+			{
+				return (T) r.getObject(1);
+			}
+		}
+		
+		return null;
+	}
 
 	public boolean get(Object object) throws SQLException
 	{
@@ -209,48 +299,7 @@ public class SQLKit
 
 				if(r.next())
 				{
-					for(Field i : object.getClass().getDeclaredFields())
-					{
-						i.setAccessible(true);
-						if(i.isAnnotationPresent(Column.class))
-						{
-							Column c = i.getAnnotation(Column.class);
-							if(i.getType().equals(UUID.class))
-							{
-								i.set(object, UUID.fromString(r.getString(c.name())));
-							}
-
-							else if(i.getType().equals(String.class))
-							{
-								i.set(object, r.getString(c.name()));
-							}
-
-							else if(i.getType().equals(Integer.class) || i.getType().equals(int.class))
-							{
-								i.set(object, r.getInt(c.name()));
-							}
-
-							else if(i.getType().equals(Double.class) || i.getType().equals(double.class))
-							{
-								i.set(object, r.getDouble(c.name()));
-							}
-
-							else if(i.getType().equals(Long.class) || i.getType().equals(long.class))
-							{
-								i.set(object, r.getLong(c.name()));
-							}
-
-							else if(i.getType().equals(Date.class))
-							{
-								i.set(object, r.getDate(c.name()));
-							}
-
-							else
-							{
-								System.out.println("Cannot handle type injection from table: " + i.getType().toString());
-							}
-						}
-					}
+					ingest(object, r);
 
 					return true;
 				}
@@ -265,6 +314,52 @@ public class SQLKit
 		}
 
 		return false;
+	}
+
+	private void ingest(Object object, ResultSet r) throws IllegalArgumentException, IllegalAccessException, SQLException 
+	{
+		for(Field i : object.getClass().getDeclaredFields())
+		{
+			i.setAccessible(true);
+			if(i.isAnnotationPresent(Column.class))
+			{
+				Column c = i.getAnnotation(Column.class);
+				if(i.getType().equals(UUID.class))
+				{
+					i.set(object, UUID.fromString(r.getString(c.name())));
+				}
+
+				else if(i.getType().equals(String.class))
+				{
+					i.set(object, r.getString(c.name()));
+				}
+
+				else if(i.getType().equals(Integer.class) || i.getType().equals(int.class))
+				{
+					i.set(object, r.getInt(c.name()));
+				}
+
+				else if(i.getType().equals(Double.class) || i.getType().equals(double.class))
+				{
+					i.set(object, r.getDouble(c.name()));
+				}
+
+				else if(i.getType().equals(Long.class) || i.getType().equals(long.class))
+				{
+					i.set(object, r.getLong(c.name()));
+				}
+
+				else if(i.getType().equals(Date.class))
+				{
+					i.set(object, r.getDate(c.name()));
+				}
+
+				else
+				{
+					System.out.println("Cannot handle type injection from table: " + i.getType().toString());
+				}
+			}
+		}
 	}
 
 	public boolean validate(Object object) throws SQLException
@@ -416,6 +511,22 @@ public class SQLKit
 		return getConnection().prepareStatement(sql);
 	}
 
+	private PreparedStatement prepareGetAllFor(Object object, String condition, long m, long size) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
+		String sql = "SELECT * FROM `" + table + "` WHERE " + condition + " LIMIT " + m + "," + size + ";";
+		l("-> " + sql);
+		return getConnection().prepareStatement(sql);
+	}
+	
+	private PreparedStatement prepareGetAllFor(Object object, String field, String condition, long m, long size) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
+		String sql = "SELECT `" + field + "` FROM `" + table + "` WHERE " + condition + " LIMIT " + m + "," + size + ";";
+		l("-> " + sql);
+		return getConnection().prepareStatement(sql);
+	}
+	
 	private PreparedStatement prepareExists(Object object, String column) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
@@ -424,7 +535,23 @@ public class SQLKit
 		l("-> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-
+	
+	private PreparedStatement prepareGetSingleton(Object object, String field) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
+		String ex = "WHERE `" + getPrimary(object) + "` = '" + getPrimaryValue(object) + "'";
+		String sql = "SELECT " + getField(object, field) + " FROM `" + table + "` " + ex;
+		l("-> " + sql);
+		return getConnection().prepareStatement(sql);
+	}
+	
+	private PreparedStatement prepareCount(String table) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		String sql = "SELECT COUNT(*) FROM `" + table + "`";
+		l("-> " + sql);
+		return getConnection().prepareStatement(sql);
+	}
+	
 	private PreparedStatement prepareGet(Object object) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
@@ -581,6 +708,25 @@ public class SQLKit
 		return "" + f.toString(", ") + "";
 	}
 
+	private String getField(Object object, String varName)
+	{
+		for(Field i : object.getClass().getDeclaredFields())
+		{
+			i.setAccessible(true);
+
+			if(i.isAnnotationPresent(Column.class))
+			{
+				Column c = i.getAnnotation(Column.class);
+				if(i.getName().equals(varName) || c.name().equals(varName))
+				{
+					return c.name();
+				}
+			}
+		}
+
+		return varName;
+	}
+	
 	private String getPrimary(Object object)
 	{
 		for(Field i : object.getClass().getDeclaredFields())
