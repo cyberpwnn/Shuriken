@@ -810,6 +810,24 @@ public class F
 		Date d = new Date(t);
 		return d.getMonth() + "-" + d.getDate() + "-" + (d.getYear() + 1900) + " " + d.getHours() + "h " + d.getMinutes() + "m " + d.getSeconds() + "s ";
 	}
+	
+	@SuppressWarnings("deprecation")
+	public static String stampTime(long t)
+	{
+		Date d = new Date(t);
+		
+		return Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + forceDoubleDigit(d.getMinutes()) + ":" + forceDoubleDigit(d.getSeconds());
+	}
+	
+	public static String forceDoubleDigit(int dig)
+	{
+		if(dig < 10)
+		{
+			return "0" + dig;
+		}
+		
+		return dig + "";
+	}
 
 	@SuppressWarnings("deprecation")
 	public static String stampDay(long t)

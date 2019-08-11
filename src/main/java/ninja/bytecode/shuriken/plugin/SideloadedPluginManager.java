@@ -6,12 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.zip.ZipException;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-
-import ninja.bytecode.shuriken.io.VIO;
-
-public class ShurikenPluginManager implements PluginManager {
+public class SideloadedPluginManager implements PluginManager {
 
 	private PluginClassLoader classLoader;
 	private File jar;
@@ -19,19 +14,8 @@ public class ShurikenPluginManager implements PluginManager {
 	private Plugin plugin;
 	
 	@SuppressWarnings("unchecked")
-	public ShurikenPluginManager(File jar) throws ZipException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-		VIO.readEntry(jar, "plugin.json", (in) -> {
-			try 
-			{
-				config = new Gson().fromJson(VIO.readAll(in), PluginConfig.class);
-			} 
-			
-			catch (JsonSyntaxException | IOException e)
-			{
-				e.printStackTrace();
-			}
-		});
-		this.jar = jar;
+	public SideloadedPluginManager(String name, String pc) throws ZipException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+		config = new PluginConfig("internal", pc, name);
 		this.classLoader = new PluginClassLoader(new URL[] {jar.toURI().toURL()}, getClassLoader());
 		Class<? extends Plugin> pclass = (Class<? extends Plugin>) classLoader.loadClass(config.getMain());
 		plugin = pclass.getConstructor().newInstance();
@@ -50,7 +34,7 @@ public class ShurikenPluginManager implements PluginManager {
 
 	@Override
 	public File getJar() {
-		return jar;
+		return null;
 	}
 
 	@Override

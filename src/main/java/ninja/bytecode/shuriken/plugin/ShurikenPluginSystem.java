@@ -10,21 +10,32 @@ public class ShurikenPluginSystem implements PluginSystem {
 	private GList<PluginManager> managers;
 	
 	@Override
-	public GList<PluginManager> getManagers() {
+	public GList<PluginManager> getPlugins() {
 		return managers.copy();
+	}
+
+	@Override
+	public PluginManager sideload(String pluginName, String classname) throws PluginException {
+		try {
+			PluginManager pm = new SideloadedPluginManager(pluginName, classname);
+			managers.add(pm);
+			return pm;
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException | NoSuchMethodException | SecurityException | IOException e) {
+			throw new PluginException(e);
+		}
 	}
 
 	@Override
 	public PluginManager load(File p) throws PluginException {
 		try {
-			PluginManager pm = new ShurikenPluginManager(p);
+			PluginManager pm = new JarPluginManager(p);
 			managers.add(pm);
+			return pm;
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException | NoSuchMethodException | SecurityException | IOException e) {
 			throw new PluginException(e);
 		}
-		
-		return null;
 	}
 
 	@Override
@@ -40,7 +51,7 @@ public class ShurikenPluginSystem implements PluginSystem {
 
 	@Override
 	public void disableAll() {
-		for(PluginManager i : getManagers())
+		for(PluginManager i : getPlugins())
 		{
 			i.getPlugin().disable();
 		}
@@ -50,7 +61,7 @@ public class ShurikenPluginSystem implements PluginSystem {
 	public void unloadAll() {
 		disableAll();
 		
-		for(PluginManager i : getManagers())
+		for(PluginManager i : getPlugins())
 		{
 			i.unload();
 		}
@@ -60,7 +71,7 @@ public class ShurikenPluginSystem implements PluginSystem {
 
 	@Override
 	public PluginManager getPlugin(String name) {
-		for(PluginManager i : getManagers())
+		for(PluginManager i : getPlugins())
 		{
 			if(i.getConfig().getName().equals(name))
 			{
@@ -70,5 +81,4 @@ public class ShurikenPluginSystem implements PluginSystem {
 		
 		return null;
 	}
-
 }

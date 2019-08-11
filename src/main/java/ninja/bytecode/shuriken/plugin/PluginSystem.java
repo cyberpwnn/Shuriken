@@ -6,7 +6,7 @@ import ninja.bytecode.shuriken.collections.GList;
 
 public interface PluginSystem
 {
-	public GList<PluginManager> getManagers();
+	public GList<PluginManager> getPlugins();
 	
 	public PluginManager load(File p) throws PluginException;
 	
@@ -17,4 +17,6 @@ public interface PluginSystem
 	public void unloadAll();
 	
 	public PluginManager getPlugin(String name);
+	
+	public PluginManager sideload(String pluginName, String classname) throws PluginException;
 }

@@ -38,7 +38,7 @@ public class QueueExecutor extends Looper
 		
 		Shuriken.profiler.stop("executor-" + getId());
 		
-		return Math.max(50, (long) getRunTime());
+		return Math.max(500, (long) getRunTime() * 10);
 	}
 
 	public double getRunTime() {
