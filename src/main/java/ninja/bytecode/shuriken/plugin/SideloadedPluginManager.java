@@ -6,20 +6,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.zip.ZipException;
 
+import ninja.bytecode.shuriken.logging.L;
+
 public class SideloadedPluginManager implements PluginManager {
 
 	private PluginClassLoader classLoader;
-	private File jar;
 	private PluginConfig config;
 	private Plugin plugin;
 	
-	@SuppressWarnings("unchecked")
 	public SideloadedPluginManager(String name, String pc) throws ZipException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		config = new PluginConfig("internal", pc, name);
-		this.classLoader = new PluginClassLoader(new URL[] {jar.toURI().toURL()}, getClassLoader());
-		Class<? extends Plugin> pclass = (Class<? extends Plugin>) classLoader.loadClass(config.getMain());
-		plugin = pclass.getConstructor().newInstance();
+		this.classLoader = new PluginClassLoader(new URL[] {getClass().getProtectionDomain().getCodeSource().getLocation()}, getClassLoader());
+		classLoader.setSideload(true);
+		Class<?> pclass = classLoader.loadClass(config.getMain());
+		plugin = (Plugin) pclass.getConstructor().newInstance();
 		plugin.setManager(this);
+		L.i("Loaded Plugin " + config.getName());
 	}
 	
 	@Override
@@ -54,6 +56,7 @@ public class SideloadedPluginManager implements PluginManager {
 		}
 		
 		classLoader = null;
+		L.i("Unloaded " + config.getName());
 	}
 
 	@Override

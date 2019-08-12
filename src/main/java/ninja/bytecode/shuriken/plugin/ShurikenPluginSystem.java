@@ -9,6 +9,11 @@ import ninja.bytecode.shuriken.collections.GList;
 public class ShurikenPluginSystem implements PluginSystem {
 	private GList<PluginManager> managers;
 	
+	public ShurikenPluginSystem()
+	{
+		managers = new GList<PluginManager>();
+	}
+	
 	@Override
 	public GList<PluginManager> getPlugins() {
 		return managers.copy();
@@ -80,5 +85,13 @@ public class ShurikenPluginSystem implements PluginSystem {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public void enableAll() {
+		for(PluginManager i : getPlugins())
+		{
+			i.getPlugin().enable();
+		}
 	}
 }

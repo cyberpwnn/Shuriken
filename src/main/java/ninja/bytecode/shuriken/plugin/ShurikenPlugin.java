@@ -1,11 +1,18 @@
 package ninja.bytecode.shuriken.plugin;
 
+import ninja.bytecode.shuriken.execution.QueueExecutor;
 import ninja.bytecode.shuriken.logging.L;
 
 public abstract class ShurikenPlugin extends L implements Plugin
 {
 	private boolean enabled;
 	private PluginManager manager;
+	private QueueExecutor executor;
+	
+	public ShurikenPlugin()
+	{
+		
+	}
 	
 	@Override
 	public boolean isEnabled() {
@@ -25,9 +32,17 @@ public abstract class ShurikenPlugin extends L implements Plugin
 			return;
 		}
 		
+		executor = new QueueExecutor();
+		executor.setName(getPluginManager().getConfig().getName());
+		executor.start();
 		enabled = true;
-		onEnable();
-		info(getPluginManager().getConfig().getName() + " Enabled");
+		run(this::onEnable);
+		run(() -> info(getPluginManager().getConfig().getName() + " Enabled"));
+	}
+	
+	public void run(Runnable r)
+	{
+		executor.queue().queue(r);
 	}
 
 	@Override
@@ -38,8 +53,15 @@ public abstract class ShurikenPlugin extends L implements Plugin
 		}
 		
 		enabled = false;
-		onDisable();
-		info(getPluginManager().getConfig().getName() + " Disabled");
+		run(this::onDisable);
+		run(() -> info(getPluginManager().getConfig().getName() + " Disabled"));
+		executor.shutdown();
+
+		try {
+			executor.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

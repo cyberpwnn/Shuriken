@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import ninja.bytecode.shuriken.io.VIO;
+import ninja.bytecode.shuriken.logging.L;
 
 public class JarPluginManager implements PluginManager {
 
@@ -18,7 +19,6 @@ public class JarPluginManager implements PluginManager {
 	private PluginConfig config;
 	private Plugin plugin;
 	
-	@SuppressWarnings("unchecked")
 	public JarPluginManager(File jar) throws ZipException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		VIO.readEntry(jar, "plugin.json", (in) -> {
 			try 
@@ -33,8 +33,8 @@ public class JarPluginManager implements PluginManager {
 		});
 		this.jar = jar;
 		this.classLoader = new PluginClassLoader(new URL[] {jar.toURI().toURL()}, getClassLoader());
-		Class<? extends Plugin> pclass = (Class<? extends Plugin>) classLoader.loadClass(config.getMain());
-		plugin = pclass.getConstructor().newInstance();
+		Class<?> pclass = classLoader.loadClass(config.getMain());
+		plugin = (Plugin) pclass.getConstructor().newInstance();
 		plugin.setManager(this);
 	}
 	
@@ -70,6 +70,7 @@ public class JarPluginManager implements PluginManager {
 		}
 		
 		classLoader = null;
+		L.i("Unloaded " + config.getName());
 	}
 
 	@Override

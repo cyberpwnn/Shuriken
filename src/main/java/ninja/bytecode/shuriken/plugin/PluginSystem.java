@@ -14,6 +14,8 @@ public interface PluginSystem
 	
 	public void disableAll();
 	
+	public void enableAll();
+	
 	public void unloadAll();
 	
 	public PluginManager getPlugin(String name);
