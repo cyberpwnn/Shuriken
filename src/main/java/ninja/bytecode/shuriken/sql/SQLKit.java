@@ -288,6 +288,21 @@ public class SQLKit
 		return null;
 	}
 
+	public <T> T get(Class<T> t, Object... params) throws Throwable
+	{
+		GList<Class<?>> g = new GList<>();
+		for(Object i : params)
+		{
+			g.add(i.getClass());
+		}
+		
+		@SuppressWarnings("unchecked")
+		T tx = (T) t.getClass().getConstructor(g.toArray(new Class<?>[g.size()])).newInstance(params);
+		get(tx);
+		
+		return tx;
+	}
+	
 	public boolean get(Object object) throws SQLException
 	{
 		if(validate(object))
