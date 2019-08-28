@@ -8,6 +8,7 @@ import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.execution.ShurikenQueue;
 import ninja.bytecode.shuriken.format.F;
 import ninja.bytecode.shuriken.math.M;
+import ninja.bytecode.shuriken.tools.ExceptionTools;
 
 public class L
 {
@@ -56,6 +57,16 @@ public class L
 	protected void fatal(Object... l)
 	{
 		log("F", l);
+	}
+	
+	protected void exception(Throwable e)
+	{
+		fatal(ExceptionTools.toString(e));
+	}
+
+	public static void ex(Throwable e)
+	{
+		l.fatal(ExceptionTools.toString(e));
 	}
 	
 	private void log(String tag, Object... l)

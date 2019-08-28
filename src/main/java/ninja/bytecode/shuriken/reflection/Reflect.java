@@ -138,4 +138,9 @@ public class Reflect
 			throw new RuntimeException(e);
 		}
 	}
+
+	public Object getInstance()
+	{
+		return instance;
+	}
 }
