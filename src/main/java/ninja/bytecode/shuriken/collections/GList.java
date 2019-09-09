@@ -3,6 +3,7 @@ package ninja.bytecode.shuriken.collections;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Function;
@@ -33,6 +34,12 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		add(values);
 	}
 	
+	public GList(Enumeration<T> e)
+	{
+		super();
+		add(e);
+	}
+
 	/**
 	 * Remove the last element
 	 */
@@ -46,6 +53,16 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	public Queue<T> enqueue()
 	{
 		return Queue.create(this);
+	}
+
+	private GList<T> add(Enumeration<T> e)
+	{
+		while(e.hasMoreElements())
+		{
+			add(e.nextElement());
+		}
+		
+		return this;
 	}
 
 	public GList<T> add(Collection<T> values)

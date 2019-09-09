@@ -11,35 +11,6 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.2.1</version>
-				<configuration>
-					<minimizeJar>true</minimizeJar>
-					<artifactSet>
-						<includes>
-							<include>com.google.code.gson:gson:*</include>
-							<include>org.zeroturnaround:zt-zip:*</include>
-							<include>org.apache.maven:maven-model:*</include>
-							<include>org.codehaus.plexus:plexus-utils:*</include>
-							<include>org.apache.maven:maven-core:*</include>
-						</includes>
-					</artifactSet>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 	<dependencies>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -66,8 +37,6 @@
 			<artifactId>maven-core</artifactId>
 			<version>3.0.4</version>
 		</dependency>
-
-		<!-- Webserver -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
@@ -83,8 +52,6 @@
 			<artifactId>jetty-webapp</artifactId>
 			<version>9.4.18.v20190429</version>
 		</dependency>
-
-		<!-- JDBC -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

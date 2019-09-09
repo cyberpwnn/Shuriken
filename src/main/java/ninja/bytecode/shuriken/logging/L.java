@@ -20,11 +20,20 @@ public class L
 	private static Queue<String> logBuffer;
 	public static Consumer<String> consoleConsumer;
 	public static GList<Consumer<String>> logConsumers;
-	
 	public static boolean DEDUPLICATE_LOGS = true;
 	public static long IDLE_FLUSH_INTERVAL = 750;
 	public static long ACTIVE_FLUSH_INTERVAL = 250;
-
+	
+	public static void clearLogConsumers()
+	{
+		logConsumers.clear();
+	}
+	
+	public static void addLogConsumer(Consumer<String> m)
+	{
+		logConsumers.add(m);
+	}
+	
 	public static void i(Object... o)
 	{
 		l.info(o);
