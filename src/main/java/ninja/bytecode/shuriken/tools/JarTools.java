@@ -2,6 +2,7 @@ package ninja.bytecode.shuriken.tools;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -12,12 +13,22 @@ import ninja.bytecode.shuriken.collections.GList;
 
 public class JarTools
 {
+	public static InputStream readJarEntry(String path)
+	{
+		return readJarEntry(JarTools.class, path);
+	}
+
+	public static InputStream readJarEntry(Class<?> codeSource, String path)
+	{
+		return codeSource.getResourceAsStream(path.startsWith("/") ? path : ("/" + path));
+	}
+
 	/**
 	 * Get the shuriken jar
 	 * 
 	 * @return the shuriken jar
 	 */
-	public File getJar()
+	public static File getJar()
 	{
 		return getJar(JarTools.class);
 	}
@@ -27,7 +38,7 @@ public class JarTools
 	 * 
 	 * @return
 	 */
-	public File getJar(Class<?> c)
+	public static File getJar(Class<?> c)
 	{
 		try
 		{
@@ -54,7 +65,7 @@ public class JarTools
 	 *            its ignored)
 	 * @return the list
 	 */
-	public <T> GList<Class<? extends T>> getClassesInPackage(String superPackage, Class<T> superClass)
+	public static <T> GList<Class<? extends T>> getClassesInPackage(String superPackage, Class<T> superClass)
 	{
 		return getClassesInPackage(getJar(), superPackage, superClass);
 	}
@@ -74,7 +85,7 @@ public class JarTools
 	 * @return the list
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> GList<Class<? extends T>> getClassesInPackage(File codeSource, String superPackage, Class<T> superClass)
+	public static <T> GList<Class<? extends T>> getClassesInPackage(File codeSource, String superPackage, Class<T> superClass)
 	{
 		GList<Class<?>> g = getClassesInPackage(codeSource, superPackage);
 		return g.convert((c) -> superClass.isAssignableFrom(c) ? (Class<? extends T>) c : null);
@@ -87,7 +98,7 @@ public class JarTools
 	 *            the package (i.e. something.xxx.types)
 	 * @return glist of classes
 	 */
-	public GList<Class<?>> getClassesInPackage(String superPackage)
+	public static GList<Class<?>> getClassesInPackage(String superPackage)
 	{
 		return getClassesInPackage(getJar(), superPackage);
 	}
@@ -101,7 +112,7 @@ public class JarTools
 	 *            the package (i.e. something.xxx.types)
 	 * @return glist of classes
 	 */
-	public GList<Class<?>> getClassesInPackage(File codeSource, String superPackage)
+	public static GList<Class<?>> getClassesInPackage(File codeSource, String superPackage)
 	{
 		GList<Class<?>> g = new GList<Class<?>>();
 		JarScanner sc = new JarScanner(codeSource, superPackage);
@@ -139,7 +150,7 @@ public class JarTools
 	 * @throws MalformedURLException
 	 *             Why is bad jar path
 	 */
-	public void injectJarToCP(File jar) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException
+	public static void injectJarToCP(File jar) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException
 	{
 		ClassLoader cl = ClassLoader.getSystemClassLoader();
 		Class<?> clazz = cl.getClass();

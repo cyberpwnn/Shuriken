@@ -1,5 +1,7 @@
 package ninja.bytecode.shuriken.logging;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import ninja.bytecode.shuriken.collections.GList;
@@ -19,46 +21,50 @@ public class L
 	public static Consumer<String> consoleConsumer;
 	public static GList<Consumer<String>> logConsumers;
 	
+	public static boolean DEDUPLICATE_LOGS = true;
+	public static long IDLE_FLUSH_INTERVAL = 750;
+	public static long ACTIVE_FLUSH_INTERVAL = 250;
+
 	public static void i(Object... o)
 	{
 		l.info(o);
 	}
-	
+
 	public static void w(Object... o)
 	{
 		l.warn(o);
 	}
-	
+
 	public static void v(Object... o)
 	{
 		l.verbose(o);
 	}
-	
+
 	public static void f(Object... o)
 	{
 		l.fatal(o);
 	}
-	
+
 	protected void info(Object... l)
 	{
 		log("I", l);
 	}
-	
+
 	protected void verbose(Object... l)
 	{
 		log("V", l);
 	}
-	
+
 	protected void warn(Object... l)
 	{
 		log("W", l);
 	}
-	
+
 	protected void fatal(Object... l)
 	{
 		log("F", l);
 	}
-	
+
 	protected void exception(Throwable e)
 	{
 		fatal(ExceptionTools.toString(e));
@@ -68,76 +74,110 @@ public class L
 	{
 		l.fatal(ExceptionTools.toString(e));
 	}
-	
+
 	private void log(String tag, Object... l)
 	{
 		if(l.length == 0)
 		{
 			return;
 		}
-		
+
 		String tagger = "[" + F.stampTime(M.ms()) + "]: ";
-		
+
 		if(lastTag.equals(tagger))
 		{
 			tagger = F.repeat(" ", lastTag.length());
 		}
-		
+
 		else
 		{
 			lastTag = tagger;
 		}
-		
+
 		if(l.length == 1)
 		{
 			logBuffer.queue(tagger + "|" + tag + "/" + Thread.currentThread().getName() + "| " + (l[0] != null ? l[0].toString() : "null"));
 			return;
 		}
-		
+
 		StringBuilder sb = new StringBuilder();
 		for(Object i : l)
 		{
 			sb.append(i == null ? "null" : i.toString());
 			sb.append(" ");
 		}
-		
+
 		logBuffer.queue(tagger + "|" + Thread.currentThread().getName() + "/" + tag + "| " + sb.toString());
 	}
-	
+
 	static
 	{
 		logConsumers = new GList<Consumer<String>>();
 		logBuffer = new ShurikenQueue<String>();
 		consoleConsumer = (s) -> System.out.println(s);
-		looper = new Looper() {
+		looper = new Looper()
+		{
 			@Override
-			protected long loop() {
-				return flush() ? 250 : 750;
+			protected long loop()
+			{
+				return flush() ? ACTIVE_FLUSH_INTERVAL : IDLE_FLUSH_INTERVAL;
 			}
 
-			private boolean flush() {
+			private boolean flush()
+			{
+				Map<String, Integer> c = DEDUPLICATE_LOGS ? new LinkedHashMap<String, Integer>() : null;
+
 				boolean logged = false;
-				
+
 				while(logBuffer.hasNext())
 				{
 					String l = logBuffer.next();
-					
-					if(consoleConsumer != null)
+
+					if(DEDUPLICATE_LOGS)
 					{
-						consoleConsumer.accept(l);
+						if(!c.containsKey(l))
+						{
+							c.put(l, 1);
+						}
+
+						else
+						{
+							c.put(l, c.get(l) + 1);
+						}
 					}
-					
-					for(Consumer<String> i : logConsumers)
+
+					else
 					{
-						i.accept(l);
+						dump(l);
 					}
 				}
-				
+
+				if(DEDUPLICATE_LOGS)
+				{
+					for(String ix : c.keySet())
+					{
+						dump(ix + (c.get(ix) > 1 ? (" [x" + c.get(ix) + "]") : ""));
+					}
+				}
+
 				return logged;
 			}
 		};
 		looper.setPriority(Thread.MIN_PRIORITY);
 		looper.setName("Log Manager");
 		looper.start();
+	}
+
+	private static final void dump(String f)
+	{
+		if(consoleConsumer != null)
+		{
+			consoleConsumer.accept(f);
+		}
+
+		for(Consumer<String> i : logConsumers)
+		{
+			i.accept(f);
+		}
 	}
 }

@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.tools;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public class ObjectWitchcraft
+public class ObjectTools
 {
 	public static void shove(Object data, Object into) throws BlackMagicException
 	{

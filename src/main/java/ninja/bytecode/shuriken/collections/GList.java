@@ -492,4 +492,102 @@ public class GList<T> extends ArrayList<T> implements List<T>
 
 		return s;
 	}
+
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(Object[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(int[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(double[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(float[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(byte[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(short[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(long[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GList<T> forceAdd(boolean[] values)
+	{
+		for(Object i : values)
+		{
+			add((T) i);
+		}
+		
+		return this;
+	}
+
+	public T middleValue()
+	{
+		return get(middleIndex());
+	}
+
+	private int middleIndex()
+	{
+		return size() % 2 == 0 ? (size() / 2) : ((size() / 2) + 1);
+	}
 }

@@ -28,6 +28,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.execution.ChronoLatch;
 import ninja.bytecode.shuriken.function.Callback;
 import ninja.bytecode.shuriken.math.M;
 

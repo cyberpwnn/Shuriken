@@ -201,6 +201,28 @@ public class M
 	{
 		return sinLookup((int) ((a + 90f) * precision + 0.5f));
 	}
+	
+	/**
+	 * Biggest number
+	 *
+	 * @param doubles
+	 *            the numbers
+	 * @return the biggest one
+	 */
+	public static double max(double... doubles)
+	{
+		double max = Double.MIN_VALUE;
+
+		for(double i : doubles)
+		{
+			if(i > max)
+			{
+				max = i;
+			}
+		}
+
+		return max;
+	}
 
 	/**
 	 * Biggest number
@@ -236,6 +258,28 @@ public class M
 		int min = Integer.MAX_VALUE;
 
 		for(int i : ints)
+		{
+			if(i < min)
+			{
+				min = i;
+			}
+		}
+
+		return min;
+	}
+	
+	/**
+	 * Smallest number
+	 *
+	 * @param doubles
+	 *            the numbers
+	 * @return the smallest one
+	 */
+	public static double min(double... doubles)
+	{
+		double min = Double.MAX_VALUE;
+
+		for(double i : doubles)
 		{
 			if(i < min)
 			{

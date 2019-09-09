@@ -780,6 +780,28 @@ public class F
 	}
 
 	/**
+	 * ":", "a", "b", "c" -> a:b:c
+	 * 
+	 * @param splitter
+	 *            the splitter that goes in between
+	 * @param strings
+	 *            the strings
+	 * @return the result
+	 */
+	public static String split(String splitter, String... strings)
+	{
+		StringBuilder b = new StringBuilder();
+
+		for(String i : strings)
+		{
+			b.append(splitter);
+			b.append(i);
+		}
+
+		return b.toString().substring(splitter.length());
+	}
+
+	/**
 	 * Calculate a fancy string representation of a file size. Adds a suffix of B,
 	 * KB, MB, GB, or TB
 	 *
@@ -810,22 +832,22 @@ public class F
 		Date d = new Date(t);
 		return d.getMonth() + "-" + d.getDate() + "-" + (d.getYear() + 1900) + " " + d.getHours() + "h " + d.getMinutes() + "m " + d.getSeconds() + "s ";
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public static String stampTime(long t)
 	{
 		Date d = new Date(t);
-		
+
 		return Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + forceDoubleDigit(d.getMinutes()) + ":" + forceDoubleDigit(d.getSeconds());
 	}
-	
+
 	public static String forceDoubleDigit(int dig)
 	{
 		if(dig < 10)
 		{
 			return "0" + dig;
 		}
-		
+
 		return dig + "";
 	}
 

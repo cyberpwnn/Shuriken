@@ -9,11 +9,11 @@ package ninja.bytecode.shuriken.math;
  *
  */
 public class Average {
-	private double[] values;
+	protected double[] values;
 	private double average;
 	private double lastSum;
 	private boolean dirty;
-	private int cursor;
+	protected int cursor;
 	private boolean brandNew;
 
 	/**
@@ -43,7 +43,7 @@ public class Average {
 		if(brandNew)
 		{
 			DoubleArrayUtils.fill(values, i);
-			lastSum = values.length * i;
+			lastSum = size() * i;
 			brandNew = false;
 			return;
 		}
@@ -51,7 +51,7 @@ public class Average {
 		double current = values[cursor];
 		lastSum = (lastSum - current) + i;
 		values[cursor] = i;
-		cursor = cursor + 1 < values.length ? cursor + 1 : 0;
+		cursor = cursor + 1 < size() ? cursor + 1 : 0;
 	}
 
 	/**
@@ -69,7 +69,17 @@ public class Average {
 	}
 
 	private void calculateAverage() {
-		average = lastSum / (double) values.length;
+		average = lastSum / (double) size();
 		dirty = false;
+	}
+	
+	public int size()
+	{
+		return values.length;
+	}
+	
+	public boolean isDirty()
+	{
+		return dirty;
 	}
 }
