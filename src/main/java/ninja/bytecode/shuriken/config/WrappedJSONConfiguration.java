@@ -1,4 +1,4 @@
-package ninja.bytecpde.shuriken.config;
+package ninja.bytecode.shuriken.config;
 
 import java.io.File;
 import java.util.List;

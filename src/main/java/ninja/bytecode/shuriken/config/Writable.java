@@ -1,4 +1,4 @@
-package ninja.bytecpde.shuriken.config;
+package ninja.bytecode.shuriken.config;
 
 import ninja.bytecode.shuriken.json.JSONObject;
 

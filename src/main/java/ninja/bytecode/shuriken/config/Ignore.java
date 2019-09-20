@@ -1,4 +1,4 @@
-package ninja.bytecpde.shuriken.config;
+package ninja.bytecode.shuriken.config;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
