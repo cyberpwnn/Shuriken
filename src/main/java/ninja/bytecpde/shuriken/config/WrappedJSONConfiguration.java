@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import ninja.bytecode.shuriken.collections.GList;
-import ninja.bytecode.shuriken.io.VIO;
+import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.json.JSONObject;
 
@@ -20,13 +20,13 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 	@Override
 	public void load(File f) throws Exception
 	{
-		load(VIO.readAll(f));
+		load(IO.readAll(f));
 	}
 
 	@Override
 	public void save(File f) throws Exception
 	{
-		VIO.writeAll(f, wrapped.toString(2));
+		IO.writeAll(f, wrapped.toString(2));
 	}
 
 	@Override

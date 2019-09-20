@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import ninja.bytecode.shuriken.Shuriken;
 import ninja.bytecode.shuriken.collections.GMap;
 import ninja.bytecode.shuriken.execution.J;
-import ninja.bytecode.shuriken.io.VIO;
+import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONObject;
 import ninja.bytecode.shuriken.logging.L;
 
@@ -31,7 +31,7 @@ public class Props extends GMap<String, Object>
 
 		try
 		{
-			VIO.writeAll(getProperties(key), toJSON().toString(0));
+			IO.writeAll(getProperties(key), toJSON().toString(0));
 			L.v("Saved " + key + " properties.");
 		}
 
@@ -56,7 +56,7 @@ public class Props extends GMap<String, Object>
 	{
 		try
 		{
-			Props p = new Gson().fromJson(VIO.readAll(getProperties(key)), Props.class);
+			Props p = new Gson().fromJson(IO.readAll(getProperties(key)), Props.class);
 			p.key = key;
 			return p;
 		}

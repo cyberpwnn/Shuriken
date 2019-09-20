@@ -9,7 +9,7 @@ import java.util.zip.ZipException;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import ninja.bytecode.shuriken.io.VIO;
+import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.logging.L;
 
 public class JarPluginManager implements PluginManager {
@@ -20,10 +20,10 @@ public class JarPluginManager implements PluginManager {
 	private Plugin plugin;
 	
 	public JarPluginManager(File jar) throws ZipException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-		VIO.readEntry(jar, "plugin.json", (in) -> {
+		IO.readEntry(jar, "plugin.json", (in) -> {
 			try 
 			{
-				config = new Gson().fromJson(VIO.readAll(in), PluginConfig.class);
+				config = new Gson().fromJson(IO.readAll(in), PluginConfig.class);
 			} 
 			
 			catch (JsonSyntaxException | IOException e)

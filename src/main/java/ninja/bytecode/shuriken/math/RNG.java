@@ -10,17 +10,21 @@ public class RNG extends Random
 	private static final long serialVersionUID = 5222938581174415179L;
 	public static final RNG r = new RNG();
 
-	public RNG() {
+	public RNG()
+	{
 		super();
 	}
 
-	public RNG(long seed) {
+	public RNG(long seed)
+	{
 		super(seed);
 	}
 
 	/**
 	 * Creates a seed (long) from the hash of the seed string
-	 * @param seed the seed (string)
+	 * 
+	 * @param seed
+	 *            the seed (string)
 	 */
 	public RNG(String seed)
 	{
@@ -46,7 +50,9 @@ public class RNG extends Random
 
 	/**
 	 * Pick a random enum
-	 * @param t the enum class
+	 * 
+	 * @param t
+	 *            the enum class
 	 * @return the enum
 	 */
 	public <T> T e(Class<T> t)

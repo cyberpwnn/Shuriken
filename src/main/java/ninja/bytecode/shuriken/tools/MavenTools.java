@@ -8,7 +8,7 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
-import ninja.bytecode.shuriken.io.VIO;
+import ninja.bytecode.shuriken.io.IO;
 
 public class MavenTools
 {
@@ -19,7 +19,7 @@ public class MavenTools
 	
 	public static String readPomFile(Class<?> codeSource) throws IOException
 	{
-		return VIO.readAll(JarTools.readJarEntry("META-INF/maven/ninja.bytecode/Shuriken/pom.xml"));
+		return IO.readAll(JarTools.readJarEntry("META-INF/maven/ninja.bytecode/Shuriken/pom.xml"));
 	}
 	
 	public static MavenProject getProject() throws IOException, XmlPullParserException

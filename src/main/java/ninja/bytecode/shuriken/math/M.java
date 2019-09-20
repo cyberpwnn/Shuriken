@@ -1,5 +1,11 @@
 package ninja.bytecode.shuriken.math;
 
+import java.util.regex.Matcher;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 /**
  * Math
  *
@@ -10,22 +16,6 @@ public class M
 	private static final int precision = 128;
 	private static final int modulus = 360 * precision;
 	private static final float[] sin = new float[modulus];
-
-	/**
-	 * Clip doubles between a range and convert to int
-	 *
-	 * @param value
-	 *            the value
-	 * @param min
-	 *            the min
-	 * @param max
-	 *            the max
-	 * @return the clipped integer
-	 */
-	public static int iclip(double value, double min, double max)
-	{
-		return (int) clip(value, min, max);
-	}
 
 	/**
 	 * Scales B by an external range change so that <br/>
@@ -67,9 +57,10 @@ public class M
 	 *            the max
 	 * @return the clipped value
 	 */
-	public static double clip(double value, double min, double max)
+	@SuppressWarnings("unchecked")
+	public static <T extends Number> T clip(T value, T min, T max)
 	{
-		return Math.min(max, Math.max(min, value));
+		return (T) Double.valueOf(Math.min(max.doubleValue(), Math.max(min.doubleValue(), value.doubleValue())));
 	}
 
 	/**
@@ -205,67 +196,24 @@ public class M
 	/**
 	 * Biggest number
 	 *
-	 * @param doubles
+	 * @param numbers
 	 *            the numbers
 	 * @return the biggest one
 	 */
-	public static double max(double... doubles)
+	@SuppressWarnings("unchecked")
+	public static <T extends Number> T max(T... doubles)
 	{
 		double max = Double.MIN_VALUE;
 
-		for(double i : doubles)
+		for(T i : doubles)
 		{
-			if(i > max)
+			if(i.doubleValue() > max)
 			{
-				max = i;
+				max = i.doubleValue();
 			}
 		}
 
-		return max;
-	}
-
-	/**
-	 * Biggest number
-	 *
-	 * @param ints
-	 *            the numbers
-	 * @return the biggest one
-	 */
-	public static int max(int... ints)
-	{
-		int max = Integer.MIN_VALUE;
-
-		for(int i : ints)
-		{
-			if(i > max)
-			{
-				max = i;
-			}
-		}
-
-		return max;
-	}
-
-	/**
-	 * Smallest number
-	 *
-	 * @param ints
-	 *            the numbers
-	 * @return the smallest one
-	 */
-	public static int min(int... ints)
-	{
-		int min = Integer.MAX_VALUE;
-
-		for(int i : ints)
-		{
-			if(i < min)
-			{
-				min = i;
-			}
-		}
-
-		return min;
+		return (T) Double.valueOf(max);
 	}
 	
 	/**
@@ -275,19 +223,67 @@ public class M
 	 *            the numbers
 	 * @return the smallest one
 	 */
-	public static double min(double... doubles)
+	@SuppressWarnings("unchecked")
+	public static <T extends Number> T min(T... doubles)
 	{
 		double min = Double.MAX_VALUE;
 
-		for(double i : doubles)
+		for(T i : doubles)
 		{
-			if(i < min)
+			if(i.doubleValue() < min)
 			{
-				min = i;
+				min = i.doubleValue();
 			}
 		}
 
-		return min;
+		return (T) Double.valueOf(min);
+	}
+	
+	/**
+	 * Evaluates an expression using javascript engine and returns the double
+	 * result. This can take variable parameters, so you need to define them.
+	 * Parameters are defined as $[0-9]. For example evaluate("4$0/$1", 1, 2);
+	 * This makes the expression (4x1)/2 == 2. Keep note that you must use 0-9,
+	 * you cannot skip, or start at a number other than 0.
+	 * 
+	 * @param expression
+	 *            the expression with variables
+	 * @param args
+	 *            the arguments/variables
+	 * @return the resulting double value
+	 * @throws ScriptException ... gg
+	 * @throws IndexOutOfBoundsException
+	 *             learn to count
+	 */
+	public static double evaluate(String expression, Double... args) throws ScriptException, IndexOutOfBoundsException
+	{
+		for(int i = 0; i < args.length; i++)
+		{
+			String current = "$" + i;
+			
+			if(expression.contains(current))
+			{
+				expression = expression.replaceAll(Matcher.quoteReplacement(current), args[i] + "");
+			}
+		}
+		
+		return evaluate(expression);
+	}
+	
+	/**
+	 * Evaluates an expression using javascript engine and returns the double
+	 * 
+	 * @param expression
+	 *            the mathimatical expression
+	 * @return the double result
+	 * @throws ScriptException ... gg
+	 */
+	public static double evaluate(String expression) throws ScriptException
+	{
+		ScriptEngineManager mgr = new ScriptEngineManager();
+		ScriptEngine scriptEngine = mgr.getEngineByName("JavaScript");
+		
+		return Double.valueOf(scriptEngine.eval(expression).toString());
 	}
 
 	/**

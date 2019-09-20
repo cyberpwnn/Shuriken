@@ -38,6 +38,11 @@ public class L
 	{
 		l.info(o);
 	}
+	
+	public static void l(Object... o)
+	{
+		l.info(o);
+	}
 
 	public static void w(Object... o)
 	{
@@ -53,8 +58,18 @@ public class L
 	{
 		l.fatal(o);
 	}
+	
+	public static void e(Object... o)
+	{
+		l.fatal(o);
+	}
 
 	protected void info(Object... l)
+	{
+		log("I", l);
+	}
+	
+	protected void log(Object... l)
 	{
 		log("I", l);
 	}
@@ -70,6 +85,11 @@ public class L
 	}
 
 	protected void fatal(Object... l)
+	{
+		log("F", l);
+	}
+	
+	protected void error(Object... l)
 	{
 		log("F", l);
 	}

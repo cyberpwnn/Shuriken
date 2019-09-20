@@ -5,6 +5,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadFactory;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 import ninja.bytecode.shuriken.logging.L;
@@ -30,6 +32,25 @@ public class J
 		}
 	});
 	
+	public static void dofor(int a, Function<Integer, Boolean> c, int ch, Consumer<Integer> d)
+	{
+		for(int i = a; c.apply(i); i+=ch)
+		{
+			c.apply(i);
+		}
+	}
+	
+	public static boolean doif(Supplier<Boolean> c, Runnable g)
+	{
+		if(c.get())
+		{
+			g.run();
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public static void a(Runnable a)
 	{
 		e.submit(a);
@@ -40,7 +61,7 @@ public class J
 		return e.submit(a);
 	}
 	
-	public static boolean attempt(Runnable r)
+	public static boolean attempt(NastyRunnable r)
 	{
 		try
 		{

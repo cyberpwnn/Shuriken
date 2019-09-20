@@ -8,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.Function;
 
+import ninja.bytecode.shuriken.execution.Chunker;
 import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.math.M;
@@ -38,6 +39,11 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	{
 		super();
 		add(e);
+	}
+	
+	public Chunker<T> chunk()
+	{
+		return new Chunker<T>(this);
 	}
 
 	/**

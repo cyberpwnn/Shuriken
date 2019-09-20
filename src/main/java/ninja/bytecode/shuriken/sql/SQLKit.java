@@ -16,6 +16,7 @@ import java.util.function.Supplier;
 import ninja.bytecode.shuriken.collections.GList;
 import ninja.bytecode.shuriken.collections.GMap;
 import ninja.bytecode.shuriken.collections.GSet;
+import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
 
 public class SQLKit
@@ -478,7 +479,7 @@ public class SQLKit
 	{
 		if(logging)
 		{
-			System.out.println(string);
+			L.i(string);
 		}
 	}
 
@@ -893,7 +894,7 @@ public class SQLKit
 
 	private void f(String string)
 	{
-		System.err.println(string);
+		L.f(string);
 	}
 
 	public <T> GList<T> getAllFor(String find, String inColumn, Class<T> clazz, GList<T> f, Supplier<T> s) throws SQLException
@@ -1036,6 +1037,6 @@ public class SQLKit
 
 	private void w(String string)
 	{
-		l("WARNING: " + string);
+		L.w(string);
 	}
 }

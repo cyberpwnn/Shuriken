@@ -13,7 +13,7 @@ import org.eclipse.jetty.http.HttpStatus;
 import com.google.gson.Gson;
 
 import ninja.bytecode.shuriken.collections.GList;
-import ninja.bytecode.shuriken.io.VIO;
+import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONObject;
 import ninja.bytecode.shuriken.logging.L;
 
@@ -62,7 +62,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 
 	protected void write(HttpServletResponse resp, InputStream in) throws IOException
 	{
-		VIO.fullTransfer(in, resp.getOutputStream(), 8192);
+		IO.fullTransfer(in, resp.getOutputStream(), 8192);
 		in.close();
 	}
 
