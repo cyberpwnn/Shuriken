@@ -63,4 +63,16 @@
 			<version>3.17</version>
 		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>mpm</id>
+			<url>http://nexus.mpm.care/content/repositories/mpm</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>mpm</id>
+			<url>http://nexus.mpm.care/content/repositories/mpm</url>
+		</repository>
+	</distributionManagement>
 </project>
