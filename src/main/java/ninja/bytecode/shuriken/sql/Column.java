@@ -14,7 +14,7 @@ public @interface Column
 
 	String type();
 
-	String placeholder();
+	String placeholder() default "<ERROR: UNDEFINED>";
 
 	boolean primary() default false;
 }

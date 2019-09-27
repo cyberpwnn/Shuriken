@@ -29,6 +29,7 @@ public class SQLKit
 	private String sqlDatabase = "ordis";
 	private String sqlUsername = "ordis";
 	private String sqlPassword = "12345";
+	private int sqlPort = 3306;
 
 	public SQLKit(Connection sql, boolean log)
 	{
@@ -51,6 +52,16 @@ public class SQLKit
 		this.sqlUsername = sqlUsername;
 		this.sqlPassword = sqlPassword;
 	}
+	
+	public void setLogging(boolean l)
+	{
+		this.logging = l;
+	}
+	
+	public void setPort(int port)
+	{
+		this.sqlPort = port;
+	}
 
 	public void start() throws SQLException
 	{
@@ -67,7 +78,7 @@ public class SQLKit
 				p.setProperty("password", sqlPassword);
 			}
 
-			sql = DriverManager.getConnection("jdbc:mysql://" + sqlAddress + "/" + sqlDatabase, p);
+			sql = DriverManager.getConnection("jdbc:mysql://" + sqlAddress + (sqlPort != 3306 ? (":" + sqlPort) : "") + "/" + sqlDatabase, p);
 		}
 
 		catch(InstantiationException | IllegalAccessException | ClassNotFoundException e)
@@ -471,7 +482,7 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String def = getTableDef(object);
 		String sql = "CREATE TABLE IF NOT EXISTS `" + table + "` " + def + ";";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -487,7 +498,7 @@ public class SQLKit
 	{
 		String table = clazz.getDeclaredAnnotation(Table.class).value();
 		String sql = "SELECT `" + give + "` FROM `" + table + "` WHERE `" + find + "` = '" + equalsFind + "';";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -496,7 +507,7 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String def = alter.toString(", ");
 		String sql = "ALTER TABLE `" + table + "` " + def + ";";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -504,7 +515,7 @@ public class SQLKit
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String sql = "SHOW COLUMNS FROM `" + table + "`";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -513,7 +524,7 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String ex = "WHERE `" + getPrimary(object) + "` = '" + getPrimaryValue(object) + "'";
 		String sql = "DELETE FROM `" + table + "` " + ex;
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -523,7 +534,7 @@ public class SQLKit
 		String ex = "WHERE `" + getPrimary(object) + "` = '" + getPrimaryValue(object) + "'";
 		validate(object);
 		String sql = "SELECT * FROM `" + table + "` " + ex;
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -531,7 +542,7 @@ public class SQLKit
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String sql = "SELECT * FROM `" + table + "` WHERE " + condition + " LIMIT " + m + "," + size + ";";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 	
@@ -539,7 +550,7 @@ public class SQLKit
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String sql = "SELECT `" + field + "` FROM `" + table + "` WHERE " + condition + " LIMIT " + m + "," + size + ";";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 	
@@ -548,7 +559,7 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String ex = "WHERE `" + column + "` = '" + getValue(object, column) + "'";
 		String sql = "SELECT * FROM `" + table + "` " + ex;
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 	
@@ -557,14 +568,14 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String ex = "WHERE `" + getPrimary(object) + "` = '" + getPrimaryValue(object) + "'";
 		String sql = "SELECT " + getField(object, field) + " FROM `" + table + "` " + ex;
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 	
 	private PreparedStatement prepareCount(String table) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String sql = "SELECT COUNT(*) FROM `" + table + "`";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 	
@@ -573,7 +584,7 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String ex = "WHERE `" + getPrimary(object) + "` = '" + getPrimaryValue(object) + "'";
 		String sql = "SELECT " + getFieldsSelect(object) + " FROM `" + table + "` " + ex;
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -583,7 +594,7 @@ public class SQLKit
 		String fields = getFields(object);
 		String values = getValues(object);
 		String sql = "INSERT INTO `" + table + "` " + fields + " VALUES " + values + ";";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -592,7 +603,7 @@ public class SQLKit
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String updates = getFieldUpdates(object);
 		String sql = "UPDATE `" + table + "` SET " + updates + ";";
-		l("-> " + sql);
+		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
 
@@ -901,7 +912,7 @@ public class SQLKit
 	{
 		validate(s.get());
 		String ss = "SELECT * FROM `" + clazz.getAnnotation(Table.class).value() + "` WHERE `" + inColumn + "` = '" + find + "'";
-		l("-> " + ss);
+		l("SQL -> " + ss);
 		PreparedStatement ps = getConnection().prepareStatement(ss);
 		ResultSet r = ps.executeQuery();
 
@@ -970,7 +981,7 @@ public class SQLKit
 	{
 		validate(s.get());
 		String ss = "SELECT * FROM `" + clazz.getAnnotation(Table.class).value() + "`";
-		l("-> " + ss);
+		l("SQL -> " + ss);
 		PreparedStatement ps = getConnection().prepareStatement(ss);
 		ResultSet r = ps.executeQuery();
 

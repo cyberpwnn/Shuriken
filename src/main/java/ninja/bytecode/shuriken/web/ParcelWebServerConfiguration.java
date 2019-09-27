@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.web;
 
 public class ParcelWebServerConfiguration
 {
-	private ParcelWebServer server;
+	private transient ParcelWebServer server;
 	private boolean https;
 	private boolean http;
 	private int httpsPort;
@@ -14,6 +14,11 @@ public class ParcelWebServerConfiguration
 	private String serverPath;
 	private int maxFormContentSize;
 
+	public ParcelWebServerConfiguration()
+	{
+		this(null);
+	}
+	
 	public ParcelWebServerConfiguration(ParcelWebServer server)
 	{
 		this.server = server;

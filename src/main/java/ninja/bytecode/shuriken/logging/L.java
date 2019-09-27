@@ -96,12 +96,18 @@ public class L
 
 	protected void exception(Throwable e)
 	{
-		fatal(ExceptionTools.toString(e));
+		for(String i : ExceptionTools.toStrings(e))
+		{
+			fatal(i);
+		}
 	}
 
 	public static void ex(Throwable e)
 	{
-		l.fatal(ExceptionTools.toString(e));
+		for(String i : ExceptionTools.toStrings(e))
+		{
+			l.fatal(i);
+		}
 	}
 
 	private void log(String tag, Object... l)
@@ -151,46 +157,6 @@ public class L
 			{
 				return flush() ? ACTIVE_FLUSH_INTERVAL : IDLE_FLUSH_INTERVAL;
 			}
-
-			private boolean flush()
-			{
-				Map<String, Integer> c = DEDUPLICATE_LOGS ? new LinkedHashMap<String, Integer>() : null;
-
-				boolean logged = false;
-
-				while(logBuffer.hasNext())
-				{
-					String l = logBuffer.next();
-
-					if(DEDUPLICATE_LOGS)
-					{
-						if(!c.containsKey(l))
-						{
-							c.put(l, 1);
-						}
-
-						else
-						{
-							c.put(l, c.get(l) + 1);
-						}
-					}
-
-					else
-					{
-						dump(l);
-					}
-				}
-
-				if(DEDUPLICATE_LOGS)
-				{
-					for(String ix : c.keySet())
-					{
-						dump(ix + (c.get(ix) > 1 ? (" [x" + c.get(ix) + "]") : ""));
-					}
-				}
-
-				return logged;
-			}
 		};
 		looper.setPriority(Thread.MIN_PRIORITY);
 		looper.setName("Log Manager");
@@ -208,5 +174,45 @@ public class L
 		{
 			i.accept(f);
 		}
+	}
+
+	public static boolean flush()
+	{
+		Map<String, Integer> c = DEDUPLICATE_LOGS ? new LinkedHashMap<String, Integer>() : null;
+
+		boolean logged = false;
+
+		while(logBuffer.hasNext())
+		{
+			String l = logBuffer.next();
+
+			if(DEDUPLICATE_LOGS)
+			{
+				if(!c.containsKey(l))
+				{
+					c.put(l, 1);
+				}
+
+				else
+				{
+					c.put(l, c.get(l) + 1);
+				}
+			}
+
+			else
+			{
+				dump(l);
+			}
+		}
+
+		if(DEDUPLICATE_LOGS)
+		{
+			for(String ix : c.keySet())
+			{
+				dump(ix + (c.get(ix) > 1 ? (" [x" + c.get(ix) + "]") : ""));
+			}
+		}
+
+		return logged;
 	}
 }
