@@ -17,6 +17,13 @@ public class Query
 		query.append("SELECT *");
 		return this;
 	}
+	
+	public Query count()
+	{
+		query.append(" ");
+		query.append("SELECT *");
+		return this;
+	}
 
 	public Query select(String... select)
 	{

@@ -342,6 +342,34 @@ public class SQLKit
 
 		return false;
 	}
+	
+	public boolean getWhere(Object object, String col, String is) throws SQLException
+	{
+		if(validate(object))
+		{
+			try
+			{
+				PreparedStatement exists = prepareGetWhere(object, col, is);
+				ResultSet r = exists.executeQuery();
+
+				if(r.next())
+				{
+					ingest(object, r);
+
+					return true;
+				}
+			}
+
+			catch(IllegalArgumentException | IllegalAccessException e)
+			{
+				e.printStackTrace();
+			}
+
+			return false;
+		}
+
+		return false;
+	}
 
 	private void ingest(Object object, ResultSet r) throws IllegalArgumentException, IllegalAccessException, SQLException 
 	{
@@ -583,6 +611,15 @@ public class SQLKit
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String ex = "WHERE `" + getPrimary(object) + "` = '" + getPrimaryValue(object) + "'";
+		String sql = "SELECT " + getFieldsSelect(object) + " FROM `" + table + "` " + ex;
+		l("SQL -> " + sql);
+		return getConnection().prepareStatement(sql);
+	}
+	
+	private PreparedStatement prepareGetWhere(Object object, String field, String val) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
+		String ex = "WHERE `" + field + "` = '" + val + "'";
 		String sql = "SELECT " + getFieldsSelect(object) + " FROM `" + table + "` " + ex;
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
