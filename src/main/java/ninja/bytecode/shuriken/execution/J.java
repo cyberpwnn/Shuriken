@@ -61,6 +61,36 @@ public class J
 		return e.submit(a);
 	}
 	
+	public static <R> R attemptResult(NastyFuture<R> r, R onError)
+	{
+		try
+		{
+			return r.run();
+		}
+		
+		catch(Throwable e)
+		{
+			
+		}
+		
+		return onError;
+	}
+	
+	public static <T, R> R attemptFunction(NastyFunction<T, R> r, T param, R onError)
+	{
+		try
+		{
+			return r.run(param);
+		}
+		
+		catch(Throwable e)
+		{
+			
+		}
+		
+		return onError;
+	}
+	
 	public static boolean attempt(NastyRunnable r)
 	{
 		try
