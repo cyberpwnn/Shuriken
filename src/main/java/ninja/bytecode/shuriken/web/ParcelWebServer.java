@@ -56,7 +56,7 @@ public class ParcelWebServer
 
 	public void generateMarkdownSpec(File md)
 	{
-		GMap<String, GList<String>> ss = new GMap<>();
+		GMap<String, GMap<String, GList<String>>> ss = new GMap<>();
 		
 		L.v("=== Generating Parcel Spec ===");
 		try
@@ -84,26 +84,30 @@ public class ParcelWebServer
 					String category = "";
 					ParcelRequest aq = f.getDeclaredAnnotation(ParcelRequest.class);
 					ParcelResponse ar = f.getDeclaredAnnotation(ParcelResponse.class);
+					String subcat = "";
 					
 					if(aq != null)
 					{
-						category = "Requests" + (aq.value().trim().isEmpty() ? "" : " - " + aq.value());
+						subcat = "Requests";
+						category = "Parcels for " + (aq.value().trim().isEmpty() ? "Uncategorized" : aq.value());
 					}
 					
 					else if(ar != null)
 					{
-						category = "Responses" + (ar.value().trim().isEmpty() ? "" : " - " + ar.value());
+						subcat = "Responses";
+						category = "Parcels for " + (ar.value().trim().isEmpty() ? "Uncategorized" : ar.value());
 					}
 					
 					else
 					{
+						subcat = "Other";
 						category = "Uncategorized";
 					}
 					
 					ParcelDescription d = f.getDeclaredAnnotation(ParcelDescription.class);
 					String description = d != null ? d.value() : "No Description Provided";
 					String w = "* [" + p.getClass().getSimpleName() + " at `/" + p.getParcelType() + "`" + "](#" + p.getParcelType() + ") " + description;
-					ss.putThen(category, new GList<>()).add(w);
+					ss.putThen(category, new GMap<>()).putThen(subcat, new GList<>()).add(w);
 				}
 
 				catch(Throwable e)
@@ -114,11 +118,12 @@ public class ParcelWebServer
 
 			ss.k().sort().forEach((l) -> {
 				pw.println("## " + l);
-				ss.get(l).copy().sort().forEach((v) -> pw.println(v));
+				ss.get(l).k().sort().forEach((v) -> {
+					pw.println("### " + v);
+					ss.get(l).get(v).copy().sort().forEach((x) -> pw.println(x));
+				});
 				pw.println();
 			});
-			
-			pw.println("---");
 			pw.println();
 
 			for(Class<? extends Parcelable> f : parcelables)
@@ -158,20 +163,17 @@ public class ParcelWebServer
 
 					if(successType != null)
 					{
-						pw.println("#### On Success");
-						pw.println();
-						pw.println("Responds with [" + sType + "](#" + sType + ")");
-						pw.println("> " + successDescription);
+						pw.println("**On Success** Responds with [" + sType + "](#" + sType + ") `" + successDescription + "`");
 						pw.println();
 					}
 
 					if(errorType != null)
 					{
-						pw.println("#### On Error");
+						pw.println("**On Error** Responds with [" + eType + "](#" + eType + ") `" + errorDescription + "`");
 						pw.println();
-						pw.println("Responds with [" + eType + "](#" + eType + ")");
-						pw.println("> " + errorDescription);
 					}
+					
+					pw.println("---");
 				}
 
 				catch(Throwable e)
