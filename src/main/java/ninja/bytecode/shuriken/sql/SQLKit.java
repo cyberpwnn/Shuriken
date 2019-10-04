@@ -574,9 +574,9 @@ public class SQLKit
 		return getConnection().prepareStatement(sql);
 	}
 	
-	private PreparedStatement prepareGetAllFor(Object object, String field, String condition, long m, long size) throws IllegalArgumentException, IllegalAccessException, SQLException
+	private PreparedStatement prepareGetAllFor(Class<?> c, String field, String condition, long m, long size) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
-		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
+		String table = c.getDeclaredAnnotation(Table.class).value();
 		String sql = "SELECT `" + field + "` FROM `" + table + "` WHERE " + condition + " LIMIT " + m + "," + size + ";";
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);

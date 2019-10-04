@@ -182,6 +182,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 						error.put("type", e.getClass().getCanonicalName());
 						error.put("message", "Could not handle field " + i);
 						write(resp, error.toString());
+						L.ex(e);
 						return;
 					}
 				}
@@ -204,6 +205,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 				error.put("type", e.getClass().getCanonicalName());
 				error.put("message", "Could not handle web spread request");
 				write(resp, error.toString());
+				L.ex(e);
 				return;
 			}
 		}
@@ -254,7 +256,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 						hardCache = new Gson().toJson(g);
 					}
 
-					resp.setContentType("text/json");
+					resp.setContentType("application/json");
 					write(resp, new Gson().toJson(g));
 				}
 			}
@@ -278,6 +280,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 				error.put("message", e.getMessage());
 				error.put("data", d);
 				write(resp, error.toString(0));
+				L.ex(e);
 				return;
 			}
 		}

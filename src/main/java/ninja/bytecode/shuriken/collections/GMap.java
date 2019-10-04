@@ -334,6 +334,16 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 
 		return this;
 	}
+	
+	public V putThen(K key, V valueIfKeyNotPresent)
+	{
+		if(!containsKey(key))
+		{
+			put(key, valueIfKeyNotPresent);
+		}
+		
+		return get(key);
+	}
 
 	/**
 	 * Clear this map and return it
