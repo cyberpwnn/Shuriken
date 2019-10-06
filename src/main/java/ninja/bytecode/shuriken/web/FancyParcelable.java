@@ -27,6 +27,12 @@ public interface FancyParcelable extends Parcelable
 			{
 				return html;
 			}
+
+			@Override
+			public String getExample()
+			{
+				return "";
+			}
 		};
 	}
 }

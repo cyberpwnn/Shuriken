@@ -7,4 +7,6 @@ public interface Parcelable
 	public String getParcelType();
 	
 	public GList<String> getParameterNames();
+	
+	public String getExample();
 }

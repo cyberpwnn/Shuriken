@@ -22,6 +22,8 @@ import ninja.bytecode.shuriken.execution.J;
 import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONObject;
 import ninja.bytecode.shuriken.logging.L;
+import ninja.bytecode.shuriken.math.M;
+import ninja.bytecode.shuriken.math.RNG;
 
 @EqualsAndHashCode(callSuper = false)
 public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWebHandler
@@ -112,12 +114,78 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 
 	public abstract Parcelable respond();
 
+	public String getExample()
+	{
+		return "https://server.io/" + getNode() + genExampleParams();
+	}
+
+	private String genExampleParams()
+	{
+		GList<String> ex = new GList<>();
+
+		for(Field i : getClass().getDeclaredFields())
+		{
+			if(Modifier.isStatic(i.getModifiers()) || Modifier.isFinal(i.getModifiers()) || Modifier.isTransient(i.getModifiers()))
+			{
+				continue;
+			}
+			
+			String g = i.getName();
+			
+			if(i.getType().equals(boolean.class))
+			{
+				ex.add(g + "=" + RNG.r.b());
+			}
+			
+			else if(i.getType().equals(int.class))
+			{
+				ex.add(g + "=" + RNG.r.i(100));
+			}
+			
+			else if(i.getType().equals(double.class))
+			{
+				ex.add(g + "=" + RNG.r.d(100));
+			}
+			
+			else if(i.getType().equals(float.class))
+			{
+				ex.add(g + "=" + RNG.r.f(100));
+			}
+			
+			else if(i.getType().equals(long.class))
+			{
+				ex.add(g + "=" + M.ms());
+			}
+			
+			else if(i.getType().equals(short.class))
+			{
+				ex.add(g + "=" + RNG.r.si(50));
+			}
+			
+			else if(i.getType().equals(String.class))
+			{
+				ex.add(g + "=text");
+			}
+		}
+		
+		boolean f = true;
+		String p = "";
+		
+		for(String i : ex)
+		{
+			p += (f ? "?" : "&") + i;
+			f = false;
+		}
+		
+		return p;
+	}
+
 	private void handleRequest(HttpServletRequest req, HttpServletResponse resp, boolean posting) throws ServletException, IOException
 	{
 		resp.setContentType("application/json");
 		resp.setStatus(HttpStatus.OK_200);
 		String d = null;
-		
+
 		// Avoid using object serialization if we're hard cached and have a cached value
 		if(hardCache != null && getClass().isAnnotationPresent(HardCache.class))
 		{

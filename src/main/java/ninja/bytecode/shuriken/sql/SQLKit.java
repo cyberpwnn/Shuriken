@@ -16,12 +16,13 @@ import java.util.function.Supplier;
 import ninja.bytecode.shuriken.collections.GList;
 import ninja.bytecode.shuriken.collections.GMap;
 import ninja.bytecode.shuriken.collections.GSet;
+import ninja.bytecode.shuriken.execution.J;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
 
 public class SQLKit
 {
-	private Connection sql;
+	private Supplier<Connection> sql;
 	private long lastTest;
 	private boolean logging;
 	private GSet<String> existingTables;
@@ -30,6 +31,9 @@ public class SQLKit
 	private String sqlUsername = "ordis";
 	private String sqlPassword = "12345";
 	private int sqlPort = 3306;
+	private boolean pooling;
+	private int poolSize;
+	private GList<Connection> pool;
 
 	public SQLKit(Connection sql, boolean log)
 	{
@@ -39,12 +43,20 @@ public class SQLKit
 		this.sqlDatabase = sqlAddress;
 		this.sqlUsername = sqlAddress;
 		this.sqlPassword = sqlAddress;
-		this.sql = sql;
+		this.sql = () -> sql;
 		logging = log;
 	}
 
 	public SQLKit(String sqlAddress, String sqlDatabase, String sqlUsername, String sqlPassword)
 	{
+		this(sqlAddress, sqlDatabase, sqlUsername, sqlPassword, false, 0);
+	}
+
+	public SQLKit(String sqlAddress, String sqlDatabase, String sqlUsername, String sqlPassword, boolean pooling, int poolSize)
+	{
+		this.pooling = pooling;
+		this.poolSize = poolSize;
+		pool = new GList<>();
 		lastTest = M.ms();
 		existingTables = new GSet<String>();
 		this.sqlAddress = sqlAddress;
@@ -52,12 +64,12 @@ public class SQLKit
 		this.sqlUsername = sqlUsername;
 		this.sqlPassword = sqlPassword;
 	}
-	
+
 	public void setLogging(boolean l)
 	{
 		this.logging = l;
 	}
-	
+
 	public void setPort(int port)
 	{
 		this.sqlPort = port;
@@ -65,7 +77,55 @@ public class SQLKit
 
 	public void start() throws SQLException
 	{
-		l("Connecting to MySQL jdbc:mysql://" + sqlAddress + "/" + sqlDatabase + "?username=" + sqlUsername + "&password=" + sqlPassword);
+		if(pooling)
+		{
+			Connection c = createNewConnection("P1");
+			pool.add(c);
+
+			if(poolSize - 1 > 0)
+			{
+				J.a(() ->
+				{
+					for(int i = 0; i < poolSize - 1; i++)
+					{
+						try
+						{
+							Connection cx = createNewConnection("P" + (i + 2));
+							pool.add(cx);
+							
+							try
+							{
+								Thread.sleep(50);
+							}
+							
+							catch(InterruptedException e)
+							{
+								
+							}
+						}
+
+						catch(SQLException e)
+						{
+							L.ex(e);
+						}
+					}
+				});
+			}
+
+			sql = () -> pool.getRandom();
+		}
+
+		else
+		{
+			Connection c = createNewConnection("Main");
+			sql = () -> c;
+		}
+	}
+
+	private Connection createNewConnection(String id) throws SQLException
+	{
+		Connection c = null;
+		l(id + " -> Connecting to MySQL jdbc:mysql://" + sqlAddress + "/" + sqlDatabase + "?username=" + sqlUsername + "&password=" + sqlPassword);
 
 		try
 		{
@@ -78,46 +138,71 @@ public class SQLKit
 				p.setProperty("password", sqlPassword);
 			}
 
-			sql = DriverManager.getConnection("jdbc:mysql://" + sqlAddress + (sqlPort != 3306 ? (":" + sqlPort) : "") + "/" + sqlDatabase, p);
+			c = DriverManager.getConnection("jdbc:mysql://" + sqlAddress + (sqlPort != 3306 ? (":" + sqlPort) : "") + "/" + sqlDatabase, p);
 		}
 
 		catch(InstantiationException | IllegalAccessException | ClassNotFoundException e)
 		{
-			e.printStackTrace();
-			f("Failed to instantiate com.mysql.jdbc.Driver");
-			throw new SQLException("SQL Driver Failure");
+			L.ex(e);
+			f(id + " -> Failed to instantiate com.mysql.jdbc.Driver");
+			throw new SQLException(id + " -> SQL Driver Failure");
 		}
 
 		catch(SQLException e)
 		{
-			e.printStackTrace();
-			f("SQLException: " + e.getMessage());
-			f("SQLState: " + e.getSQLState());
-			f("VendorError: " + e.getErrorCode());
-			throw new SQLException("SQL Connection Failure");
+			L.ex(e);
+			f(id + " -> SQLException: " + e.getMessage());
+			f(id + " -> SQLState: " + e.getSQLState());
+			f(id + " -> VendorError: " + e.getErrorCode());
+			throw new SQLException(id + " -> SQL Connection Failure");
 		}
 
 		try
 		{
-			if(sql.isValid(1))
+			if(c.isValid(1))
 			{
-				l("JDBC driver is connected to " + sqlAddress + "/" + sqlDatabase + " as " + sqlUsername);
+				l(id + " -> JDBC driver is connected to " + sqlAddress + "/" + sqlDatabase + " as " + sqlUsername);
 			}
 
 			else
 			{
-				f("JDBC driver failed to connect to database.");
-				throw new SQLException("SQL Connection Failure");
+				f(id + " -> JDBC driver failed to connect to database.");
+				throw new SQLException(id + " -> SQL Connection Failure");
 			}
 		}
 
 		catch(SQLException e)
 		{
-			e.printStackTrace();
-			f("SQLException: " + e.getMessage());
-			f("SQLState: " + e.getSQLState());
-			f("VendorError: " + e.getErrorCode());
-			throw new SQLException("SQL Connection Failure");
+			L.ex(e);
+			f(id + " -> SQLException: " + e.getMessage());
+			f(id + " -> SQLState: " + e.getSQLState());
+			f(id + " -> VendorError: " + e.getErrorCode());
+			throw new SQLException(id + " -> SQL Connection Failure");
+		}
+		catch(Throwable e)
+		{
+			L.ex(e);
+		}
+
+		return c;
+	}
+
+	public void finished(Connection c)
+	{
+		if(pooling)
+		{
+			J.a(() ->
+			{
+				try
+				{
+					c.close();
+				}
+
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			});
 		}
 	}
 
@@ -211,42 +296,42 @@ public class SQLKit
 
 		return false;
 	}
-	
+
 	public long getTableSize(Class<?> object) throws SQLException, IllegalArgumentException, IllegalAccessException
 	{
 		String table = object.getDeclaredAnnotation(Table.class).value();
 		PreparedStatement exists = prepareCount(table);
 		ResultSet r = exists.executeQuery();
-		
+
 		if(r.next())
 		{
 			return r.getLong(1);
 		}
-		
+
 		return -1;
 	}
-	
-	//TODO: Test
+
+	// TODO: Test
 	@SuppressWarnings("unchecked")
 	public <T> void getAllFieldsFor(Class<?> tclass, String field, String condition, Consumer<T> t, long chunkSize) throws SQLException, IllegalArgumentException, IllegalAccessException
 	{
 		long m = 0;
 		long count = getTableSize(tclass);
-		
+
 		while(m < count)
 		{
 			PreparedStatement exists = prepareGetAllFor(tclass, field, condition, m, chunkSize);
-			m+= chunkSize;
+			m += chunkSize;
 			ResultSet r = exists.executeQuery();
-			
+
 			while(r.next())
 			{
 				t.accept((T) r.getObject(1));
 			}
 		}
 	}
-	
-	//TODO: Test
+
+	// TODO: Test
 	public <T> void getAllFor(Supplier<T> tsup, String condition, Consumer<T> c, long chunkSize) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		T to = tsup.get();
@@ -254,13 +339,13 @@ public class SQLKit
 		Class<T> tclass = (Class<T>) to.getClass();
 		long m = 0;
 		long count = getTableSize(tclass);
-		
+
 		while(m < count)
 		{
 			PreparedStatement exists = prepareGetAllFor(tclass, condition, m, chunkSize);
-			m+= chunkSize;
+			m += chunkSize;
 			ResultSet r = exists.executeQuery();
-			
+
 			while(r.next())
 			{
 				T o = tsup.get();
@@ -269,20 +354,20 @@ public class SQLKit
 			}
 		}
 	}
-	
-	//TODO: Test
+
+	// TODO: Test
 	public <T> T get(Class<T> t, Object idx) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, SQLException
 	{
 		T o = t.getConstructor(idx.getClass()).newInstance(idx);
-		
+
 		if(!get(o))
 		{
 			return null;
 		}
-		
+
 		return o;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public <T> T getTableField(Object idh, String field) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
@@ -290,13 +375,13 @@ public class SQLKit
 		{
 			PreparedStatement exists = prepareGetSingleton(idh, field);
 			ResultSet r = exists.executeQuery();
-			
+
 			if(r.next())
 			{
 				return (T) r.getObject(1);
 			}
 		}
-		
+
 		return null;
 	}
 
@@ -307,14 +392,14 @@ public class SQLKit
 		{
 			g.add(i.getClass());
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		T tx = (T) t.getClass().getConstructor(g.toArray(new Class<?>[g.size()])).newInstance(params);
 		get(tx);
-		
+
 		return tx;
 	}
-	
+
 	public boolean get(Object object) throws SQLException
 	{
 		if(validate(object))
@@ -342,7 +427,7 @@ public class SQLKit
 
 		return false;
 	}
-	
+
 	public boolean getWhere(Object object, String col, String is) throws SQLException
 	{
 		if(validate(object))
@@ -371,7 +456,35 @@ public class SQLKit
 		return false;
 	}
 
-	private void ingest(Object object, ResultSet r) throws IllegalArgumentException, IllegalAccessException, SQLException 
+	public boolean getWhere2(Object object, String col, String is, String col2, String is2) throws SQLException
+	{
+		if(validate(object))
+		{
+			try
+			{
+				PreparedStatement exists = prepareGetWhere2(object, col, is, col2, is2);
+				ResultSet r = exists.executeQuery();
+
+				if(r.next())
+				{
+					ingest(object, r);
+
+					return true;
+				}
+			}
+
+			catch(IllegalArgumentException | IllegalAccessException e)
+			{
+				e.printStackTrace();
+			}
+
+			return false;
+		}
+
+		return false;
+	}
+
+	private void ingest(Object object, ResultSet r) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -573,7 +686,7 @@ public class SQLKit
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-	
+
 	private PreparedStatement prepareGetAllFor(Class<?> c, String field, String condition, long m, long size) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = c.getDeclaredAnnotation(Table.class).value();
@@ -581,7 +694,7 @@ public class SQLKit
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-	
+
 	private PreparedStatement prepareExists(Object object, String column) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
@@ -590,7 +703,7 @@ public class SQLKit
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-	
+
 	private PreparedStatement prepareGetSingleton(Object object, String field) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
@@ -599,14 +712,14 @@ public class SQLKit
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-	
+
 	private PreparedStatement prepareCount(String table) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String sql = "SELECT COUNT(*) FROM `" + table + "`";
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-	
+
 	private PreparedStatement prepareGet(Object object) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
@@ -615,11 +728,20 @@ public class SQLKit
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
 	}
-	
+
 	private PreparedStatement prepareGetWhere(Object object, String field, String val) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String ex = "WHERE `" + field + "` = '" + val + "'";
+		String sql = "SELECT " + getFieldsSelect(object) + " FROM `" + table + "` " + ex;
+		l("SQL -> " + sql);
+		return getConnection().prepareStatement(sql);
+	}
+
+	private PreparedStatement prepareGetWhere2(Object object, String field, String val, String field2, String val2) throws IllegalArgumentException, IllegalAccessException, SQLException
+	{
+		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
+		String ex = "WHERE `" + field + "` = '" + val + "' AND `" + field2 + "` = '" + val2 + "'";
 		String sql = "SELECT " + getFieldsSelect(object) + " FROM `" + table + "` " + ex;
 		l("SQL -> " + sql);
 		return getConnection().prepareStatement(sql);
@@ -790,7 +912,7 @@ public class SQLKit
 
 		return varName;
 	}
-	
+
 	private String getPrimary(Object object)
 	{
 		for(Field i : object.getClass().getDeclaredFields())
@@ -914,7 +1036,7 @@ public class SQLKit
 			e.printStackTrace();
 		}
 
-		return sql;
+		return sql.get();
 	}
 
 	private void testConnection() throws SQLException
@@ -928,7 +1050,7 @@ public class SQLKit
 
 		try
 		{
-			if(!sql.isValid(3000))
+			if(!sql.get().isValid(3000))
 			{
 				throw new SQLException("Failed to connect");
 			}

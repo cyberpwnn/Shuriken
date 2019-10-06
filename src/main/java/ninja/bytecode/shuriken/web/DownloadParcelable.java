@@ -10,14 +10,14 @@ import ninja.bytecode.shuriken.collections.GList;
 public interface DownloadParcelable extends Parcelable
 {
 	public InputStream getStream();
-	
+
 	public String getName();
-	
+
 	public static DownloadParcelable of(File file) throws FileNotFoundException
 	{
 		return of(new FileInputStream(file), file.getName());
 	}
-	
+
 	public static DownloadParcelable of(InputStream in, String fileName)
 	{
 		return new DownloadParcelable()
@@ -27,22 +27,28 @@ public interface DownloadParcelable extends Parcelable
 			{
 				return "fancyparcel";
 			}
-			
+
 			public String getName()
 			{
 				return fileName;
 			}
-			
+
 			@Override
 			public GList<String> getParameterNames()
 			{
 				return new GList<String>();
 			}
-			
+
 			@Override
 			public InputStream getStream()
 			{
 				return in;
+			}
+
+			@Override
+			public String getExample()
+			{
+				return "";
 			}
 		};
 	}

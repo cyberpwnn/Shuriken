@@ -613,4 +613,19 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	{
 		return size() % 2 == 0 ? (size() / 2) : ((size() / 2) + 1);
 	}
+
+	public T getRandom()
+	{
+		if(isEmpty())
+		{
+			return null;
+		}
+
+		if(size() == 1)
+		{
+			return get(0);
+		}
+
+		return get(M.irand(0, last()));
+	}
 }

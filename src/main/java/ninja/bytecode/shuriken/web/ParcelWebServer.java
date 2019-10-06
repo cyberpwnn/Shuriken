@@ -12,6 +12,7 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.SslConnectionFactory;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import ninja.bytecode.shuriken.collections.GList;
 import ninja.bytecode.shuriken.collections.GMap;
@@ -58,7 +59,6 @@ public class ParcelWebServer
 	{
 		GMap<String, GMap<String, GList<String>>> ss = new GMap<>();
 		
-		L.v("=== Generating Parcel Spec ===");
 		try
 		{
 			try
@@ -143,6 +143,9 @@ public class ParcelWebServer
 					String errorDescription = e != null ? e.reason() : "No Description Provided";
 					GList<String> parameters = p.getParameterNames();
 					pw.println("## `/" + p.getParcelType() + "`");
+					pw.println();
+					pw.println("**Example** " + p.getExample());
+					pw.println();
 					pw.println("> " + description);
 					pw.println();
 
@@ -172,7 +175,7 @@ public class ParcelWebServer
 						pw.println("**On Error** Responds with [" + eType + "](#" + eType + ") `" + errorDescription + "`");
 						pw.println();
 					}
-					
+
 					pw.println("---");
 				}
 
@@ -189,15 +192,13 @@ public class ParcelWebServer
 		{
 			L.ex(ee);
 		}
-
-		L.v("=== ====================== ===");
 	}
 
 	public ParcelWebServer start()
 	{
 		stop();
 		L.i("Starting " + this);
-		server = new Server();
+		server = new Server(new QueuedThreadPool(256, 20, 10000, 16, null, new ThreadGroup("ParcelJWS")));
 		ServletContextHandler api = new ServletContextHandler(server, configure().serverPath());
 		api.setMaxFormContentSize(configure().maxFormContentSize());
 
