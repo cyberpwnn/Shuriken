@@ -1,7 +1,6 @@
 package ninja.bytecode.shuriken.objectstorage;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
@@ -16,9 +15,16 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AccessControlList;
 import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
+import com.amazonaws.services.s3.model.GroupGrantee;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.Permission;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.SetObjectAclRequest;
 
 import ninja.bytecode.shuriken.io.IO;
+import ninja.bytecode.shuriken.logging.L;
 
 public class ObjectStorage
 {
@@ -46,21 +52,48 @@ public class ObjectStorage
 		assert s3.doesBucketExistV2(bucket) : " Bucket " + bucket + " does not exist";
 	}
 
-	public void purge(String path) throws IOException
+	public boolean purge(String path)
 	{
-		URL url = new URL("https://api.digitalocean.com/v2/cdn/endpoints/" + cdnID + "/cache");
-		HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
-		httpCon.setDoOutput(true);
-		httpCon.setDoInput(true);
-		httpCon.setRequestProperty("Content-Type", "application/json");
-		httpCon.addRequestProperty("Authorization", "Bearer " + doAPIToken);
-		httpCon.setRequestMethod("DELETE");
-		httpCon.connect();
-		PrintWriter pw = new PrintWriter(httpCon.getOutputStream());
-		pw.print("{\"files\": [\"" + path(path) + "\"]}");
-		pw.flush();
-		IO.readAll(httpCon.getInputStream());
-		httpCon.disconnect();
+		try
+		{
+			URL url = new URL("https://api.digitalocean.com/v2/cdn/endpoints/" + cdnID + "/cache");
+			HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+			httpCon.setDoOutput(true);
+			httpCon.setDoInput(true);
+			httpCon.setRequestProperty("Content-Type", "application/json");
+			httpCon.addRequestProperty("Authorization", "Bearer " + doAPIToken);
+			httpCon.setRequestMethod("DELETE");
+			httpCon.connect();
+			PrintWriter pw = new PrintWriter(httpCon.getOutputStream());
+			pw.print("{\"files\": [\"" + path(path) + "\"]}");
+			pw.flush();
+			IO.readAll(httpCon.getInputStream());
+			httpCon.disconnect();
+			return true;
+		}
+		
+		catch(Throwable e)
+		{
+			L.ex(e);
+			return false;
+		}
+	}
+
+	public void write(String path, File f, boolean publicRead)
+	{
+		PutObjectRequest request = new PutObjectRequest(bucket, path(path), f);
+		ObjectMetadata metadata = new ObjectMetadata();
+		metadata.setContentDisposition("attachment; filename=\"" + f.getName() + "\"");
+		metadata.setContentLength(f.length());
+		request.setMetadata(metadata);
+		s3.putObject(request);
+		
+		if(publicRead)
+		{
+			AccessControlList acl = new AccessControlList();
+			acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
+			s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+		}
 	}
 
 	public void write(String path, File f)

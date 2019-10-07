@@ -163,6 +163,21 @@ public class IO
 	{
 		return randomCase(UUID.randomUUID().toString().replaceAll("-", "") + hash(UUID.nameUUIDFromBytes(UUID.randomUUID().toString().getBytes()).toString().replaceAll("-", "")));
 	}
+	
+	public static String createTokenWithSplits()
+	{
+		String f = createToken();
+		String a = f.substring(0, 2) + "/";
+		String b = f.substring(2, 4) + "/";
+		String c = f.substring(4, 8) + "/";
+		String d = f.substring(8, 24) + "/";
+		String e = f.substring(24, 36) + "/";
+		String h = f.substring(36, 48) + "/";
+		String g = f.substring(48, 64) + "/";
+		String v = f.substring(64, 72) + "/";
+		String x = f.substring(72);
+		return (a + b + c + d + e + h + g + v + x).substring(0, 96);
+	}
 
 	public static String randomCase(String s)
 	{
