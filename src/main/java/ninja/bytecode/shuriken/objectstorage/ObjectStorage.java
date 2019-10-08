@@ -141,6 +141,11 @@ public class ObjectStorage
 	{
 		return url(p, expiry, HttpMethod.PUT, HttpMethod.DELETE);
 	}
+	
+	public String urlCDN()
+	{
+		return "https://" + cdnEndpoint + "/" + path("$p");
+	}
 
 	public String url(String p, long expiry, HttpMethod... methods)
 	{

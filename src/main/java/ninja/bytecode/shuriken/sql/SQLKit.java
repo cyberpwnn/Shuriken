@@ -34,6 +34,8 @@ public class SQLKit
 	private boolean pooling;
 	private int poolSize;
 	private GList<Connection> pool;
+	private long cwait = 1000;
+	private String driver;
 
 	public SQLKit(Connection sql, boolean log)
 	{
@@ -45,6 +47,7 @@ public class SQLKit
 		this.sqlPassword = sqlAddress;
 		this.sql = () -> sql;
 		logging = log;
+		driver = "com.mysql.jdbc.Driver";
 	}
 
 	public SQLKit(String sqlAddress, String sqlDatabase, String sqlUsername, String sqlPassword)
@@ -63,6 +66,7 @@ public class SQLKit
 		this.sqlDatabase = sqlDatabase;
 		this.sqlUsername = sqlUsername;
 		this.sqlPassword = sqlPassword;
+		driver = "com.mysql.jdbc.Driver";
 	}
 
 	public void setLogging(boolean l)
@@ -95,7 +99,7 @@ public class SQLKit
 							
 							try
 							{
-								Thread.sleep(50);
+								Thread.sleep(cwait);
 							}
 							
 							catch(InterruptedException e)
@@ -129,7 +133,7 @@ public class SQLKit
 
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName(driver).newInstance();
 			Properties p = new Properties();
 			p.setProperty("user", sqlUsername);
 
@@ -144,7 +148,7 @@ public class SQLKit
 		catch(InstantiationException | IllegalAccessException | ClassNotFoundException e)
 		{
 			L.ex(e);
-			f(id + " -> Failed to instantiate com.mysql.jdbc.Driver");
+			f(id + " -> Failed to instantiate " + driver);
 			throw new SQLException(id + " -> SQL Driver Failure");
 		}
 
@@ -1208,5 +1212,15 @@ public class SQLKit
 	private void w(String string)
 	{
 		L.w(string);
+	}
+
+	public void setConnectionWait(long databaseConnectionWait)
+	{
+		this.cwait = databaseConnectionWait;
+	}
+
+	public void setDriver(String driver)
+	{
+		this.driver = driver;
 	}
 }
