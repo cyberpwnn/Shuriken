@@ -30,6 +30,11 @@ public class RNG extends Random
 	{
 		this(UUID.nameUUIDFromBytes(seed.getBytes(StandardCharsets.UTF_8)).getLeastSignificantBits() + UUID.nameUUIDFromBytes(seed.getBytes(StandardCharsets.UTF_8)).getMostSignificantBits() + (seed.length() * 32564));
 	}
+	
+	public RNG nextRNG()
+	{
+		return new RNG(nextLong());
+	}
 
 	public String s(int length)
 	{

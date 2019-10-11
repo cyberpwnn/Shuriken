@@ -54,7 +54,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import ninja.bytecode.shuriken.io.TrashInputStream;
+import ninja.bytecode.shuriken.io.RandomInputStream;
 
 /**
  * Simple library for the "right" defaults for AES key generation, encryption,
@@ -941,7 +941,7 @@ public class CharAESTools
 				{
 					if(sUrandomIn == null)
 					{
-						sUrandomIn = new DataInputStream(new TrashInputStream());
+						sUrandomIn = new DataInputStream(new RandomInputStream());
 					}
 					return sUrandomIn;
 				}

@@ -98,11 +98,15 @@
 			<id>mpm</id>
 			<url>http://nexus.mpm.care/content/repositories/mpm</url>
 		</repository>
+		<repository>
+			<id>pub</id>
+			<url>http://nexus.mpm.care/content/repositories/pub</url>
+		</repository>
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>mpm</id>
-			<url>http://nexus.mpm.care/content/repositories/mpm</url>
+			<id>pub</id>
+			<url>http://nexus.mpm.care/content/repositories/pub</url>
 		</repository>
 	</distributionManagement>
 	<dependencyManagement>
