@@ -91,6 +91,11 @@ public class J
 		return onError;
 	}
 	
+	public static boolean sleep(long ms)
+	{
+		return J.attempt(() -> Thread.sleep(ms));
+	}
+	
 	public static boolean attempt(NastyRunnable r)
 	{
 		try
