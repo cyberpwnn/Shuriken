@@ -78,6 +78,14 @@ public class ObjectStorage
 			return false;
 		}
 	}
+	
+	public void setPublic(String path)
+	{
+		AccessControlList acl = new AccessControlList();
+		acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
+		acl.setOwner(s3.getS3AccountOwner());
+		s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+	}
 
 	public void write(String path, File f, boolean publicRead)
 	{
@@ -92,6 +100,7 @@ public class ObjectStorage
 		{
 			AccessControlList acl = new AccessControlList();
 			acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
+			acl.setOwner(s3.getS3AccountOwner());
 			s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
 		}
 	}
@@ -139,12 +148,12 @@ public class ObjectStorage
 
 	public String urlW(String p, long expiry)
 	{
-		return url(p, expiry, HttpMethod.PUT, HttpMethod.DELETE);
+		return url(p, expiry, HttpMethod.PUT);
 	}
 	
 	public String urlCDN()
 	{
-		return "https://" + cdnEndpoint + "/" + path("$p");
+		return cdnEndpoint;
 	}
 
 	public String url(String p, long expiry, HttpMethod... methods)

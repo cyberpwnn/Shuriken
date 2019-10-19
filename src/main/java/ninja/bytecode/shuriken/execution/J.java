@@ -98,18 +98,22 @@ public class J
 	
 	public static boolean attempt(NastyRunnable r)
 	{
+		return attemptCatch(r) == null;
+	}
+	
+	public static Throwable attemptCatch(NastyRunnable r)
+	{
 		try
 		{
 			r.run();
-			return true;
 		}
 		
 		catch(Throwable e)
 		{
-			
+			return e;
 		}
 		
-		return false;
+		return null;
 	}
 
 	public static <T> T attempt(Supplier<T> t, T i)

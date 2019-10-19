@@ -2,6 +2,7 @@ package ninja.bytecode.shuriken.execution;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.ReentrantLock;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ public class TaskExecutor
 {
 	private int xc;
 	private ExecutorService service;
-	
+
 	public TaskExecutor(int threadLimit, int priority, String name)
 	{
 		xc = 1;
@@ -55,7 +56,7 @@ public class TaskExecutor
 			});
 		}
 	}
-	
+
 	public TaskGroup startWork()
 	{
 		return new TaskGroup(this);
@@ -70,19 +71,35 @@ public class TaskExecutor
 	{
 		private GList<AssignedTask> tasks;
 		private TaskExecutor e;
+		private ReentrantLock lock;
 
 		public TaskGroup(TaskExecutor e)
 		{
 			tasks = new GList<>();
 			this.e = e;
+			lock = new ReentrantLock();
 		}
 
 		public TaskGroup queue(NastyRunnable... r)
 		{
+			lock.lock();
 			for(NastyRunnable i : r)
 			{
 				tasks.add(new AssignedTask(i));
 			}
+			lock.unlock();
+
+			return this;
+		}
+
+		public TaskGroup queue(GList<NastyRunnable> r)
+		{
+			lock.lock();
+			for(NastyRunnable i : r)
+			{
+				tasks.add(new AssignedTask(i));
+			}
+			lock.unlock();
 
 			return this;
 		}
@@ -116,15 +133,15 @@ public class TaskExecutor
 					{
 						tasksCompleted++;
 					}
-					
+
 					else
 					{
 						tasksFailed++;
 					}
-					
+
 					tasksExecuted++;
 				}
-				
+
 				break;
 			}
 

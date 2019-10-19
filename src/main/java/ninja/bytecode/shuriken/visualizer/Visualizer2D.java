@@ -54,7 +54,7 @@ public class Visualizer2D
 		RNG rng = new RNG("Hello World");
 		//@builder
 		CNG c = new CNG(rng, 1, 1)
-				.fractureWith(new CNG(rng, 1, 1), 100)
+				.fractureWith(new CNG(rng, 1, 1).scale(0.08), 10)
 				;
 		//@done
 		new Visualizer2D(c);

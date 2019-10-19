@@ -336,4 +336,9 @@ public class M
 	{
 		return a >= 0 ? sin[a % (modulus)] : -sin[-a % (modulus)];
 	}
+	
+	public static double percentRange(double percent, double min, double max)
+	{
+		return min + (percent * (max - min));
+	}
 }
