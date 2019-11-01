@@ -248,6 +248,16 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 */
 	public String toString(String split)
 	{
+		if(isEmpty())
+		{
+			return "";
+		}
+		
+		if(size() == 1)
+		{
+			return get(0).toString();
+		}
+		
 		StringBuilder b = new StringBuilder();
 
 		for(String i : toStringList())

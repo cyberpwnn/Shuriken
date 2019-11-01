@@ -47,6 +47,94 @@ public class M
 	}
 
 	/**
+	 * Get the percent (inverse lerp) from "from" to "to" where "at".
+	 * 
+	 * If from = 0 and to = 100 and at = 25 then it would return 0.25
+	 * 
+	 * @param from
+	 *            the from
+	 * @param to
+	 *            the to
+	 * @param at
+	 *            the at
+	 * @return the percent
+	 */
+	public static double lerpInverse(double from, double to, double at)
+	{
+		return M.rangeScale(0, 1, from, to, at);
+	}
+
+	/**
+	 * Linear interpolation from a to b where f is the percent across
+	 * 
+	 * @param a
+	 *            the first pos (0)
+	 * @param b
+	 *            the second pos (1)
+	 * @param f
+	 *            the percent
+	 * @return the value
+	 */
+	public double lerp(double a, double b, double f)
+	{
+		return a + (f * (b - a));
+	}
+
+	/**
+	 * Bilinear interpolation
+	 * 
+	 * @param a
+	 *            the first point (0, 0)
+	 * @param b
+	 *            the second point (1, 0)
+	 * @param c
+	 *            the third point (0, 1)
+	 * @param d
+	 *            the fourth point (1, 1)
+	 * @param tx
+	 *            the x
+	 * @param ty
+	 *            the y
+	 * @return the bilerped value
+	 */
+	public double bilerp(double a, double b, double c, double d, double x, double y)
+	{
+		return lerp(lerp(a, b, x), lerp(c, d, x), y);
+	}
+
+	/**
+	 * Trilinear interpolation
+	 * 
+	 * @param a
+	 *            the first point (0, 0, 0)
+	 * @param b
+	 *            the second point (1, 0, 0)
+	 * @param c
+	 *            the third point (0, 0, 1)
+	 * @param d
+	 *            the fourth point (1, 0, 1)
+	 * @param e
+	 *            the fifth point (0, 1, 0)
+	 * @param f
+	 *            the sixth point (1, 1, 0)
+	 * @param g
+	 *            the seventh point (0, 1, 1)
+	 * @param h
+	 *            the eighth point (1, 1, 1)
+	 * @param x
+	 *            the x
+	 * @param y
+	 *            the y
+	 * @param z
+	 *            the z
+	 * @return the trilerped value
+	 */
+	public double trilerp(double a, double b, double c, double d, double e, double f, double g, double h, double x, double y, double z)
+	{
+		return lerp(bilerp(a, b, c, d, x, y), bilerp(e, f, g, h, x, y), z);
+	}
+
+	/**
 	 * Clip a value
 	 *
 	 * @param value
@@ -194,6 +282,19 @@ public class M
 	}
 	
 	/**
+	 * Fast tan function
+	 *
+	 * @param a
+	 *            the number
+	 * @return the tan
+	 */
+	public static float tan(float a)
+	{
+		float c = cos(a);
+		return sin(a) / (c == 0 ? 0.0000001f : c);
+	}
+
+	/**
 	 * Biggest number
 	 *
 	 * @param numbers
@@ -215,7 +316,7 @@ public class M
 
 		return (T) Double.valueOf(max);
 	}
-	
+
 	/**
 	 * Smallest number
 	 *
@@ -238,20 +339,21 @@ public class M
 
 		return (T) Double.valueOf(min);
 	}
-	
+
 	/**
 	 * Evaluates an expression using javascript engine and returns the double
 	 * result. This can take variable parameters, so you need to define them.
-	 * Parameters are defined as $[0-9]. For example evaluate("4$0/$1", 1, 2);
-	 * This makes the expression (4x1)/2 == 2. Keep note that you must use 0-9,
-	 * you cannot skip, or start at a number other than 0.
+	 * Parameters are defined as $[0-9]. For example evaluate("4$0/$1", 1, 2); This
+	 * makes the expression (4x1)/2 == 2. Keep note that you must use 0-9, you
+	 * cannot skip, or start at a number other than 0.
 	 * 
 	 * @param expression
 	 *            the expression with variables
 	 * @param args
 	 *            the arguments/variables
 	 * @return the resulting double value
-	 * @throws ScriptException ... gg
+	 * @throws ScriptException
+	 *             ... gg
 	 * @throws IndexOutOfBoundsException
 	 *             learn to count
 	 */
@@ -260,29 +362,30 @@ public class M
 		for(int i = 0; i < args.length; i++)
 		{
 			String current = "$" + i;
-			
+
 			if(expression.contains(current))
 			{
 				expression = expression.replaceAll(Matcher.quoteReplacement(current), args[i] + "");
 			}
 		}
-		
+
 		return evaluate(expression);
 	}
-	
+
 	/**
 	 * Evaluates an expression using javascript engine and returns the double
 	 * 
 	 * @param expression
 	 *            the mathimatical expression
 	 * @return the double result
-	 * @throws ScriptException ... gg
+	 * @throws ScriptException
+	 *             ... gg
 	 */
 	public static double evaluate(String expression) throws ScriptException
 	{
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine scriptEngine = mgr.getEngineByName("JavaScript");
-		
+
 		return Double.valueOf(scriptEngine.eval(expression).toString());
 	}
 
@@ -335,10 +438,5 @@ public class M
 	private static float sinLookup(int a)
 	{
 		return a >= 0 ? sin[a % (modulus)] : -sin[-a % (modulus)];
-	}
-	
-	public static double percentRange(double percent, double min, double max)
-	{
-		return min + (percent * (max - min));
 	}
 }

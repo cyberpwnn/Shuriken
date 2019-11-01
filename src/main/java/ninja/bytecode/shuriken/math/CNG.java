@@ -1,7 +1,5 @@
 package ninja.bytecode.shuriken.math;
 
-import java.util.Random;
-
 import ninja.bytecode.shuriken.collections.GList;
 
 public class CNG
@@ -21,9 +19,11 @@ public class CNG
 	private SimplexOctaveGenerator generator;
 	private final double opacity;
 	private NoiseInjector injector;
+	private RNG rng;
 
-	public CNG(Random random, double opacity, int octaves)
+	public CNG(RNG random, double opacity, int octaves)
 	{
+		this.rng = random;
 		freq = 1;
 		amp = 1;
 		scale = 1;
@@ -39,6 +39,16 @@ public class CNG
 	{
 		children.add(c);
 		return this;
+	}
+	
+	public RNG nextRNG()
+	{
+		return getRNG().nextRNG();
+	}
+	
+	public RNG getRNG()
+	{
+		return rng;
 	}
 
 	public CNG fractureWith(CNG c, double scale)
@@ -74,11 +84,11 @@ public class CNG
 
 	public double noise(double... dim)
 	{
-		double f = fracture != null ? fracture.noise(dim) * fscale : 0;
+		double f = fracture != null ? (fracture.noise(dim) - 0.5) * fscale : 0D;
 		double x = dim.length > 0 ? dim[0] + f : 0D;
-		double y = dim.length > 1 ? dim[1] + f : 0D;
+		double y = dim.length > 1 ? dim[1] - f : 0D;
 		double z = dim.length > 2 ? dim[2] + f : 0D;
-		double w = dim.length > 3 ? dim[3] + f: 0D;
+		double w = dim.length > 3 ? dim[3] - f: 0D;
 		double n = ((generator.noise(x * scale , y * scale, z * scale, w * scale, freq, amp, true) / 2D) + 0.5D) * opacity;
 		double m = 1;
 

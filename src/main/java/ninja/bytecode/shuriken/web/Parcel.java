@@ -28,6 +28,7 @@ import ninja.bytecode.shuriken.math.RNG;
 @EqualsAndHashCode(callSuper = false)
 public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWebHandler
 {
+	public static boolean LOG_REQUESTS = true;
 	private static String hardCache = null;
 	private String type;
 	private static final long serialVersionUID = 229675254360342497L;
@@ -61,12 +62,32 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 	{
 		try
 		{
+			l("GET", req);
 			on(req, resp);
 		}
 
 		catch(Throwable e)
 		{
 			e.printStackTrace();
+		}
+	}
+
+	private void l(String string, HttpServletRequest req)
+	{
+		if(LOG_REQUESTS)
+		{
+			String f = "/" + type + " [";
+			Map<String, String[]> m = req.getParameterMap();
+			GList<String> g = new GList<>();
+			
+			for(String i : m.keySet())
+			{
+				g.add(i);
+			}
+			
+			f += g.toString(" ") + "]";
+			
+			L.v("Handling " + string + " on " + f);
 		}
 	}
 
@@ -365,6 +386,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
+		l("POST", req);
 		if(!J.attempt(() -> handleRequest(req, resp, req.getMethod().equalsIgnoreCase("POST"))))
 		{
 			JSONObject error = new JSONObject();
