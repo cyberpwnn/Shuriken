@@ -75,7 +75,7 @@ public class M
 	 *            the percent
 	 * @return the value
 	 */
-	public double lerp(double a, double b, double f)
+	public static double lerp(double a, double b, double f)
 	{
 		return a + (f * (b - a));
 	}
@@ -97,7 +97,7 @@ public class M
 	 *            the y
 	 * @return the bilerped value
 	 */
-	public double bilerp(double a, double b, double c, double d, double x, double y)
+	public static double bilerp(double a, double b, double c, double d, double x, double y)
 	{
 		return lerp(lerp(a, b, x), lerp(c, d, x), y);
 	}
@@ -129,7 +129,7 @@ public class M
 	 *            the z
 	 * @return the trilerped value
 	 */
-	public double trilerp(double a, double b, double c, double d, double e, double f, double g, double h, double x, double y, double z)
+	public static double trilerp(double a, double b, double c, double d, double e, double f, double g, double h, double x, double y, double z)
 	{
 		return lerp(bilerp(a, b, c, d, x, y), bilerp(e, f, g, h, x, y), z);
 	}

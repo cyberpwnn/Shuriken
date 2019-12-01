@@ -61,6 +61,11 @@ public class J
 		return e.submit(a);
 	}
 	
+	public static void attemptAsync(NastyRunnable r)
+	{
+		J.a(() -> J.attempt(r));
+	}
+	
 	public static <R> R attemptResult(NastyFuture<R> r, R onError)
 	{
 		try

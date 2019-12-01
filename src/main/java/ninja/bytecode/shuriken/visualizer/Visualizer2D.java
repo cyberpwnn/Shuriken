@@ -14,6 +14,9 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,8 +26,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.MouseInputAdapter;
 
 import ninja.bytecode.shuriken.Shuriken;
-import ninja.bytecode.shuriken.bench.Profiler;
-import ninja.bytecode.shuriken.format.F;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.CNG;
 import ninja.bytecode.shuriken.math.M;
@@ -189,7 +190,7 @@ public class Visualizer2D
 			}
 		});
 	}
-	
+
 	public void tick()
 	{
 		cv.repaint();
@@ -209,58 +210,99 @@ public class Visualizer2D
 
 	public class CV extends JPanel
 	{
+		private boolean done = false;
+		private boolean init = false;
+		private FileReader fr;
 		private static final long serialVersionUID = 1L;
+		private int res = 660;
+		private int zoom = 4;
+		private int[][] mtdm = new int[res][];
 
 		@Override
 		public Dimension getPreferredSize()
 		{
-			return new Dimension(900, 900);
+			return new Dimension(res * zoom, res * zoom);
 		}
 
 		@Override
 		protected void paintComponent(Graphics gg)
 		{
+			if(!init)
+			{
+				try
+				{
+					init = true;
+					File f = new File("C:/Users/cyberpwn/Desktop/wormholes.txt");
+					fr = new FileReader(f);
+
+					for(int i = 0; i < mtdm.length; i++)
+					{
+						mtdm[i] = new int[mtdm.length];
+					}
+				}
+				catch(Throwable e)
+				{
+
+				}
+			}
+
 			Graphics2D g = (Graphics2D) gg;
 			super.paintComponent(g);
 			g.setColor(Color.BLACK);
-			render(g);
-			double rr = Math.random();
-			rgg = rr;
-			frame.setTitle("Frame Time: " + F.duration(Shuriken.profiler.getResult("render").getAverage(), 2) + " MS (Accuracy: " + F.pc(1D / a, 0) + ")");
-			a--;
-			render(g);
-			
-			
-			if(Shuriken.profiler.getResult("render").getAverage() > 20D)
-			{
-				a++;
-			}
-			
-			else if(Shuriken.profiler.getResult("render").getAverage() < 16D)
-			{
-				a--;
-			}
-			
-			a = a < 1 ? 1 : a;
-		}
 
-		private double render(Graphics2D g)
-		{
-			Shuriken.profiler.start("render");
-			
-			for(double i = 0; i < width(); i += a)
+			try
 			{
-				for(double j = 0; j < height(); j += a)
+				g.setColor(Color.BLACK);
+
+				g.clearRect(0, 0, width(), height());
+				if(done)
 				{
-					float n = (float) c.noise((i + cx + cxx) / z, (j + cy + cyy) / z, M.ms() / 10000D);
-					g.setColor(Color.getHSBColor(n, n, n));
-					g.setStroke(new BasicStroke(a));
-					g.drawRect((int) i, (int) j, 1, 1);
+					for(int i = 0; i < mtdm.length; i++)
+					{
+						for(int j = 0; j < mtdm.length; j++)
+						{
+							g.setColor(new Color(mtdm[i][j]));
+							g.setStroke(new BasicStroke(a));
+							g.drawRect(i * zoom, j * zoom, zoom / 2, zoom / 2);
+						}
+					}
+				}
+
+				else
+				{
+					int fff = 0;
+
+					looping: while(true)
+					{
+						char[] slow = new char[1];
+						for(int i = 0; i < mtdm.length; i++)
+						{
+							System.out.println("");
+
+							for(int j = 0; j < mtdm.length; j++)
+							{
+								int r = fr.read(slow);
+								System.out.print(slow[0]);
+
+								if(r == -1)
+								{
+									done = true;
+									fr.close();
+									break looping;
+								}
+
+								mtdm[i][j] += fff += slow[0] * slow[0];
+							}
+						}
+					}
 				}
 			}
-			
-			Shuriken.profiler.stop("render");
-			return Shuriken.profiler.getResult("render").getAverage();
+
+			catch(Throwable e)
+			{
+
+			}
+
 		}
 	}
 

@@ -2,6 +2,8 @@ package ninja.bytecode.shuriken.web;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.HttpConfiguration;
@@ -25,11 +27,13 @@ public class ParcelWebServer
 	private final ParcelWebServerConfiguration config;
 	private final GList<Class<? extends Parcelable>> parcelables;
 	private Server server;
+	private int port;
 
 	public ParcelWebServer()
 	{
 		parcelables = new GList<Class<? extends Parcelable>>();
 		config = new ParcelWebServerConfiguration(this);
+		port = 80;
 	}
 
 	public String toString()
@@ -221,18 +225,21 @@ public class ParcelWebServer
 		{
 			L.i("Configuring " + this + " for HTTP & HTTPS");
 			server.setConnectors(new Connector[] {getHTTPConnector(), getHTTPSConnector()});
+			this.port = configure().httpsPort();
 		}
 
 		else if(configure().https())
 		{
 			L.i("Configuring " + this + " for HTTPS");
 			server.setConnectors(new Connector[] {getHTTPSConnector()});
+			this.port = configure().httpsPort();
 		}
 
 		else if(configure().http())
 		{
 			L.i("Configuring " + this + " for HTTP");
 			server.setConnectors(new Connector[] {getHTTPConnector()});
+			this.port = configure().httpPort();
 		}
 
 		else
@@ -309,5 +316,60 @@ public class ParcelWebServer
 		}
 
 		return this;
+	}
+
+	public int getPort()
+	{
+		return port;
+	}
+
+	public Parcelable createParcel(String node, GMap<String, String> p) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
+	{
+		for(Class<? extends Parcelable> i : parcelables)
+		{
+			Parcelable parcel = i.getConstructor().newInstance();
+						
+			if(parcel.getParcelType().equals(node))
+			{				
+				for(Field j : parcel.getClass().getDeclaredFields())
+				{
+					j.setAccessible(true);
+					
+					if(p.containsKey(j.getName()))
+					{
+						String val = p.get(j.getName());
+
+						if(j.getType().equals(String.class))
+						{
+							j.set(parcel, val);
+						}
+						
+						if(j.getType().equals(int.class))
+						{
+							j.set(parcel, Integer.valueOf(val));
+						}
+						
+						if(j.getType().equals(double.class))
+						{
+							j.set(parcel, Double.valueOf(val));
+						}
+						
+						if(j.getType().equals(boolean.class))
+						{
+							j.set(parcel, Boolean.valueOf(val));
+						}
+						
+						if(j.getType().equals(float.class))
+						{
+							j.set(parcel, Float.valueOf(val));
+						}
+					}
+				}
+				
+				return parcel;
+			}
+		}
+		
+		return null;
 	}
 }
