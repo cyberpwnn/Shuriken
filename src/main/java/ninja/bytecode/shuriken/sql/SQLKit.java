@@ -36,9 +36,11 @@ public class SQLKit
 	private GList<Connection> pool;
 	private long cwait = 1000;
 	private String driver;
+	private GList<SQLListener> listeners;
 
 	public SQLKit(Connection sql, boolean log)
 	{
+		listeners = new GList<>();
 		lastTest = M.ms();
 		existingTables = new GSet<String>();
 		this.sqlAddress = "none";
@@ -48,6 +50,11 @@ public class SQLKit
 		this.sql = () -> sql;
 		logging = log;
 		driver = "com.mysql.jdbc.Driver";
+	}
+	
+	public void addListener(SQLListener s)
+	{
+		listeners.add(s);
 	}
 
 	public SQLKit(String sqlAddress, String sqlDatabase, String sqlUsername, String sqlPassword)

@@ -28,12 +28,20 @@ public class ParcelWebServer
 	private final GList<Class<? extends Parcelable>> parcelables;
 	private Server server;
 	private int port;
+	private GList<ParcelListener<Parcelable, Parcelable>> listeners;
 
 	public ParcelWebServer()
 	{
 		parcelables = new GList<Class<? extends Parcelable>>();
 		config = new ParcelWebServerConfiguration(this);
 		port = 80;
+		listeners = new GList<>();
+	}
+	
+	public ParcelWebServer addListener(ParcelListener<Parcelable, Parcelable> p)
+	{
+		listeners.add(p);
+		return this;
 	}
 
 	public String toString()
@@ -57,6 +65,18 @@ public class ParcelWebServer
 				L.ex(e);
 			}
 		}
+	}
+	
+	public Parcelable hit(Parcelable i, Parcelable o)
+	{
+		Parcelable f = o;
+		
+		for(ParcelListener<Parcelable, Parcelable> g : listeners)
+		{
+			f = g.handle(i, f);
+		}
+		
+		return f;
 	}
 
 	public void generateMarkdownSpec(File md)
