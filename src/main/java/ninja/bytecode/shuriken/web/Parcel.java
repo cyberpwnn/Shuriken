@@ -60,6 +60,8 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
+		String x = Thread.currentThread().getName();
+		Thread.currentThread().setName("WEB/" + getNode());
 		try
 		{
 			l("GET", req);
@@ -70,10 +72,13 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 		{
 			e.printStackTrace();
 		}
+		Thread.currentThread().setName(x);
 	}
 
 	private void l(String string, HttpServletRequest req)
 	{
+		String x = Thread.currentThread().getName();
+		Thread.currentThread().setName("WEB/" + getNode());
 		if(LOG_REQUESTS)
 		{
 			String f = "/" + type + " [";
@@ -89,6 +94,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 			
 			L.v("Handling " + string + " on " + f);
 		}
+		Thread.currentThread().setName(x);
 	}
 
 	protected void write(HttpServletResponse resp, InputStream in) throws IOException
