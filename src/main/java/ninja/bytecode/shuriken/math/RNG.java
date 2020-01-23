@@ -9,15 +9,17 @@ public class RNG extends Random
 	private static final char[] CHARGEN = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-=!@#$%^&*()_+`~[];',./<>?:\\\"{}|\\\\".toCharArray();
 	private static final long serialVersionUID = 5222938581174415179L;
 	public static final RNG r = new RNG();
-
+	private final long sx;
 	public RNG()
 	{
 		super();
+		sx = 0;
 	}
 
 	public RNG(long seed)
 	{
 		super(seed);
+		this.sx = seed;
 	}
 
 	/**
@@ -31,6 +33,12 @@ public class RNG extends Random
 		this(UUID.nameUUIDFromBytes(seed.getBytes(StandardCharsets.UTF_8)).getLeastSignificantBits() + UUID.nameUUIDFromBytes(seed.getBytes(StandardCharsets.UTF_8)).getMostSignificantBits() + (seed.length() * 32564));
 	}
 	
+	public RNG nextParallelRNG(int signature)
+	{
+		return new RNG(sx + signature);
+	}
+	
+	@Deprecated
 	public RNG nextRNG()
 	{
 		return new RNG(nextLong());

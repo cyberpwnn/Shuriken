@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ninja.bytecode</groupId>
 	<artifactId>Shuriken</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<name>Shuriken</name>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -95,18 +95,14 @@
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>mpm</id>
-			<url>http://nexus.mpm.care/content/repositories/mpm</url>
-		</repository>
-		<repository>
-			<id>pub</id>
-			<url>http://nexus.mpm.care/content/repositories/pub</url>
+			<id>bcn</id>
+			<url>http://bytecode.ninja/repository/bcn/</url>
 		</repository>
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>pub</id>
-			<url>http://nexus.mpm.care/content/repositories/pub</url>
+			<id>bcn</id>
+			<url>http://bytecode.ninja/repository/bcn/</url>
 		</repository>
 	</distributionManagement>
 	<dependencyManagement>

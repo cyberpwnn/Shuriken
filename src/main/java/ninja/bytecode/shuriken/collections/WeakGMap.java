@@ -2,24 +2,22 @@ package ninja.bytecode.shuriken.collections;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Enumeration;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Set;
+import java.util.WeakHashMap;
 
 import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.function.Consumer2;
 import ninja.bytecode.shuriken.function.Consumer3;
 
-public class GMap<K, V> extends ConcurrentHashMap<K, V>
+public class WeakGMap<K, V> extends WeakHashMap<K, V>
 {
-	private static final long serialVersionUID = 7288942695300448163L;
-
-	public GMap()
+	public WeakGMap()
 	{
 		super();
 	}
 
-	public GMap(GMap<K, V> gMap)
+	public WeakGMap(WeakGMap<K, V> gMap)
 	{
 		this();
 		put(gMap);
@@ -38,11 +36,11 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 * @return the same list (builder)
 	 */
 	@SuppressWarnings("unchecked")
-	public <S> GMap<K, V> putValueList(K k, S... vs)
+	public <S> WeakGMap<K, V> putValueList(K k, S... vs)
 	{
 		try
 		{
-			GMap<K, GList<S>> s = (GMap<K, GList<S>>) this;
+			WeakGMap<K, GList<S>> s = (WeakGMap<K, GList<S>>) this;
 
 			if(!s.containsKey(k))
 			{
@@ -140,7 +138,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the map to insert
 	 * @return this map (builder)
 	 */
-	public GMap<K, V> put(Map<K, V> m)
+	public WeakGMap<K, V> put(Map<K, V> m)
 	{
 		putAll(m);
 		return this;
@@ -151,9 +149,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the copied map
 	 */
-	public GMap<K, V> copy()
+	public WeakGMap<K, V> copy()
 	{
-		return new GMap<K, V>(this);
+		return new WeakGMap<K, V>(this);
 	}
 
 	/**
@@ -163,9 +161,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the function
 	 * @return the same gmap
 	 */
-	public GMap<K, V> rewrite(Consumer3<K, V, GMap<K, V>> f)
+	public WeakGMap<K, V> rewrite(Consumer3<K, V, WeakGMap<K, V>> f)
 	{
-		GMap<K, V> m = copy();
+		WeakGMap<K, V> m = copy();
 
 		for(K i : m.k())
 		{
@@ -182,7 +180,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the function
 	 * @return the same gmap
 	 */
-	public GMap<K, V> each(Consumer2<K, V> f)
+	public WeakGMap<K, V> each(Consumer2<K, V> f)
 	{
 		for(K i : k())
 		{
@@ -197,10 +195,10 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the flipped and flattened hashmap
 	 */
-	public GMap<V, K> flipFlatten()
+	public WeakGMap<V, K> flipFlatten()
 	{
-		GMap<V, GList<K>> f = flip();
-		GMap<V, K> m = new GMap<>();
+		WeakGMap<V, GList<K>> f = flip();
+		WeakGMap<V, K> m = new WeakGMap<>();
 
 		for(V i : f.k())
 		{
@@ -215,9 +213,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the flipped hashmap
 	 */
-	public GMap<V, GList<K>> flip()
+	public WeakGMap<V, GList<K>> flip()
 	{
-		GMap<V, GList<K>> flipped = new GMap<V, GList<K>>();
+		WeakGMap<V, GList<K>> flipped = new WeakGMap<V, GList<K>>();
 
 		for(K i : keySet())
 		{
@@ -307,14 +305,8 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	public GList<K> k()
 	{
 		GList<K> k = new GList<K>();
-		Enumeration<K> kk = keys();
-
-		while(kk.hasMoreElements())
-		{
-			K kkk = kk.nextElement();
-			k.add(kkk);
-		}
-
+		Set<K> kk = keySet();
+		k.addAll(kk);
 		return k;
 	}
 
@@ -337,7 +329,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the value (single only supported)
 	 * @return
 	 */
-	public GMap<K, V> qput(K key, V value)
+	public WeakGMap<K, V> qput(K key, V value)
 	{
 		super.put(key, value);
 		return this;
@@ -353,7 +345,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the nonnull value
 	 * @return the same map
 	 */
-	public GMap<K, V> putNonNull(K key, V value)
+	public WeakGMap<K, V> putNonNull(K key, V value)
 	{
 		if(key != null || value != null)
 		{
@@ -378,7 +370,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the cleared map
 	 */
-	public GMap<K, V> qclear()
+	public WeakGMap<K, V> qclear()
 	{
 		super.clear();
 		return this;

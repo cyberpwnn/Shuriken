@@ -4,6 +4,8 @@ import ninja.bytecode.shuriken.collections.GList;
 
 public class CNG
 {
+	public static long hits = 0;
+	public static long creates = 0;
 	public static final NoiseInjector ADD = (s, v) -> new double[] {s + v, 1};
 	public static final NoiseInjector SUBTRACT = (s, v) -> new double[] {s - v < 0 ? 0 : s - v, -1};
 	public static final NoiseInjector MULTIPLY = (s, v) -> new double[] {s * v, 0};
@@ -20,10 +22,15 @@ public class CNG
 	private final double opacity;
 	private NoiseInjector injector;
 	private RNG rng;
+	private int oct;
+	private double power;
 
 	public CNG(RNG random, double opacity, int octaves)
 	{
+		creates += octaves;
+		this.oct = octaves;
 		this.rng = random;
+		power = 1;
 		freq = 1;
 		amp = 1;
 		scale = 1;
@@ -40,12 +47,12 @@ public class CNG
 		children.add(c);
 		return this;
 	}
-	
+
 	public RNG nextRNG()
 	{
 		return getRNG().nextRNG();
 	}
-	
+
 	public RNG getRNG()
 	{
 		return rng;
@@ -88,9 +95,11 @@ public class CNG
 		double x = dim.length > 0 ? dim[0] + f : 0D;
 		double y = dim.length > 1 ? dim[1] - f : 0D;
 		double z = dim.length > 2 ? dim[2] + f : 0D;
-		double w = dim.length > 3 ? dim[3] - f: 0D;
-		double n = ((generator.noise(x * scale , y * scale, z * scale, w * scale, freq, amp, true) / 2D) + 0.5D) * opacity;
+		double w = dim.length > 3 ? dim[3] - f : 0D;
+		double n = ((generator.noise(x * scale, y * scale, z * scale, w * scale, freq, amp, true) / 2D) + 0.5D) * opacity;
+		n = power != 1D ? Math.pow(n, power) : n;
 		double m = 1;
+		hits += oct;
 
 		for(CNG i : children)
 		{
@@ -100,5 +109,11 @@ public class CNG
 		}
 
 		return n / m;
+	}
+
+	public CNG pow(double power)
+	{
+		this.power = power;
+		return this;
 	}
 }

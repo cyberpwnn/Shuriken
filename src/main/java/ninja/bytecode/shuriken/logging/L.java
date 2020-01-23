@@ -112,37 +112,51 @@ public class L
 
 	private void log(String tag, Object... l)
 	{
-		if(l.length == 0)
+		try
 		{
-			return;
+			if(l.length == 0)
+			{
+				return;
+			}
+
+			String tagger = "[" + F.stampTime(M.ms()) + "]: ";
+
+			if(lastTag.equals(tagger))
+			{
+				tagger = F.repeat(" ", lastTag.length());
+			}
+
+			else
+			{
+				lastTag = tagger;
+			}
+
+			if(l.length == 1)
+			{
+				synchronized(logBuffer)
+				{
+					logBuffer.queue(tagger + "|" + tag + "/" + Thread.currentThread().getName() + "| " + (l[0] != null ? l[0].toString() : "null"));
+				}
+				return;
+			}
+
+			StringBuilder sb = new StringBuilder();
+			for(Object i : l)
+			{
+				sb.append(i == null ? "null" : i.toString());
+				sb.append(" ");
+			}
+
+			synchronized(logBuffer)
+			{
+				logBuffer.queue(tagger + "|" + Thread.currentThread().getName() + "/" + tag + "| " + sb.toString());
+			}
 		}
-
-		String tagger = "[" + F.stampTime(M.ms()) + "]: ";
-
-		if(lastTag.equals(tagger))
+		
+		catch(Throwable e)
 		{
-			tagger = F.repeat(" ", lastTag.length());
+			
 		}
-
-		else
-		{
-			lastTag = tagger;
-		}
-
-		if(l.length == 1)
-		{
-			logBuffer.queue(tagger + "|" + tag + "/" + Thread.currentThread().getName() + "| " + (l[0] != null ? l[0].toString() : "null"));
-			return;
-		}
-
-		StringBuilder sb = new StringBuilder();
-		for(Object i : l)
-		{
-			sb.append(i == null ? "null" : i.toString());
-			sb.append(" ");
-		}
-
-		logBuffer.queue(tagger + "|" + Thread.currentThread().getName() + "/" + tag + "| " + sb.toString());
 	}
 
 	static
@@ -155,7 +169,15 @@ public class L
 			@Override
 			protected long loop()
 			{
-				return flush() ? ACTIVE_FLUSH_INTERVAL : IDLE_FLUSH_INTERVAL;
+				try
+				{
+					return flush() ? ACTIVE_FLUSH_INTERVAL : IDLE_FLUSH_INTERVAL;
+				}
+				
+				catch(Throwable e)
+				{
+					return ACTIVE_FLUSH_INTERVAL;
+				}
 			}
 		};
 		looper.setPriority(Thread.MIN_PRIORITY);

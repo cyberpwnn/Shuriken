@@ -280,7 +280,7 @@ public class M
 	{
 		return sinLookup((int) ((a + 90f) * precision + 0.5f));
 	}
-	
+
 	/**
 	 * Fast tan function
 	 *
@@ -439,6 +439,5 @@ public class M
 	{
 		return a >= 0 ? sin[a % (modulus)] : -sin[-a % (modulus)];
 	}
-	
-	
+
 }

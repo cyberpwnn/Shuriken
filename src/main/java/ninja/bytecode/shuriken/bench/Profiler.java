@@ -33,6 +33,12 @@ public class Profiler
 	
 	public Average getResult(String id)
 	{
+		if(!results.containsKey(id))
+		{
+			start(id);
+			stop(id);
+		}
+		
 		return results.get(id);
 	}
 	

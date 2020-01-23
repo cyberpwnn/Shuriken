@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import ninja.bytecode.shuriken.math.M;
+import ninja.bytecode.shuriken.math.RollingSequence;
 
 public class F
 {
@@ -269,12 +270,14 @@ public class F
 
 	/**
 	 * Returns a fancy duration up to Years
+	 * 
+	 * @param rollingSequence
 	 *
 	 * @param duration
 	 *            the duration in ms
 	 * @return the fancy duration
 	 */
-	public static String duration(long duration)
+	public static String duration(RollingSequence rollingSequence, long duration)
 	{
 		String suffix = "Millisecond";
 		double phantom = duration;
@@ -660,6 +663,11 @@ public class F
 		}
 
 		return F.f(ms, prec) + "ms";
+	}
+
+	public static String duration(long ms)
+	{
+		return duration(ms, 0);
 	}
 
 	/**

@@ -64,6 +64,15 @@ public class TaskExecutor
 
 	public void close()
 	{
+		J.a(() ->
+		{
+			J.sleep(10000);
+			service.shutdown();
+		});
+	}
+
+	public void closeNow()
+	{
 		service.shutdown();
 	}
 

@@ -29,18 +29,18 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		super();
 	}
 
-	public GList(Collection<T> values) 
+	public GList(Collection<T> values)
 	{
 		super();
 		add(values);
 	}
-	
+
 	public GList(Enumeration<T> e)
 	{
 		super();
 		add(e);
 	}
-	
+
 	public Chunker<T> chunk()
 	{
 		return new Chunker<T>(this);
@@ -67,7 +67,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add(e.nextElement());
 		}
-		
+
 		return this;
 	}
 
@@ -252,12 +252,12 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			return "";
 		}
-		
+
 		if(size() == 1)
 		{
 			return get(0).toString();
 		}
-		
+
 		StringBuilder b = new StringBuilder();
 
 		for(String i : toStringList())
@@ -533,10 +533,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(int[] values)
 	{
@@ -544,10 +544,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(double[] values)
 	{
@@ -555,10 +555,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(float[] values)
 	{
@@ -566,10 +566,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(byte[] values)
 	{
@@ -577,10 +577,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(short[] values)
 	{
@@ -588,10 +588,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(long[] values)
 	{
@@ -599,10 +599,10 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public GList<T> forceAdd(boolean[] values)
 	{
@@ -610,7 +610,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		{
 			add((T) i);
 		}
-		
+
 		return this;
 	}
 

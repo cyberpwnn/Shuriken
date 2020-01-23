@@ -19,47 +19,59 @@ public class RollingSequence extends Average
 		max = 0;
 		setPrecision(false);
 	}
-	
+
+	public double addLast(int amt)
+	{
+		double f = 0;
+
+		for(int i = 0; i < Math.min(values.length, amt); i++)
+		{
+			f += values[i];
+		}
+
+		return f;
+	}
+
 	public void setPrecision(boolean p)
 	{
 		this.precision = p;
 	}
-	
+
 	public boolean isPrecision()
 	{
 		return precision;
 	}
-	
+
 	public double getMin()
 	{
 		if(dirtyExtremes > (isPrecision() ? 0 : values.length))
 		{
 			resetExtremes();
 		}
-		
+
 		return min;
 	}
-	
+
 	public double getMax()
 	{
 		if(dirtyExtremes > (isPrecision() ? 0 : values.length))
 		{
 			resetExtremes();
 		}
-		
+
 		return max;
 	}
-	
+
 	public double getMedian()
 	{
 		if(dirtyMedian)
 		{
 			recalculateMedian();
 		}
-		
+
 		return median;
 	}
-	
+
 	private void recalculateMedian()
 	{
 		median = new GList<Double>().forceAdd(values).sort().middleValue();
@@ -68,15 +80,15 @@ public class RollingSequence extends Average
 
 	public void resetExtremes()
 	{
-		max = 0;
-		min = 0;
-		
+		max = Integer.MIN_VALUE;
+		min = Integer.MAX_VALUE;
+
 		for(double i : values)
 		{
 			max = M.max(max, i);
 			min = M.min(min, i);
 		}
-		
+
 		dirtyExtremes = 0;
 	}
 
