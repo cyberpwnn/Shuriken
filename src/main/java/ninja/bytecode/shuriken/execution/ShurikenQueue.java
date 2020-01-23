@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.execution;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class ShurikenQueue<T> implements Queue<T>
 {
-	private GList<T> queue;
+	private KList<T> queue;
 	private boolean randomPop;
 	private boolean reversePop;
 
@@ -33,7 +33,7 @@ public class ShurikenQueue<T> implements Queue<T>
 	}
 
 	@Override
-	public ShurikenQueue<T> queue(GList<T> t)
+	public ShurikenQueue<T> queue(KList<T> t)
 	{
 		queue.add(t);
 		return this;
@@ -58,9 +58,9 @@ public class ShurikenQueue<T> implements Queue<T>
 	}
 
 	@Override
-	public GList<T> next(int amt)
+	public KList<T> next(int amt)
 	{
-		GList<T> t = new GList<>();
+		KList<T> t = new KList<>();
 
 		for(int i = 0; i < amt; i++)
 		{
@@ -78,7 +78,7 @@ public class ShurikenQueue<T> implements Queue<T>
 	@Override
 	public ShurikenQueue<T> clear()
 	{
-		queue = new GList<T>();
+		queue = new KList<T>();
 		return this;
 	}
 

@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.math;
 
-import ninja.bytecode.shuriken.collections.GMap;
+import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.Shrinkwrap;
 
-public class WeightMap<T> extends GMap<T, Double>
+public class WeightMap<T> extends KMap<T, Double>
 {
 	private static final long serialVersionUID = 87558033900969389L;
 	private boolean modified = false;

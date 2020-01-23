@@ -2,24 +2,22 @@ package ninja.bytecode.shuriken.collections;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Enumeration;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Set;
+import java.util.WeakHashMap;
 
 import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.function.Consumer2;
 import ninja.bytecode.shuriken.function.Consumer3;
 
-public class GMap<K, V> extends ConcurrentHashMap<K, V>
+public class WeakKMap<K, V> extends WeakHashMap<K, V>
 {
-	private static final long serialVersionUID = 7288942695300448163L;
-
-	public GMap()
+	public WeakKMap()
 	{
 		super();
 	}
 
-	public GMap(GMap<K, V> gMap)
+	public WeakKMap(WeakKMap<K, V> gMap)
 	{
 		this();
 		put(gMap);
@@ -38,15 +36,15 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 * @return the same list (builder)
 	 */
 	@SuppressWarnings("unchecked")
-	public <S> GMap<K, V> putValueList(K k, S... vs)
+	public <S> WeakKMap<K, V> putValueList(K k, S... vs)
 	{
 		try
 		{
-			GMap<K, GList<S>> s = (GMap<K, GList<S>>) this;
+			WeakKMap<K, KList<S>> s = (WeakKMap<K, KList<S>>) this;
 
 			if(!s.containsKey(k))
 			{
-				s.put(k, new GList<S>());
+				s.put(k, new KList<S>());
 			}
 
 			s.get(k).add(vs);
@@ -66,10 +64,10 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the value-sorted key list
 	 */
-	public GList<K> sortK()
+	public KList<K> sortK()
 	{
-		GList<K> k = new GList<K>();
-		GList<V> v = v();
+		KList<K> k = new KList<K>();
+		KList<V> v = v();
 
 		Collections.sort(v, new Comparator<V>()
 		{
@@ -101,10 +99,10 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the value-sorted key list
 	 */
-	public GList<K> sortKNumber()
+	public KList<K> sortKNumber()
 	{
-		GList<K> k = new GList<K>();
-		GList<V> v = v();
+		KList<K> k = new KList<K>();
+		KList<V> v = v();
 
 		Collections.sort(v, new Comparator<V>()
 		{
@@ -140,7 +138,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the map to insert
 	 * @return this map (builder)
 	 */
-	public GMap<K, V> put(Map<K, V> m)
+	public WeakKMap<K, V> put(Map<K, V> m)
 	{
 		putAll(m);
 		return this;
@@ -151,9 +149,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the copied map
 	 */
-	public GMap<K, V> copy()
+	public WeakKMap<K, V> copy()
 	{
-		return new GMap<K, V>(this);
+		return new WeakKMap<K, V>(this);
 	}
 
 	/**
@@ -163,9 +161,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the function
 	 * @return the same gmap
 	 */
-	public GMap<K, V> rewrite(Consumer3<K, V, GMap<K, V>> f)
+	public WeakKMap<K, V> rewrite(Consumer3<K, V, WeakKMap<K, V>> f)
 	{
-		GMap<K, V> m = copy();
+		WeakKMap<K, V> m = copy();
 
 		for(K i : m.k())
 		{
@@ -182,7 +180,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the function
 	 * @return the same gmap
 	 */
-	public GMap<K, V> each(Consumer2<K, V> f)
+	public WeakKMap<K, V> each(Consumer2<K, V> f)
 	{
 		for(K i : k())
 		{
@@ -197,10 +195,10 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the flipped and flattened hashmap
 	 */
-	public GMap<V, K> flipFlatten()
+	public WeakKMap<V, K> flipFlatten()
 	{
-		GMap<V, GList<K>> f = flip();
-		GMap<V, K> m = new GMap<>();
+		WeakKMap<V, KList<K>> f = flip();
+		WeakKMap<V, K> m = new WeakKMap<>();
 
 		for(V i : f.k())
 		{
@@ -215,9 +213,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the flipped hashmap
 	 */
-	public GMap<V, GList<K>> flip()
+	public WeakKMap<V, KList<K>> flip()
 	{
-		GMap<V, GList<K>> flipped = new GMap<V, GList<K>>();
+		WeakKMap<V, KList<K>> flipped = new WeakKMap<V, KList<K>>();
 
 		for(K i : keySet())
 		{
@@ -228,7 +226,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 
 			if(!flipped.containsKey(get(i)))
 			{
-				flipped.put(get(i), new GList<K>());
+				flipped.put(get(i), new KList<K>());
 			}
 
 			flipped.get(get(i)).add(i);
@@ -242,10 +240,10 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the values (sorted)
 	 */
-	public GList<V> sortV()
+	public KList<V> sortV()
 	{
-		GList<V> v = new GList<V>();
-		GList<K> k = k();
+		KList<V> v = new KList<V>();
+		KList<K> k = k();
 
 		Collections.sort(k, new Comparator<K>()
 		{
@@ -271,10 +269,10 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 		return v;
 	}
 
-	public GList<V> sortVNoDedupe()
+	public KList<V> sortVNoDedupe()
 	{
-		GList<V> v = new GList<V>();
-		GList<K> k = k();
+		KList<V> v = new KList<V>();
+		KList<K> k = k();
 
 		Collections.sort(k, new Comparator<K>()
 		{
@@ -304,17 +302,11 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the keys
 	 */
-	public GList<K> k()
+	public KList<K> k()
 	{
-		GList<K> k = new GList<K>();
-		Enumeration<K> kk = keys();
-
-		while(kk.hasMoreElements())
-		{
-			K kkk = kk.nextElement();
-			k.add(kkk);
-		}
-
+		KList<K> k = new KList<K>();
+		Set<K> kk = keySet();
+		k.addAll(kk);
 		return k;
 	}
 
@@ -323,9 +315,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the values
 	 */
-	public GList<V> v()
+	public KList<V> v()
 	{
-		return new GList<V>(values());
+		return new KList<V>(values());
 	}
 
 	/**
@@ -337,7 +329,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the value (single only supported)
 	 * @return
 	 */
-	public GMap<K, V> qput(K key, V value)
+	public WeakKMap<K, V> qput(K key, V value)
 	{
 		super.put(key, value);
 		return this;
@@ -353,7 +345,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *            the nonnull value
 	 * @return the same map
 	 */
-	public GMap<K, V> putNonNull(K key, V value)
+	public WeakKMap<K, V> putNonNull(K key, V value)
 	{
 		if(key != null || value != null)
 		{
@@ -378,7 +370,7 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the cleared map
 	 */
-	public GMap<K, V> qclear()
+	public WeakKMap<K, V> qclear()
 	{
 		super.clear();
 		return this;
@@ -389,9 +381,9 @@ public class GMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @return the keypair list
 	 */
-	public GList<KeyPair<K, V>> keypair()
+	public KList<KeyPair<K, V>> keypair()
 	{
-		GList<KeyPair<K, V>> g = new GList<>();
+		KList<KeyPair<K, V>> g = new KList<>();
 		each((k, v) -> g.add(new KeyPair<K, V>(k, v)));
 		return g;
 	}

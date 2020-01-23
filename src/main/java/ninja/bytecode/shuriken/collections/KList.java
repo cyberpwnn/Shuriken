@@ -13,29 +13,29 @@ import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.math.M;
 
-public class GList<T> extends ArrayList<T> implements List<T>
+public class KList<T> extends ArrayList<T> implements List<T>
 {
 	private static final long serialVersionUID = -2892550695744823337L;
 
 	@SafeVarargs
-	public GList(T... ts)
+	public KList(T... ts)
 	{
 		super();
 		add(ts);
 	}
 
-	public GList()
+	public KList()
 	{
 		super();
 	}
 
-	public GList(Collection<T> values)
+	public KList(Collection<T> values)
 	{
 		super();
 		add(values);
 	}
 
-	public GList(Enumeration<T> e)
+	public KList(Enumeration<T> e)
 	{
 		super();
 		add(e);
@@ -49,7 +49,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	/**
 	 * Remove the last element
 	 */
-	public GList<T> removeLast()
+	public KList<T> removeLast()
 	{
 		remove(last());
 
@@ -61,7 +61,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		return Queue.create(this);
 	}
 
-	private GList<T> add(Enumeration<T> e)
+	private KList<T> add(Enumeration<T> e)
 	{
 		while(e.hasMoreElements())
 		{
@@ -71,7 +71,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		return this;
 	}
 
-	public GList<T> add(Collection<T> values)
+	public KList<T> add(Collection<T> values)
 	{
 		addAll(values);
 		return this;
@@ -88,9 +88,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the function
 	 * @return the new map
 	 */
-	public <K> GMap<K, T> asValues(Function<T, K> f)
+	public <K> KMap<K, T> asValues(Function<T, K> f)
 	{
-		GMap<K, T> m = new GMap<K, T>();
+		KMap<K, T> m = new KMap<K, T>();
 		forEach((i) -> m.putNonNull(f.apply(i), i));
 		return m;
 	}
@@ -106,9 +106,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the function
 	 * @return the new map
 	 */
-	public <V> GMap<T, V> asKeys(Function<T, V> f)
+	public <V> KMap<T, V> asKeys(Function<T, V> f)
 	{
-		GMap<T, V> m = new GMap<T, V>();
+		KMap<T, V> m = new KMap<T, V>();
 		forEach((i) -> m.putNonNull(i, f.apply(i)));
 		return m;
 	}
@@ -120,7 +120,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the target count of sublists
 	 * @return the list of sublists
 	 */
-	public GList<GList<T>> divide(int targetCount)
+	public KList<KList<T>> divide(int targetCount)
 	{
 		return split(size() / targetCount);
 	}
@@ -133,11 +133,11 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the target size
 	 * @return the list of sublists
 	 */
-	public GList<GList<T>> split(int targetSize)
+	public KList<KList<T>> split(int targetSize)
 	{
 		targetSize = targetSize < 1 ? 1 : targetSize;
-		GList<GList<T>> gg = new GList<>();
-		GList<T> b = new GList<>();
+		KList<KList<T>> gg = new KList<>();
+		KList<T> b = new KList<>();
 
 		for(T i : this)
 		{
@@ -166,9 +166,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the function
 	 * @return the same list (not a copy)
 	 */
-	public GList<T> rewrite(Function<T, T> t)
+	public KList<T> rewrite(Function<T, T> t)
 	{
-		GList<T> m = copy();
+		KList<T> m = copy();
 		clear();
 
 		for(T i : m)
@@ -195,9 +195,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the copy
 	 */
-	public GList<T> copy()
+	public KList<T> copy()
 	{
-		return new GList<T>().add(this);
+		return new KList<T>().add(this);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the same list
 	 */
-	public GList<T> shuffle()
+	public KList<T> shuffle()
 	{
 		Collections.shuffle(this);
 		return this;
@@ -216,7 +216,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the same list
 	 */
-	public GList<T> sort()
+	public KList<T> sort()
 	{
 		Collections.sort(this, (a, b) -> a.toString().compareTo(b.toString()));
 		return this;
@@ -227,7 +227,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the same list
 	 */
-	public GList<T> reverse()
+	public KList<T> reverse()
 	{
 		Collections.reverse(this);
 		return this;
@@ -273,7 +273,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the string list
 	 */
-	public GList<String> toStringList()
+	public KList<String> toStringList()
 	{
 		return convert((t) -> t.toString());
 	}
@@ -286,9 +286,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 * @param converter
 	 * @return
 	 */
-	public <V> GList<V> convert(Function<T, V> converter)
+	public <V> KList<V> convert(Function<T, V> converter)
 	{
-		GList<V> v = new GList<V>();
+		KList<V> v = new KList<V>();
 		forEach((t) -> v.addNonNull(converter.apply(t)));
 		return v;
 	}
@@ -300,7 +300,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the value to add
 	 * @return the same list
 	 */
-	public GList<T> addNonNull(T t)
+	public KList<T> addNonNull(T t)
 	{
 		if(t != null)
 		{
@@ -320,7 +320,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the second index
 	 * @return the same list (builder), not a copy
 	 */
-	public GList<T> swapIndexes(int a, int b)
+	public KList<T> swapIndexes(int a, int b)
 	{
 		T aa = remove(a);
 		T bb = get(b);
@@ -339,7 +339,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 * @return this list
 	 */
 	@SuppressWarnings("unchecked")
-	public GList<T> remove(T... t)
+	public KList<T> remove(T... t)
 	{
 		for(T i : t)
 		{
@@ -356,7 +356,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *            the list
 	 * @return the same list
 	 */
-	public GList<T> add(GList<T> t)
+	public KList<T> add(KList<T> t)
 	{
 		super.addAll(t);
 		return this;
@@ -370,7 +370,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 * @return this list
 	 */
 	@SuppressWarnings("unchecked")
-	public GList<T> add(T... t)
+	public KList<T> add(T... t)
 	{
 		for(T i : t)
 		{
@@ -407,7 +407,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the deduplicated list
 	 */
-	public GList<T> dedupe()
+	public KList<T> dedupe()
 	{
 		return qclear().add(new LinkedHashSet<T>(this));
 	}
@@ -417,7 +417,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the same list
 	 */
-	public GList<T> qclear()
+	public KList<T> qclear()
 	{
 		super.clear();
 		return this;
@@ -478,9 +478,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		return remove(M.irand(0, last()));
 	}
 
-	public static GList<String> fromJSONAny(JSONArray oo)
+	public static KList<String> fromJSONAny(JSONArray oo)
 	{
-		GList<String> s = new GList<String>();
+		KList<String> s = new KList<String>();
 
 		for(int i = 0; i < oo.length(); i++)
 		{
@@ -490,9 +490,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		return s;
 	}
 
-	public GList<T> sub(int f, int t)
+	public KList<T> sub(int f, int t)
 	{
-		GList<T> g = new GList<>();
+		KList<T> g = new KList<>();
 
 		for(int i = f; i < M.min(size(), t); i++)
 		{
@@ -514,9 +514,9 @@ public class GList<T> extends ArrayList<T> implements List<T>
 		return j;
 	}
 
-	public static GList<String> asStringList(List<?> oo)
+	public static KList<String> asStringList(List<?> oo)
 	{
-		GList<String> s = new GList<String>();
+		KList<String> s = new KList<String>();
 
 		for(Object i : oo)
 		{
@@ -527,7 +527,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(Object[] values)
+	public KList<T> forceAdd(Object[] values)
 	{
 		for(Object i : values)
 		{
@@ -538,7 +538,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(int[] values)
+	public KList<T> forceAdd(int[] values)
 	{
 		for(Object i : values)
 		{
@@ -549,7 +549,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(double[] values)
+	public KList<T> forceAdd(double[] values)
 	{
 		for(Object i : values)
 		{
@@ -560,7 +560,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(float[] values)
+	public KList<T> forceAdd(float[] values)
 	{
 		for(Object i : values)
 		{
@@ -571,7 +571,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(byte[] values)
+	public KList<T> forceAdd(byte[] values)
 	{
 		for(Object i : values)
 		{
@@ -582,7 +582,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(short[] values)
+	public KList<T> forceAdd(short[] values)
 	{
 		for(Object i : values)
 		{
@@ -593,7 +593,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(long[] values)
+	public KList<T> forceAdd(long[] values)
 	{
 		for(Object i : values)
 		{
@@ -604,7 +604,7 @@ public class GList<T> extends ArrayList<T> implements List<T>
 	}
 
 	@SuppressWarnings("unchecked")
-	public GList<T> forceAdd(boolean[] values)
+	public KList<T> forceAdd(boolean[] values)
 	{
 		for(Object i : values)
 		{

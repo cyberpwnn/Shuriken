@@ -16,26 +16,26 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
-import ninja.bytecode.shuriken.collections.GList;
-import ninja.bytecode.shuriken.collections.GMap;
-import ninja.bytecode.shuriken.format.F;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.format.Form;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.tools.JarTools;
 
 public class ParcelWebServer
 {
 	private final ParcelWebServerConfiguration config;
-	private final GList<Class<? extends Parcelable>> parcelables;
+	private final KList<Class<? extends Parcelable>> parcelables;
 	private Server server;
 	private int port;
-	private GList<ParcelListener<Parcelable, Parcelable>> listeners;
+	private KList<ParcelListener<Parcelable, Parcelable>> listeners;
 
 	public ParcelWebServer()
 	{
-		parcelables = new GList<Class<? extends Parcelable>>();
+		parcelables = new KList<Class<? extends Parcelable>>();
 		config = new ParcelWebServerConfiguration(this);
 		port = 80;
-		listeners = new GList<>();
+		listeners = new KList<>();
 	}
 	
 	public ParcelWebServer addListener(ParcelListener<Parcelable, Parcelable> p)
@@ -81,7 +81,7 @@ public class ParcelWebServer
 
 	public void generateMarkdownSpec(File md)
 	{
-		GMap<String, GMap<String, GList<String>>> ss = new GMap<>();
+		KMap<String, KMap<String, KList<String>>> ss = new KMap<>();
 		
 		try
 		{
@@ -131,7 +131,7 @@ public class ParcelWebServer
 					ParcelDescription d = f.getDeclaredAnnotation(ParcelDescription.class);
 					String description = d != null ? d.value() : "No Description Provided";
 					String w = "* [" + p.getClass().getSimpleName() + " at `/" + p.getParcelType() + "`" + "](#" + p.getParcelType() + ") " + description;
-					ss.putThen(category, new GMap<>()).putThen(subcat, new GList<>()).add(w);
+					ss.putThen(category, new KMap<>()).putThen(subcat, new KList<>()).add(w);
 				}
 
 				catch(Throwable e)
@@ -165,7 +165,7 @@ public class ParcelWebServer
 					Class<? extends Parcelable> errorType = e != null ? e.type() : null;
 					String eType = errorType != null ? (successType.equals(FancyParcelable.class)) ? "HTML" : errorType.getConstructor().newInstance().getParcelType() : "null";
 					String errorDescription = e != null ? e.reason() : "No Description Provided";
-					GList<String> parameters = p.getParameterNames();
+					KList<String> parameters = p.getParameterNames();
 					pw.println("## `/" + p.getParcelType() + "`");
 					pw.println();
 					pw.println("**Example** " + p.getExample());
@@ -270,7 +270,7 @@ public class ParcelWebServer
 		try
 		{
 			server.start();
-			L.i(this + " Form Post Max: " + F.fileSize(configure().maxFormContentSize()));
+			L.i(this + " Form Post Max: " + Form.fileSize(configure().maxFormContentSize()));
 			L.i(this + " Online!");
 		}
 
@@ -317,7 +317,7 @@ public class ParcelWebServer
 		return addParcelables(JarTools.getClassesInPackage(JarTools.getJar(amchorPackage), packagePrefix, Parcelable.class));
 	}
 
-	public ParcelWebServer addParcelables(GList<Class<? extends Parcelable>> o)
+	public ParcelWebServer addParcelables(KList<Class<? extends Parcelable>> o)
 	{
 		for(Class<? extends Parcelable> i : o)
 		{
@@ -343,7 +343,7 @@ public class ParcelWebServer
 		return port;
 	}
 
-	public Parcelable createParcel(String node, GMap<String, String> p) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
+	public Parcelable createParcel(String node, KMap<String, String> p) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
 	{
 		for(Class<? extends Parcelable> i : parcelables)
 		{

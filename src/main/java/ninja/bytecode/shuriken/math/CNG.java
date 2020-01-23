@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.math;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CNG
 {
@@ -16,7 +16,7 @@ public class CNG
 	private double amp;
 	private double scale;
 	private double fscale;
-	private final GList<CNG> children;
+	private final KList<CNG> children;
 	private CNG fracture;
 	private SimplexOctaveGenerator generator;
 	private final double opacity;
@@ -35,7 +35,7 @@ public class CNG
 		amp = 1;
 		scale = 1;
 		fscale = 1;
-		children = new GList<>();
+		children = new KList<>();
 		fracture = null;
 		generator = new SimplexOctaveGenerator(random, octaves);
 		this.opacity = opacity;

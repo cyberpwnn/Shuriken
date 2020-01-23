@@ -17,7 +17,7 @@ import org.eclipse.jetty.http.HttpStatus;
 import com.google.gson.Gson;
 
 import lombok.EqualsAndHashCode;
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.execution.J;
 import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONObject;
@@ -83,7 +83,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 		{
 			String f = "/" + type + " [";
 			Map<String, String[]> m = req.getParameterMap();
-			GList<String> g = new GList<>();
+			KList<String> g = new KList<>();
 			
 			for(String i : m.keySet())
 			{
@@ -114,9 +114,9 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 		return getParcelType();
 	}
 
-	public GList<String> getParameterNames()
+	public KList<String> getParameterNames()
 	{
-		GList<String> m = new GList<String>();
+		KList<String> m = new KList<String>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{
@@ -148,7 +148,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 
 	private String genExampleParams()
 	{
-		GList<String> ex = new GList<>();
+		KList<String> ex = new KList<>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{
@@ -361,7 +361,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 				String pars = "";
 				boolean q = false;
 
-				for(String i : new GList<String>(req.getParameterNames()))
+				for(String i : new KList<String>(req.getParameterNames()))
 				{
 					q = true;
 					pars += "&" + i + "=" + req.getParameter(i);

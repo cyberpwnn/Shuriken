@@ -3,26 +3,26 @@ package ninja.bytecode.shuriken.collections;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class GSet<T> extends HashSet<T>
+public class KSet<T> extends HashSet<T>
 {
 	private static final long serialVersionUID = 1L;
 
-	public GSet()
+	public KSet()
 	{
 		super();
 	}
 
-	public GSet(Collection<? extends T> c)
+	public KSet(Collection<? extends T> c)
 	{
 		super(c);
 	}
 
-	public GSet(int initialCapacity, float loadFactor)
+	public KSet(int initialCapacity, float loadFactor)
 	{
 		super(initialCapacity, loadFactor);
 	}
 
-	public GSet(int initialCapacity)
+	public KSet(int initialCapacity)
 	{
 		super(initialCapacity);
 	}

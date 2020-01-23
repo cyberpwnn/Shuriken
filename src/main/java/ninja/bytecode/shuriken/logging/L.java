@@ -4,11 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.execution.Looper;
 import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.execution.ShurikenQueue;
-import ninja.bytecode.shuriken.format.F;
+import ninja.bytecode.shuriken.format.Form;
 import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.tools.ExceptionTools;
 
@@ -19,7 +19,7 @@ public class L
 	private static Looper looper;
 	private static Queue<String> logBuffer;
 	public static Consumer<String> consoleConsumer;
-	public static GList<Consumer<String>> logConsumers;
+	public static KList<Consumer<String>> logConsumers;
 	public static boolean DEDUPLICATE_LOGS = true;
 	public static long IDLE_FLUSH_INTERVAL = 750;
 	public static long ACTIVE_FLUSH_INTERVAL = 250;
@@ -119,11 +119,11 @@ public class L
 				return;
 			}
 
-			String tagger = "[" + F.stampTime(M.ms()) + "]: ";
+			String tagger = "[" + Form.stampTime(M.ms()) + "]: ";
 
 			if(lastTag.equals(tagger))
 			{
-				tagger = F.repeat(" ", lastTag.length());
+				tagger = Form.repeat(" ", lastTag.length());
 			}
 
 			else
@@ -161,7 +161,7 @@ public class L
 
 	static
 	{
-		logConsumers = new GList<Consumer<String>>();
+		logConsumers = new KList<Consumer<String>>();
 		logBuffer = new ShurikenQueue<String>();
 		consoleConsumer = (s) -> System.out.println(s);
 		looper = new Looper()

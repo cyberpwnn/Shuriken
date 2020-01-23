@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.sql;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class Query
 {
@@ -29,7 +29,7 @@ public class Query
 	{
 		//@builder
 		query.append(" ");
-		query.append("SELECT " + new GList<String>()
+		query.append("SELECT " + new KList<String>()
 				.add(select)
 				.convert((a) -> "`" + a + "`").toString(", "));
 		//@done

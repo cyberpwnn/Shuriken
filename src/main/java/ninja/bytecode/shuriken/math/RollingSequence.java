@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.math;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class RollingSequence extends Average
 {
@@ -74,7 +74,7 @@ public class RollingSequence extends Average
 
 	private void recalculateMedian()
 	{
-		median = new GList<Double>().forceAdd(values).sort().middleValue();
+		median = new KList<Double>().forceAdd(values).sort().middleValue();
 		dirtyMedian = false;
 	}
 

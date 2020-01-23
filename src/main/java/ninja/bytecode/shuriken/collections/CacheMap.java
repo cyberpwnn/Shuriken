@@ -5,14 +5,14 @@ import ninja.bytecode.shuriken.json.JSONArray;
 public class CacheMap<K, V>
 {
 	private int limit;
-	private GList<K> order;
-	private GMap<K, V> map;
+	private KList<K> order;
+	private KMap<K, V> map;
 
 	public CacheMap(int limit)
 	{
 		this.limit = limit;
-		order = new GList<K>();
-		map = new GMap<K, V>();
+		order = new KList<K>();
+		map = new KMap<K, V>();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -52,7 +52,7 @@ public class CacheMap<K, V>
 		return map.size();
 	}
 
-	public GList<K> k()
+	public KList<K> k()
 	{
 		return map.k();
 	}

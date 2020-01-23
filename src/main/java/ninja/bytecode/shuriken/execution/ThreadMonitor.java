@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.execution;
 
 import ninja.bytecode.shuriken.bench.PrecisionStopwatch;
-import ninja.bytecode.shuriken.format.F;
+import ninja.bytecode.shuriken.format.Form;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.RollingSequence;
 
@@ -47,7 +47,7 @@ public class ThreadMonitor extends Thread
 				
 				if(cl.flip())
 				{
-					L.i("Cycles: " + F.f(cycles) + " (" + F.duration(sq.getAverage(), 2) + ")");
+					L.i("Cycles: " + Form.f(cycles) + " (" + Form.duration(sq.getAverage(), 2) + ")");
 					L.flush();
 				}
 			}

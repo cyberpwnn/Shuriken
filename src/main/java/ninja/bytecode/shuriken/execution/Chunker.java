@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 import ninja.bytecode.shuriken.collections.Contained;
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.function.Callback;
 
 public class Chunker<T>
@@ -14,9 +14,9 @@ public class Chunker<T>
 	private ExecutorService executor;
 	private int threads;
 	private int workload;
-	private GList<T> q;
+	private KList<T> q;
 
-	public Chunker(GList<T> q)
+	public Chunker(KList<T> q)
 	{
 		this.q = q;
 	}

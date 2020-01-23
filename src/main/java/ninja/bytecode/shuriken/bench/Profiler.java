@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bench;
 
-import ninja.bytecode.shuriken.collections.GMap;
+import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.math.Average;
 import ninja.bytecode.shuriken.math.M;
 
@@ -8,17 +8,17 @@ public class Profiler
 {
 	private int averageSize;
 	private long staleTimeout;
-	private GMap<String, PrecisionStopwatch> activeProfilers;
-	private GMap<String, Average> results;
-	private GMap<String, Long> stale;
+	private KMap<String, PrecisionStopwatch> activeProfilers;
+	private KMap<String, Average> results;
+	private KMap<String, Long> stale;
 	
 	public Profiler(int averageSize, long staleTimeout)
 	{
 		this.averageSize = averageSize;
 		this.staleTimeout = staleTimeout;
-		activeProfilers = new GMap<String, PrecisionStopwatch>();
-		results = new GMap<String, Average>();
-		stale = new GMap<String, Long>();
+		activeProfilers = new KMap<String, PrecisionStopwatch>();
+		results = new KMap<String, Average>();
+		stale = new KMap<String, Long>();
 	}
 	
 	public Profiler(int averageSize)

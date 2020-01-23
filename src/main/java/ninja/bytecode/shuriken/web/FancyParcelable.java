@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.web;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public interface FancyParcelable extends Parcelable
 {
@@ -17,9 +17,9 @@ public interface FancyParcelable extends Parcelable
 			}
 			
 			@Override
-			public GList<String> getParameterNames()
+			public KList<String> getParameterNames()
 			{
-				return new GList<String>();
+				return new KList<String>();
 			}
 			
 			@Override

@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import ninja.bytecode.shuriken.collections.GSet;
+import ninja.bytecode.shuriken.collections.KSet;
 import ninja.bytecode.shuriken.logging.L;
 
 public class JarScanner
 {
-	private final GSet<Class<?>> classes;
+	private final KSet<Class<?>> classes;
 	private final File jar;
 	private final String superPackage;
 
@@ -24,7 +24,7 @@ public class JarScanner
 	public JarScanner(File jar, String superPackage)
 	{
 		this.jar = jar;
-		this.classes = new GSet<Class<?>>();
+		this.classes = new KSet<Class<?>>();
 		this.superPackage = superPackage;
 	}
 
@@ -75,7 +75,7 @@ public class JarScanner
 	 *
 	 * @return a gset of classes
 	 */
-	public GSet<Class<?>> getClasses()
+	public KSet<Class<?>> getClasses()
 	{
 		return classes;
 	}

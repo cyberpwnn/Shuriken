@@ -9,7 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class JarTools
 {
@@ -65,7 +65,7 @@ public class JarTools
 	 *            its ignored)
 	 * @return the list
 	 */
-	public static <T> GList<Class<? extends T>> getClassesInPackage(String superPackage, Class<T> superClass)
+	public static <T> KList<Class<? extends T>> getClassesInPackage(String superPackage, Class<T> superClass)
 	{
 		return getClassesInPackage(getJar(), superPackage, superClass);
 	}
@@ -85,9 +85,9 @@ public class JarTools
 	 * @return the list
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> GList<Class<? extends T>> getClassesInPackage(File codeSource, String superPackage, Class<T> superClass)
+	public static <T> KList<Class<? extends T>> getClassesInPackage(File codeSource, String superPackage, Class<T> superClass)
 	{
-		GList<Class<?>> g = getClassesInPackage(codeSource, superPackage);
+		KList<Class<?>> g = getClassesInPackage(codeSource, superPackage);
 		return g.convert((c) -> superClass.isAssignableFrom(c) ? (Class<? extends T>) c : null);
 	}
 
@@ -98,7 +98,7 @@ public class JarTools
 	 *            the package (i.e. something.xxx.types)
 	 * @return glist of classes
 	 */
-	public static GList<Class<?>> getClassesInPackage(String superPackage)
+	public static KList<Class<?>> getClassesInPackage(String superPackage)
 	{
 		return getClassesInPackage(getJar(), superPackage);
 	}
@@ -112,9 +112,9 @@ public class JarTools
 	 *            the package (i.e. something.xxx.types)
 	 * @return glist of classes
 	 */
-	public static GList<Class<?>> getClassesInPackage(File codeSource, String superPackage)
+	public static KList<Class<?>> getClassesInPackage(File codeSource, String superPackage)
 	{
-		GList<Class<?>> g = new GList<Class<?>>();
+		KList<Class<?>> g = new KList<Class<?>>();
 		JarScanner sc = new JarScanner(codeSource, superPackage);
 
 		try

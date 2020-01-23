@@ -2,11 +2,11 @@ package ninja.bytecode.shuriken.collections;
 
 public class StateList
 {
-	private final GList<String> states;
+	private final KList<String> states;
 
 	public StateList(String... states)
 	{
-		this.states = new GList<String>(states);
+		this.states = new KList<String>(states);
 
 		if(getBits() > 64)
 		{
@@ -19,9 +19,9 @@ public class StateList
 		return (long) (Math.pow(2, getBits()) - 1);
 	}
 
-	public GList<String> getEnabled(long list)
+	public KList<String> getEnabled(long list)
 	{
-		GList<String> f = new GList<>();
+		KList<String> f = new KList<>();
 
 		for(String i : states)
 		{

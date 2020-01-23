@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
 
@@ -78,13 +78,13 @@ public class TaskExecutor
 
 	public static class TaskGroup
 	{
-		private GList<AssignedTask> tasks;
+		private KList<AssignedTask> tasks;
 		private TaskExecutor e;
 		private ReentrantLock lock;
 
 		public TaskGroup(TaskExecutor e)
 		{
-			tasks = new GList<>();
+			tasks = new KList<>();
 			this.e = e;
 			lock = new ReentrantLock();
 		}
@@ -101,7 +101,7 @@ public class TaskExecutor
 			return this;
 		}
 
-		public TaskGroup queue(GList<NastyRunnable> r)
+		public TaskGroup queue(KList<NastyRunnable> r)
 		{
 			lock.lock();
 			for(NastyRunnable i : r)

@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.tools;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class ExceptionTools
 {
@@ -16,13 +16,13 @@ public class ExceptionTools
 		return sw.getBuffer().toString();
 	}
 	
-	public static GList<String> toStrings(Throwable e)
+	public static KList<String> toStrings(Throwable e)
 	{
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		e.printStackTrace(pw);
 		pw.flush();
-		GList<String> f = new GList<String>(sw.getBuffer().toString().split("\\r?\\n"));
+		KList<String> f = new KList<String>(sw.getBuffer().toString().split("\\r?\\n"));
 		
 		return f;
 	}

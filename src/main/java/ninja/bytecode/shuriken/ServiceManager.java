@@ -2,16 +2,16 @@ package ninja.bytecode.shuriken;
 
 import java.lang.reflect.InvocationTargetException;
 
-import ninja.bytecode.shuriken.collections.GMap;
+import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.service.IService;
 
 public class ServiceManager
 {
-	private GMap<Class<? extends IService>, IService> services;
+	private KMap<Class<? extends IService>, IService> services;
 	
 	public ServiceManager()
 	{
-		services = new GMap<Class<? extends IService>, IService>();
+		services = new KMap<Class<? extends IService>, IService>();
 	}
 	
 	public void stop()

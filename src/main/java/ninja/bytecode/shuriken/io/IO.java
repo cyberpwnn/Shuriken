@@ -38,7 +38,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.execution.ChronoLatch;
 import ninja.bytecode.shuriken.function.Callback;
 import ninja.bytecode.shuriken.math.M;
@@ -519,10 +519,10 @@ public class IO
 		}
 	}
 
-	public static GList<String> listEntries(File zipfile) throws ZipException, IOException
+	public static KList<String> listEntries(File zipfile) throws ZipException, IOException
 	{
 		ZipFile file = new ZipFile(zipfile);
-		GList<String> e = new GList<String>();
+		KList<String> e = new KList<String>();
 		Throwable x = null;
 
 		try

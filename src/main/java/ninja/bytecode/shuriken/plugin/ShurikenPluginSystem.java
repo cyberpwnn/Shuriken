@@ -4,18 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class ShurikenPluginSystem implements PluginSystem {
-	private GList<PluginManager> managers;
+	private KList<PluginManager> managers;
 	
 	public ShurikenPluginSystem()
 	{
-		managers = new GList<PluginManager>();
+		managers = new KList<PluginManager>();
 	}
 	
 	@Override
-	public GList<PluginManager> getPlugins() {
+	public KList<PluginManager> getPlugins() {
 		return managers.copy();
 	}
 

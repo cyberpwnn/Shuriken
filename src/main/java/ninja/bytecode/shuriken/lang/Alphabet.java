@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.lang;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 /**
  * Alphabet military style
@@ -197,9 +197,9 @@ public enum Alphabet
 	 *
 	 * @return the alphabet
 	 */
-	public static GList<Character> getAlphabet()
+	public static KList<Character> getAlphabet()
 	{
-		GList<Character> al = new GList<Character>();
+		KList<Character> al = new KList<Character>();
 
 		for(Alphabet a : values())
 		{

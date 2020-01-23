@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public interface DownloadParcelable extends Parcelable
 {
@@ -34,9 +34,9 @@ public interface DownloadParcelable extends Parcelable
 			}
 
 			@Override
-			public GList<String> getParameterNames()
+			public KList<String> getParameterNames()
 			{
-				return new GList<String>();
+				return new KList<String>();
 			}
 
 			@Override

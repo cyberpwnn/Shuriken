@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.maven;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import ninja.bytecode.shuriken.format.F;
+import ninja.bytecode.shuriken.format.Form;
 
 public class MavenArtifact
 {
@@ -32,7 +32,7 @@ public class MavenArtifact
 	
 	public String toString()
 	{
-		return F.split(":", group, artifact, version);
+		return Form.split(":", group, artifact, version);
 	}
 
 	public String getGroup()

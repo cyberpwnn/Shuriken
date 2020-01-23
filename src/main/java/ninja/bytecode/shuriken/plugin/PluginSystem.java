@@ -2,11 +2,11 @@ package ninja.bytecode.shuriken.plugin;
 
 import java.io.File;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public interface PluginSystem
 {
-	public GList<PluginManager> getPlugins();
+	public KList<PluginManager> getPlugins();
 	
 	public PluginManager load(File p) throws PluginException;
 	

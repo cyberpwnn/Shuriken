@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.math.RollingSequence;
 
-public class F
+public class Form
 {
 	private static NumberFormat NF;
 	private static DecimalFormat DF;
@@ -57,11 +57,11 @@ public class F
 	 */
 	public static String scroll(String smx, int viewport, long time)
 	{
-		String src = F.repeat(" ", viewport) + smx + F.repeat(" ", viewport);
+		String src = Form.repeat(" ", viewport) + smx + Form.repeat(" ", viewport);
 		int len = src.length();
 		int walk = (int) (time % (len - viewport));
 		String base = src.substring(walk, M.min(walk + viewport, len - 1));
-		base = base.length() < viewport ? base + F.repeat(" ", (viewport - base.length()) - 3) : base;
+		base = base.length() < viewport ? base + Form.repeat(" ", (viewport - base.length()) - 3) : base;
 
 		return base;
 	}
@@ -322,42 +322,42 @@ public class F
 								{
 									phantom /= div;
 									suffix = "Year";
-									return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+									return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 								}
 
 								else
 								{
-									return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+									return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 								}
 							}
 
 							else
 							{
-								return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+								return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 							}
 						}
 
 						else
 						{
-							return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+							return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 						}
 					}
 
 					else
 					{
-						return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+						return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 					}
 				}
 
 				else
 				{
-					return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+					return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 				}
 			}
 
 			else
 			{
-				return F.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
+				return Form.fd(phantom, 0) + " " + suffix + ((int) phantom == 1 ? "" : "s");
 			}
 		}
 
@@ -639,30 +639,30 @@ public class F
 	{
 		if(ms < 1000.0)
 		{
-			return F.f(ms, prec) + "ms";
+			return Form.f(ms, prec) + "ms";
 		}
 
 		if(ms / 1000.0 < 60.0)
 		{
-			return F.f(ms / 1000.0, prec) + "s";
+			return Form.f(ms / 1000.0, prec) + "s";
 		}
 
 		if(ms / 1000.0 / 60.0 < 60.0)
 		{
-			return F.f(ms / 1000.0 / 60.0, prec) + "m";
+			return Form.f(ms / 1000.0 / 60.0, prec) + "m";
 		}
 
 		if(ms / 1000.0 / 60.0 / 60.0 < 24.0)
 		{
-			return F.f(ms / 1000.0 / 60.0, prec) + " hours";
+			return Form.f(ms / 1000.0 / 60.0, prec) + " hours";
 		}
 
 		if(ms / 1000.0 / 60.0 / 60.0 / 24.0 < 7)
 		{
-			return F.f(ms / 1000.0 / 60.0 / 24.0, prec) + " days";
+			return Form.f(ms / 1000.0 / 60.0 / 24.0, prec) + " days";
 		}
 
-		return F.f(ms, prec) + "ms";
+		return Form.f(ms, prec) + "ms";
 	}
 
 	public static String duration(long ms)
@@ -683,30 +683,30 @@ public class F
 	{
 		if(ms < 1000.0)
 		{
-			return F.f(ms, prec) + "ms";
+			return Form.f(ms, prec) + "ms";
 		}
 
 		if(ms / 1000.0 < 60.0)
 		{
-			return F.f(ms / 1000.0, prec) + " seconds";
+			return Form.f(ms / 1000.0, prec) + " seconds";
 		}
 
 		if(ms / 1000.0 / 60.0 < 60.0)
 		{
-			return F.f(ms / 1000.0 / 60.0, prec) + " minutes";
+			return Form.f(ms / 1000.0 / 60.0, prec) + " minutes";
 		}
 
 		if(ms / 1000.0 / 60.0 / 60.0 < 24.0)
 		{
-			return F.f(ms / 1000.0 / 60.0, prec) + " hours";
+			return Form.f(ms / 1000.0 / 60.0, prec) + " hours";
 		}
 
 		if(ms / 1000.0 / 60.0 / 60.0 / 24.0 < 7)
 		{
-			return F.f(ms / 1000.0 / 60.0 / 24.0, prec) + " days";
+			return Form.f(ms / 1000.0 / 60.0 / 24.0, prec) + " days";
 		}
 
-		return F.f(ms, prec) + "ms";
+		return Form.f(ms, prec) + "ms";
 	}
 
 	/**
@@ -908,12 +908,12 @@ public class F
 
 		if(sub.equals("GB") || sub.equals("TB"))
 		{
-			return F.f(d, 1) + sub;
+			return Form.f(d, 1) + sub;
 		}
 
 		else
 		{
-			return F.f(d, 0) + sub;
+			return Form.f(d, 0) + sub;
 		}
 	}
 
@@ -959,7 +959,7 @@ public class F
 			}
 		}
 
-		return F.f(d, dec) + " " + sub;
+		return Form.f(d, dec) + " " + sub;
 	}
 
 	/**
@@ -1009,7 +1009,7 @@ public class F
 			}
 		}
 
-		return (neg ? "-" : "") + F.f(d, dec) + " " + sub;
+		return (neg ? "-" : "") + Form.f(d, dec) + " " + sub;
 	}
 
 	/**

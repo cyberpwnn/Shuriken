@@ -3,15 +3,15 @@ package ninja.bytecode.shuriken.collections;
 public class NetCache<K, V>
 {
 	private final Resolver<K, V> resolver;
-	private final GMap<K, V> cache;
+	private final KMap<K, V> cache;
 
 	public NetCache(Resolver<K, V> resolver)
 	{
-		cache = new GMap<K, V>();
+		cache = new KMap<K, V>();
 		this.resolver = resolver;
 	}
 
-	public GMap<K, V> cache()
+	public KMap<K, V> cache()
 	{
 		return cache;
 	}
@@ -21,7 +21,7 @@ public class NetCache<K, V>
 		cache.clear();
 	}
 
-	public GList<K> k()
+	public KList<K> k()
 	{
 		return cache.k();
 	}

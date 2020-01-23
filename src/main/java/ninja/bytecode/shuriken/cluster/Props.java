@@ -6,13 +6,13 @@ import java.util.UUID;
 import com.google.gson.Gson;
 
 import ninja.bytecode.shuriken.Shuriken;
-import ninja.bytecode.shuriken.collections.GMap;
+import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.execution.J;
 import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONObject;
 import ninja.bytecode.shuriken.logging.L;
 
-public class Props extends GMap<String, Object>
+public class Props extends KMap<String, Object>
 {
 	private static final long serialVersionUID = -7017325150027317798L;
 	private String key;

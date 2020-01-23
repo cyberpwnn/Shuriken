@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.config;
 
 import java.io.File;
 
-import ninja.bytecode.shuriken.collections.GList;
+import ninja.bytecode.shuriken.collections.KList;
 
 public interface ConfigWrapper
 {
@@ -18,7 +18,7 @@ public interface ConfigWrapper
 
 	public Object get(String key);
 
-	public GList<String> keys();
+	public KList<String> keys();
 
 	public boolean contains(String key);
 }

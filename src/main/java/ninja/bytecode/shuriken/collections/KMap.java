@@ -2,22 +2,24 @@ package ninja.bytecode.shuriken.collections;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Enumeration;
 import java.util.Map;
-import java.util.Set;
-import java.util.WeakHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import ninja.bytecode.shuriken.execution.Queue;
 import ninja.bytecode.shuriken.function.Consumer2;
 import ninja.bytecode.shuriken.function.Consumer3;
 
-public class WeakGMap<K, V> extends WeakHashMap<K, V>
+public class KMap<K, V> extends ConcurrentHashMap<K, V>
 {
-	public WeakGMap()
+	private static final long serialVersionUID = 7288942695300448163L;
+
+	public KMap()
 	{
 		super();
 	}
 
-	public WeakGMap(WeakGMap<K, V> gMap)
+	public KMap(KMap<K, V> gMap)
 	{
 		this();
 		put(gMap);
@@ -36,15 +38,15 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 * @return the same list (builder)
 	 */
 	@SuppressWarnings("unchecked")
-	public <S> WeakGMap<K, V> putValueList(K k, S... vs)
+	public <S> KMap<K, V> putValueList(K k, S... vs)
 	{
 		try
 		{
-			WeakGMap<K, GList<S>> s = (WeakGMap<K, GList<S>>) this;
+			KMap<K, KList<S>> s = (KMap<K, KList<S>>) this;
 
 			if(!s.containsKey(k))
 			{
-				s.put(k, new GList<S>());
+				s.put(k, new KList<S>());
 			}
 
 			s.get(k).add(vs);
@@ -64,10 +66,10 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the value-sorted key list
 	 */
-	public GList<K> sortK()
+	public KList<K> sortK()
 	{
-		GList<K> k = new GList<K>();
-		GList<V> v = v();
+		KList<K> k = new KList<K>();
+		KList<V> v = v();
 
 		Collections.sort(v, new Comparator<V>()
 		{
@@ -99,10 +101,10 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the value-sorted key list
 	 */
-	public GList<K> sortKNumber()
+	public KList<K> sortKNumber()
 	{
-		GList<K> k = new GList<K>();
-		GList<V> v = v();
+		KList<K> k = new KList<K>();
+		KList<V> v = v();
 
 		Collections.sort(v, new Comparator<V>()
 		{
@@ -138,7 +140,7 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *            the map to insert
 	 * @return this map (builder)
 	 */
-	public WeakGMap<K, V> put(Map<K, V> m)
+	public KMap<K, V> put(Map<K, V> m)
 	{
 		putAll(m);
 		return this;
@@ -149,9 +151,9 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the copied map
 	 */
-	public WeakGMap<K, V> copy()
+	public KMap<K, V> copy()
 	{
-		return new WeakGMap<K, V>(this);
+		return new KMap<K, V>(this);
 	}
 
 	/**
@@ -161,9 +163,9 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *            the function
 	 * @return the same gmap
 	 */
-	public WeakGMap<K, V> rewrite(Consumer3<K, V, WeakGMap<K, V>> f)
+	public KMap<K, V> rewrite(Consumer3<K, V, KMap<K, V>> f)
 	{
-		WeakGMap<K, V> m = copy();
+		KMap<K, V> m = copy();
 
 		for(K i : m.k())
 		{
@@ -180,7 +182,7 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *            the function
 	 * @return the same gmap
 	 */
-	public WeakGMap<K, V> each(Consumer2<K, V> f)
+	public KMap<K, V> each(Consumer2<K, V> f)
 	{
 		for(K i : k())
 		{
@@ -195,10 +197,10 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the flipped and flattened hashmap
 	 */
-	public WeakGMap<V, K> flipFlatten()
+	public KMap<V, K> flipFlatten()
 	{
-		WeakGMap<V, GList<K>> f = flip();
-		WeakGMap<V, K> m = new WeakGMap<>();
+		KMap<V, KList<K>> f = flip();
+		KMap<V, K> m = new KMap<>();
 
 		for(V i : f.k())
 		{
@@ -213,9 +215,9 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the flipped hashmap
 	 */
-	public WeakGMap<V, GList<K>> flip()
+	public KMap<V, KList<K>> flip()
 	{
-		WeakGMap<V, GList<K>> flipped = new WeakGMap<V, GList<K>>();
+		KMap<V, KList<K>> flipped = new KMap<V, KList<K>>();
 
 		for(K i : keySet())
 		{
@@ -226,7 +228,7 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 
 			if(!flipped.containsKey(get(i)))
 			{
-				flipped.put(get(i), new GList<K>());
+				flipped.put(get(i), new KList<K>());
 			}
 
 			flipped.get(get(i)).add(i);
@@ -240,10 +242,10 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the values (sorted)
 	 */
-	public GList<V> sortV()
+	public KList<V> sortV()
 	{
-		GList<V> v = new GList<V>();
-		GList<K> k = k();
+		KList<V> v = new KList<V>();
+		KList<K> k = k();
 
 		Collections.sort(k, new Comparator<K>()
 		{
@@ -269,10 +271,10 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 		return v;
 	}
 
-	public GList<V> sortVNoDedupe()
+	public KList<V> sortVNoDedupe()
 	{
-		GList<V> v = new GList<V>();
-		GList<K> k = k();
+		KList<V> v = new KList<V>();
+		KList<K> k = k();
 
 		Collections.sort(k, new Comparator<K>()
 		{
@@ -302,11 +304,17 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the keys
 	 */
-	public GList<K> k()
+	public KList<K> k()
 	{
-		GList<K> k = new GList<K>();
-		Set<K> kk = keySet();
-		k.addAll(kk);
+		KList<K> k = new KList<K>();
+		Enumeration<K> kk = keys();
+
+		while(kk.hasMoreElements())
+		{
+			K kkk = kk.nextElement();
+			k.add(kkk);
+		}
+
 		return k;
 	}
 
@@ -315,9 +323,9 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the values
 	 */
-	public GList<V> v()
+	public KList<V> v()
 	{
-		return new GList<V>(values());
+		return new KList<V>(values());
 	}
 
 	/**
@@ -329,7 +337,7 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *            the value (single only supported)
 	 * @return
 	 */
-	public WeakGMap<K, V> qput(K key, V value)
+	public KMap<K, V> qput(K key, V value)
 	{
 		super.put(key, value);
 		return this;
@@ -345,7 +353,7 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *            the nonnull value
 	 * @return the same map
 	 */
-	public WeakGMap<K, V> putNonNull(K key, V value)
+	public KMap<K, V> putNonNull(K key, V value)
 	{
 		if(key != null || value != null)
 		{
@@ -370,7 +378,7 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the cleared map
 	 */
-	public WeakGMap<K, V> qclear()
+	public KMap<K, V> qclear()
 	{
 		super.clear();
 		return this;
@@ -381,9 +389,9 @@ public class WeakGMap<K, V> extends WeakHashMap<K, V>
 	 *
 	 * @return the keypair list
 	 */
-	public GList<KeyPair<K, V>> keypair()
+	public KList<KeyPair<K, V>> keypair()
 	{
-		GList<KeyPair<K, V>> g = new GList<>();
+		KList<KeyPair<K, V>> g = new KList<>();
 		each((k, v) -> g.add(new KeyPair<K, V>(k, v)));
 		return g;
 	}
