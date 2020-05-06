@@ -18,12 +18,14 @@ import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.KSet;
 import ninja.bytecode.shuriken.execution.J;
 import ninja.bytecode.shuriken.logging.L;
-import ninja.bytecode.shuriken.math.M;
 
 public class SQLKit
 {
+	public static Runnable onHit = () ->
+	{
+	};
+	public static String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private Supplier<Connection> sql;
-	private long lastTest;
 	private boolean logging;
 	private KSet<String> existingTables;
 	private String sqlAddress = "localhost";
@@ -41,7 +43,6 @@ public class SQLKit
 	public SQLKit(Connection sql, boolean log)
 	{
 		listeners = new KList<>();
-		lastTest = M.ms();
 		existingTables = new KSet<String>();
 		this.sqlAddress = "none";
 		this.sqlDatabase = sqlAddress;
@@ -49,9 +50,9 @@ public class SQLKit
 		this.sqlPassword = sqlAddress;
 		this.sql = () -> sql;
 		logging = log;
-		driver = "com.mysql.jdbc.Driver";
+		driver = DRIVER;
 	}
-	
+
 	public void addListener(SQLListener s)
 	{
 		listeners.add(s);
@@ -67,13 +68,12 @@ public class SQLKit
 		this.pooling = pooling;
 		this.poolSize = poolSize;
 		pool = new KList<>();
-		lastTest = M.ms();
 		existingTables = new KSet<String>();
 		this.sqlAddress = sqlAddress;
 		this.sqlDatabase = sqlDatabase;
 		this.sqlUsername = sqlUsername;
 		this.sqlPassword = sqlPassword;
-		driver = "com.mysql.jdbc.Driver";
+		driver = DRIVER;
 	}
 
 	public void setLogging(boolean l)
@@ -103,15 +103,15 @@ public class SQLKit
 						{
 							Connection cx = createNewConnection("P" + (i + 2));
 							pool.add(cx);
-							
+
 							try
 							{
 								Thread.sleep(cwait);
 							}
-							
+
 							catch(InterruptedException e)
 							{
-								
+
 							}
 						}
 
@@ -322,7 +322,6 @@ public class SQLKit
 		return -1;
 	}
 
-	// TODO: Test
 	@SuppressWarnings("unchecked")
 	public <T> void getAllFieldsFor(Class<?> tclass, String field, String condition, Consumer<T> t, long chunkSize) throws SQLException, IllegalArgumentException, IllegalAccessException
 	{
@@ -342,7 +341,6 @@ public class SQLKit
 		}
 	}
 
-	// TODO: Test
 	public <T> void getAllFor(Supplier<T> tsup, String condition, Consumer<T> c, long chunkSize) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		T to = tsup.get();
@@ -366,7 +364,6 @@ public class SQLKit
 		}
 	}
 
-	// TODO: Test
 	public <T> T get(Class<T> t, Object idx) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, SQLException
 	{
 		T o = t.getConstructor(idx.getClass()).newInstance(idx);
@@ -495,7 +492,7 @@ public class SQLKit
 		return false;
 	}
 
-	private void ingest(Object object, ResultSet r) throws IllegalArgumentException, IllegalAccessException, SQLException
+	public void ingest(Object object, ResultSet r) throws IllegalArgumentException, IllegalAccessException, SQLException
 	{
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -539,6 +536,28 @@ public class SQLKit
 				}
 			}
 		}
+	}
+
+	public boolean isValid()
+	{
+		for(Connection i : pool.copy())
+		{
+			try
+			{
+				if(!i.isValid(5000))
+				{
+					return false;
+				}
+			}
+
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	public boolean validate(Object object) throws SQLException
@@ -1037,40 +1056,12 @@ public class SQLKit
 
 	public Connection getConnection()
 	{
-		try
+		if(onHit != null)
 		{
-			testConnection();
-		}
-
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+			onHit.run();
 		}
 
 		return sql.get();
-	}
-
-	private void testConnection() throws SQLException
-	{
-		if(M.ms() - lastTest < 5000)
-		{
-			return;
-		}
-
-		lastTest = M.ms();
-
-		try
-		{
-			if(!sql.get().isValid(3000))
-			{
-				throw new SQLException("Failed to connect");
-			}
-		}
-
-		catch(Throwable e)
-		{
-			throw new SQLException("Failed to connect");
-		}
 	}
 
 	private void f(String string)

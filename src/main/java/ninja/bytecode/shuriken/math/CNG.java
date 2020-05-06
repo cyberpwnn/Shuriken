@@ -11,14 +11,13 @@ public class CNG
 	public static final NoiseInjector MULTIPLY = (s, v) -> new double[] {s * v, 0};
 	public static final NoiseInjector MAX = (s, v) -> new double[] {Math.max(s, v), 0};
 	public static final NoiseInjector MIN = (s, v) -> new double[] {Math.min(s, v), 0};
-
 	private double freq;
 	private double amp;
 	private double scale;
 	private double fscale;
 	private final KList<CNG> children;
 	private CNG fracture;
-	private SimplexOctaveGenerator generator;
+	private SimplexNoise generator;
 	private final double opacity;
 	private NoiseInjector injector;
 	private RNG rng;
@@ -37,7 +36,7 @@ public class CNG
 		fscale = 1;
 		children = new KList<>();
 		fracture = null;
-		generator = new SimplexOctaveGenerator(random, octaves);
+		generator = new SimplexNoise(random);
 		this.opacity = opacity;
 		this.injector = ADD;
 	}
@@ -48,6 +47,7 @@ public class CNG
 		return this;
 	}
 
+	@Deprecated
 	public RNG nextRNG()
 	{
 		return getRNG().nextRNG();
@@ -95,8 +95,14 @@ public class CNG
 		double x = dim.length > 0 ? dim[0] + f : 0D;
 		double y = dim.length > 1 ? dim[1] - f : 0D;
 		double z = dim.length > 2 ? dim[2] + f : 0D;
-		double w = dim.length > 3 ? dim[3] - f : 0D;
-		double n = ((generator.noise(x * scale, y * scale, z * scale, w * scale, freq, amp, true) / 2D) + 0.5D) * opacity;
+		double n = ((generator.noise(
+				x * scale, 
+				y * scale,
+				z * scale, 
+				oct,
+				freq, 
+				amp, 
+				true) / 2D) + 0.5D) * opacity;
 		n = power != 1D ? Math.pow(n, power) : n;
 		double m = 1;
 		hits += oct;

@@ -2,7 +2,9 @@ package ninja.bytecode.shuriken.execution;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinPool.ForkJoinWorkerThreadFactory;
+import java.util.concurrent.ForkJoinWorkerThread;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,14 +36,19 @@ public class TaskExecutor
 
 		else if(threadLimit > 1)
 		{
-			service = Executors.newFixedThreadPool(threadLimit, (r) ->
+			final ForkJoinWorkerThreadFactory factory = new ForkJoinWorkerThreadFactory()
 			{
-				Thread t = new Thread(r);
-				t.setName(name + " " + xc++);
-				t.setPriority(priority);
+				@Override
+				public ForkJoinWorkerThread newThread(ForkJoinPool pool)
+				{
+					final ForkJoinWorkerThread worker = ForkJoinPool.defaultForkJoinWorkerThreadFactory.newThread(pool);
+					worker.setName(name + " " + xc++);
+					worker.setPriority(priority);
+					return worker;
+				}
+			};
 
-				return t;
-			});
+			service = new ForkJoinPool(threadLimit, factory, null, false);
 		}
 
 		else
@@ -80,35 +87,29 @@ public class TaskExecutor
 	{
 		private KList<AssignedTask> tasks;
 		private TaskExecutor e;
-		private ReentrantLock lock;
 
 		public TaskGroup(TaskExecutor e)
 		{
 			tasks = new KList<>();
 			this.e = e;
-			lock = new ReentrantLock();
 		}
 
 		public TaskGroup queue(NastyRunnable... r)
 		{
-			lock.lock();
 			for(NastyRunnable i : r)
 			{
 				tasks.add(new AssignedTask(i));
 			}
-			lock.unlock();
 
 			return this;
 		}
 
 		public TaskGroup queue(KList<NastyRunnable> r)
 		{
-			lock.lock();
 			for(NastyRunnable i : r)
 			{
 				tasks.add(new AssignedTask(i));
 			}
-			lock.unlock();
 
 			return this;
 		}
@@ -124,7 +125,15 @@ public class TaskExecutor
 
 			waiting: while(true)
 			{
-				J.sleep(0);
+				try
+				{
+					Thread.sleep(0);
+				}
+
+				catch(InterruptedException e1)
+				{
+
+				}
 
 				for(AssignedTask i : tasks)
 				{

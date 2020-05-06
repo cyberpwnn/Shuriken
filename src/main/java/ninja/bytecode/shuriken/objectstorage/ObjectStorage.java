@@ -71,14 +71,14 @@ public class ObjectStorage
 			httpCon.disconnect();
 			return true;
 		}
-		
+
 		catch(Throwable e)
 		{
 			L.ex(e);
 			return false;
 		}
 	}
-	
+
 	public void setPublic(String path)
 	{
 		AccessControlList acl = new AccessControlList();
@@ -95,7 +95,7 @@ public class ObjectStorage
 		metadata.setContentLength(f.length());
 		request.setMetadata(metadata);
 		s3.putObject(request);
-		
+
 		if(publicRead)
 		{
 			AccessControlList acl = new AccessControlList();
@@ -150,7 +150,7 @@ public class ObjectStorage
 	{
 		return url(p, expiry, HttpMethod.PUT);
 	}
-	
+
 	public String urlCDN()
 	{
 		return cdnEndpoint;

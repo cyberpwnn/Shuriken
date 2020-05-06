@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.jetty.http.HttpStatus;
-
 import com.google.gson.Gson;
 
 import lombok.EqualsAndHashCode;
@@ -28,6 +26,7 @@ import ninja.bytecode.shuriken.math.RNG;
 @EqualsAndHashCode(callSuper = false)
 public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWebHandler
 {
+	public static Runnable onHit = () -> {};
 	public static boolean LOG_REQUESTS = true;
 	private static String hardCache = null;
 	private String type;
@@ -42,6 +41,11 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 	public String getParcelType()
 	{
 		return type;
+	}
+	
+	protected int getStatusHTTPCode()
+	{
+		return 200;
 	}
 
 	protected boolean ensureParameters(HttpServletRequest r, String... pars)
@@ -62,6 +66,7 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 	{
 		String x = Thread.currentThread().getName();
 		Thread.currentThread().setName("WEB/" + getNode());
+		
 		try
 		{
 			l("GET", req);
@@ -210,8 +215,18 @@ public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWe
 	private void handleRequest(HttpServletRequest req, HttpServletResponse resp, boolean posting) throws ServletException, IOException
 	{
 		resp.setContentType("application/json");
-		resp.setStatus(HttpStatus.OK_200);
+		resp.setStatus(getStatusHTTPCode());
+		resp.addHeader("Access-Control-Allow-Origin", "*");
+		resp.addHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Cookie, X-CSRF-TOKEN, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Allow-Origin");
+		resp.addHeader("Access-Control-Expose-Headers", "Authorization, authenticated");
+		resp.addHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, OPTIONS");
+		resp.addHeader("Access-Control-Allow-Credentials", "true");
 		String d = null;
+		
+		if(onHit != null)
+		{
+			onHit.run();
+		}
 
 		// Avoid using object serialization if we're hard cached and have a cached value
 		if(hardCache != null && getClass().isAnnotationPresent(HardCache.class))

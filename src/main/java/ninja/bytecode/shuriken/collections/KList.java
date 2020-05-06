@@ -389,7 +389,7 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 */
 	public boolean hasIndex(int index)
 	{
-		return size() > index;
+		return size() > index && index >= 0;
 	}
 
 	/**
@@ -637,5 +637,11 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		}
 
 		return get(M.irand(0, last()));
+	}
+
+	public KList<T> qdel(T t)
+	{
+		remove(t);
+		return this;
 	}
 }

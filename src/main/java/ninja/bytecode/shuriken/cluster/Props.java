@@ -15,7 +15,7 @@ import ninja.bytecode.shuriken.logging.L;
 public class Props extends KMap<String, Object>
 {
 	private static final long serialVersionUID = -7017325150027317798L;
-	private String key;
+	protected transient String key;
 
 	public Props()
 	{
@@ -71,7 +71,7 @@ public class Props extends KMap<String, Object>
 		return p;
 	}
 
-	private static final File getProperties(String key)
+	protected static final File getProperties(String key)
 	{
 		File f = new File(Shuriken.DIR + "/Property Caches/" + UUID.nameUUIDFromBytes(key.getBytes()) + ".properties");
 		f.getParentFile().mkdirs();
@@ -104,13 +104,6 @@ public class Props extends KMap<String, Object>
 
 		return cropped;
 	}
-	
-	public Props put(String key, Object value)
-	{
-		super.put(key, value);
-		
-		return this;
-	}
 
 	public Props put(Props cc)
 	{
@@ -136,7 +129,7 @@ public class Props extends KMap<String, Object>
 
 		return cc;
 	}
-	
+
 	public boolean has(String key)
 	{
 		return containsKey(key);
@@ -189,6 +182,15 @@ public class Props extends KMap<String, Object>
 
 	public long getLong(String key, long defaultValue)
 	{
+		Object o = get(key);
+
+		if(o instanceof Double)
+		{
+			Double x = get(key);
+
+			return containsKey(key) ? x.longValue() : defaultValue;
+		}
+
 		return containsKey(key) ? get(key) : defaultValue;
 	}
 

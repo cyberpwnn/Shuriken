@@ -2,9 +2,6 @@ package ninja.bytecode.shuriken.math;
 
 import java.util.function.Function;
 
-import ninja.bytecode.shuriken.math.CNG;
-import ninja.bytecode.shuriken.math.RNG;
-
 /**
  * Generates cell like regions. You can get the edge value for border detection
  * 
@@ -39,7 +36,7 @@ public class SimplexCellGenerator
 
 		for(int i = 0; i < possibilities; i++)
 		{
-			gen[i] = new CNG(rng.nextRNG(), 1D, 1).scale(scale);
+			gen[i] = new CNG(rng.nextParallelRNG(i), 1D, 1).scale(scale);
 			gen[i] = factory.apply(gen[i]);
 		}
 	}

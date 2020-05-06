@@ -654,7 +654,7 @@ public class Form
 
 		if(ms / 1000.0 / 60.0 / 60.0 < 24.0)
 		{
-			return Form.f(ms / 1000.0 / 60.0, prec) + " hours";
+			return Form.f(ms / 1000.0 / 60.0 / 60.0, prec) + " hours";
 		}
 
 		if(ms / 1000.0 / 60.0 / 60.0 / 24.0 < 7)
@@ -698,7 +698,7 @@ public class Form
 
 		if(ms / 1000.0 / 60.0 / 60.0 < 24.0)
 		{
-			return Form.f(ms / 1000.0 / 60.0, prec) + " hours";
+			return Form.f(ms / 1000.0 / 60.0 / 60.0, prec) + " hours";
 		}
 
 		if(ms / 1000.0 / 60.0 / 60.0 / 24.0 < 7)
