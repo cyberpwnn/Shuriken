@@ -115,13 +115,13 @@ public class Interpolation
 	public static double cubic(double p0, double p1, double p2, double p3, double mu)
 	{
 		double a0, a1, a2, a3, mu2;
-
+		
 		mu2 = mu * mu;
 		a0 = p3 - p2 - p0 + p1;
 		a1 = p0 - p1 - a0;
 		a2 = p2 - p0;
 		a3 = p1;
-
+		
 		return a0 * mu * mu2 + a1 * mu2 + a2 * mu + a3;
 	}
 
