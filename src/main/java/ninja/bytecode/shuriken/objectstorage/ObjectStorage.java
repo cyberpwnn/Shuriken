@@ -17,6 +17,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.AccessControlList;
 import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
+import com.amazonaws.services.s3.model.Grant;
 import com.amazonaws.services.s3.model.GroupGrantee;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.Permission;
@@ -85,6 +86,24 @@ public class ObjectStorage
 		acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
 		acl.setOwner(s3.getS3AccountOwner());
 		s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+	}
+	
+	public boolean makePublic(String path)
+	{
+		AccessControlList acx = s3.getObjectAcl(bucket, path(path));
+		for(Grant i : acx.getGrantsAsList())
+		{
+			if(i.getGrantee().equals(GroupGrantee.AllUsers) && i.getPermission().equals(Permission.Read))
+			{
+				return false;
+			}
+		}
+		
+		AccessControlList acl = new AccessControlList();
+		acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
+		acl.setOwner(s3.getS3AccountOwner());
+		s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+		return true;
 	}
 
 	public void write(String path, File f, boolean publicRead)
