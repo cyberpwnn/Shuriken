@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.random;
 
 /**
  * Base class for all noise generators

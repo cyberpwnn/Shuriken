@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.io;
 import java.io.IOException;
 import java.io.InputStream;
 
-import ninja.bytecode.shuriken.math.RNG;
+import ninja.bytecode.shuriken.random.RNG;
 
 public class RandomInputStream extends InputStream
 {

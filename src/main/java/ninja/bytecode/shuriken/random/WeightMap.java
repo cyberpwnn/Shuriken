@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.random;
 
 import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.Shrinkwrap;

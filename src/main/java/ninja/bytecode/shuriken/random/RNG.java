@@ -1,6 +1,7 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.random;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -10,6 +11,7 @@ public class RNG extends Random
 	private static final long serialVersionUID = 5222938581174415179L;
 	public static final RNG r = new RNG();
 	private final long sx;
+
 	public RNG()
 	{
 		super();
@@ -32,12 +34,22 @@ public class RNG extends Random
 	{
 		this(UUID.nameUUIDFromBytes(seed.getBytes(StandardCharsets.UTF_8)).getLeastSignificantBits() + UUID.nameUUIDFromBytes(seed.getBytes(StandardCharsets.UTF_8)).getMostSignificantBits() + (seed.length() * 32564));
 	}
-	
+
 	public RNG nextParallelRNG(int signature)
 	{
 		return new RNG(sx + signature);
 	}
 	
+	public <T> T pick(List<T> options)
+	{
+		if(options.isEmpty())
+		{
+			return null;
+		}
+
+		return options.get(i(0, options.size() - 1));
+	}
+
 	@Deprecated
 	public RNG nextRNG()
 	{
@@ -86,6 +98,11 @@ public class RNG extends Random
 
 	public short si(int lowerBound, int upperBound)
 	{
+		if(lowerBound == upperBound)
+		{
+			return (short) lowerBound;
+		}
+
 		return (short) (lowerBound + (nextFloat() * ((upperBound - lowerBound) + 1)));
 	}
 
@@ -101,6 +118,11 @@ public class RNG extends Random
 
 	public float f(float lowerBound, float upperBound)
 	{
+		if(lowerBound == upperBound)
+		{
+			return lowerBound;
+		}
+
 		return lowerBound + (nextFloat() * ((upperBound - lowerBound)));
 	}
 
@@ -116,6 +138,11 @@ public class RNG extends Random
 
 	public double d(double lowerBound, double upperBound)
 	{
+		if(lowerBound == upperBound)
+		{
+			return lowerBound;
+		}
+
 		return lowerBound + (nextDouble() * ((upperBound - lowerBound)));
 	}
 
@@ -129,8 +156,22 @@ public class RNG extends Random
 		return d(1);
 	}
 
+	/**
+	 * Pick a random value (upper inclusive) (lower inclusive)
+	 * 
+	 * @param lowerBound
+	 *            the upper inclusive bound
+	 * @param upperBound
+	 *            the lower inclusive bound
+	 * @return a value at or between lower and upper bounds
+	 */
 	public int i(int lowerBound, int upperBound)
 	{
+		if(lowerBound == upperBound)
+		{
+			return lowerBound;
+		}
+
 		return (int) Math.round(d(lowerBound, upperBound));
 	}
 

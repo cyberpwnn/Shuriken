@@ -1,5 +1,7 @@
 package ninja.bytecode.shuriken.math;
 
+import ninja.bytecode.shuriken.random.NoiseProvider;
+
 public class Interpolation
 {
 	public static double bezier(double t)

@@ -6,9 +6,9 @@ import java.util.Enumeration;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import ninja.bytecode.shuriken.execution.Consumer2;
+import ninja.bytecode.shuriken.execution.Consumer3;
 import ninja.bytecode.shuriken.execution.Queue;
-import ninja.bytecode.shuriken.function.Consumer2;
-import ninja.bytecode.shuriken.function.Consumer3;
 
 public class KMap<K, V> extends ConcurrentHashMap<K, V>
 {

@@ -1,6 +1,8 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.random;
 
 import java.util.function.Function;
+
+import ninja.bytecode.shuriken.math.M;
 
 /**
  * Generates cell like regions. You can get the edge value for border detection

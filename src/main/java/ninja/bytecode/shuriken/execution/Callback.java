@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.function;
+package ninja.bytecode.shuriken.execution;
 
 public interface Callback<T>
 {

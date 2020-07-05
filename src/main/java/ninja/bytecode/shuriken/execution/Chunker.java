@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 
 import ninja.bytecode.shuriken.collections.Contained;
 import ninja.bytecode.shuriken.collections.KList;
-import ninja.bytecode.shuriken.function.Callback;
 
 public class Chunker<T>
 {

@@ -4,7 +4,6 @@ import java.io.File;
 
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
-import ninja.bytecode.shuriken.logging.L;
 
 public class FolderWatcher extends FileWatcher
 {

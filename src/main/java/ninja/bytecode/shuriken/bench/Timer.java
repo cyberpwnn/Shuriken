@@ -1,4 +1,6 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.bench;
+
+import ninja.bytecode.shuriken.math.M;
 
 /**
  * Timer

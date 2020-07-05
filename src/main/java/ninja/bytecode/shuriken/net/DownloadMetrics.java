@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.net;
 
 import ninja.bytecode.shuriken.math.M;
-import ninja.bytecode.shuriken.math.RollingSequence;
+import ninja.bytecode.shuriken.random.RollingSequence;
 
 public class DownloadMetrics
 {

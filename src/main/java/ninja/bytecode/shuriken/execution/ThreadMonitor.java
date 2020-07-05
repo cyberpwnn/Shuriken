@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.execution;
 import ninja.bytecode.shuriken.bench.PrecisionStopwatch;
 import ninja.bytecode.shuriken.format.Form;
 import ninja.bytecode.shuriken.logging.L;
-import ninja.bytecode.shuriken.math.RollingSequence;
+import ninja.bytecode.shuriken.random.RollingSequence;
 
 /**
  * Not particularly efficient or perfectly accurate but is great at fast thread switching detection

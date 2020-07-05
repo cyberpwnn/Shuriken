@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.cluster;
+package ninja.bytecode.shuriken.config;
 
 import java.io.File;
 import java.util.UUID;

@@ -1,6 +1,8 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.random;
 
 import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.math.Average;
+import ninja.bytecode.shuriken.math.M;
 
 public class RollingSequence extends Average
 {

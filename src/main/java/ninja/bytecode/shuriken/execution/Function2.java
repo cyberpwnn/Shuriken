@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.function;
+package ninja.bytecode.shuriken.execution;
 
 @FunctionalInterface
 public interface Function2<A, B, R>

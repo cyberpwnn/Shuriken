@@ -279,7 +279,24 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	}
 
 	/**
-	 * Convert a list into another list type. Such as GList<Integer> to
+	 * Add the contents of the given list (v) into this list using a converter
+	 * 
+	 * @param <V>
+	 *            the type of the forign list
+	 * @param v
+	 *            the forign (given) list
+	 * @param converter
+	 *            the converter that converts the forign type into this list type
+	 * @return this list (builder)
+	 */
+	public <V> KList<T> addFrom(List<V> v, Function<V, T> converter)
+	{
+		v.forEach((g) -> add(converter.apply(g)));
+		return this;
+	}
+
+	/**
+	 * Convert this list into another list type. Such as GList<Integer> to
 	 * GList<String>. list.convert((i) -> "" + i);
 	 *
 	 * @param <V>
@@ -409,7 +426,8 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 */
 	public KList<T> dedupe()
 	{
-		return qclear().add(new LinkedHashSet<T>(this));
+		LinkedHashSet<T> lhs = new LinkedHashSet<T>(this);
+		return qclear().add(lhs);
 	}
 
 	/**
@@ -429,6 +447,16 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 * @return true if this list has 1 or more element(s)
 	 */
 	public boolean hasElements()
+	{
+		return !isEmpty();
+	}
+
+	/**
+	 * Simply !isEmpty()
+	 *
+	 * @return true if this list has 1 or more element(s)
+	 */
+	public boolean isNotEmpty()
 	{
 		return !isEmpty();
 	}

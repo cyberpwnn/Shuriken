@@ -21,7 +21,7 @@ import ninja.bytecode.shuriken.io.IO;
 import ninja.bytecode.shuriken.json.JSONObject;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
-import ninja.bytecode.shuriken.math.RNG;
+import ninja.bytecode.shuriken.random.RNG;
 
 @EqualsAndHashCode(callSuper = false)
 public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWebHandler

@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.math;
+package ninja.bytecode.shuriken.physics;
 
 public class AlignedPoint
 {
