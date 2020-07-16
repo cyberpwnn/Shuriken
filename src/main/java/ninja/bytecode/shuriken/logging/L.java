@@ -21,7 +21,7 @@ public class L
 	public static Consumer<String> consoleConsumer;
 	public static KList<Consumer<String>> logConsumers;
 	public static boolean DEDUPLICATE_LOGS = true;
-	public static long IDLE_FLUSH_INTERVAL = 750;
+	public static long IDLE_FLUSH_INTERVAL = 850;
 	public static long ACTIVE_FLUSH_INTERVAL = 250;
 	
 	public static void clearLogConsumers()
