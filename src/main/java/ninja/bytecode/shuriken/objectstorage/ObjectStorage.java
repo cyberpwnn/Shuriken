@@ -20,6 +20,7 @@ import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
 import com.amazonaws.services.s3.model.Grant;
 import com.amazonaws.services.s3.model.GroupGrantee;
 import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.Owner;
 import com.amazonaws.services.s3.model.Permission;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.SetObjectAclRequest;
@@ -38,9 +39,11 @@ public class ObjectStorage
 	private final String bucket;
 	private final String root;
 	private final String cdnID;
+	private Owner lso;
 
 	public ObjectStorage(String authKey, String authSecret, String cdnEndpoint, String endpoint, String endpointRegion, String bucket, String root, String doAPIToken, String cdnID)
 	{
+		lso = null;
 		this.cdnEndpoint = cdnEndpoint;
 		this.doAPIToken = doAPIToken;
 		this.endpoint = endpoint;
@@ -84,10 +87,10 @@ public class ObjectStorage
 	{
 		AccessControlList acl = new AccessControlList();
 		acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
-		acl.setOwner(s3.getS3AccountOwner());
+		acl.setOwner(getOwner());
 		s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
 	}
-	
+
 	public boolean makePublic(String path)
 	{
 		AccessControlList acx = s3.getObjectAcl(bucket, path(path));
@@ -98,11 +101,20 @@ public class ObjectStorage
 				return false;
 			}
 		}
-		
-		AccessControlList acl = new AccessControlList();
-		acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
-		acl.setOwner(s3.getS3AccountOwner());
-		s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+
+		try
+		{
+			AccessControlList acl = new AccessControlList();
+			acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
+			acl.setOwner(getOwner());
+			s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+		}
+
+		catch(Throwable e)
+		{
+			L.ex(e);
+		}
+
 		return true;
 	}
 
@@ -117,11 +129,42 @@ public class ObjectStorage
 
 		if(publicRead)
 		{
-			AccessControlList acl = new AccessControlList();
-			acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
-			acl.setOwner(s3.getS3AccountOwner());
-			s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+			try
+			{
+				AccessControlList acl = new AccessControlList();
+				acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
+				acl.setOwner(getOwner());
+				s3.setObjectAcl(new SetObjectAclRequest(bucket, path(path), acl));
+				makePublic(path);
+			}
+
+			catch(Throwable e)
+			{
+				e.printStackTrace();
+			}
 		}
+	}
+
+	private Owner getOwner()
+	{
+		Owner o = s3.getS3AccountOwner();
+
+		if(o == null)
+		{
+			o = s3.getBucketAcl(bucket).getOwner();
+		}
+
+		if(o == null)
+		{
+			o = lso;
+		}
+
+		else
+		{
+			lso = o;
+		}
+
+		return o;
 	}
 
 	public void write(String path, File f)
