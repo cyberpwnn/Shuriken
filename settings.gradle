@@ -3,4 +3,5 @@ include 'shuriken-core'
 include 'shuriken-sql'
 include 'shuriken-mail'
 include 'shuriken-web'
+include 'shuriken-cloud'
 

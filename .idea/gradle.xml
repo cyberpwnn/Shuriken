@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/shuriken-cloud" />
             <option value="$PROJECT_DIR$/shuriken-core" />
             <option value="$PROJECT_DIR$/shuriken-mail" />
             <option value="$PROJECT_DIR$/shuriken-sql" />
