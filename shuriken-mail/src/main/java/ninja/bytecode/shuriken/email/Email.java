@@ -1,27 +1,21 @@
 package ninja.bytecode.shuriken.email;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.concurrent.Future;
+import com.sun.mail.util.MailSSLSocketFactory;
+import ninja.bytecode.shuriken.execution.J;
+import ninja.bytecode.shuriken.io.IO;
+import ninja.bytecode.shuriken.logging.L;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.Multipart;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-
-import com.sun.mail.util.MailSSLSocketFactory;
-
-import ninja.bytecode.shuriken.execution.J;
-import ninja.bytecode.shuriken.io.IO;
-import ninja.bytecode.shuriken.logging.L;
+import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.Future;
 
 public class Email
 {

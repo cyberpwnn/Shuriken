@@ -1,4 +1,6 @@
 rootProject.name = 'Shuriken'
 include 'shuriken-core'
 include 'shuriken-sql'
+include 'shuriken-mail'
+include 'shuriken-web'
 

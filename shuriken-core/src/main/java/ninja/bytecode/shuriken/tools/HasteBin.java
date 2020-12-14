@@ -1,11 +1,11 @@
-package ninja.bytecode.shuriken.web;
+package ninja.bytecode.shuriken.tools;
+
+import ninja.bytecode.shuriken.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import ninja.bytecode.shuriken.json.JSONObject;
 
 /**
  * Paste to the web

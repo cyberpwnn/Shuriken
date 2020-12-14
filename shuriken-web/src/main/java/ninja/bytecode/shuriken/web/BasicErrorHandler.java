@@ -1,12 +1,11 @@
 package ninja.bytecode.shuriken.web;
 
-import java.io.IOException;
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.handler.ErrorHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.handler.ErrorHandler;
+import java.io.IOException;
 
 public class BasicErrorHandler extends ErrorHandler
 {

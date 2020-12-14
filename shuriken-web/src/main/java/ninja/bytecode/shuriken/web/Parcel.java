@@ -1,19 +1,6 @@
 package ninja.bytecode.shuriken.web;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.google.gson.Gson;
-
 import lombok.EqualsAndHashCode;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.execution.J;
@@ -22,6 +9,17 @@ import ninja.bytecode.shuriken.json.JSONObject;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.random.RNG;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 @EqualsAndHashCode(callSuper = false)
 public abstract class Parcel extends HttpServlet implements Parcelable, ParcelWebHandler

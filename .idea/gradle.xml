@@ -11,7 +11,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/shuriken-core" />
+            <option value="$PROJECT_DIR$/shuriken-mail" />
             <option value="$PROJECT_DIR$/shuriken-sql" />
+            <option value="$PROJECT_DIR$/shuriken-web" />
           </set>
         </option>
       </GradleProjectSettings>

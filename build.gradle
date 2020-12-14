@@ -8,13 +8,16 @@ version '2.0'
 subprojects {
     group rootProject.group
     version rootProject.version
+    apply plugin: 'java'
+    apply plugin: 'java-library'
 
     repositories {
         mavenCentral()
     }
 
     dependencies {
-
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
     }
 }
 
@@ -23,5 +26,6 @@ repositories {
 }
 
 dependencies {
-
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
 }

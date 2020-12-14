@@ -1,11 +1,11 @@
 package ninja.bytecode.shuriken.web;
 
+import ninja.bytecode.shuriken.collections.KList;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-
-import ninja.bytecode.shuriken.collections.KList;
 
 public interface DownloadParcelable extends Parcelable
 {
