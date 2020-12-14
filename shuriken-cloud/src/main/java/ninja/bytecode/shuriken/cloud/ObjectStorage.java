@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken;
+package ninja.bytecode.shuriken.cloud;
 
 import com.amazonaws.HttpMethod;
 import com.amazonaws.auth.AWSCredentials;
