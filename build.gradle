@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'ninja.bytecode.shuriken'
+version '2.0'
+
+subprojects {
+    group rootProject.group
+    version rootProject.version
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}

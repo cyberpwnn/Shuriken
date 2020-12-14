@@ -1,0 +1,4 @@
+rootProject.name = 'Shuriken'
+include 'shuriken-core'
+include 'shuriken-sql'
+
