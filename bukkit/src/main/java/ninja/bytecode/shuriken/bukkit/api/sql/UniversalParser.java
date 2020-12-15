@@ -16,8 +16,8 @@ import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import ninja.bytecode.shuriken.json.JSONArray;
+import ninja.bytecode.shuriken.json.JSONObject;
 
 public class UniversalParser
 {

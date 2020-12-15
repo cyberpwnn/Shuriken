@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.function.Function;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import org.json.JSONArray;
+import ninja.bytecode.shuriken.json.JSONArray;
 
 /**
  * GLists are Arraylists with special enhancements

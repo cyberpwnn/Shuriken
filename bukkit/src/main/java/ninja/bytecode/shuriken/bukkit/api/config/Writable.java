@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.config;
 
-import org.json.JSONObject;
+import ninja.bytecode.shuriken.json.JSONObject;
 
 public interface Writable
 {

@@ -6,8 +6,8 @@ import java.util.List;
 import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import ninja.bytecode.shuriken.json.JSONArray;
+import ninja.bytecode.shuriken.json.JSONObject;
 
 public class WrappedJSONConfiguration implements ConfigWrapper
 {

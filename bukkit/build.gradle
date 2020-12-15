@@ -2,4 +2,13 @@ dependencies {
     api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
     api 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
     api 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
+    api 'org.bukkit.craftbukkit:cb-1.16.2:1.16.2'
+    api 'org.bukkit.craftbukkit:cb-1.15.1:1.15.1'
+    api 'org.bukkit.craftbukkit:cb-1.14.4:1.14.4'
+    api 'org.bukkit.craftbukkit:cb-1.13.2:1.13.2'
+    api 'org.bukkit.craftbukkit:cb-1.12.2:1.12.2'
+    api 'org.bukkit.craftbukkit:cb-1.11.2:1.11.2'
+    api 'org.bukkit.craftbukkit:cb-1.10.2:1.10.2'
+    api 'org.bukkit.craftbukkit:cb-1.9.4:1.9.4'
+    api 'org.bukkit.craftbukkit:cb-1.8.8:1.8.8'
 }

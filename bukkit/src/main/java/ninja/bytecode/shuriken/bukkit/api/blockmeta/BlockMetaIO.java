@@ -6,12 +6,12 @@ import ninja.bytecode.shuriken.bukkit.logic.io.Hasher;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.gross.BlackMagicException;
 import ninja.bytecode.shuriken.bukkit.util.gross.ObjectWitchcraft;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.sql.UniversalParser;
-import org.json.JSONObject;
 
 public class BlockMetaIO
 {
