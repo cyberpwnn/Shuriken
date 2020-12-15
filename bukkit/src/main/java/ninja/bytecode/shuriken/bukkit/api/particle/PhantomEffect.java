@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.particle;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 
 /**
@@ -10,9 +11,9 @@ import org.bukkit.Location;
 public abstract class PhantomEffect implements VisualEffect
 {
 	@Override
-	public GList<VisualEffect> getEffects()
+	public KList<VisualEffect> getEffects()
 	{
-		return new GList<VisualEffect>();
+		return new KList<VisualEffect>();
 	}
 
 	@Override

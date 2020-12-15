@@ -3,8 +3,8 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 import java.util.Set;
 import java.util.UUID;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GListAdapter;
+
+import ninja.bytecode.shuriken.bukkit.lang.collection.KListAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -46,7 +46,7 @@ public class Players
 		message(getNonOps(), message);
 	}
 
-	public static void message(GList<Player> p, String msg)
+	public static void message(KList<Player> p, String msg)
 	{
 		for(Player i : onlinePlayers())
 		{
@@ -158,9 +158,9 @@ public class Players
 	 *            the world
 	 * @return the players
 	 */
-	public static GList<Player> inWorld(World world)
+	public static KList<Player> inWorld(World world)
 	{
-		return new GList<Player>(world.getPlayers());
+		return new KList<Player>(world.getPlayers());
 	}
 
 	/**
@@ -170,9 +170,9 @@ public class Players
 	 *            the chunk
 	 * @return the list of players
 	 */
-	public static GList<Player> inChunk(Chunk chunk)
+	public static KList<Player> inChunk(Chunk chunk)
 	{
-		return new GList<Player>(new GListAdapter<Entity, Player>()
+		return new KList<Player>(new KListAdapter<Entity, Player>()
 		{
 			@Override
 			public Player onAdapt(Entity from)
@@ -184,7 +184,7 @@ public class Players
 
 				return null;
 			}
-		}.adapt(new GList<Entity>(chunk.getEntities())));
+		}.adapt(new KList<Entity>(chunk.getEntities())));
 	}
 
 	/**
@@ -196,9 +196,9 @@ public class Players
 	 *            the three dimensional area radius to search
 	 * @return a list of players in the given area
 	 */
-	public static GList<Player> inArea(Location l, double radius)
+	public static KList<Player> inArea(Location l, double radius)
 	{
-		return new GList<Player>(new Area(l, radius).getNearbyPlayers());
+		return new KList<Player>(new Area(l, radius).getNearbyPlayers());
 	}
 
 	/**
@@ -210,9 +210,9 @@ public class Players
 	 *            the three dimensional area radius to search
 	 * @return a list of players in the given area
 	 */
-	public static GList<Player> inArea(Location l, int radius)
+	public static KList<Player> inArea(Location l, int radius)
 	{
-		return new GList<Player>(new Area(l, radius).getNearbyPlayers());
+		return new KList<Player>(new Area(l, radius).getNearbyPlayers());
 	}
 
 	/**
@@ -271,10 +271,10 @@ public class Players
 	 *            the search query
 	 * @return a list of partial matches
 	 */
-	public GList<Player> getPlayers(String search)
+	public KList<Player> getPlayers(String search)
 	{
-		GList<Player> players = getPlayers();
-		GList<Player> found = new GList<Player>();
+		KList<Player> players = getPlayers();
+		KList<Player> found = new KList<Player>();
 
 		for(Player i : players)
 		{
@@ -316,11 +316,11 @@ public class Players
 	/**
 	 * Returns a list of ops
 	 *
-	 * @return ops in glist
+	 * @return ops in KList
 	 */
-	public static GList<Player> getOps()
+	public static KList<Player> getOps()
 	{
-		return getPlayers(new GListAdapter<Player, Player>()
+		return getPlayers(new KListAdapter<Player, Player>()
 		{
 			@Override
 			public Player onAdapt(Player from)
@@ -335,9 +335,9 @@ public class Players
 	 *
 	 * @return non op list
 	 */
-	public static GList<Player> getNonOps()
+	public static KList<Player> getNonOps()
 	{
-		return getPlayers(new GListAdapter<Player, Player>()
+		return getPlayers(new KListAdapter<Player, Player>()
 		{
 			@Override
 			public Player onAdapt(Player from)
@@ -353,11 +353,11 @@ public class Players
 	 * @param permissions
 	 *            a collection of permissions any player in the return list must
 	 *            have. Supplying no permissions will return the source list.
-	 * @return a glist of players
+	 * @return a KList of players
 	 */
-	public static GList<Player> getPlayersWithPermission(String... permissions)
+	public static KList<Player> getPlayersWithPermission(String... permissions)
 	{
-		return getPlayers(new GListAdapter<Player, Player>()
+		return getPlayers(new KListAdapter<Player, Player>()
 		{
 			@Override
 			public Player onAdapt(Player from)
@@ -381,11 +381,11 @@ public class Players
 	 * @param permissions
 	 *            a collection of permissions any player in the return list cannot
 	 *            have. Supplying no permissions will return the source list.
-	 * @return a glist of players
+	 * @return a KList of players
 	 */
-	public static GList<Player> getPlayersWithoutPermission(String... permissions)
+	public static KList<Player> getPlayersWithoutPermission(String... permissions)
 	{
-		return getPlayers(new GListAdapter<Player, Player>()
+		return getPlayers(new KListAdapter<Player, Player>()
 		{
 			@Override
 			public Player onAdapt(Player from)
@@ -408,24 +408,24 @@ public class Players
 	 * players currently connected.
 	 *
 	 * @param adapter
-	 *            the glist adapter to determine if the player should be adapted to
+	 *            the KList adapter to determine if the player should be adapted to
 	 *            the next list. If the adapter returns null instead of the source
 	 *            player, it will not be added to the list.
 	 * @return the adapted list of players
 	 */
-	public static GList<Player> getPlayers(GListAdapter<Player, Player> adapter)
+	public static KList<Player> getPlayers(KListAdapter<Player, Player> adapter)
 	{
-		return (GList<Player>) adapter.adapt(getPlayers());
+		return (KList<Player>) adapter.adapt(getPlayers());
 	}
 
 	/**
-	 * Returns a glist of all players currently online
+	 * Returns a KList of all players currently online
 	 *
-	 * @return a glist representing all online players
+	 * @return a KList representing all online players
 	 */
-	public static GList<Player> getPlayers()
+	public static KList<Player> getPlayers()
 	{
-		GList<Player> p = new GList<Player>();
+		KList<Player> p = new KList<Player>();
 
 		for(Player i : Bukkit.getOnlinePlayers())
 		{
@@ -622,9 +622,9 @@ public class Players
 	 *
 	 * @return the players
 	 */
-	public static GList<Player> onlinePlayers()
+	public static KList<Player> onlinePlayers()
 	{
-		GList<Player> px = new GList<Player>();
+		KList<Player> px = new KList<Player>();
 
 		for(Player i : Bukkit.getOnlinePlayers())
 		{
@@ -667,7 +667,7 @@ public class Players
 	 */
 	public static void clearEffects(Player p)
 	{
-		for(PotionEffect i : new GList<PotionEffect>(p.getActivePotionEffects()))
+		for(PotionEffect i : new KList<PotionEffect>(p.getActivePotionEffects()))
 		{
 			p.removePotionEffect(i.getType());
 		}

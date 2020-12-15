@@ -8,7 +8,7 @@ import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 
 import ninja.bytecode.shuriken.bukkit.api.sql.CustomOutputStream;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class PropertyBinaryAdapter implements PropertyAdapter<ByteBuffer>
 {
@@ -26,7 +26,7 @@ public class PropertyBinaryAdapter implements PropertyAdapter<ByteBuffer>
 
 	private void write(PropertySet s, DataOutputStream dos) throws IOException
 	{
-		GList<String> keys = s.getKeys();
+		KList<String> keys = s.getKeys();
 
 		for(String i : keys)
 		{

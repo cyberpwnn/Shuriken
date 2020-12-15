@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Material;
 
 /**
@@ -10,11 +10,11 @@ import org.bukkit.Material;
  */
 public class VariableBlock
 {
-	private GList<MaterialBlock> blocks;
+	private KList<MaterialBlock> blocks;
 
 	public VariableBlock()
 	{
-		blocks = new GList<MaterialBlock>();
+		blocks = new KList<MaterialBlock>();
 	}
 
 	public VariableBlock(String data)
@@ -32,7 +32,7 @@ public class VariableBlock
 	 */
 	public VariableBlock(MaterialBlock... blocks)
 	{
-		this.blocks = new GList<MaterialBlock>(blocks);
+		this.blocks = new KList<MaterialBlock>(blocks);
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class VariableBlock
 	 *
 	 * @return the variable blocks
 	 */
-	public GList<MaterialBlock> getBlocks()
+	public KList<MaterialBlock> getBlocks()
 	{
 		return blocks;
 	}
@@ -148,7 +148,7 @@ public class VariableBlock
 	@Override
 	public String toString()
 	{
-		GList<String> s = new GList<String>();
+		KList<String> s = new KList<String>();
 
 		for(MaterialBlock i : blocks)
 		{

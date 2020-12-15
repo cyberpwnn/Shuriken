@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.sound;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
@@ -14,14 +14,14 @@ public class Audio implements Audible
 	private float p;
 	private SoundCategory c;
 	private Sound s;
-	private GList<Audible> a;
+	private KList<Audible> a;
 	private int delay;
 	private String sound;
 
 	public Audio()
 	{
 		sound = null;
-		a = new GList<Audible>();
+		a = new KList<Audible>();
 		c(SoundCategory.AMBIENT).v(1f).p(1f);
 		delay = 0;
 	}
@@ -191,7 +191,7 @@ public class Audio implements Audible
 	}
 
 	@Override
-	public GList<Audible> getChildren()
+	public KList<Audible> getChildren()
 	{
 		return a;
 	}
@@ -288,7 +288,7 @@ public class Audio implements Audible
 	}
 
 	@Override
-	public Audible addChildren(GList<Audible> a)
+	public Audible addChildren(KList<Audible> a)
 	{
 		getChildren().addAll(a);
 		return this;

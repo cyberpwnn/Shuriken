@@ -1,16 +1,16 @@
 package ninja.bytecode.shuriken.bukkit.api.tome;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.dom4j.Element;
 import org.dom4j.Node;
 
 public class TomeComponent implements WritableComponent, ReadableComponent
 {
-	private GList<TomeComponent> components;
+	private KList<TomeComponent> components;
 
 	public TomeComponent()
 	{
-		this.components = new GList<>();
+		this.components = new KList<>();
 	}
 
 	@Override
@@ -28,12 +28,12 @@ public class TomeComponent implements WritableComponent, ReadableComponent
 		}
 	}
 
-	public GList<TomeComponent> getComponents()
+	public KList<TomeComponent> getComponents()
 	{
 		return components;
 	}
 
-	public void setComponents(GList<TomeComponent> components)
+	public void setComponents(KList<TomeComponent> components)
 	{
 		this.components = components;
 	}

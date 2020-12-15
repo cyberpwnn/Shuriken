@@ -96,7 +96,7 @@ public class JarTools
 	 * 
 	 * @param superPackage
 	 *            the package (i.e. something.xxx.types)
-	 * @return glist of classes
+	 * @return KList of classes
 	 */
 	public static KList<Class<?>> getClassesInPackage(String superPackage)
 	{
@@ -110,7 +110,7 @@ public class JarTools
 	 *            the jar containing the package
 	 * @param superPackage
 	 *            the package (i.e. something.xxx.types)
-	 * @return glist of classes
+	 * @return KList of classes
 	 */
 	public static KList<Class<?>> getClassesInPackage(File codeSource, String superPackage)
 	{

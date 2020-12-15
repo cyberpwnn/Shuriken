@@ -2,9 +2,9 @@ package ninja.bytecode.shuriken.bukkit.api.rift;
 
 import java.util.Iterator;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
@@ -19,8 +19,8 @@ public class PhysicsThrottle
 	private World world;
 	private int delay;
 	private int reschedule;
-	private GMap<NextTickListEntry, Integer> delayedEntries;
-	private GList<NextTickListEntry> delayedOrder;
+	private KMap<NextTickListEntry, Integer> delayedEntries;
+	private KList<NextTickListEntry> delayedOrder;
 	private HashTreeSet<NextTickListEntry> t;
 
 	public PhysicsThrottle(Rift rift)
@@ -29,8 +29,8 @@ public class PhysicsThrottle
 		this.rift = rift;
 		delay = 0;
 		reschedule = 0;
-		delayedEntries = new GMap<>();
-		delayedOrder = new GList<>();
+		delayedEntries = new KMap<>();
+		delayedOrder = new KList<>();
 		t = getTickList();
 	}
 
@@ -48,11 +48,11 @@ public class PhysicsThrottle
 	{
 		try
 		{
-			GMap<Integer, GList<NextTickListEntry>> v = delayedEntries.flip();
+			KMap<Integer, KList<NextTickListEntry>> v = delayedEntries.flip();
 			delayedEntries.clear();
 			delayedOrder.clear();
 
-			for(GList<NextTickListEntry> i : v.sortV().reverse())
+			for(KList<NextTickListEntry> i : v.sortV().reverse())
 			{
 				t.addAll(i);
 			}

@@ -6,9 +6,9 @@ import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
-import ninja.bytecode.shuriken.bukkit.lang.collection.LGMap;
+
+
+import ninja.bytecode.shuriken.bukkit.lang.collection.LKMap;
 import ninja.bytecode.shuriken.bukkit.util.text.Alphabet;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,9 +25,9 @@ public class CommandCatalogue extends MortarCommand
 	{
 		J.a(() ->
 		{
-			GMap<String, Tome> rtomes = TomeLibrary.getInstance().getTomes();
-			GList<Tome> tomes = rtomes.sortV();
-			LGMap<Alphabet, TomeSection> sections = new LGMap<>();
+			KMap<String, Tome> rtomes = TomeLibrary.getInstance().getTomes();
+			KList<Tome> tomes = rtomes.sortV();
+			LKMap<Alphabet, TomeSection> sections = new LKMap<>();
 
 			//@builder
 			Tome tome = new Tome();

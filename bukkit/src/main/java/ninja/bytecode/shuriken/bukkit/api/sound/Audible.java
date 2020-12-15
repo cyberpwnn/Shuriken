@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.sound;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
@@ -48,7 +48,7 @@ public interface Audible extends Cloneable
 
 	public float getPitch();
 
-	public GList<Audible> getChildren();
+	public KList<Audible> getChildren();
 
 	public Audible addChild(Audible a);
 
@@ -64,7 +64,7 @@ public interface Audible extends Cloneable
 
 	public Audible setSound(String s);
 
-	public Audible addChildren(GList<Audible> a);
+	public Audible addChildren(KList<Audible> a);
 
 	public boolean hasDelay();
 

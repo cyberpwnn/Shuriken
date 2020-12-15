@@ -260,7 +260,7 @@ public class KList<T> extends ArrayList<T> implements List<T>
 
 		StringBuilder b = new StringBuilder();
 
-		for(String i : toStringList())
+		for(String i : toStrinKList())
 		{
 			b.append(split + i);
 		}
@@ -273,7 +273,7 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 *
 	 * @return the string list
 	 */
-	public KList<String> toStringList()
+	public KList<String> toStrinKList()
 	{
 		return convert((t) -> t.toString());
 	}
@@ -296,8 +296,8 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	}
 
 	/**
-	 * Convert this list into another list type. Such as GList<Integer> to
-	 * GList<String>. list.convert((i) -> "" + i);
+	 * Convert this list into another list type. Such as KList<Integer> to
+	 * KList<String>. list.convert((i) -> "" + i);
 	 *
 	 * @param <V>
 	 * @param converter
@@ -367,7 +367,7 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	}
 
 	/**
-	 * Add another glist's contents to this one (addall builder)
+	 * Add another KList's contents to this one (addall builder)
 	 *
 	 * @param t
 	 *            the list
@@ -542,7 +542,7 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		return j;
 	}
 
-	public static KList<String> asStringList(List<?> oo)
+	public static KList<String> asStrinKList(List<?> oo)
 	{
 		KList<String> s = new KList<String>();
 

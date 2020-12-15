@@ -11,16 +11,16 @@ import java.util.concurrent.RejectedExecutionException;
 import ninja.bytecode.shuriken.bukkit.compute.math.Profiler;
 import ninja.bytecode.shuriken.bukkit.compute.math.RollingAverage;
 import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
 import ninja.bytecode.shuriken.bukkit.util.queue.PhantomQueue;
 import ninja.bytecode.shuriken.bukkit.util.queue.Queue;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 
 public class TetrisJobScheduler implements JobScheduler
 {
-	private GMap<UUID, Callback<JobResult>> callbacks;
-	private GMap<String, JobMetrics> metrics;
-	private GMap<JobEnvironment, GMap<JobUrgency, Queue<Job>>> queue;
+	private KMap<UUID, Callback<JobResult>> callbacks;
+	private KMap<String, JobMetrics> metrics;
+	private KMap<JobEnvironment, KMap<JobUrgency, Queue<Job>>> queue;
 	private Queue<Job> syncQueue;
 	private Queue<Runnable> syncBackingQueue;
 	private Queue<Job> asyncQueue;
@@ -40,19 +40,19 @@ public class TetrisJobScheduler implements JobScheduler
 		syncUsage.put(0);
 		queueSlope.put(0);
 		lastSyncQueue = 0;
-		callbacks = new GMap<>();
-		metrics = new GMap<>();
+		callbacks = new KMap<>();
+		metrics = new KMap<>();
 		syncBackingQueue = new PhantomQueue<>();
 		asyncBackingQueue = new PhantomQueue<>();
 		logicQueue = new PhantomQueue<>();
 		syncQueue = new PhantomQueue<>();
 		asyncQueue = new PhantomQueue<>();
-		queue = new GMap<>();
+		queue = new KMap<>();
 		threshold = 0.01;
 
 		for(JobEnvironment i : JobEnvironment.values())
 		{
-			GMap<JobUrgency, Queue<Job>> g = new GMap<>();
+			KMap<JobUrgency, Queue<Job>> g = new KMap<>();
 
 			for(JobUrgency j : JobUrgency.values())
 			{
@@ -295,7 +295,7 @@ public class TetrisJobScheduler implements JobScheduler
 		}
 	}
 
-	private void tick(JobEnvironment env, GMap<JobUrgency, Queue<Job>> qm)
+	private void tick(JobEnvironment env, KMap<JobUrgency, Queue<Job>> qm)
 	{
 		if(env.equals(JobEnvironment.SYNCHRONOUS))
 		{

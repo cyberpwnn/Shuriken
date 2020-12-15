@@ -4,8 +4,10 @@ import ninja.bytecode.shuriken.bukkit.api.world.Axis;
 import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
 import ninja.bytecode.shuriken.bukkit.api.world.Direction;
 import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Location;
 import org.bukkit.material.Stairs;
 import org.bukkit.util.Vector;
@@ -17,18 +19,18 @@ import org.bukkit.util.Vector;
  */
 public class VectorSchematic
 {
-	private final GMap<Vector, VariableBlock> schematic;
+	private final KMap<Vector, VariableBlock> schematic;
 	private PermutationType pt;
-	private GList<VectorSchematic> types;
+	private KList<VectorSchematic> types;
 
 	/**
 	 * Create a vector schematic
 	 */
 	public VectorSchematic()
 	{
-		schematic = new GMap<Vector, VariableBlock>();
+		schematic = new KMap<Vector, VariableBlock>();
 		pt = PermutationType.NONE;
-		types = new GList<VectorSchematic>();
+		types = new KList<VectorSchematic>();
 	}
 
 	public void setPermutationType(PermutationType type)
@@ -73,8 +75,7 @@ public class VectorSchematic
 		types.add(flip(Axis.X));
 		types.add(flip(Axis.Y));
 		types.add(flip(Axis.Z));
-
-		types.removeDuplicates();
+		types.dedupe();
 
 		this.pt = type;
 	}
@@ -123,9 +124,9 @@ public class VectorSchematic
 	 *            the materialblock
 	 * @return the vector matches
 	 */
-	public GList<Vector> find(BlockType mb)
+	public KList<Vector> find(BlockType mb)
 	{
-		GList<Vector> vectors = new GList<Vector>();
+		KList<Vector> vectors = new KList<Vector>();
 
 		for(Vector i : schematic.k())
 		{
@@ -155,7 +156,7 @@ public class VectorSchematic
 			{
 				Vector shift = i;
 				Location base = location.clone().subtract(shift);
-				GMap<Vector, Location> map = new GMap<Vector, Location>();
+				KMap<Vector, Location> map = new KMap<Vector, Location>();
 				Boolean found = true;
 
 				for(Vector j : schematic.k())
@@ -200,7 +201,7 @@ public class VectorSchematic
 		return null;
 	}
 
-	public Vector getNormal(GList<Vector> vectorizedList)
+	public Vector getNormal(KList<Vector> vectorizedList)
 	{
 		int minx = Integer.MAX_VALUE;
 		int miny = Integer.MAX_VALUE;
@@ -230,8 +231,8 @@ public class VectorSchematic
 	@SuppressWarnings("deprecation")
 	public VectorSchematic rotate(Direction from, Direction to)
 	{
-		GMap<Vector, VariableBlock> a = getSchematic().copy();
-		GMap<Vector, VariableBlock> b = new GMap<Vector, VariableBlock>();
+		KMap<Vector, VariableBlock> a = getSchematic().copy();
+		KMap<Vector, VariableBlock> b = new KMap<Vector, VariableBlock>();
 		VectorSchematic v = new VectorSchematic();
 		v.setPermutationType(PermutationType.NONE);
 
@@ -289,8 +290,8 @@ public class VectorSchematic
 	@SuppressWarnings("deprecation")
 	public VectorSchematic flip(Axis axis)
 	{
-		GMap<Vector, VariableBlock> a = getSchematic().copy();
-		GMap<Vector, VariableBlock> b = new GMap<Vector, VariableBlock>();
+		KMap<Vector, VariableBlock> a = getSchematic().copy();
+		KMap<Vector, VariableBlock> b = new KMap<Vector, VariableBlock>();
 		VectorSchematic v = new VectorSchematic();
 		v.setPermutationType(PermutationType.NONE);
 
@@ -349,7 +350,7 @@ public class VectorSchematic
 	 *
 	 * @return the schematic
 	 */
-	public GMap<Vector, VariableBlock> getSchematic()
+	public KMap<Vector, VariableBlock> getSchematic()
 	{
 		return schematic;
 	}
@@ -418,7 +419,7 @@ public class VectorSchematic
 		schematic.clear();
 	}
 
-	public GList<VectorSchematic> getTypes()
+	public KList<VectorSchematic> getTypes()
 	{
 		return types;
 	}

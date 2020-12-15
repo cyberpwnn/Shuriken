@@ -7,11 +7,11 @@ import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.event.world.WorldSaveEvent;
 import org.bukkit.event.world.WorldUnloadEvent;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
 
 public class LaceController extends Controller
 {
-	private GMap<World, LacedWorld> lacedWorld;
+	private KMap<World, LacedWorld> lacedWorld;
 
 	public LaceController()
 	{

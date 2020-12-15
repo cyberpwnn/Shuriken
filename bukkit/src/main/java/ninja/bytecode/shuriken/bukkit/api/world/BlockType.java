@@ -35,7 +35,7 @@ public class BlockType
 
 		try
 		{
-			material = Material.getMaterial(Integer.valueOf(m));
+			// material = Material.getMaterial(Integer.valueOf(m));
 
 			if(material == null)
 			{

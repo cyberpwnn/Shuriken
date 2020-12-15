@@ -1,12 +1,12 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
+import ninja.bytecode.shuriken.collections.KSet;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
 
 /**
  * Scans jars for loaded classes into a collection
@@ -15,7 +15,7 @@ import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
  */
 public class JarScanner
 {
-	private final GSet<Class<?>> classes;
+	private final KSet<Class<?>> classes;
 	private final File jar;
 
 	/**
@@ -27,7 +27,7 @@ public class JarScanner
 	public JarScanner(File jar)
 	{
 		this.jar = jar;
-		this.classes = new GSet<Class<?>>();
+		this.classes = new KSet<Class<?>>();
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class JarScanner
 	 *
 	 * @return a gset of classes
 	 */
-	public GSet<Class<?>> getClasses()
+	public KSet<Class<?>> getClasses()
 	{
 		return classes;
 	}

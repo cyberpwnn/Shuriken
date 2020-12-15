@@ -1,7 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.pluginmessage;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.entity.Player;
 
 import com.google.common.io.ByteArrayDataOutput;
@@ -9,11 +10,11 @@ import com.google.common.io.ByteStreams;
 
 public class PluginMessage
 {
-	private final GList<String> data;
+	private final KList<String> data;
 
 	public PluginMessage(String... strings)
 	{
-		data = new GList<String>();
+		data = new KList<String>();
 		add(strings);
 	}
 

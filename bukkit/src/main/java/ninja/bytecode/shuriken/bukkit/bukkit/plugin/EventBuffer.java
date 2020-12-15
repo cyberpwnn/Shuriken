@@ -12,8 +12,8 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.EventExecutor;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 
 /**
  * Collects events into a buffer and uses consumers to execute them in bursts
@@ -25,9 +25,9 @@ import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
  */
 public class EventBuffer<T extends Event> implements Listener
 {
-	private GList<T> buffer;
+	private KList<T> buffer;
 	private Class<? extends T> eventClass;
-	private GList<Consumer<T>> consumers;
+	private KList<Consumer<T>> consumers;
 	private Function<T, String> sorter;
 	private EventPriority priority;
 	private boolean ignoreCancelled;
@@ -35,8 +35,8 @@ public class EventBuffer<T extends Event> implements Listener
 	public EventBuffer(Class<? extends T> eventClass)
 	{
 		this.eventClass = eventClass;
-		buffer = new GList<T>();
-		consumers = new GList<Consumer<T>>();
+		buffer = new KList<T>();
+		consumers = new KList<Consumer<T>>();
 		sorter = x -> "undefined";
 		priority = EventPriority.NORMAL;
 		ignoreCancelled = true;
@@ -110,8 +110,8 @@ public class EventBuffer<T extends Event> implements Listener
 
 	public void consumeTop()
 	{
-		GMap<String, T> sorted = new GMap<String, T>();
-		GList<String> order = new GList<String>();
+		KMap<String, T> sorted = new KMap<String, T>();
+		KList<String> order = new KList<String>();
 
 		for(T i : buffer)
 		{

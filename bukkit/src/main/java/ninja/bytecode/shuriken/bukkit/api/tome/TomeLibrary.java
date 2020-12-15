@@ -3,14 +3,14 @@ package ninja.bytecode.shuriken.bukkit.api.tome;
 import java.io.File;
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 
 public class TomeLibrary
 {
 	public static TomeLibrary library;
-	private GMap<String, Tome> tomes;
+	private KMap<String, Tome> tomes;
 
 	public static TomeLibrary getInstance()
 	{
@@ -25,11 +25,11 @@ public class TomeLibrary
 	private TomeLibrary()
 	{
 		library = this;
-		tomes = new GMap<>();
+		tomes = new KMap<>();
 		reload();
 	}
 
-	public GMap<String, Tome> getTomes()
+	public KMap<String, Tome> getTomes()
 	{
 		return tomes.copy();
 	}

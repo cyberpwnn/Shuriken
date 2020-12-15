@@ -4,18 +4,18 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class DelayedController extends Controller
 {
 
 	@Getter(AccessLevel.PROTECTED)
-	private GList<DelayedCommand> cmds;
+	private KList<DelayedCommand> cmds;
 
 	@Override
 	public void start()
 	{
-		this.cmds = new GList<>();
+		this.cmds = new KList<>();
 	}
 
 	@Override

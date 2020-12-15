@@ -1,7 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
 import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Material;
 
 /**
@@ -11,11 +12,11 @@ import org.bukkit.Material;
  */
 public class VariableBlock
 {
-	private GList<BlockType> blocks;
+	private KList<BlockType> blocks;
 
 	public VariableBlock()
 	{
-		blocks = new GList<BlockType>();
+		blocks = new KList<BlockType>();
 	}
 
 	public VariableBlock(String data)
@@ -33,7 +34,7 @@ public class VariableBlock
 	 */
 	public VariableBlock(BlockType... blocks)
 	{
-		this.blocks = new GList<BlockType>(blocks);
+		this.blocks = new KList<BlockType>(blocks);
 	}
 
 	/**
@@ -65,14 +66,14 @@ public class VariableBlock
 	 *
 	 * @return the variable blocks
 	 */
-	public GList<BlockType> getBlocks()
+	public KList<BlockType> getBlocks()
 	{
 		return blocks;
 	}
 
 	public BlockType random()
 	{
-		return blocks.pickRandom();
+		return blocks.getRandom();
 	}
 
 	/**
@@ -149,7 +150,7 @@ public class VariableBlock
 	@Override
 	public String toString()
 	{
-		GList<String> s = new GList<String>();
+		KList<String> s = new KList<String>();
 
 		for(BlockType i : blocks)
 		{

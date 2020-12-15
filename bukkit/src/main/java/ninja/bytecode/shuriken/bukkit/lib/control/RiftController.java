@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 import org.bukkit.Difficulty;
@@ -21,8 +21,8 @@ import org.json.JSONObject;
 
 public class RiftController extends Controller
 {
-	private static final GList<Rift> rifts = new GList<>();
-	private static final GList<String> usedNames = new GList<>();
+	private static final KList<Rift> rifts = new KList<>();
+	private static final KList<String> usedNames = new KList<>();
 
 	@Override
 	public void start()
@@ -288,7 +288,7 @@ public class RiftController extends Controller
 		D.as("Rift Service").l("Unloaded " + rifts.size() + " Rifts");
 	}
 
-	public GList<Rift> getRifts()
+	public KList<Rift> getRifts()
 	{
 		return rifts.copy();
 	}

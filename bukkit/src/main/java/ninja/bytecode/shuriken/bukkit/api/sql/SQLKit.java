@@ -12,16 +12,16 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
+
+
+import ninja.bytecode.shuriken.bukkit.lang.collection.KSet;
 
 public class SQLKit
 {
 	private Connection sql;
 	private long lastTest;
 	private boolean logging;
-	private GSet<String> existingTables;
+	private KSet<String> existingTables;
 	private String sqlAddress = "localhost";
 	private String sqlDatabase = "ordis";
 	private String sqlUsername = "ordis";
@@ -30,7 +30,7 @@ public class SQLKit
 	public SQLKit(Connection sql, boolean log)
 	{
 		lastTest = M.ms();
-		existingTables = new GSet<String>();
+		existingTables = new KSet<String>();
 		this.sqlAddress = "none";
 		this.sqlDatabase = sqlAddress;
 		this.sqlUsername = sqlAddress;
@@ -42,7 +42,7 @@ public class SQLKit
 	public SQLKit(String sqlAddress, String sqlDatabase, String sqlUsername, String sqlPassword)
 	{
 		lastTest = M.ms();
-		existingTables = new GSet<String>();
+		existingTables = new KSet<String>();
 		this.sqlAddress = sqlAddress;
 		this.sqlDatabase = sqlDatabase;
 		this.sqlUsername = sqlUsername;
@@ -280,16 +280,16 @@ public class SQLKit
 			exists.executeUpdate();
 			PreparedStatement columns = prepareShowColumns(object);
 			ResultSet set = columns.executeQuery();
-			GList<String> cols = new GList<String>();
+			KList<String> cols = new KList<String>();
 
 			while(set.next())
 			{
 				cols.add(set.getString("Field"));
 			}
 
-			GMap<String, Field> mcols = getFieldsFor(object);
-			GList<String> add = new GList<String>();
-			GList<String> rem = new GList<String>();
+			KMap<String, Field> mcols = getFieldsFor(object);
+			KList<String> add = new KList<String>();
+			KList<String> rem = new KList<String>();
 
 			for(String i : mcols.k())
 			{
@@ -307,8 +307,8 @@ public class SQLKit
 				}
 			}
 
-			GList<String> alter = new GList<String>();
-			GMap<String, Field> mcolsx = new GMap<String, Field>();
+			KList<String> alter = new KList<String>();
+			KMap<String, Field> mcolsx = new KMap<String, Field>();
 
 			for(String i : add)
 			{
@@ -337,9 +337,9 @@ public class SQLKit
 		return false;
 	}
 
-	private GMap<String, Field> getFieldsFor(Object object)
+	private KMap<String, Field> getFieldsFor(Object object)
 	{
-		GMap<String, Field> f = new GMap<String, Field>();
+		KMap<String, Field> f = new KMap<String, Field>();
 
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -380,7 +380,7 @@ public class SQLKit
 		return getConnection().prepareStatement(sql);
 	}
 
-	public PreparedStatement prepareAlter(Object object, GList<String> alter) throws SQLException
+	public PreparedStatement prepareAlter(Object object, KList<String> alter) throws SQLException
 	{
 		String table = object.getClass().getDeclaredAnnotation(Table.class).value();
 		String def = alter.toString(", ");
@@ -455,7 +455,7 @@ public class SQLKit
 
 	private String getFieldUpdates(Object object) throws IllegalArgumentException, IllegalAccessException
 	{
-		GList<String> f = new GList<String>();
+		KList<String> f = new KList<String>();
 		String primary = "ERROR";
 		String primaryValue = "ERROR";
 
@@ -489,7 +489,7 @@ public class SQLKit
 
 	private String getFields(Object object)
 	{
-		GList<String> f = new GList<String>();
+		KList<String> f = new KList<String>();
 
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -507,7 +507,7 @@ public class SQLKit
 
 	private String getTableDef(Object object)
 	{
-		GList<String> f = new GList<String>();
+		KList<String> f = new KList<String>();
 		String prim = "ERROR";
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -538,9 +538,9 @@ public class SQLKit
 		return "(" + f.toString(", ") + ")";
 	}
 
-	private GList<String> getAdd(GMap<String, Field> f)
+	private KList<String> getAdd(KMap<String, Field> f)
 	{
-		GList<String> alt = new GList<String>();
+		KList<String> alt = new KList<String>();
 
 		for(String i : f.k())
 		{
@@ -551,9 +551,9 @@ public class SQLKit
 		return alt;
 	}
 
-	private GList<String> getRem(GList<String> f)
+	private KList<String> getRem(KList<String> f)
 	{
-		GList<String> alt = new GList<String>();
+		KList<String> alt = new KList<String>();
 
 		for(String i : f)
 		{
@@ -565,7 +565,7 @@ public class SQLKit
 
 	private String getFieldsSelect(Object object)
 	{
-		GList<String> f = new GList<String>();
+		KList<String> f = new KList<String>();
 
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -656,7 +656,7 @@ public class SQLKit
 
 	private String getValues(Object object) throws IllegalArgumentException, IllegalAccessException
 	{
-		GList<String> f = new GList<String>();
+		KList<String> f = new KList<String>();
 
 		for(Field i : object.getClass().getDeclaredFields())
 		{
@@ -735,7 +735,7 @@ public class SQLKit
 		System.err.println(string);
 	}
 
-	public <T> GList<T> getAllFor(String find, String inColumn, Class<T> clazz, GList<T> f, Supplier<T> s) throws SQLException
+	public <T> KList<T> getAllFor(String find, String inColumn, Class<T> clazz, KList<T> f, Supplier<T> s) throws SQLException
 	{
 		validate(s.get());
 		String ss = "SELECT * FROM `" + clazz.getAnnotation(Table.class).value() + "` WHERE `" + inColumn + "` = '" + find + "'";
@@ -804,7 +804,7 @@ public class SQLKit
 		return f;
 	}
 
-	public <T> GList<T> getAllFor(Class<T> clazz, GList<T> f, Supplier<T> s) throws SQLException
+	public <T> KList<T> getAllFor(Class<T> clazz, KList<T> f, Supplier<T> s) throws SQLException
 	{
 		validate(s.get());
 		String ss = "SELECT * FROM `" + clazz.getAnnotation(Table.class).value() + "`";

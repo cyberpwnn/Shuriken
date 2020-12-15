@@ -1,25 +1,24 @@
 package ninja.bytecode.shuriken.bukkit.api.nms;
 
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.collections.KSet;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
-
 public class ChunkTracker
 {
-	private GMap<Chunk, GSet<Integer>> ig;
+	private KMap<Chunk, KSet<Integer>> ig;
 
 	public ChunkTracker()
 	{
-		ig = new GMap<Chunk, GSet<Integer>>();
+		ig = new KMap<Chunk, KSet<Integer>>();
 	}
 
 	public void hit(Location l)
 	{
 		if(!ig.containsKey(l.getChunk()))
 		{
-			ig.put(l.getChunk(), new GSet<Integer>());
+			ig.put(l.getChunk(), new KSet<Integer>());
 		}
 
 		ig.get(l.getChunk()).add(l.getBlockY() >> 4);

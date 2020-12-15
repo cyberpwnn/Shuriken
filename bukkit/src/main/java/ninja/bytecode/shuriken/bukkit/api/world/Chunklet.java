@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 import java.util.Iterator;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -44,7 +44,7 @@ public class Chunklet
 	 *
 	 * @return the chunklets
 	 */
-	public GList<Chunklet> inThisChunk()
+	public KList<Chunklet> inThisChunk()
 	{
 		return W.getChunklets(getChunk());
 	}
@@ -67,9 +67,9 @@ public class Chunklet
 	 *
 	 * @return the players in this chunklet
 	 */
-	public GList<Player> getPlayers()
+	public KList<Player> getPlayers()
 	{
-		GList<Player> p = new GList<Player>();
+		KList<Player> p = new KList<Player>();
 
 		for(Entity i : getChunk().getEntities())
 		{
@@ -90,9 +90,9 @@ public class Chunklet
 	 *
 	 * @return the entities
 	 */
-	public GList<Entity> getEntities()
+	public KList<Entity> getEntities()
 	{
-		GList<Entity> p = new GList<Entity>();
+		KList<Entity> p = new KList<Entity>();
 
 		for(Entity i : getChunk().getEntities())
 		{
@@ -198,9 +198,9 @@ public class Chunklet
 	 *
 	 * @return the chunklet neighbors
 	 */
-	public GList<Chunklet> getNeighbors()
+	public KList<Chunklet> getNeighbors()
 	{
-		GList<Chunklet> n = new GList<Chunklet>();
+		KList<Chunklet> n = new KList<Chunklet>();
 
 		for(Direction d : Direction.news())
 		{
@@ -217,9 +217,9 @@ public class Chunklet
 	 *            the chunklet radius
 	 * @return the chunklets
 	 */
-	public GList<Chunklet> getCircle(int radius)
+	public KList<Chunklet> getCircle(int radius)
 	{
-		GList<Chunklet> n = new GList<Chunklet>();
+		KList<Chunklet> n = new KList<Chunklet>();
 
 		int x = radius;
 		int z = 0;
@@ -285,9 +285,9 @@ public class Chunklet
 	 *            the direction (face)
 	 * @return the list of locations for this strip
 	 */
-	public GList<Location> getBorder(int level, Direction d)
+	public KList<Location> getBorder(int level, Direction d)
 	{
-		GList<Location> ls = new GList<Location>();
+		KList<Location> ls = new KList<Location>();
 		Iterator<Block> it = new Cuboid(getMin(), getMax()).getFace(d.f()).flatten(level).iterator();
 
 		while(it.hasNext())

@@ -4,20 +4,20 @@ import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 
 public class MLChunk implements LacedChunk
 {
 	private Chunk chunk;
 	private LacedWorld world;
-	private GMap<Block, LacedBlock> laced;
+	private KMap<Block, LacedBlock> laced;
 
 	public MLChunk(LacedWorld world, Chunk chunk)
 	{
 		this.world = world;
 		this.chunk = chunk;
-		laced = new GMap<>();
+		laced = new KMap<>();
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class MLChunk implements LacedChunk
 	}
 
 	@Override
-	public GList<LacedBlock> getBlocks()
+	public KList<LacedBlock> getBlocks()
 	{
 		return laced.v();
 	}

@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.nms;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -7,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.S;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class NMP
 {
@@ -276,9 +277,9 @@ public class NMP
 			}
 		}
 
-		public static GList<Player> nearbyPlayers(Chunk i)
+		public static KList<Player> nearbyPlayers(Chunk i)
 		{
-			GList<Player> px = new GList<>();
+			KList<Player> px = new KList<>();
 
 			for(Player x : i.getWorld().getPlayers())
 			{

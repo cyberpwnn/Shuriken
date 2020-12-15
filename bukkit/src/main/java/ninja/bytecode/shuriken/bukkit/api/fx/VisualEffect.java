@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.fx;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
 
 public interface VisualEffect
 {
@@ -13,5 +13,5 @@ public interface VisualEffect
 
 	public void play(Location l, Player p);
 
-	public void play(Location l, GList<Player> p);
+	public void play(Location l, KList<Player> p);
 }

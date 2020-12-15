@@ -4,7 +4,7 @@ import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public interface LacedChunk extends Laced
 {
@@ -22,7 +22,7 @@ public interface LacedChunk extends Laced
 
 	public LacedBlock getBlock(Block b);
 
-	public GList<LacedBlock> getBlocks();
+	public KList<LacedBlock> getBlocks();
 
 	public void commitBlock(MLBlock mlBlock);
 }

@@ -1,10 +1,10 @@
 -Xdoclint:none '-quiet'
--classpath 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\build\\resources\\main;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\ninja.bytecode.shuriken\\shuriken-core\\2.0.2\\fbbc940a6dcd38b904841e1bde9770018119722d\\shuriken-core-2.0.2.jar;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\org.projectlombok\\lombok\\1.18.16\\6dc192c7f93ec1853f70d59d8a6dcf94eb42866\\lombok-1.18.16.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\code\\gson\\gson\\2.8.6\\gson-2.8.6.jar;C:\\Users\\cyberpwn\\.m2\\repository\\mysql\\mysql-connector-java\\8.0.17\\mysql-connector-java-8.0.17.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\protobuf\\protobuf-java\\3.6.1\\protobuf-java-3.6.1.jar'
+-classpath 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\build\\resources\\main;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\ninja.bytecode.shuriken\\shuriken-core\\2.0.3\\f536b337db5cb8a03e186726fc36b1245fec8eca\\shuriken-core-2.0.3.jar;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\org.projectlombok\\lombok\\1.18.16\\6dc192c7f93ec1853f70d59d8a6dcf94eb42866\\lombok-1.18.16.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\code\\gson\\gson\\2.8.6\\gson-2.8.6.jar;C:\\Users\\cyberpwn\\.m2\\repository\\mysql\\mysql-connector-java\\8.0.17\\mysql-connector-java-8.0.17.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\protobuf\\protobuf-java\\3.6.1\\protobuf-java-3.6.1.jar'
 -d 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\build\\docs\\javadoc'
--doctitle 'sql 2.0.2 API'
+-doctitle 'sql 2.0.3 API'
 -notimestamp 
 -quiet 
--windowtitle 'sql 2.0.2 API'
+-windowtitle 'sql 2.0.3 API'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\src\\main\\java\\ninja\\bytecode\\shuriken\\sql\\Column.java'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\src\\main\\java\\ninja\\bytecode\\shuriken\\sql\\Query.java'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\sql\\src\\main\\java\\ninja\\bytecode\\shuriken\\sql\\SleepingConnection.java'

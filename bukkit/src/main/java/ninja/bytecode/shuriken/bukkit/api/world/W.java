@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 import java.util.Collection;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Color;
@@ -56,7 +56,7 @@ public class W
 	 *            the locations
 	 * @return the average location
 	 */
-	public static Location getAverageLocation(GList<Location> ll)
+	public static Location getAverageLocation(KList<Location> ll)
 	{
 		double x = 0;
 		double y = 0;
@@ -253,9 +253,9 @@ public class W
 		return d;
 	}
 
-	public static GList<Location> news(Location location)
+	public static KList<Location> news(Location location)
 	{
-		GList<Location> news = new GList<Location>();
+		KList<Location> news = new KList<Location>();
 
 		news.add(location.clone().add(1, 0, 0));
 		news.add(location.clone().add(0, 0, 1));
@@ -297,9 +297,9 @@ public class W
 	 *            the chunk
 	 * @return the blocks in the form of a list
 	 */
-	public static GList<Block> getBlocks(Chunk c)
+	public static KList<Block> getBlocks(Chunk c)
 	{
-		return new GList<Block>(new Cuboid(c.getBlock(0, 0, 0).getLocation(), c.getBlock(15, 255, 15).getLocation()).iterator());
+		return new KList<Block>(new Cuboid(c.getBlock(0, 0, 0).getLocation(), c.getBlock(15, 255, 15).getLocation()).iterator());
 	}
 
 	/**
@@ -309,9 +309,9 @@ public class W
 	 *            the chunk
 	 * @return the 4x4 chunklets
 	 */
-	public static GList<Chunklet> getChunklets(Chunk c)
+	public static KList<Chunklet> getChunklets(Chunk c)
 	{
-		GList<Chunklet> cx = new GList<Chunklet>();
+		KList<Chunklet> cx = new KList<Chunklet>();
 
 		for(int i = 0; i < 16; i += 4)
 		{
@@ -331,9 +331,9 @@ public class W
 	 *            the list of chunks
 	 * @return the list of chunklets with the size of (16 * c.size())
 	 */
-	public static GList<Chunklet> getChunklets(GList<Chunk> c)
+	public static KList<Chunklet> getChunklets(KList<Chunk> c)
 	{
-		GList<Chunklet> cx = new GList<Chunklet>();
+		KList<Chunklet> cx = new KList<Chunklet>();
 
 		for(Chunk i : c)
 		{
@@ -582,9 +582,9 @@ public class W
 	 *            the chunk
 	 * @return the surrounding 4 chunks
 	 */
-	public static GList<Chunk> chunkFaces(Chunk c)
+	public static KList<Chunk> chunkFaces(Chunk c)
 	{
-		GList<Chunk> cx = new GList<Chunk>();
+		KList<Chunk> cx = new KList<Chunk>();
 
 		cx.add(c.getWorld().getChunkAt(c.getX() + 1, c.getZ()));
 		cx.add(c.getWorld().getChunkAt(c.getX() - 1, c.getZ()));
@@ -601,9 +601,9 @@ public class W
 	 *            the block
 	 * @return the surrounding 6 blocks
 	 */
-	public static GList<Block> blockFaces(Block b)
+	public static KList<Block> blockFaces(Block b)
 	{
-		GList<Block> blocks = new GList<Block>();
+		KList<Block> blocks = new KList<Block>();
 
 		blocks.add(b.getRelative(BlockFace.UP));
 		blocks.add(b.getRelative(BlockFace.DOWN));
@@ -654,9 +654,9 @@ public class W
 	 *            the radius
 	 * @return the chunks including the center given chunk
 	 */
-	public static GList<Chunk> chunkRadius(Chunk c, int rad)
+	public static KList<Chunk> chunkRadius(Chunk c, int rad)
 	{
-		GList<Chunk> cx = new GList<Chunk>();
+		KList<Chunk> cx = new KList<Chunk>();
 
 		for(int i = c.getX() - rad + 1; i < c.getX() + rad; i++)
 		{
@@ -680,9 +680,9 @@ public class W
 	 *            the radius
 	 * @return the blocks including the center given block
 	 */
-	public static GList<Block> blockRadius(Block c, int rad)
+	public static KList<Block> blockRadius(Block c, int rad)
 	{
-		GList<Block> cx = new GList<Block>();
+		KList<Block> cx = new KList<Block>();
 
 		for(int i = c.getX() - rad + 1; i < c.getX() + rad; i++)
 		{

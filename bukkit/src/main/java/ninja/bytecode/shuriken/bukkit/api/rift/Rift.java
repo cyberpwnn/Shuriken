@@ -2,7 +2,9 @@ package ninja.bytecode.shuriken.bukkit.api.rift;
 
 import java.io.File;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.Chunk;
 import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
@@ -11,8 +13,6 @@ import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.entity.Player;
 import org.bukkit.generator.ChunkGenerator;
-
-import org.json.JSONObject;
 
 public interface Rift
 {
@@ -80,7 +80,7 @@ public interface Rift
 
 	public String getRule(String key);
 
-	public GList<String> getRules();
+	public KList<String> getRules();
 
 	public long getSeed();
 
@@ -101,8 +101,6 @@ public interface Rift
 	public double getEntityTickTime();
 
 	public double getTileTickTime();
-
-	public PhysicsEngine getPhysicsEngine();
 
 	public int getMaxTNTUpdatesPerTick();
 

@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 import java.util.List;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -150,7 +150,7 @@ public class Items
 	 */
 	public static boolean hasLore(ItemStack is, List<String> lores)
 	{
-		return hasLore(is) && new GList<String>(lores).equals(new GList<String>(is.getItemMeta().getLore()));
+		return hasLore(is) && new KList<String>(lores).equals(new KList<String>(is.getItemMeta().getLore()));
 	}
 
 	/**
@@ -423,7 +423,7 @@ public class Items
 					return false;
 				}
 
-				if(!new GList<String>(a.getItemMeta().getLore()).equals(new GList<String>(b.getItemMeta().getLore())))
+				if(!new KList<String>(a.getItemMeta().getLore()).equals(new KList<String>(b.getItemMeta().getLore())))
 				{
 					return false;
 				}

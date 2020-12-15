@@ -29,8 +29,8 @@ import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarPermission;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.RouterCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.VirtualCommand;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
@@ -38,12 +38,12 @@ import ninja.bytecode.shuriken.bukkit.util.text.Logged;
 
 public abstract class MortarPlugin extends JavaPlugin implements Logged, Listener
 {
-	private GMap<GList<String>, VirtualCommand> commands;
-	private GList<MortarCommand> commandCache;
-	private GList<MortarPermission> permissionCache;
-	private GMap<String, IController> controllers;
-	private GList<IController> cachedControllers;
-	private GMap<Class<? extends IController>, IController> cachedClassControllers;
+	private KMap<KList<String>, VirtualCommand> commands;
+	private KList<MortarCommand> commandCache;
+	private KList<MortarPermission> permissionCache;
+	private KMap<String, IController> controllers;
+	private KList<IController> cachedControllers;
+	private KMap<Class<? extends IController>, IController> cachedClassControllers;
 	private int controllerTick;
 
 	@Override
@@ -123,7 +123,7 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 
 	private void chain(MortarPermission i, FileConfiguration fc)
 	{
-		GList<String> ff = new GList<String>();
+		KList<String> ff = new KList<String>();
 
 		for(MortarPermission j : i.getChildren())
 		{
@@ -175,7 +175,7 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 
 	private void registerPermissions()
 	{
-		permissionCache = new GList<>();
+		permissionCache = new KList<>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{
@@ -213,9 +213,9 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 		}
 	}
 
-	private GList<org.bukkit.permissions.Permission> computePermissions()
+	private KList<org.bukkit.permissions.Permission> computePermissions()
 	{
-		GList<org.bukkit.permissions.Permission> g = new GList<>();
+		KList<org.bukkit.permissions.Permission> g = new KList<>();
 		for(Field i : getClass().getDeclaredFields())
 		{
 			if(i.isAnnotationPresent(Permission.class))
@@ -237,9 +237,9 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 		return g.removeDuplicates();
 	}
 
-	private GList<org.bukkit.permissions.Permission> computePermissions(MortarPermission p)
+	private KList<org.bukkit.permissions.Permission> computePermissions(MortarPermission p)
 	{
-		GList<org.bukkit.permissions.Permission> g = new GList<>();
+		KList<org.bukkit.permissions.Permission> g = new KList<>();
 
 		if(p == null)
 		{
@@ -323,15 +323,15 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 		}
 	}
 
-	public GList<IController> getControllers()
+	public KList<IController> getControllers()
 	{
 		return cachedControllers;
 	}
 
 	private void registerControllers()
 	{
-		controllers = new GMap<>();
-		cachedClassControllers = new GMap<>();
+		controllers = new KMap<>();
+		cachedClassControllers = new KMap<>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{
@@ -427,8 +427,8 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 
 	private void registerCommands()
 	{
-		commands = new GMap<>();
-		commandCache = new GList<>();
+		commands = new KMap<>();
+		commandCache = new KList<>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{
@@ -456,9 +456,9 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		GList<String> chain = new GList<String>().qadd(args);
+		KList<String> chain = new KList<String>().qadd(args);
 
-		for(GList<String> i : commands.k())
+		for(KList<String> i : commands.k())
 		{
 			for(String j : i)
 			{
@@ -606,7 +606,7 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 
 	public File getDataFile(String... strings)
 	{
-		File f = new File(getDataFolder(), new GList<String>(strings).toString(File.separator));
+		File f = new File(getDataFolder(), new KList<String>(strings).toString(File.separator));
 		f.getParentFile().mkdirs();
 		return f;
 	}
@@ -618,7 +618,7 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 			return super.getDataFolder();
 		}
 
-		File f = new File(getDataFolder(), new GList<String>(strings).toString(File.separator));
+		File f = new File(getDataFolder(), new KList<String>(strings).toString(File.separator));
 		f.mkdirs();
 
 		return f;

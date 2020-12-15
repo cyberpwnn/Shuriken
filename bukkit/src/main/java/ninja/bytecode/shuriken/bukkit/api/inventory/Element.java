@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.inventory;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.execution.Callback;
 import org.bukkit.inventory.ItemStack;
 
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
@@ -42,7 +42,7 @@ public interface Element
 
 	public ItemStack getItemStack();
 
-	public GList<String> getLore();
+	public KList<String> getLore();
 
 	public Element call(ElementEvent event, Element context);
 

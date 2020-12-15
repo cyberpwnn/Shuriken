@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.command;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 
 /**
  * Represents a pawn command
@@ -10,7 +11,7 @@ import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
  */
 public interface ICommand
 {
-	public GList<String> getRequiredPermissions();
+	public KList<String> getRequiredPermissions();
 
 	/**
 	 * Get the name of this command (node)
@@ -24,14 +25,14 @@ public interface ICommand
 	 *
 	 * @return the nodes
 	 */
-	public GList<String> getNodes();
+	public KList<String> getNodes();
 
 	/**
 	 * Get all (every) node in this command
 	 *
 	 * @return all nodes
 	 */
-	public GList<String> getAllNodes();
+	public KList<String> getAllNodes();
 
 	/**
 	 * Add a node to this command

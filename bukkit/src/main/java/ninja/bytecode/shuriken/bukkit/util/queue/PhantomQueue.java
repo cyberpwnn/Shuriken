@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.util.queue;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class PhantomQueue<T> implements Queue<T>
 {
-	private GList<T> queue;
+	private KList<T> queue;
 	private boolean randomPop;
 	private boolean reversePop;
 
@@ -32,7 +32,7 @@ public class PhantomQueue<T> implements Queue<T>
 	}
 
 	@Override
-	public void queue(GList<T> t)
+	public void queue(KList<T> t)
 	{
 		for(T i : t)
 		{
@@ -59,9 +59,9 @@ public class PhantomQueue<T> implements Queue<T>
 	}
 
 	@Override
-	public GList<T> next(int amt)
+	public KList<T> next(int amt)
 	{
-		GList<T> t = new GList<>();
+		KList<T> t = new KList<>();
 
 		for(int i = 0; i < amt; i++)
 		{
@@ -79,7 +79,7 @@ public class PhantomQueue<T> implements Queue<T>
 	@Override
 	public void clear()
 	{
-		queue = new GList<T>();
+		queue = new KList<T>();
 	}
 
 	@Override

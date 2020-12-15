@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.compute.math;
 
 import java.util.Collections;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class CappedAverage extends Average
 {
@@ -25,7 +25,7 @@ public class CappedAverage extends Average
 	{
 		double a = 0;
 
-		GList<Double> minmax = new GList<>(data);
+		KList<Double> minmax = new KList<>(data);
 		Collections.sort(minmax);
 
 		for(int i = trim; i < data.length - trim; i++)

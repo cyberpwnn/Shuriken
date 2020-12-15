@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.config;
 import java.io.File;
 import java.util.List;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -47,7 +47,7 @@ public class WrappedBukkitFileConfiguration implements ConfigWrapper
 
 		if(oo instanceof List)
 		{
-			o = GList.asStringList((List<?>) oo);
+			o = KList.asStrinKList((List<?>) oo);
 		}
 
 		else
@@ -65,16 +65,16 @@ public class WrappedBukkitFileConfiguration implements ConfigWrapper
 
 		if(o instanceof List)
 		{
-			return GList.asStringList((List<?>) o);
+			return KList.asStrinKList((List<?>) o);
 		}
 
 		return o;
 	}
 
 	@Override
-	public GList<String> keys()
+	public KList<String> keys()
 	{
-		return new GList<String>(wrapped.getKeys(true));
+		return new KList<String>(wrapped.getKeys(true));
 	}
 
 	@Override

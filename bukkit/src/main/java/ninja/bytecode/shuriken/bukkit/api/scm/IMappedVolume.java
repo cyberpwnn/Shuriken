@@ -1,9 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
 
 public interface IMappedVolume
 {
@@ -11,9 +12,9 @@ public interface IMappedVolume
 
 	public VariableBlock getType(Location l);
 
-	public GMap<Vector, VariableBlock> getMapping();
+	public KMap<Vector, VariableBlock> getMapping();
 
-	public GMap<Vector, Location> getRealizedMapping();
+	public KMap<Vector, Location> getRealizedMapping();
 
-	public GMap<Location, Vector> getReverseRealizedMapping();
+	public KMap<Location, Vector> getReverseRealizedMapping();
 }

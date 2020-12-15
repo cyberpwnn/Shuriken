@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.compute.math;
 
 import java.util.Collections;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class Average extends RollingAverage
 {
@@ -18,7 +18,7 @@ public class Average extends RollingAverage
 
 	public double getMean()
 	{
-		GList<Double> g = new GList<>(data);
+		KList<Double> g = new KList<>(data);
 		Collections.sort(g);
 
 		while(g.size() > 2)

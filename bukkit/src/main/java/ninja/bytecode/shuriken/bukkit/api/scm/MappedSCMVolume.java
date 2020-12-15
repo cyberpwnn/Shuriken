@@ -1,20 +1,21 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
 public class MappedSCMVolume implements IMappedVolume
 {
-	private GMap<Vector, Location> mapping;
-	private GMap<Location, Vector> reverseMapping;
+	private KMap<Vector, Location> mapping;
+	private KMap<Location, Vector> reverseMapping;
 	private VectorSchematic schematic;
 
-	public MappedSCMVolume(VectorSchematic schematic, GMap<Vector, Location> mapping)
+	public MappedSCMVolume(VectorSchematic schematic, KMap<Vector, Location> mapping)
 	{
 		this.schematic = schematic;
 		this.mapping = mapping;
-		reverseMapping = new GMap<Location, Vector>();
+		reverseMapping = new KMap<Location, Vector>();
 
 		for(Vector i : mapping.k())
 		{
@@ -35,7 +36,7 @@ public class MappedSCMVolume implements IMappedVolume
 	}
 
 	@Override
-	public GMap<Vector, VariableBlock> getMapping()
+	public KMap<Vector, VariableBlock> getMapping()
 	{
 		return schematic.getSchematic().copy();
 	}
@@ -46,13 +47,13 @@ public class MappedSCMVolume implements IMappedVolume
 	}
 
 	@Override
-	public GMap<Vector, Location> getRealizedMapping()
+	public KMap<Vector, Location> getRealizedMapping()
 	{
 		return mapping.copy();
 	}
 
 	@Override
-	public GMap<Location, Vector> getReverseRealizedMapping()
+	public KMap<Location, Vector> getReverseRealizedMapping()
 	{
 		return reverseMapping.copy();
 	}

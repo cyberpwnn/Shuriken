@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
+import ninja.bytecode.shuriken.bukkit.lang.collection.KSet;
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
 
 public abstract class DL
@@ -17,7 +17,7 @@ public abstract class DL
 	protected File d;
 	protected URL u;
 	protected ChronoLatch latch;
-	protected GSet<DownloadFlag> flags;
+	protected KSet<DownloadFlag> flags;
 	protected MeteredOutputStream o;
 	protected DownloadState state;
 	protected int timeout;
@@ -45,7 +45,7 @@ public abstract class DL
 		start = -1;
 		timeout = 10000;
 		state = DownloadState.NEW;
-		flags = new GSet<DownloadFlag>();
+		flags = new KSet<DownloadFlag>();
 		latch = new ChronoLatch(500);
 
 		for(DownloadFlag i : downloadFlags)

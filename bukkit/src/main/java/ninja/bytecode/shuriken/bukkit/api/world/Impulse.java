@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -11,13 +11,13 @@ public class Impulse
 	private double radius;
 	private double forceMax;
 	private double forceMin;
-	private GList<Entity> ignore;
+	private KList<Entity> ignore;
 	private double damageMin;
 	private double damageMax;
 
 	public Impulse(double radius)
 	{
-		ignore = new GList<Entity>();
+		ignore = new KList<Entity>();
 		this.radius = radius;
 		this.forceMax = 1;
 		this.forceMin = 0;

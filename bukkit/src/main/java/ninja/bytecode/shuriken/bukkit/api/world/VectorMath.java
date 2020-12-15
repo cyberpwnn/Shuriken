@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.CDou;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GListAdapter;
+
+import ninja.bytecode.shuriken.bukkit.lang.collection.KListAdapter;
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -24,9 +24,9 @@ public class VectorMath
 	 *            the block face
 	 * @return multiple faces, or one if the face is already simple
 	 */
-	public static GList<BlockFace> split(BlockFace f)
+	public static KList<BlockFace> split(BlockFace f)
 	{
-		GList<BlockFace> faces = new GList<BlockFace>();
+		KList<BlockFace> faces = new KList<BlockFace>();
 
 		switch(f)
 		{
@@ -186,9 +186,9 @@ public class VectorMath
 	 *            the vectors to be shifted
 	 * @return the shifted vectors
 	 */
-	public static GList<Vector> shift(Vector vector, GList<Vector> vectors)
+	public static KList<Vector> shift(Vector vector, KList<Vector> vectors)
 	{
-		return new GList<Vector>(new GListAdapter<Vector, Vector>()
+		return new KList<Vector>(new KListAdapter<Vector, Vector>()
 		{
 			@Override
 			public Vector onAdapt(Vector from)

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -17,13 +18,12 @@ import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.util.Vector;
 
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import net.md_5.bungee.api.chat.BaseComponent;
 
 public interface CatalystHost extends PacketListener, Listener
 {
-	public void add(BookMeta bm, GList<BaseComponent> pages);
+	public void add(BookMeta bm, KList<BaseComponent> pages);
 
 	public Object getIChatBaseComponent(BaseComponent bc);
 

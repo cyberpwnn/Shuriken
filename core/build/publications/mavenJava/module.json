@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-core",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+      "buildId": "6nai2qmdwvhy3pjach4k6i6k2m"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "shuriken-core-2.0.2.jar",
-          "url": "shuriken-core-2.0.2.jar",
-          "size": 275942,
-          "sha512": "788d847517021a44ab149d9eb3927ed9b2cdee665e06934598c6a474fe11297313188e0352d08700dc17b131619baa289372ccd7e44104ced622860f4134f300",
-          "sha256": "41184c96bad29f1e31989468a0797f097e96accfd3f3d19c18362465b9344835",
-          "sha1": "fbbc940a6dcd38b904841e1bde9770018119722d",
-          "md5": "b3e040b5b7fe3651dfb68eae30cfe22f"
+          "name": "shuriken-core-2.0.3.jar",
+          "url": "shuriken-core-2.0.3.jar",
+          "size": 288848,
+          "sha512": "bcdca4ef37ab4e86b8c6da35382461b9f0ad57e2873af0515773398239728c5f80a877411e59f502cd56a42c4bc549fd4ef2fd2e1ad36a0f414cbe586f000379",
+          "sha256": "5ab64e8d729e3a3f58d0ad6563913bf16ab677e81ff611722c1f6803d230a108",
+          "sha1": "f536b337db5cb8a03e186726fc36b1245fec8eca",
+          "md5": "d0d01715196b62e2e3efdabad2a1d1d1"
         }
       ]
     },
@@ -56,13 +56,13 @@
       ],
       "files": [
         {
-          "name": "shuriken-core-2.0.2.jar",
-          "url": "shuriken-core-2.0.2.jar",
-          "size": 275942,
-          "sha512": "788d847517021a44ab149d9eb3927ed9b2cdee665e06934598c6a474fe11297313188e0352d08700dc17b131619baa289372ccd7e44104ced622860f4134f300",
-          "sha256": "41184c96bad29f1e31989468a0797f097e96accfd3f3d19c18362465b9344835",
-          "sha1": "fbbc940a6dcd38b904841e1bde9770018119722d",
-          "md5": "b3e040b5b7fe3651dfb68eae30cfe22f"
+          "name": "shuriken-core-2.0.3.jar",
+          "url": "shuriken-core-2.0.3.jar",
+          "size": 288848,
+          "sha512": "bcdca4ef37ab4e86b8c6da35382461b9f0ad57e2873af0515773398239728c5f80a877411e59f502cd56a42c4bc549fd4ef2fd2e1ad36a0f414cbe586f000379",
+          "sha256": "5ab64e8d729e3a3f58d0ad6563913bf16ab677e81ff611722c1f6803d230a108",
+          "sha1": "f536b337db5cb8a03e186726fc36b1245fec8eca",
+          "md5": "d0d01715196b62e2e3efdabad2a1d1d1"
         }
       ]
     },
@@ -76,13 +76,13 @@
       },
       "files": [
         {
-          "name": "shuriken-core-2.0.2-javadoc.jar",
-          "url": "shuriken-core-2.0.2-javadoc.jar",
-          "size": 635814,
-          "sha512": "b873cb7c476f1fbebb3958146606f2dc80883c82fbb371d4006dcd028d0c8f6e20262939f760449d194dc7154612d6556fef462fe5d3f25a587c4ccb98bece64",
-          "sha256": "e86bb8d0bfceabc6a26e9997a4b27f7da15268fda43cd4e90015a88adffb2934",
-          "sha1": "7d559c51c3d1e3e0407b273931a16d93816f4b0a",
-          "md5": "bc4cc2d4217225738b04293d9469fc52"
+          "name": "shuriken-core-2.0.3-javadoc.jar",
+          "url": "shuriken-core-2.0.3-javadoc.jar",
+          "size": 680598,
+          "sha512": "7a6093746699b8cae3dc8094e9b8e70987fbb9ff8c7477ed572cf445feaa929218936a9191a947aeaadb2cdfc5aa099b2844df13efce624e8cebf07a1ae5b22e",
+          "sha256": "c3263e3793448d585bdc1dd4a0308895850a61614644c50a45d7e959a0b7df92",
+          "sha1": "4def02b1e26b0e828f8eae3da969d8326c559479",
+          "md5": "c796a92b41df198e75eac6c98c2d01cb"
         }
       ]
     },
@@ -96,13 +96,13 @@
       },
       "files": [
         {
-          "name": "shuriken-core-2.0.2-sources.jar",
-          "url": "shuriken-core-2.0.2-sources.jar",
-          "size": 175878,
-          "sha512": "25603239f60f4d3edeaed27d61b68398ac81fa987d724d6ca901f7c43af4d3be54e47ee236ee5a105c6b04a29dd6994dcfe740281206c683f8ea44bf1955ed04",
-          "sha256": "25fb5078c9e35cf410a946fd9f61c0edab9858d3fdd5e3d1c1e3a7b7d17ff876",
-          "sha1": "21cd32670bdad77025806f41cc03287cd4547c9d",
-          "md5": "d07821ed7959efb4936f6dcc90aedb59"
+          "name": "shuriken-core-2.0.3-sources.jar",
+          "url": "shuriken-core-2.0.3-sources.jar",
+          "size": 184554,
+          "sha512": "92f6d54f4c760075bdad7f3ffdcfd7b4e7b52750b60143db347568320543d834e6e42f182edd9bfae2914ceb453cac0070af29ef65f213f548f151c6e35c45df",
+          "sha256": "d1a6bfd0e9d96ec4225a5266d463f707ab4a95db9f7cfe2d7f8f132a3f88c7fd",
+          "sha1": "7aa98914e49609baf3a9c36ced6b37ef5374cc18",
+          "md5": "835c97cdbafea641f8e8738962054321"
         }
       ]
     }

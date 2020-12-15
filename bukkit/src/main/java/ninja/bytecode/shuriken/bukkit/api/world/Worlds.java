@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
@@ -16,9 +16,9 @@ public class Worlds
 	 *
 	 * @return the worlds
 	 */
-	public static GList<World> getWorlds()
+	public static KList<World> getWorlds()
 	{
-		return new GList<World>(Bukkit.getWorlds());
+		return new KList<World>(Bukkit.getWorlds());
 	}
 
 	/**

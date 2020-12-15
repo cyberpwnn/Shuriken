@@ -18,9 +18,9 @@ public abstract class KListAdapter<FROM, TO>
 	 *            the from list
 	 * @return the to list
 	 */
-	public GList<TO> adapt(GList<FROM> from)
+	public KList<TO> adapt(KList<FROM> from)
 	{
-		GList<TO> adapted = new GList<TO>();
+		KList<TO> adapted = new KList<TO>();
 
 		for(FROM i : from)
 		{

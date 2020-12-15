@@ -19,15 +19,15 @@ public class KMap<K, V> extends ConcurrentHashMap<K, V>
 		super();
 	}
 
-	public KMap(KMap<K, V> gMap)
+	public KMap(KMap<K, V> KMap)
 	{
 		this();
-		put(gMap);
+		put(KMap);
 	}
 
 	/**
-	 * Puts a value into a map-value-list based on the key such that if GMap<K,
-	 * GList<S>> where V is GList<S>
+	 * Puts a value into a map-value-list based on the key such that if KMap<K,
+	 * KList<S>> where V is KList<S>
 	 *
 	 * @param <S>
 	 *            the list type in the value type
@@ -161,7 +161,7 @@ public class KMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @param f
 	 *            the function
-	 * @return the same gmap
+	 * @return the same KMap
 	 */
 	public KMap<K, V> rewrite(Consumer3<K, V, KMap<K, V>> f)
 	{
@@ -180,7 +180,7 @@ public class KMap<K, V> extends ConcurrentHashMap<K, V>
 	 *
 	 * @param f
 	 *            the function
-	 * @return the same gmap
+	 * @return the same KMap
 	 */
 	public KMap<K, V> each(Consumer2<K, V> f)
 	{

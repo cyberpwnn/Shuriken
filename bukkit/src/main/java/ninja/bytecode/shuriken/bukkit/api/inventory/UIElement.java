@@ -2,8 +2,8 @@ package ninja.bytecode.shuriken.bukkit.api.inventory;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.execution.Callback;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -19,7 +19,7 @@ public class UIElement implements Element
 	private String name;
 	private double progress;
 	private boolean bg;
-	private final GList<String> lore;
+	private final KList<String> lore;
 	private Callback<Element> eLeft;
 	private Callback<Element> eRight;
 	private Callback<Element> eShiftLeft;
@@ -33,7 +33,7 @@ public class UIElement implements Element
 	{
 		itemStack = null;
 		this.id = id;
-		lore = new GList<>();
+		lore = new KList<>();
 		enchanted = false;
 		count = 1;
 		material = new MaterialBlock(MaterialEnum.AIR.bukkitMaterial());
@@ -85,7 +85,7 @@ public class UIElement implements Element
 	}
 
 	@Override
-	public GList<String> getLore()
+	public KList<String> getLore()
 	{
 		return lore;
 	}

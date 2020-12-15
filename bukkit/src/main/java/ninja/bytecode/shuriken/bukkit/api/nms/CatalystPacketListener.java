@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 import io.netty.channel.Channel;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.entity.Player;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 
 public abstract class CatalystPacketListener implements PacketListener
 {
 	private TinyProtocol protocol;
-	protected GMap<String, String> teamCache;
+	protected KMap<String, String> teamCache;
 	private Map<Class<?>, List<PacketHandler<?>>> inHandlers = new HashMap<>();
 	private Map<Class<?>, List<PacketHandler<?>>> outHandlers = new HashMap<>();
 	private Map<String, List<PacketHandler<Object>>> inAbsHandlers = new HashMap<>();
@@ -25,7 +25,7 @@ public abstract class CatalystPacketListener implements PacketListener
 
 	public CatalystPacketListener()
 	{
-		teamCache = new GMap<>();
+		teamCache = new KMap<>();
 		PacketCache.reset();
 	}
 
@@ -167,7 +167,7 @@ public abstract class CatalystPacketListener implements PacketListener
 	}
 
 	@Override
-	public <T> void addOutgoingListener(Class<? extends T> packetType, PacketHandler<T> handler)
+	public <T> void addOutgoinKListener(Class<? extends T> packetType, PacketHandler<T> handler)
 	{
 		if(!outHandlers.containsKey(packetType))
 		{
@@ -178,13 +178,13 @@ public abstract class CatalystPacketListener implements PacketListener
 	}
 
 	@Override
-	public void addGlobalOutgoingListener(PacketHandler<?> handler)
+	public void addGlobalOutgoinKListener(PacketHandler<?> handler)
 	{
 		outGlobal.add(handler);
 	}
 
 	@Override
-	public <T> void addIncomingListener(Class<? extends T> packetType, PacketHandler<T> handler)
+	public <T> void addIncominKListener(Class<? extends T> packetType, PacketHandler<T> handler)
 	{
 		if(!inHandlers.containsKey(packetType))
 		{
@@ -195,7 +195,7 @@ public abstract class CatalystPacketListener implements PacketListener
 	}
 
 	@Override
-	public void addIncomingListener(String packetType, PacketHandler<Object> handler)
+	public void addIncominKListener(String packetType, PacketHandler<Object> handler)
 	{
 		if(!inAbsHandlers.containsKey(packetType))
 		{
@@ -206,7 +206,7 @@ public abstract class CatalystPacketListener implements PacketListener
 	}
 
 	@Override
-	public void addGlobalIncomingListener(PacketHandler<?> handler)
+	public void addGlobalIncominKListener(PacketHandler<?> handler)
 	{
 		inGlobal.add(handler);
 	}

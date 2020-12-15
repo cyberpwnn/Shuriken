@@ -24,7 +24,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredListener;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 
 /*
@@ -220,7 +220,7 @@ public class PluginUtil
 			return "No commands registered.";
 		}
 
-		return new GList<String>(parsedCommands).toString(", ");
+		return new KList<String>(parsedCommands).toString(", ");
 
 	}
 

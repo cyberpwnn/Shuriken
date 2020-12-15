@@ -7,8 +7,7 @@ import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.FinalBoolean;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -18,6 +17,7 @@ import net.minecraft.server.v1_9_R2.DataWatcher.Item;
 import net.minecraft.server.v1_9_R2.IScoreboardCriteria.EnumScoreboardHealthDisplay;
 import net.minecraft.server.v1_9_R2.PacketPlayOutScoreboardScore.EnumScoreboardAction;
 import net.minecraft.server.v1_9_R2.PacketPlayOutTitle.EnumTitleAction;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -42,6 +42,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Catalyst9 extends CatalystPacketListener implements CatalystHost {
     private final Map<Player, PlayerSettings> playerSettings = new HashMap<>();
@@ -101,7 +102,7 @@ public class Catalyst9 extends CatalystPacketListener implements CatalystHost {
         int x = xx >> 4;
         int y = yy >> 4;
         int z = zz >> 4;
-        FinalBoolean lx = new FinalBoolean(false);
+        AtomicBoolean lx = new AtomicBoolean(false);
         if (!world.isChunkLoaded(x, z)) {
             if (Mortar.isMainThread()) {
                 world.loadChunk(x, z);
@@ -237,7 +238,7 @@ public class Catalyst9 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public void onOpened() {
-        addGlobalIncomingListener((player, packet) -> {
+        addGlobalIncominKListener((player, packet) -> {
             if (packet instanceof PacketPlayInSettings) {
                 PacketPlayInSettings s = (PacketPlayInSettings) packet;
                 playerSettings.put(player, new PlayerSettings(s.a(), new V(s).get("b"), ChatMode.values()[s.c().ordinal()], s.d(), s.e(), s.f().equals(EnumMainHand.RIGHT)));
@@ -757,7 +758,7 @@ public class Catalyst9 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public void add(BookMeta bm, GList<BaseComponent> pages) {
+    public void add(BookMeta bm, KList<BaseComponent> pages) {
         ((CraftMetaBook) bm).pages = pages.convert((bc) -> IChatBaseComponent.ChatSerializer.a(ComponentSerializer.toString(bc)));
     }
 }

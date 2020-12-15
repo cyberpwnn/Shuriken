@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.particle;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 
 /**
@@ -11,18 +12,18 @@ import org.bukkit.Location;
  */
 public class SystemEffect implements VisualEffect
 {
-	private GList<VisualEffect> effects;
+	private KList<VisualEffect> effects;
 
 	/**
 	 * Create a system effect
 	 */
 	public SystemEffect()
 	{
-		effects = new GList<VisualEffect>();
+		effects = new KList<VisualEffect>();
 	}
 
 	@Override
-	public GList<VisualEffect> getEffects()
+	public KList<VisualEffect> getEffects()
 	{
 		return effects;
 	}

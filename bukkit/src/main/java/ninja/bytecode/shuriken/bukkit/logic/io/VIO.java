@@ -16,7 +16,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
 
 public class VIO
@@ -322,10 +322,10 @@ public class VIO
 		}
 	}
 
-	public static GList<String> listEntries(File zipfile) throws ZipException, IOException
+	public static KList<String> listEntries(File zipfile) throws ZipException, IOException
 	{
 		ZipFile file = new ZipFile(zipfile);
-		GList<String> e = new GList<String>();
+		KList<String> e = new KList<String>();
 		Throwable x = null;
 
 		try

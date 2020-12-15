@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -12,14 +12,14 @@ import org.bukkit.util.Vector;
  */
 public class VectorSchematic
 {
-	private final GMap<Vector, VariableBlock> schematic;
+	private final KMap<Vector, VariableBlock> schematic;
 
 	/**
 	 * Create a vector schematic
 	 */
 	public VectorSchematic()
 	{
-		schematic = new GMap<Vector, VariableBlock>();
+		schematic = new KMap<Vector, VariableBlock>();
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class VectorSchematic
 	 *            the materialblock
 	 * @return the vector matches
 	 */
-	public GList<Vector> find(MaterialBlock mb)
+	public KList<Vector> find(MaterialBlock mb)
 	{
-		GList<Vector> vectors = new GList<Vector>();
+		KList<Vector> vectors = new KList<Vector>();
 
 		for(Vector i : schematic.k())
 		{
@@ -84,7 +84,7 @@ public class VectorSchematic
 	 *            the location
 	 * @return the mapping or null if no match
 	 */
-	public GMap<Vector, Location> match(Location location)
+	public KMap<Vector, Location> match(Location location)
 	{
 		MaterialBlock mb = new MaterialBlock(location);
 
@@ -92,7 +92,7 @@ public class VectorSchematic
 		{
 			Vector shift = i;
 			Location base = location.clone().subtract(shift);
-			GMap<Vector, Location> map = new GMap<Vector, Location>();
+			KMap<Vector, Location> map = new KMap<Vector, Location>();
 			Boolean found = true;
 
 			for(Vector j : schematic.k())
@@ -126,7 +126,7 @@ public class VectorSchematic
 	 *
 	 * @return the schematic
 	 */
-	public GMap<Vector, VariableBlock> getSchematic()
+	public KMap<Vector, VariableBlock> getSchematic()
 	{
 		return schematic;
 	}

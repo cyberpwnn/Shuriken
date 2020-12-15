@@ -1,9 +1,11 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.command;
 
+import ninja.bytecode.shuriken.collections.KList;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 /**
  * Represents a pawn command
@@ -13,9 +15,9 @@ import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
  */
 public abstract class MortarCommand implements ICommand
 {
-	private GList<MortarCommand> children;
-	private GList<String> nodes;
-	private GList<String> requiredPermissions;
+	private KList<MortarCommand> children;
+	private KList<String> nodes;
+	private KList<String> requiredPermissions;
 	private String node;
 	private String category;
 	private String description;
@@ -33,8 +35,8 @@ public abstract class MortarCommand implements ICommand
 	{
 		category = "";
 		this.node = node;
-		this.nodes = new GList<String>(nodes);
-		requiredPermissions = new GList<>();
+		this.nodes = new KList<String>(nodes);
+		requiredPermissions = new KList<>();
 		children = buildChildren();
 		description = "No Description";
 	}
@@ -76,13 +78,13 @@ public abstract class MortarCommand implements ICommand
 	}
 
 	@Override
-	public GList<String> getNodes()
+	public KList<String> getNodes()
 	{
 		return nodes;
 	}
 
 	@Override
-	public GList<String> getAllNodes()
+	public KList<String> getAllNodes()
 	{
 		return getNodes().copy().qadd(getNode());
 	}
@@ -93,14 +95,14 @@ public abstract class MortarCommand implements ICommand
 		getNodes().add(node);
 	}
 
-	public GList<MortarCommand> getChildren()
+	public KList<MortarCommand> getChildren()
 	{
 		return children;
 	}
 
-	private GList<MortarCommand> buildChildren()
+	private KList<MortarCommand> buildChildren()
 	{
-		GList<MortarCommand> p = new GList<>();
+		KList<MortarCommand> p = new KList<>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{
@@ -136,7 +138,7 @@ public abstract class MortarCommand implements ICommand
 	}
 
 	@Override
-	public GList<String> getRequiredPermissions()
+	public KList<String> getRequiredPermissions()
 	{
 		return requiredPermissions;
 	}

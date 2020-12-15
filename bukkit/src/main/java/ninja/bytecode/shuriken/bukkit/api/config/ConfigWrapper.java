@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.config;
 
+import ninja.bytecode.shuriken.collections.KList;
+
 import java.io.File;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
 
 public interface ConfigWrapper
 {
@@ -18,7 +19,7 @@ public interface ConfigWrapper
 
 	public Object get(String key);
 
-	public GList<String> keys();
+	public KList<String> keys();
 
 	public boolean contains(String key);
 }

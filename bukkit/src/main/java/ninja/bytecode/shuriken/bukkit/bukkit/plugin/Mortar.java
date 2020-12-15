@@ -17,7 +17,7 @@ import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
+import ninja.bytecode.shuriken.bukkit.lang.collection.KSet;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
@@ -49,7 +49,7 @@ public class Mortar
 		return null;
 	}
 
-	public static GSet<Class<?>> getClassesInPackage(String p, Class<?> src)
+	public static KSet<Class<?>> getClassesInPackage(String p, Class<?> src)
 	{
 		JarScannerSpecial s = new JarScannerSpecial(getJar(src), p);
 

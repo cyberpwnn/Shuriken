@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -11,7 +11,7 @@ import org.json.JSONObject;
  */
 public class RTEX
 {
-	private GList<ColoredString> extras;
+	private KList<ColoredString> extras;
 
 	/**
 	 * Create a new raw text base
@@ -21,15 +21,15 @@ public class RTEX
 	 */
 	public RTEX(ColoredString... extras)
 	{
-		this.extras = new GList<ColoredString>(extras);
+		this.extras = new KList<ColoredString>(extras);
 	}
 
 	public RTEX()
 	{
-		this.extras = new GList<ColoredString>();
+		this.extras = new KList<ColoredString>();
 	}
 
-	public GList<ColoredString> getExtras()
+	public KList<ColoredString> getExtras()
 	{
 		return extras;
 	}

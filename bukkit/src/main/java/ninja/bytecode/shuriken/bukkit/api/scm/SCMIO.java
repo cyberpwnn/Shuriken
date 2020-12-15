@@ -26,7 +26,7 @@ import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
 import ninja.bytecode.shuriken.bukkit.util.queue.PhantomQueue;
 
@@ -64,7 +64,7 @@ public class SCMIO
 				Cuboid c = new Cuboid(min, max);
 				ChronoLatch latch = new ChronoLatch(intervalLog, false);
 				PhantomQueue<Chunk> cq = new PhantomQueue<Chunk>().responsiveMode();
-				cq.queue(new GList<>(c.getChunks()));
+				cq.queue(new KList<>(c.getChunks()));
 				int vx = cq.size() / 16;
 				J.sr(() ->
 				{
@@ -214,7 +214,7 @@ public class SCMIO
 		Location min = c.getLowerNE();
 		Location max = c.getUpperSW();
 		Vector origin = VectorMath.directionNoNormal(min, at);
-		GList<Location> signs = new GList<>();
+		KList<Location> signs = new KList<>();
 
 		J.a(() ->
 		{

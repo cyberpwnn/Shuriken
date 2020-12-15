@@ -4,9 +4,10 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.command.CommandSender;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public abstract class MortarPermission
 {
@@ -33,9 +34,9 @@ public abstract class MortarPermission
 		}
 	}
 
-	public GList<MortarPermission> getChildren()
+	public KList<MortarPermission> getChildren()
 	{
-		GList<MortarPermission> p = new GList<>();
+		KList<MortarPermission> p = new KList<>();
 
 		for(Field i : getClass().getDeclaredFields())
 		{

@@ -33,7 +33,7 @@ public interface PacketListener
 	 *            packet to the player or not. Returning true sends the packet,
 	 *            false cancels it.
 	 */
-	public <T> void addOutgoingListener(Class<? extends T> packetType, PacketHandler<T> handler);
+	public <T> void addOutgoinKListener(Class<? extends T> packetType, PacketHandler<T> handler);
 
 	/**
 	 * Add a packet listener for outgoing packets (server -> client)
@@ -43,7 +43,7 @@ public interface PacketListener
 	 *            packet to the player or not. Returning true sends the packet,
 	 *            false cancels it.
 	 */
-	public void addGlobalOutgoingListener(PacketHandler<?> handler);
+	public void addGlobalOutgoinKListener(PacketHandler<?> handler);
 
 	/**
 	 * Add a packet listener for incoming packets (client -> server)
@@ -55,7 +55,7 @@ public interface PacketListener
 	 *            packet to the server (handled by craftbukkit) or not. Returning
 	 *            true sends the packet, false cancels it.
 	 */
-	public <T> void addIncomingListener(Class<? extends T> packetType, PacketHandler<T> handler);
+	public <T> void addIncominKListener(Class<? extends T> packetType, PacketHandler<T> handler);
 
 	/**
 	 * Add a packet listener for incoming packets (client -> server)
@@ -65,7 +65,7 @@ public interface PacketListener
 	 *            packet to the server (handled by craftbukkit) or not. Returning
 	 *            true sends the packet, false cancels it.
 	 */
-	public void addGlobalIncomingListener(PacketHandler<?> handler);
+	public void addGlobalIncominKListener(PacketHandler<?> handler);
 
 	/**
 	 * Remove all outgoing listeners for the given packet type
@@ -97,5 +97,5 @@ public interface PacketListener
 
 	void removeOutgoingPacketListeners(String s);
 
-	void addIncomingListener(String packetType, PacketHandler<Object> handler);
+	void addIncominKListener(String packetType, PacketHandler<Object> handler);
 }

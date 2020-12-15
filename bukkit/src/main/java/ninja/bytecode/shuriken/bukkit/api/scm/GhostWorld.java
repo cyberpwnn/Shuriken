@@ -1,22 +1,23 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;
 import org.bukkit.Location;
 
 import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
 
 public class GhostWorld
 {
-	private GMap<Chunk, ChunkSnapshot> snap;
-	private GMap<Chunk, Long> aquired;
+	private KMap<Chunk, ChunkSnapshot> snap;
+	private KMap<Chunk, Long> aquired;
 
 	public GhostWorld()
 	{
-		aquired = new GMap<>();
-		snap = new GMap<Chunk, ChunkSnapshot>();
+		aquired = new KMap<>();
+		snap = new KMap<Chunk, ChunkSnapshot>();
 	}
 
 	public void drop(long olderThan)
@@ -44,7 +45,7 @@ public class GhostWorld
 		ChunkSnapshot s = snap.get(c);
 		int cxb = l.getBlockX() - ((l.getBlockX() >> 4) << 4);
 		int czb = l.getBlockZ() - ((l.getBlockZ() >> 4) << 4);
-		return new BlockType(s.getBlockType(cxb, l.getBlockY(), czb), (byte) s.getBlockData(cxb, l.getBlockY(), czb));
+		return new BlockType(s.getBlockType(cxb, l.getBlockY(), czb), (byte) 0);
 	}
 
 	public ChunkSnapshot snap(Chunk c)

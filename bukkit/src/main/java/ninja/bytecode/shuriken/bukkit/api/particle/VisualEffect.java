@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.particle;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 
 /**
@@ -17,7 +18,7 @@ public interface VisualEffect
 	 *
 	 * @return the effects
 	 */
-	public GList<VisualEffect> getEffects();
+	public KList<VisualEffect> getEffects();
 
 	/**
 	 * Play this effect. Will loop through all visual effects and play them, or

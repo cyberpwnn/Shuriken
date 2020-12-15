@@ -26,7 +26,7 @@ import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.scm.SCMController;
 import ninja.bytecode.shuriken.bukkit.api.tetris.JobScheduler;
 import ninja.bytecode.shuriken.bukkit.api.tome.CommandTome;
-import ninja.bytecode.shuriken.bukkit.lang.collection.LGMap;
+import ninja.bytecode.shuriken.bukkit.lang.collection.LKMap;
 import ninja.bytecode.shuriken.bukkit.lib.control.CacheController;
 import ninja.bytecode.shuriken.bukkit.lib.control.MojangProfileController;
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
@@ -147,7 +147,7 @@ public class MortarAPIPlugin extends MortarPlugin
 			return;
 		}
 
-		LGMap<String, Integer> count = new LGMap<>();
+		LKMap<String, Integer> count = new LKMap<>();
 
 		while(logQueue.hasNext())
 		{

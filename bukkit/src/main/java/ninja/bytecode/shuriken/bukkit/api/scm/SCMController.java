@@ -19,10 +19,12 @@ import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.event.VolumeConstructEvent;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GBiset;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+import ninja.bytecode.shuriken.bukkit.lang.collection.KBiset;
+
+
 import ninja.bytecode.shuriken.bukkit.util.text.C;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -41,7 +43,7 @@ public class SCMController extends Controller
 {
 	public static final String WAND_NAME = C.YELLOW + "SCM Wand";
 
-	private GMap<String, IVolume> volumes;
+	private KMap<String, IVolume> volumes;
 
 	public SCMController()
 	{
@@ -56,7 +58,7 @@ public class SCMController extends Controller
 			return;
 		}
 
-		volumes = new GMap<String, IVolume>();
+		volumes = new KMap<String, IVolume>();
 
 		File gf = getSCMFolder();
 
@@ -119,7 +121,7 @@ public class SCMController extends Controller
 			@Override
 			public void run()
 			{
-				GBiset<String, IMappedVolume> s = doMatch(e.getBlock().getLocation());
+				KBiset<String, IMappedVolume> s = doMatch(e.getBlock().getLocation());
 
 				if(s != null)
 				{
@@ -146,7 +148,7 @@ public class SCMController extends Controller
 			{
 				for(Block i : W.blockFaces(e.getBlock()))
 				{
-					GBiset<String, IMappedVolume> s = doMatch(i.getLocation());
+					KBiset<String, IMappedVolume> s = doMatch(i.getLocation());
 
 					if(s != null)
 					{
@@ -163,7 +165,7 @@ public class SCMController extends Controller
 					}
 				}
 
-				GBiset<String, IMappedVolume> s = doMatch(e.getBlock().getLocation());
+				KBiset<String, IMappedVolume> s = doMatch(e.getBlock().getLocation());
 
 				if(s != null)
 				{
@@ -180,10 +182,10 @@ public class SCMController extends Controller
 		};
 	}
 
-	public GBiset<String, IMappedVolume> doMatch(Location at)
+	public KBiset<String, IMappedVolume> doMatch(Location at)
 	{
 		if (volumes == null || volumes.size() == 0) return null;
-		GBiset<String, IMappedVolume> s = null;
+		KBiset<String, IMappedVolume> s = null;
 
 		for(String i : volumes.k())
 		{
@@ -192,7 +194,7 @@ public class SCMController extends Controller
 
 			if(m != null)
 			{
-				s = new GBiset<String, IMappedVolume>(i, m);
+				s = new KBiset<String, IMappedVolume>(i, m);
 				break;
 			}
 		}
@@ -225,7 +227,7 @@ public class SCMController extends Controller
 				ItemMeta im = is.getItemMeta();
 				im.setDisplayName(WAND_NAME);
 				Location ll = e.getClickedBlock().getLocation();
-				GList<String> lx = new GList<>(im.hasLore() ? im.getLore() : new GList<>());
+				KList<String> lx = new KList<>(im.hasLore() ? im.getLore() : new KList<>());
 				if (lx.size() == 0) lx.add("");
 				lx.set(0, C.AQUA + "A: " + ll.getWorld().getName() + "@" + ll.getBlockX() + "." + ll.getBlockY() + "." + ll.getBlockZ());
 				im.setLore(lx);
@@ -242,7 +244,7 @@ public class SCMController extends Controller
 				ItemMeta im = is.getItemMeta();
 				im.setDisplayName(WAND_NAME);
 				Location ll = e.getClickedBlock().getLocation();
-				GList<String> lx = new GList<String>(im.hasLore() ? im.getLore() : new GList<>());
+				KList<String> lx = new KList<String>(im.hasLore() ? im.getLore() : new KList<>());
 				if (lx.size() == 0) lx.add("");
 				lx.set(0, C.AQUA + "B: " + ll.getWorld().getName() + "@" + ll.getBlockX() + "." + ll.getBlockY() + "." + ll.getBlockZ());
 				im.setLore(lx);
@@ -397,7 +399,7 @@ public class SCMController extends Controller
 		new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(5f, 1.5f).play(e.getMappedVolume().getReverseRealizedMapping().k().pickRandom());
 	}
 
-	public GMap<String, IVolume> getVolumes()
+	public KMap<String, IVolume> getVolumes()
 	{
 		return volumes;
 	}

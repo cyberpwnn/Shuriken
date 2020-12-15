@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Chunk;
 import org.bukkit.World;
 
@@ -18,9 +18,9 @@ public class Chunks
 	 *            the given world
 	 * @return the chunks
 	 */
-	public static GList<Chunk> getLoadedChunks(World world)
+	public static KList<Chunk> getLoadedChunks(World world)
 	{
-		return new GList<Chunk>(world.getLoadedChunks());
+		return new KList<Chunk>(world.getLoadedChunks());
 	}
 
 	/**
@@ -28,9 +28,9 @@ public class Chunks
 	 *
 	 * @return all loaded chunks
 	 */
-	public static GList<Chunk> getLoadedChunks()
+	public static KList<Chunk> getLoadedChunks()
 	{
-		GList<Chunk> chunks = new GList<Chunk>();
+		KList<Chunk> chunks = new KList<Chunk>();
 
 		for(World i : Worlds.getWorlds())
 		{
@@ -49,7 +49,7 @@ public class Chunks
 	 *            the radius
 	 * @return the chunks
 	 */
-	public static GList<Chunk> getRadius(Chunk center, int radius)
+	public static KList<Chunk> getRadius(Chunk center, int radius)
 	{
 		return W.chunkRadius(center, radius);
 	}
@@ -109,7 +109,7 @@ public class Chunks
 	 *            should we ignore chunks with players nearby?
 	 * @return the amount of chunks unloaded
 	 */
-	public static int unload(GList<Chunk> chunks, boolean save, boolean safe)
+	public static int unload(KList<Chunk> chunks, boolean save, boolean safe)
 	{
 		int unloaded = 0;
 
@@ -133,7 +133,7 @@ public class Chunks
 	 *            should these chunks be saved?
 	 * @return the amount of chunks unloaded
 	 */
-	public static int unload(GList<Chunk> chunks, boolean save)
+	public static int unload(KList<Chunk> chunks, boolean save)
 	{
 		return unload(chunks, save, true);
 	}
@@ -145,7 +145,7 @@ public class Chunks
 	 *            the chunks to unload
 	 * @return the amount of chunks unloaded
 	 */
-	public static int unload(GList<Chunk> chunks)
+	public static int unload(KList<Chunk> chunks)
 	{
 		return unload(chunks, true, true);
 	}
@@ -196,7 +196,7 @@ public class Chunks
 	 * @param chunks
 	 *            the chunks
 	 */
-	public static void load(GList<Chunk> chunks)
+	public static void load(KList<Chunk> chunks)
 	{
 		for(Chunk i : chunks)
 		{

@@ -2,6 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.scm;
 
 import java.util.UUID;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
@@ -9,7 +10,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.block.Action;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public interface Multiblock
 {
@@ -39,5 +40,5 @@ public interface Multiblock
 
 	public void onDestroyed(Player player, Block block, Vector vector, Event event);
 
-	public void onDestroyed(GList<Block> changed);
+	public void onDestroyed(KList<Block> changed);
 }

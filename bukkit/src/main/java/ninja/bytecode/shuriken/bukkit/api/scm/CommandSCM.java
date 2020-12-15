@@ -19,7 +19,7 @@ import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 
@@ -55,7 +55,7 @@ public class CommandSCM extends MortarCommand
 			ItemMeta im = is.getItemMeta();
 			im.setDisplayName(C.YELLOW + "SCM Wand");
 			Location ll = (sender.player()).getLocation();
-			GList<String> s = new GList<String>();
+			KList<String> s = new KList<String>();
 			s.add(C.AQUA + "A: " + ll.getWorld().getName() + "@" + ll.getBlockX() + "." + ll.getBlockY() + "." + ll.getBlockZ());
 			s.add(C.AQUA + "B: " + ll.getWorld().getName() + "@" + ll.getBlockX() + "." + ll.getBlockY() + "." + ll.getBlockZ());
 			im.setLore(s);

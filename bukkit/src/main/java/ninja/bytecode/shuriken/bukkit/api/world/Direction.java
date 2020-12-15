@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GBiset;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+import ninja.bytecode.shuriken.collections.KBiset;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.block.BlockFace;
 import org.bukkit.util.Vector;
 
@@ -26,7 +27,7 @@ public enum Direction
 	private int y;
 	private int z;
 	private CuboidDirection f;
-	private static GMap<GBiset<Direction, Direction>, DOP> permute = null;
+	private static KMap<KBiset<Direction, Direction>, DOP> permute = null;
 
 	private Direction(int x, int y, int z, CuboidDirection f)
 	{
@@ -83,7 +84,7 @@ public enum Direction
 	{
 		calculatePermutations();
 
-		for(GBiset<Direction, Direction> i : permute.keySet())
+		for(KBiset<Direction, Direction> i : permute.keySet())
 		{
 			if(i.getA().equals(this) && i.getB().equals(d))
 			{
@@ -177,14 +178,14 @@ public enum Direction
 		return f;
 	}
 
-	public static GList<Direction> news()
+	public static KList<Direction> news()
 	{
-		return new GList<Direction>().qadd(N).qadd(E).qadd(W).qadd(S);
+		return new KList<Direction>().qadd(N).qadd(E).qadd(W).qadd(S);
 	}
 
-	public static GList<Direction> udnews()
+	public static KList<Direction> udnews()
 	{
-		return new GList<Direction>().qadd(U).qadd(D).qadd(N).qadd(E).qadd(W).qadd(S);
+		return new KList<Direction>().qadd(U).qadd(D).qadd(N).qadd(E).qadd(W).qadd(S);
 	}
 
 	/**
@@ -269,13 +270,13 @@ public enum Direction
 			return;
 		}
 
-		permute = new GMap<GBiset<Direction, Direction>, DOP>();
+		permute = new KMap<KBiset<Direction, Direction>, DOP>();
 
 		for(Direction i : udnews())
 		{
 			for(Direction j : udnews())
 			{
-				GBiset<Direction, Direction> b = new GBiset<Direction, Direction>(i, j);
+				KBiset<Direction, Direction> b = new KBiset<Direction, Direction>(i, j);
 
 				if(i.equals(j))
 				{

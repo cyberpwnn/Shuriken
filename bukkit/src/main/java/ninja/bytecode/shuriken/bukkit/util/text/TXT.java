@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.util.text;
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import org.apache.commons.lang.WordUtils;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 /**
  * Textual Utilities
@@ -35,10 +35,10 @@ public class TXT
 	 *            the length
 	 * @return the strings
 	 */
-	public static GList<String> wrap(String str, int len)
+	public static KList<String> wrap(String str, int len)
 	{
 		String format = C.getLastColors(str);
-		GList<String> lines = new GList<String>();
+		KList<String> lines = new KList<String>();
 
 		for(String i : WordUtils.wrap(str, len).split("\n"))
 		{

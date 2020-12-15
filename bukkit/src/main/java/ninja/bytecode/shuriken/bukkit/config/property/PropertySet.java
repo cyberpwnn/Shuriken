@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.config.property;
 
 import java.util.UUID;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public interface PropertySet
 {
@@ -124,7 +124,7 @@ public interface PropertySet
 
 	public PropertySet putUUID(String key, UUID value);
 
-	public GList<String> getKeys();
+	public KList<String> getKeys();
 
 	public boolean hasKey(String key);
 

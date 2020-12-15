@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -46,9 +46,9 @@ public class Inventories
 	 *            the inventory
 	 * @return the ACTUAL contents
 	 */
-	public static GList<ItemStack> getActualContents(Inventory i)
+	public static KList<ItemStack> getActualContents(Inventory i)
 	{
-		GList<ItemStack> actualItems = new GList<ItemStack>();
+		KList<ItemStack> actualItems = new KList<ItemStack>();
 
 		for(ItemStack j : i.getContents())
 		{

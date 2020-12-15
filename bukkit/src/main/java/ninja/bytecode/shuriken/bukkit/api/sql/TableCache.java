@@ -1,19 +1,19 @@
 package ninja.bytecode.shuriken.bukkit.api.sql;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 
 public class TableCache<K, V>
 {
 	private int limit;
-	private GList<K> order;
-	private GMap<K, V> map;
+	private KList<K> order;
+	private KMap<K, V> map;
 
 	public TableCache(int limit)
 	{
 		this.limit = limit;
-		order = new GList<K>();
-		map = new GMap<K, V>();
+		order = new KList<K>();
+		map = new KMap<K, V>();
 	}
 
 	public int size()
@@ -49,12 +49,12 @@ public class TableCache<K, V>
 		}
 	}
 
-	public GList<K> getKeys()
+	public KList<K> getKeys()
 	{
 		return map.k().copy();
 	}
 
-	public GList<V> getValues()
+	public KList<V> getValues()
 	{
 		return map.v().copy();
 	}

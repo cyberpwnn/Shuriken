@@ -1,12 +1,12 @@
 package ninja.bytecode.shuriken.bukkit.logic.queue;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public interface Queue<T>
 {
 	public void queue(T t);
 
-	public void queue(GList<T> t);
+	public void queue(KList<T> t);
 
 	public boolean hasNext(int amt);
 
@@ -14,7 +14,7 @@ public interface Queue<T>
 
 	public T next();
 
-	public GList<T> next(int amt);
+	public KList<T> next(int amt);
 
 	public void clear();
 

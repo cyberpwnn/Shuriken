@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.lang.collection;
+package ninja.bytecode.shuriken.collections;
 
 
 import java.util.LinkedHashMap;
@@ -58,11 +58,11 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	/**
 	 * Flips the maps keys and values.
 	 *
-	 * @return GMap V, K instead of K, V
+	 * @return KMap V, K instead of K, V
 	 */
-	public LKMap<V, GList<K>> flip()
+	public LKMap<V, KList<K>> flip()
 	{
-		LKMap<V, GList<K>> flipped = new LKMap<V, GList<K>>();
+		LKMap<V, KList<K>> flipped = new LKMap<V, KList<K>>();
 
 		for(K i : keySet())
 		{
@@ -73,7 +73,7 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 
 			if(!flipped.containsKey(get(i)))
 			{
-				flipped.put(get(i), new GList<K>());
+				flipped.put(get(i), new KList<K>());
 			}
 
 			flipped.get(get(i)).add(i);
@@ -85,7 +85,7 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	@Override
 	public String toString()
 	{
-		GList<String> s = new GList<String>();
+		KList<String> s = new KList<String>();
 
 		for(K i : keySet())
 		{
@@ -113,43 +113,43 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	}
 
 	/**
-	 * Get a copied GList of the keys (modification safe)
+	 * Get a copied KList of the keys (modification safe)
 	 *
 	 * @return keys
 	 */
-	public GList<K> k()
+	public KList<K> k()
 	{
-		return new GList<K>(keySet());
+		return new KList<K>(keySet());
 	}
 
 	/**
-	 * Get a copied GSet of the keys (modification safe)
+	 * Get a copied KSet of the keys (modification safe)
 	 *
 	 * @return keys
 	 */
-	public GSet<K> kset()
+	public KSet<K> kset()
 	{
-		return new GSet<K>(keySet());
+		return new KSet<K>(keySet());
 	}
 
 	/**
-	 * Get a copied GList of the values (modification safe)
+	 * Get a copied KList of the values (modification safe)
 	 *
 	 * @return values
 	 */
-	public GList<V> v()
+	public KList<V> v()
 	{
-		return new GList<V>(values());
+		return new KList<V>(values());
 	}
 
 	/**
-	 * Get a copied GSet of the values (modification safe)
+	 * Get a copied KSet of the values (modification safe)
 	 *
 	 * @return values
 	 */
-	public GSet<V> vset()
+	public KSet<V> vset()
 	{
-		return new GSet<V>(values());
+		return new KSet<V>(values());
 	}
 
 	/**
@@ -169,15 +169,15 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	}
 
 	/**
-	 * Get a Glist of values from a list of keys
+	 * Get a KList of values from a list of keys
 	 *
 	 * @param keys
 	 *            the requested keys
 	 * @return the resulted values
 	 */
-	public GList<V> get(GList<K> keys)
+	public KList<V> get(KList<K> keys)
 	{
-		GList<V> ulv = new GList<V>();
+		KList<V> ulv = new KList<V>();
 
 		for(K i : keys)
 		{
@@ -199,7 +199,7 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	public LKMap<K, V> removeDuplicateValues()
 	{
 		LKMap<K, V> map = this.copy();
-		GList<K> keys = map.k().removeDuplicates();
+		KList<K> keys = map.k().dedupe();
 
 		clear();
 
@@ -220,7 +220,7 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	 * @param v
 	 *            the values
 	 */
-	public void put(GList<K> k, GList<V> v)
+	public void put(KList<K> k, KList<V> v)
 	{
 		if(k.size() != v.size())
 		{
@@ -238,10 +238,10 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	 *
 	 * @return the sorted keys
 	 */
-	public GList<K> sortK()
+	public KList<K> sortK()
 	{
-		GList<K> k = new GList<K>();
-		GList<V> v = v();
+		KList<K> k = new KList<K>();
+		KList<V> v = v();
 
 		v.sort();
 
@@ -264,10 +264,10 @@ public class LKMap<K, V> extends LinkedHashMap<K, V>
 	 *
 	 * @return the sorted values
 	 */
-	public GList<V> sortV()
+	public KList<V> sortV()
 	{
-		GList<V> v = new GList<V>();
-		GList<K> k = k();
+		KList<V> v = new KList<V>();
+		KList<K> k = k();
 
 		k.sort();
 

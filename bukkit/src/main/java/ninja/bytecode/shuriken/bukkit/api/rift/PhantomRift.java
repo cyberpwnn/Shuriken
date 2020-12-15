@@ -11,11 +11,15 @@ import ninja.bytecode.shuriken.bukkit.api.sched.S;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.json.JSONException;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Difficulty;
@@ -33,20 +37,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.generator.ChunkGenerator;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class PhantomRift implements Rift, Listener
 {
 	private World world;
-	private PhysicsEngine engine;
 	private AR ar;
 	private String name;
 	private Class<? extends ChunkGenerator> generator;
 	private Environment environment;
 	private GameMode forced;
 	private Difficulty difficulty;
-	private GMap<String, String> rules = new GMap<>();
+	private KMap<String, String> rules = new KMap<>();
 	private long seed;
 	private int lx;
 	private int lz;
@@ -273,9 +274,9 @@ public class PhantomRift implements Rift, Listener
 		return j;
 	}
 
-	private GMap<String, String> parseRules(JSONObject j)
+	private KMap<String, String> parseRules(JSONObject j)
 	{
-		GMap<String, String> r = new GMap<>();
+		KMap<String, String> r = new KMap<>();
 
 		for(String i : j.keySet())
 		{
@@ -302,7 +303,6 @@ public class PhantomRift implements Rift, Listener
 	{
 		if(shouldKeepLoaded(e.getChunk()))
 		{
-			e.setCancelled(true);
 			e.getChunk().load();
 		}
 	}
@@ -311,8 +311,6 @@ public class PhantomRift implements Rift, Listener
 	{
 		if(isLoaded())
 		{
-			getPhysicsEngine().update();
-
 			if(M.interval(5))
 			{
 				if(isLockingTime() && getWorld().getTime() != getLockedTime())
@@ -458,7 +456,7 @@ public class PhantomRift implements Rift, Listener
 			return this;
 		}
 
-		GList<Player> playersInRift = new GList<>();
+		KList<Player> playersInRift = new KList<>();
 
 		for(Player i : getWorld().getPlayers())
 		{
@@ -525,17 +523,6 @@ public class PhantomRift implements Rift, Listener
 			};
 
 			MortarAPIPlugin.p.registerListener(this);
-			engine = new PhysicsEngine(this);
-
-			try
-			{
-				getPhysicsEngine().inject();
-			}
-
-			catch(IllegalArgumentException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | SecurityException | NoSuchFieldException e)
-			{
-				e.printStackTrace();
-			}
 
 			slowlyPreload();
 		}
@@ -604,21 +591,10 @@ public class PhantomRift implements Rift, Listener
 
 		}
 
-		try
-		{
-			getPhysicsEngine().reset();
-		}
-
-		catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e)
-		{
-			e.printStackTrace();
-		}
-
 		HandlerList.unregisterAll(this);
 		colapse();
 		Bukkit.unloadWorld(getWorld(), !isTemporary());
 		world = null;
-		engine = null;
 		colapsing = false;
 		return this;
 	}
@@ -644,12 +620,12 @@ public class PhantomRift implements Rift, Listener
 		{
 			if(isTemporary())
 			{
-				i.unload(false, true);
+				i.unload(false);
 			}
 
 			else
 			{
-				i.unload(true, true);
+				i.unload(true);
 			}
 		}
 
@@ -742,19 +718,13 @@ public class PhantomRift implements Rift, Listener
 	@Override
 	public double getEntityTickTime()
 	{
-		return isLoaded() ? getPhysicsEngine().getEntityTime() : 0D;
+		return 0D;
 	}
 
 	@Override
 	public double getTileTickTime()
 	{
-		return isLoaded() ? getPhysicsEngine().getTileTime() : 0D;
-	}
-
-	@Override
-	public PhysicsEngine getPhysicsEngine()
-	{
-		return engine;
+		return 0D;
 	}
 
 	@Override
@@ -1069,7 +1039,7 @@ public class PhantomRift implements Rift, Listener
 	}
 
 	@Override
-	public GList<String> getRules()
+	public KList<String> getRules()
 	{
 		return rules.k();
 	}

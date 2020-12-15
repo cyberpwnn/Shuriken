@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.util.reflection;
 
 import java.lang.annotation.Annotation;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class V
 {
@@ -110,7 +110,7 @@ public class V
 
 	public Object invoke(String method, Object... parameters)
 	{
-		GList<Class<?>> par = new GList<Class<?>>();
+		KList<Class<?>> par = new KList<Class<?>>();
 
 		for(Object i : parameters)
 		{

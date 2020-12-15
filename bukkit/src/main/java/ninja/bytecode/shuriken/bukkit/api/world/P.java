@@ -2,8 +2,8 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 import java.util.Set;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GListAdapter;
+
+import ninja.bytecode.shuriken.bukkit.lang.collection.KListAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -96,9 +96,9 @@ public class P
 	 *            the world
 	 * @return the players
 	 */
-	public static GList<Player> inWorld(World world)
+	public static KList<Player> inWorld(World world)
 	{
-		return new GList<Player>(world.getPlayers());
+		return new KList<Player>(world.getPlayers());
 	}
 
 	/**
@@ -108,9 +108,9 @@ public class P
 	 *            the chunk
 	 * @return the list of players
 	 */
-	public static GList<Player> inChunk(Chunk chunk)
+	public static KList<Player> inChunk(Chunk chunk)
 	{
-		return new GList<Player>(new GListAdapter<Entity, Player>()
+		return new KList<Player>(new KListAdapter<Entity, Player>()
 		{
 			@Override
 			public Player onAdapt(Entity from)
@@ -122,7 +122,7 @@ public class P
 
 				return null;
 			}
-		}.adapt(new GList<Entity>(chunk.getEntities())));
+		}.adapt(new KList<Entity>(chunk.getEntities())));
 	}
 
 	/**
@@ -134,9 +134,9 @@ public class P
 	 *            the three dimensional area radius to search
 	 * @return a list of players in the given area
 	 */
-	public static GList<Player> inArea(Location l, double radius)
+	public static KList<Player> inArea(Location l, double radius)
 	{
-		return new GList<Player>(new Area(l, radius).getNearbyPlayers());
+		return new KList<Player>(new Area(l, radius).getNearbyPlayers());
 	}
 
 	/**
@@ -148,9 +148,9 @@ public class P
 	 *            the three dimensional area radius to search
 	 * @return a list of players in the given area
 	 */
-	public static GList<Player> inArea(Location l, int radius)
+	public static KList<Player> inArea(Location l, int radius)
 	{
-		return new GList<Player>(new Area(l, radius).getNearbyPlayers());
+		return new KList<Player>(new Area(l, radius).getNearbyPlayers());
 	}
 
 	/**
@@ -354,9 +354,9 @@ public class P
 	 *
 	 * @return the players
 	 */
-	public static GList<Player> onlinePlayers()
+	public static KList<Player> onlinePlayers()
 	{
-		GList<Player> px = new GList<Player>();
+		KList<Player> px = new KList<Player>();
 
 		for(Player i : Bukkit.getOnlinePlayers())
 		{
@@ -399,7 +399,7 @@ public class P
 	 */
 	public static void clearEffects(Player p)
 	{
-		for(PotionEffect i : new GList<PotionEffect>(p.getActivePotionEffects()))
+		for(PotionEffect i : new KList<PotionEffect>(p.getActivePotionEffects()))
 		{
 			p.removePotionEffect(i.getType());
 		}
@@ -513,9 +513,9 @@ public class P
 		return base;
 	}
 
-	public static GList<Player> getPlayersWithinViewOf(Chunk c)
+	public static KList<Player> getPlayersWithinViewOf(Chunk c)
 	{
-		GList<Player> pv = new GList<Player>();
+		KList<Player> pv = new KList<Player>();
 
 		for(Player i : c.getWorld().getPlayers())
 		{

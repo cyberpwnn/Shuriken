@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.lang.collection;
+package ninja.bytecode.shuriken.collections;
 
 
 /**

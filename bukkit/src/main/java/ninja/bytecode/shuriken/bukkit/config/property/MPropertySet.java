@@ -2,16 +2,16 @@ package ninja.bytecode.shuriken.bukkit.config.property;
 
 import java.util.UUID;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 
 public class MPropertySet implements PropertySet
 {
-	private GMap<String, Object> properties;
+	private KMap<String, Object> properties;
 
 	public MPropertySet()
 	{
-		properties = new GMap<>();
+		properties = new KMap<>();
 	}
 
 	@Override
@@ -177,7 +177,7 @@ public class MPropertySet implements PropertySet
 	}
 
 	@Override
-	public GList<String> getKeys()
+	public KList<String> getKeys()
 	{
 		return properties.k();
 	}

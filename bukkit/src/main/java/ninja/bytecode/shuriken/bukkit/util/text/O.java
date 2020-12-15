@@ -1,11 +1,11 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class O<T> implements Observable<T>
 {
 	private T t = null;
-	private GList<Observer<T>> observers;
+	private KList<Observer<T>> observers;
 
 	@Override
 	public T get()
@@ -48,7 +48,7 @@ public class O<T> implements Observable<T>
 	{
 		if(observers == null)
 		{
-			observers = new GList<>();
+			observers = new KList<>();
 		}
 
 		observers.add(t);

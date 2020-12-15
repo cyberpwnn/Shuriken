@@ -3,9 +3,9 @@ package ninja.bytecode.shuriken.bukkit.api.config;
 import java.io.File;
 import java.util.List;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
+import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.json.JSONObject;
 
@@ -55,7 +55,7 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 
 		if(oo instanceof List)
 		{
-			o = GList.asStringList((List<?>) oo);
+			o = KList.asStringList((List<?>) oo);
 		}
 
 		else
@@ -63,16 +63,16 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 			o = oo;
 		}
 
-		if(o instanceof GList)
+		if(o instanceof KList)
 		{
 			try
 			{
-				o = ((GList<String>) o).toJSONStringArray();
+				o = ((KList<String>) o).toJSONStringArray();
 			}
 
 			catch(Throwable e)
 			{
-				D.as("ID10T Advisor").w("GLists in Object-Configs only support String Lists for json providers.");
+				D.as("ID10T Advisor").w("KLists in Object-Configs only support String Lists for json providers.");
 			}
 		}
 
@@ -84,7 +84,7 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 		else
 		{
 			JSONObject cursor = wrapped;
-			GList<String> splitkey = new GList<String>(key.split("\\.")).removeLast();
+			KList<String> splitkey = new KList<String>(key.split("\\.")).removeLast();
 
 			for(String i : splitkey)
 			{
@@ -109,7 +109,7 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 
 			if(o instanceof JSONArray)
 			{
-				o = GList.fromJSONAny((JSONArray) o);
+				o = KList.fromJSONAny((JSONArray) o);
 			}
 
 			return o;
@@ -118,7 +118,7 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 		else
 		{
 			JSONObject cursor = wrapped;
-			GList<String> splitkey = new GList<String>(key.split("\\.")).removeLast();
+			KList<String> splitkey = new KList<String>(key.split("\\.")).removeLast();
 
 			for(String i : splitkey)
 			{
@@ -134,7 +134,7 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 
 			if(o instanceof JSONArray)
 			{
-				return GList.fromJSONAny((JSONArray) o);
+				return KList.fromJSONAny((JSONArray) o);
 			}
 
 			return o;
@@ -142,14 +142,14 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 	}
 
 	@Override
-	public GList<String> keys()
+	public KList<String> keys()
 	{
 		return keys("", wrapped);
 	}
 
-	public GList<String> keys(String prefix, JSONObject start)
+	public KList<String> keys(String prefix, JSONObject start)
 	{
-		GList<String> keys = new GList<>();
+		KList<String> keys = new KList<>();
 
 		for(String i : start.keySet())
 		{

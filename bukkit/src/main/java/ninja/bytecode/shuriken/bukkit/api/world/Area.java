@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 import java.util.HashSet;
 import java.util.Random;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -128,7 +128,7 @@ public class Area
 	 */
 	public Entity[] getNearbyEntities(EntityType type)
 	{
-		GList<Entity> e = new GList<Entity>(getNearbyEntities());
+		KList<Entity> e = new KList<Entity>(getNearbyEntities());
 
 		for(Entity i : e.copy())
 		{
@@ -150,7 +150,7 @@ public class Area
 	 */
 	public Entity[] getNearbyEntities(Class<? extends Entity> entityClass)
 	{
-		GList<Entity> e = new GList<Entity>(getNearbyEntities());
+		KList<Entity> e = new KList<Entity>(getNearbyEntities());
 
 		for(Entity i : e.copy())
 		{
@@ -197,7 +197,7 @@ public class Area
 
 		catch(Exception e)
 		{
-			return new GList<Entity>().toArray(new Entity[0]);
+			return new KList<Entity>().toArray(new Entity[0]);
 		}
 	}
 
@@ -208,7 +208,7 @@ public class Area
 	 */
 	public Player[] getNearbyPlayers()
 	{
-		GList<Player> px = new GList<Player>();
+		KList<Player> px = new KList<Player>();
 
 		for(Entity i : getNearbyEntities())
 		{

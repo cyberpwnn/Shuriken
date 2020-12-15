@@ -2,9 +2,9 @@ package ninja.bytecode.shuriken.bukkit.api.inventory;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.collections.KSet;
+import ninja.bytecode.shuriken.execution.Callback;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -26,7 +26,7 @@ public class UIWindow implements Window, Listener
 	private final Player viewer;
 	private Callback<Window> eClose;
 	private WindowResolution resolution;
-	private GMap<Integer, Element> elements;
+	private KMap<Integer, Element> elements;
 	private String title;
 	private boolean visible;
 	private int viewportPosition;
@@ -42,7 +42,7 @@ public class UIWindow implements Window, Listener
 		this.plugin = MortarAPIPlugin.p;
 		doubleclicked = false;
 		this.viewer = viewer;
-		this.elements = new GMap<>();
+		this.elements = new KMap<>();
 		setTitle("");
 		setDecorator(new UIVoidDecorator());
 		setResolution(WindowResolution.W9_H6);
@@ -495,7 +495,7 @@ public class UIWindow implements Window, Listener
 		if(isVisible())
 		{
 			ItemStack[] is = inventory.getContents();
-			GSet<ItemStack> isf = new GSet<ItemStack>();
+			KSet<ItemStack> isf = new KSet<ItemStack>();
 
 			for(int i = 0; i < is.length; i++)
 			{

@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
 import ninja.bytecode.shuriken.bukkit.lang.collection.CacheMap;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,7 +13,7 @@ public class MojangProfileController extends Controller
 {
 	private static final CacheMap<String, UUID> NAME_UUID_CACHE = new CacheMap<String, UUID>(512);
 	private static final CacheMap<UUID, String> UUID_NAME_CACHE = new CacheMap<UUID, String>(512);
-	private static final CacheMap<UUID, GList<String>> UUID_NAMES_CACHE = new CacheMap<UUID, GList<String>>(512);
+	private static final CacheMap<UUID, KList<String>> UUID_NAMES_CACHE = new CacheMap<UUID, KList<String>>(512);
 	private static final String PROFILE_USERNAME = "https://api.mojang.com/users/profiles/minecraft/";
 	private static final String PROFILE_NAMES = "https://api.mojang.com/user/profiles/";
 
@@ -47,14 +47,14 @@ public class MojangProfileController extends Controller
 		return UUID_NAME_CACHE.get(uuid);
 	}
 
-	public GList<String> getOnlineNamesFor(UUID uuid)
+	public KList<String> getOnlineNamesFor(UUID uuid)
 	{
 		if(UUID_NAMES_CACHE.has(uuid))
 		{
 			return UUID_NAMES_CACHE.get(uuid);
 		}
 
-		GList<String> vx = new GList<String>();
+		KList<String> vx = new KList<String>();
 
 		try
 		{

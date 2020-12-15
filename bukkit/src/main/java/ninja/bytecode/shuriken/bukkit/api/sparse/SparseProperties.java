@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.sparse;
 
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 import ninja.bytecode.shuriken.bukkit.logic.io.Hasher;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -13,9 +13,9 @@ public interface SparseProperties
 {
 	public boolean isModified();
 
-	public GList<String> getKeys();
+	public KList<String> getKeys();
 
-	public GList<JSONObject> getValues();
+	public KList<JSONObject> getValues();
 
 	public SparseProperties remove(String key);
 
@@ -49,7 +49,7 @@ public interface SparseProperties
 
 		if(!im.hasLore())
 		{
-			im.setLore(new GList<>());
+			im.setLore(new KList<>());
 		}
 
 		if(!im.getLore().isEmpty() && im.getLore().get(0).startsWith("sparse://"))

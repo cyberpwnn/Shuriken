@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.concurrent.ConcurrentSkipListMap;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
 
 public class Violator
 {
@@ -184,7 +184,7 @@ public class Violator
 	@SuppressWarnings("unchecked")
 	public static <T> T construct(Class<?> c, Object... parameters)
 	{
-		GList<Class<?>> cv = new GList<Class<?>>();
+		KList<Class<?>> cv = new KList<Class<?>>();
 
 		for(Object i : parameters)
 		{

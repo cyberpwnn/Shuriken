@@ -1,18 +1,18 @@
 package ninja.bytecode.shuriken.bukkit.api.nms;
 
-import java.lang.reflect.InvocationTargetException;
+import ninja.bytecode.shuriken.collections.KMap;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+import java.lang.reflect.InvocationTargetException;
 
 public class PacketCache<T>
 {
-	private static GMap<Class<?>, PacketCache<?>> cache;
-	private final GMap<Long, T> t;
+	private static KMap<Class<?>, PacketCache<?>> cache;
+	private final KMap<Long, T> t;
 	private final Class<? extends T> tt;
 
 	public PacketCache(Class<? extends T> tt)
 	{
-		t = new GMap<>();
+		t = new KMap<>();
 		this.tt = tt;
 	}
 
@@ -54,7 +54,7 @@ public class PacketCache<T>
 
 	public static void reset()
 	{
-		cache = new GMap<>();
+		cache = new KMap<>();
 	}
 
 	public static int totalSize()

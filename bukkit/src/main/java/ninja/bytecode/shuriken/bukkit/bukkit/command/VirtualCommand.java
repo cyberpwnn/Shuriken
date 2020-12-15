@@ -5,8 +5,8 @@ import java.lang.reflect.Field;
 import org.bukkit.command.CommandSender;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 
@@ -22,7 +22,7 @@ public class VirtualCommand
 	private ICommand command;
 	private String tag;
 
-	private GMap<GList<String>, VirtualCommand> children;
+	private KMap<KList<String>, VirtualCommand> children;
 
 	public VirtualCommand(ICommand command)
 	{
@@ -32,7 +32,7 @@ public class VirtualCommand
 	public VirtualCommand(ICommand command, String tag)
 	{
 		this.command = command;
-		children = new GMap<GList<String>, VirtualCommand>();
+		children = new KMap<KList<String>, VirtualCommand>();
 		this.tag = tag;
 
 		for(Field i : command.getClass().getDeclaredFields())
@@ -65,17 +65,17 @@ public class VirtualCommand
 		return command;
 	}
 
-	public GMap<GList<String>, VirtualCommand> getChildren()
+	public KMap<KList<String>, VirtualCommand> getChildren()
 	{
 		return children;
 	}
 
-	public boolean hit(CommandSender sender, GList<String> chain)
+	public boolean hit(CommandSender sender, KList<String> chain)
 	{
 		return hit(sender, chain, null);
 	}
 
-	public boolean hit(CommandSender sender, GList<String> chain, String label)
+	public boolean hit(CommandSender sender, KList<String> chain, String label)
 	{
 		MortarSender vs = new MortarSender(sender);
 		vs.setTag(tag);
@@ -95,7 +95,7 @@ public class VirtualCommand
 
 		String nl = chain.get(0);
 
-		for(GList<String> i : children.k())
+		for(KList<String> i : children.k())
 		{
 			for(String j : i)
 			{
@@ -103,7 +103,7 @@ public class VirtualCommand
 				{
 					vs.setCommand(chain.get(0));
 					VirtualCommand cmd = children.get(i);
-					GList<String> c = chain.copy();
+					KList<String> c = chain.copy();
 					c.remove(0);
 					if(cmd.hit(sender, c, vs.getCommand()))
 					{

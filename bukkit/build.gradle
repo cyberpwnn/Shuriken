@@ -1,5 +1,6 @@
 dependencies {
-    api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+    api project(":core")
+    //api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
     api 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
     api 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
     api 'org.bukkit.craftbukkit:cb-1.16.2:1.16.2'

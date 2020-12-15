@@ -2,8 +2,8 @@ package ninja.bytecode.shuriken.bukkit.api.sparse;
 
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 import ninja.bytecode.shuriken.bukkit.logic.io.Hasher;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -14,12 +14,12 @@ import org.json.JSONObject;
 
 public class BSparseProperties implements SparseProperties
 {
-	private final GMap<String, JSONObject> data;
+	private final KMap<String, JSONObject> data;
 	private boolean modified;
 
 	protected BSparseProperties(JSONObject o)
 	{
-		data = new GMap<>();
+		data = new KMap<>();
 		modified = false;
 
 		for(String i : o.keySet())
@@ -161,13 +161,13 @@ public class BSparseProperties implements SparseProperties
 	}
 
 	@Override
-	public GList<String> getKeys()
+	public KList<String> getKeys()
 	{
 		return data.k();
 	}
 
 	@Override
-	public GList<JSONObject> getValues()
+	public KList<JSONObject> getValues()
 	{
 		return data.v();
 	}
@@ -213,7 +213,7 @@ public class BSparseProperties implements SparseProperties
 	{
 		ItemMeta im = is.getItemMeta();
 		String data = "sparse://" + toCJSON();
-		GList<String> lore = new GList<String>();
+		KList<String> lore = new KList<String>();
 		if(im.hasLore())
 		{
 			lore.addAll(im.getLore());

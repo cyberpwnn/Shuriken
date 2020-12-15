@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.lang.collection;
+package ninja.bytecode.shuriken.collections;
 
 /**
  * Represents a number that can be finalized and be changed

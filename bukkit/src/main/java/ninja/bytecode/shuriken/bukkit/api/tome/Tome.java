@@ -16,8 +16,8 @@ import javax.xml.transform.stream.StreamSource;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.api.nms.Catalyst;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.Alphabet;
@@ -48,13 +48,13 @@ public class Tome
 	public static final char[] NUM_FILLED = new char[] {'\u2776', '\u2777', '\u2778', '\u2779', '\u277A', '\u277B', '\u277C', '\u277D', '\u277E', '\u277F'};
 	private TomeComponentBook root;
 	private boolean preprocessed;
-	private GList<BaseComponent> cache;
+	private KList<BaseComponent> cache;
 
 	public Tome()
 	{
 		root = new TomeComponentBook();
 		preprocessed = false;
-		cache = new GList<>();
+		cache = new KList<>();
 	}
 
 	public Alphabet getLetter()
@@ -82,7 +82,7 @@ public class Tome
 
 		int m = 0;
 
-		GList<TomeParagraph> filterParagraphs = new GList<>();
+		KList<TomeParagraph> filterParagraphs = new KList<>();
 
 		for(TomeComponent a : root.getComponents())
 		{
@@ -167,9 +167,9 @@ public class Tome
 		}
 
 		preprocessTome();
-		GMap<String, Integer> anchorPages = new GMap<>();
-		GMap<String, String> properties = genDefaultProperties();
-		GList<String> tables = new GList<>();
+		KMap<String, Integer> anchorPages = new KMap<>();
+		KMap<String, String> properties = genDefaultProperties();
+		KList<String> tables = new KList<>();
 		int currentPage = 0;
 		int currentLine = 0;
 		int maxLines = 11;
@@ -265,8 +265,8 @@ public class Tome
 			}
 		}
 
-		GList<BaseComponent> elements = new GList<>(content.getExtra() == null ? new ArrayList<BaseComponent>() : content.getExtra());
-		GMap<Integer, GList<BaseComponent>> pageListing = new GMap<>();
+		KList<BaseComponent> elements = new KList<>(content.getExtra() == null ? new ArrayList<BaseComponent>() : content.getExtra());
+		KMap<Integer, KList<BaseComponent>> pageListing = new KMap<>();
 
 		while(!elements.isEmpty())
 		{
@@ -300,7 +300,7 @@ public class Tome
 
 			if(!pageListing.containsKey(currentPage))
 			{
-				pageListing.put(currentPage, new GList<>());
+				pageListing.put(currentPage, new KList<>());
 			}
 
 			pageListing.get(currentPage).add(next);
@@ -308,7 +308,7 @@ public class Tome
 			currentLine += lineConsumption;
 		}
 
-		GList<BaseComponent> prePages = new GList<>();
+		KList<BaseComponent> prePages = new KList<>();
 
 		if(properties.get("frontPage").equals("true"))
 		{
@@ -333,15 +333,15 @@ public class Tome
 
 		for(BaseComponent i : prePages)
 		{
-			for(BaseComponent j : new GList<>(i.getExtra() == null ? new ArrayList<>() : i.getExtra()))
+			for(BaseComponent j : new KList<>(i.getExtra() == null ? new ArrayList<>() : i.getExtra()))
 			{
-				for(BaseComponent k : new GList<>(j.getExtra() == null ? new ArrayList<>() : j.getExtra()))
+				for(BaseComponent k : new KList<>(j.getExtra() == null ? new ArrayList<>() : j.getExtra()))
 				{
-					for(BaseComponent l : new GList<>(k.getExtra() == null ? new ArrayList<>() : k.getExtra()))
+					for(BaseComponent l : new KList<>(k.getExtra() == null ? new ArrayList<>() : k.getExtra()))
 					{
-						for(BaseComponent m : new GList<>(l.getExtra() == null ? new ArrayList<>() : l.getExtra()))
+						for(BaseComponent m : new KList<>(l.getExtra() == null ? new ArrayList<>() : l.getExtra()))
 						{
-							for(BaseComponent n : new GList<>(m.getExtra() == null ? new ArrayList<>() : k.getExtra()))
+							for(BaseComponent n : new KList<>(m.getExtra() == null ? new ArrayList<>() : k.getExtra()))
 							{
 								if(n instanceof TextComponent && ((TextComponent) n).getText().startsWith("!!anchor!!:"))
 								{
@@ -685,9 +685,9 @@ public class Tome
 		return book;
 	}
 
-	private void filterProperties(GMap<String, String> properties)
+	private void filterProperties(KMap<String, String> properties)
 	{
-		GMap<String, String> defaults = genDefaultProperties();
+		KMap<String, String> defaults = genDefaultProperties();
 
 		for(String ii : properties.k())
 		{
@@ -724,18 +724,18 @@ public class Tome
 		}
 	}
 
-	private GMap<String, String> genDefaultProperties()
+	private KMap<String, String> genDefaultProperties()
 	{
-		GMap<String, String> g = new GMap<>();
+		KMap<String, String> g = new KMap<>();
 		g.put("frontPage", "true");
 		g.put("tableOfContents", "true");
 
 		return g;
 	}
 
-	private GList<BaseComponent> exportTableOfContents(GList<String> tables)
+	private KList<BaseComponent> exportTableOfContents(KList<String> tables)
 	{
-		GList<BaseComponent> pg = new GList<>();
+		KList<BaseComponent> pg = new KList<>();
 
 		int sec = 0;
 		int toc = 0;

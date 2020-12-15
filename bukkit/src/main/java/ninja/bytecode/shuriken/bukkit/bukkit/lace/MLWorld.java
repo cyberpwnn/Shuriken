@@ -4,18 +4,18 @@ import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 
 public class MLWorld implements LacedWorld
 {
 	private World world;
-	private GMap<Chunk, LacedChunk> laced;
+	private KMap<Chunk, LacedChunk> laced;
 
 	public MLWorld(World world)
 	{
 		this.world = world;
-		laced = new GMap<>();
+		laced = new KMap<>();
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class MLWorld implements LacedWorld
 	}
 
 	@Override
-	public GList<LacedChunk> getChunksLoaded()
+	public KList<LacedChunk> getChunksLoaded()
 	{
 		return laced.v();
 	}

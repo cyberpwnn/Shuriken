@@ -7,7 +7,8 @@ import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
 import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.Dimension;
 import ninja.bytecode.shuriken.bukkit.api.world.Direction;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
@@ -211,9 +212,9 @@ public class VariableSchematic
 	 *
 	 * @return the list
 	 */
-	public GList<VariableBlock> toList()
+	public KList<VariableBlock> toList()
 	{
-		GList<VariableBlock> md = new GList<VariableBlock>();
+		KList<VariableBlock> md = new KList<VariableBlock>();
 
 		for(int i = 0; i < dimension.getWidth(); i++)
 		{
@@ -459,7 +460,6 @@ public class VariableSchematic
 				for(int k = 0; k < dimension.getDepth(); k++)
 				{
 					lx.clone().add(i, j, k).getBlock().setType(schematic[i][j][k].random().getMaterial());
-					lx.clone().add(i, j, k).getBlock().setData(schematic[i][j][k].random().getData());
 				}
 			}
 		}

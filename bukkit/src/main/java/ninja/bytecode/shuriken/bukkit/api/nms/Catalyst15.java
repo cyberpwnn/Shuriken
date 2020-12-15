@@ -4,7 +4,6 @@ import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.world.Area;
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -13,6 +12,7 @@ import net.minecraft.server.v1_15_R1.*;
 import net.minecraft.server.v1_15_R1.DataWatcher.Item;
 import net.minecraft.server.v1_15_R1.IScoreboardCriteria.EnumScoreboardHealthDisplay;
 import net.minecraft.server.v1_15_R1.PacketPlayOutTitle.EnumTitleAction;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -204,7 +204,7 @@ public class Catalyst15 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public void onOpened() {
-        addGlobalIncomingListener((player, packet) -> {
+        addGlobalIncominKListener((player, packet) -> {
             if (packet instanceof PacketPlayInSettings) {
                 PacketPlayInSettings s = (PacketPlayInSettings) packet;
                 playerSettings.put(player, new PlayerSettings(s.b(), s.viewDistance, ChatMode.values()[s.d().ordinal()], s.e(), s.f(), s.getMainHand().equals(EnumMainHand.RIGHT)));
@@ -739,7 +739,7 @@ public class Catalyst15 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public void add(BookMeta bm, GList<BaseComponent> pages) {
+    public void add(BookMeta bm, KList<BaseComponent> pages) {
         ((CraftMetaBook) bm).pages = pages.convert((bc) -> IChatBaseComponent.ChatSerializer.a(ComponentSerializer.toString(bc)));
     }
 }

@@ -54,7 +54,7 @@ public class WrappedJSONConfiguration implements ConfigWrapper
 
 		if(oo instanceof List)
 		{
-			o = KList.asStringList((List<?>) oo);
+			o = KList.asStrinKList((List<?>) oo);
 		}
 
 		else

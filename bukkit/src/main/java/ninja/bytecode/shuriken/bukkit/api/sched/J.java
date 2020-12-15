@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.sched;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.lang.collection.FinalInteger;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+
+import ninja.bytecode.shuriken.collections.FInt;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 
 /**
@@ -13,8 +14,8 @@ import org.bukkit.Bukkit;
  */
 public class J
 {
-	private static GList<Runnable> afterStartup = new GList<>();
-	private static GList<Runnable> afterStartupAsync = new GList<>();
+	private static KList<Runnable> afterStartup = new KList<>();
+	private static KList<Runnable> afterStartupAsync = new KList<>();
 	private static boolean started = false;
 
 	/**
@@ -150,7 +151,7 @@ public class J
 	 */
 	public static void sr(Runnable r, int interval, int intervals)
 	{
-		FinalInteger fi = new FinalInteger(0);
+		FInt fi = new FInt(0);
 
 		new SR()
 		{
@@ -232,7 +233,7 @@ public class J
 	 */
 	public static void ar(Runnable r, int interval, int intervals)
 	{
-		FinalInteger fi = new FinalInteger(0);
+		FInt fi = new FInt(0);
 
 		new AR()
 		{

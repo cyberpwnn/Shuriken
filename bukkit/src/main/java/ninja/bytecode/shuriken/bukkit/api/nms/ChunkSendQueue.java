@@ -1,19 +1,19 @@
 package ninja.bytecode.shuriken.bukkit.api.nms;
 
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.collections.KSet;
 import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.A;
 import ninja.bytecode.shuriken.bukkit.api.sched.S;
 import ninja.bytecode.shuriken.bukkit.api.sched.SR;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GSet;
 
 public class ChunkSendQueue
 {
-	private GList<Chunk> c = new GList<Chunk>();
-	private GMap<Chunk, GSet<Integer>> sections;
+	private KList<Chunk> c = new KList<Chunk>();
+	private KMap<Chunk, KSet<Integer>> sections;
 	private boolean running;
 	private SR s;
 	private int interval;
@@ -23,8 +23,8 @@ public class ChunkSendQueue
 	{
 		this.interval = interval;
 		this.volume = volume;
-		c = new GList<Chunk>();
-		sections = new GMap<Chunk, GSet<Integer>>();
+		c = new KList<Chunk>();
+		sections = new KMap<Chunk, KSet<Integer>>();
 		running = false;
 	}
 
@@ -47,7 +47,7 @@ public class ChunkSendQueue
 					while(l > 0 && !sections.isEmpty())
 					{
 						Chunk c = sections.k().pop();
-						GSet<Integer> s = sections.get(c);
+						KSet<Integer> s = sections.get(c);
 
 						if(s.isEmpty())
 						{
@@ -79,7 +79,7 @@ public class ChunkSendQueue
 				}
 
 				int l = volume;
-				GList<Chunk> tosend = new GList<Chunk>();
+				KList<Chunk> tosend = new KList<Chunk>();
 
 				while(!c.isEmpty() && l > 0)
 				{
@@ -137,7 +137,7 @@ public class ChunkSendQueue
 	{
 		if(!sections.containsKey(c))
 		{
-			sections.put(c, new GSet<Integer>());
+			sections.put(c, new KSet<Integer>());
 		}
 
 		sections.get(c).add(section);

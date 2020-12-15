@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarConfig;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+
+
 
 public class D implements Serializable, Logged
 {
 	private static final long serialVersionUID = 1L;
 	private String tag;
 	public static final D d = new D("Mortar");
-	private static final GMap<String, D> dm = new GMap<>();
+	private static final KMap<String, D> dm = new KMap<>();
 
 	public D(D d, String e)
 	{
@@ -26,7 +26,7 @@ public class D implements Serializable, Logged
 
 	private void log(String f, Object... s)
 	{
-		GList<Object> m = new GList<Object>(s);
+		KList<Object> m = new KList<Object>(s);
 		String msg = m.toString(", ");
 		String c = C.getLastColors(msg);
 

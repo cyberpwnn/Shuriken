@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
-import ninja.bytecode.shuriken.bukkit.lang.collection.GListAdapter;
+
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -56,26 +56,21 @@ public class Cuboid implements Iterable<Block>, Cloneable, ConfigurationSerializ
 		z2 = Math.max(l1.getBlockZ(), l2.getBlockZ());
 	}
 
-	public GList<LivingEntity> getLivingEntities()
+	public KList<LivingEntity> getLivingEntities()
 	{
-		return new GList<LivingEntity>(new GListAdapter<Entity, LivingEntity>()
-		{
-			@Override
-			public LivingEntity onAdapt(Entity from)
+		return getEntities().convert((v) -> {
+			if(v instanceof LivingEntity)
 			{
-				if(from instanceof LivingEntity)
-				{
-					return (LivingEntity) from;
-				}
-
-				return null;
+				return (LivingEntity) v;
 			}
-		}.adapt(getEntities()));
+
+			return null;
+		});
 	}
 
-	public GList<Entity> getEntities()
+	public KList<Entity> getEntities()
 	{
-		GList<Entity> en = new GList<Entity>();
+		KList<Entity> en = new KList<Entity>();
 
 		for(Chunk i : getChunks())
 		{
@@ -751,24 +746,6 @@ public class Cuboid implements Iterable<Block>, Cloneable, ConfigurationSerializ
 			}
 		}
 		return res;
-	}
-
-	/**
-	 * Set all the blocks within the Cuboid to the given block ID and data byte.
-	 *
-	 * @param blockId
-	 *            the block ID
-	 * @param data
-	 *            the block data
-	 * @deprecated use {@link #fill(MaterialData, MassBlockUpdate)}
-	 */
-	@Deprecated
-	public void fill(int blockId, byte data)
-	{
-		for(Block b : this)
-		{
-			b.setTypeIdAndData(blockId, data, false);
-		}
 	}
 
 	/**
