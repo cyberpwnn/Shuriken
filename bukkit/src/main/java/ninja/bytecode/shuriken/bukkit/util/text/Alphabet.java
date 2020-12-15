@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 
 /**
  * Alphabet military style

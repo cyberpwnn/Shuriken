@@ -4,10 +4,10 @@ import java.io.IOException;
 
 
 import ninja.bytecode.shuriken.bukkit.logic.io.Hasher;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import org.json.JSONObject;
 
 public interface SparseProperties
 {

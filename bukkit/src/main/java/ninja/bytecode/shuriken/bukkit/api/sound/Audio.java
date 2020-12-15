@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.sound;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;

@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.util.queue;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 
 public interface Queue<T>
 {

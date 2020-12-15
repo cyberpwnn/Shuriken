@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Color;
@@ -374,7 +375,7 @@ public class W
 
 		try
 		{
-			material = Material.getMaterial(Integer.valueOf(m));
+			material = Material.getMaterial("" + Integer.valueOf(m));
 
 			if(material == null)
 			{
@@ -482,7 +483,7 @@ public class W
 	@SuppressWarnings("deprecation")
 	public static void setTypeAndData(Block block, Material type, MaterialData data, boolean update)
 	{
-		block.setTypeIdAndData(type.getId(), data.getData(), update);
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -515,7 +516,7 @@ public class W
 	@SuppressWarnings("deprecation")
 	public static void setTypeAndRawData(Block block, Material type, int data, boolean update)
 	{
-		block.setTypeIdAndData(type.getId(), (byte) data, update);
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -529,7 +530,7 @@ public class W
 	@SuppressWarnings("deprecation")
 	public static void setData(Block block, MaterialData materialData)
 	{
-		block.setData(materialData.getData());
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -545,8 +546,8 @@ public class W
 	@SuppressWarnings("deprecation")
 	public static void setData(Block block, MaterialData materialData, boolean doPhysics)
 	{
-		block.setData(materialData.getData(), doPhysics);
-	}
+
+		throw new UnsupportedOperationException();	}
 
 	/**
 	 * Gets the highest level of a type of potion from a list of potion effect

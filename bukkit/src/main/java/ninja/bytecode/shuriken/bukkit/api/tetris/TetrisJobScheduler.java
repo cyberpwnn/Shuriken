@@ -10,11 +10,12 @@ import java.util.concurrent.RejectedExecutionException;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.Profiler;
 import ninja.bytecode.shuriken.bukkit.compute.math.RollingAverage;
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
 
 import ninja.bytecode.shuriken.bukkit.util.queue.PhantomQueue;
 import ninja.bytecode.shuriken.bukkit.util.queue.Queue;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
+import ninja.bytecode.shuriken.collections.Callback;
+import ninja.bytecode.shuriken.collections.KMap;
 
 public class TetrisJobScheduler implements JobScheduler
 {

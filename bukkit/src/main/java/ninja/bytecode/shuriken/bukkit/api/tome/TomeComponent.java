@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.tome;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.dom4j.Element;
 import org.dom4j.Node;
 

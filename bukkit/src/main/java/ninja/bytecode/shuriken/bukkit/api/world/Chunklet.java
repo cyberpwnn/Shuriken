@@ -3,6 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 import java.util.Iterator;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;

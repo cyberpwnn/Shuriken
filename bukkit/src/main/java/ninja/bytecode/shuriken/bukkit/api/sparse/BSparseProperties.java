@@ -5,12 +5,14 @@ import java.io.IOException;
 
 
 import ninja.bytecode.shuriken.bukkit.logic.io.Hasher;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.json.JSONException;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import ninja.bytecode.shuriken.bukkit.api.sql.UniversalParser;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class BSparseProperties implements SparseProperties
 {

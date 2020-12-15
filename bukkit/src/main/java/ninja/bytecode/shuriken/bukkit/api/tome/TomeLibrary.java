@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
+import ninja.bytecode.shuriken.collections.KMap;
 
 public class TomeLibrary
 {

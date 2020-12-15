@@ -19,10 +19,10 @@ import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.event.VolumeConstructEvent;
-import ninja.bytecode.shuriken.bukkit.lang.collection.KBiset;
 
 
 import ninja.bytecode.shuriken.bukkit.util.text.C;
+import ninja.bytecode.shuriken.collections.KBiset;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Bukkit;
@@ -396,7 +396,7 @@ public class SCMController extends Controller
 			((BlockBreakEvent) e.getCause()).getPlayer().sendMessage("Constructed " + e.getVolumeName());
 		}
 
-		new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(5f, 1.5f).play(e.getMappedVolume().getReverseRealizedMapping().k().pickRandom());
+		new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(5f, 1.5f).play(e.getMappedVolume().getReverseRealizedMapping().k().getRandom());
 	}
 
 	public KMap<String, IVolume> getVolumes()

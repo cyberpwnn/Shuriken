@@ -1,11 +1,6 @@
 package ninja.bytecode.shuriken.collections;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 
 import ninja.bytecode.shuriken.execution.Chunker;
@@ -41,7 +36,15 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		add(e);
 	}
 
-	public Chunker<T> chunk()
+    public KList(Iterator<T> iterator) {
+		super();
+		while(iterator.hasNext())
+		{
+			add(iterator.next());
+		}
+    }
+
+    public Chunker<T> chunk()
 	{
 		return new Chunker<T>(this);
 	}

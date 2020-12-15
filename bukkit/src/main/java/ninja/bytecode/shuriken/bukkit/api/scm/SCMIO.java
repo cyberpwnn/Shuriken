@@ -10,6 +10,8 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.collections.Callback;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -25,7 +27,6 @@ import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
 
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
 import ninja.bytecode.shuriken.bukkit.util.queue.PhantomQueue;
@@ -103,7 +104,7 @@ public class SCMIO
 									{
 										int id = (int) din.readInt();
 										byte dat = din.readByte();
-										NMP.host.setBlock(new Location(c.getWorld(), i, j, k), new MaterialBlock(Material.getMaterial(id), dat));
+										NMP.host.setBlock(new Location(c.getWorld(), i, j, k), new MaterialBlock(Material.getMaterial("" + id), dat));
 									}
 
 									catch(Throwable e1)

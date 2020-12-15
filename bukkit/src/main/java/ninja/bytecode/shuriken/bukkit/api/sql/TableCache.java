@@ -1,7 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.sql;
 
 
-
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 
 public class TableCache<K, V>
 {

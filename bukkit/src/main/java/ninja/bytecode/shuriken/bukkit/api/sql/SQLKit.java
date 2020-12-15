@@ -12,9 +12,10 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.collections.KSet;
 
-
-import ninja.bytecode.shuriken.bukkit.lang.collection.KSet;
 
 public class SQLKit
 {

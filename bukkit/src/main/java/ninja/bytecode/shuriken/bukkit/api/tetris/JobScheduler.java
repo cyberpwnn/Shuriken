@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.tetris;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
+import ninja.bytecode.shuriken.collections.Callback;
 
 public interface JobScheduler
 {

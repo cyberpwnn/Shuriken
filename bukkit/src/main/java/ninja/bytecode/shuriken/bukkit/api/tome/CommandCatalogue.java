@@ -8,8 +8,10 @@ import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.LKMap;
 import ninja.bytecode.shuriken.bukkit.util.text.Alphabet;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.collections.LKMap;
 import org.bukkit.inventory.ItemStack;
 
 public class CommandCatalogue extends MortarCommand
