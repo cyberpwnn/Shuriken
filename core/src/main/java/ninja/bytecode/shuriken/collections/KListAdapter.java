@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.lang.collection;
+package ninja.bytecode.shuriken.collections;
 
 /**
  * Adapts a list of objects into a list of other objects
@@ -9,7 +9,7 @@ package ninja.bytecode.shuriken.bukkit.lang.collection;
  * @param <TO>
  *            the to object in lists (the item INSIDE the list)
  */
-public abstract class GListAdapter<FROM, TO>
+public abstract class KListAdapter<FROM, TO>
 {
 	/**
 	 * Adapts a list of FROM to a list of TO

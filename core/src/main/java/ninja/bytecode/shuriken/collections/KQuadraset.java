@@ -1,21 +1,20 @@
-package ninja.bytecode.shuriken.bukkit.lang.collection;
+package ninja.bytecode.shuriken.collections;
 
-
-import java.io.Serializable;
 
 @SuppressWarnings("hiding")
-public class GTriset<A, B, C> implements Serializable
+public class KQuadraset<A, B, C, D>
 {
-	private static final long serialVersionUID = 1912465707826963942L;
 	private A a;
 	private B b;
 	private C c;
+	private D d;
 
-	public GTriset(A a, B b, C c)
+	public KQuadraset(A a, B b, C c, D d)
 	{
 		this.a = a;
 		this.b = b;
 		this.c = c;
+		this.d = d;
 	}
 
 	public A getA()
@@ -46,5 +45,15 @@ public class GTriset<A, B, C> implements Serializable
 	public void setC(C c)
 	{
 		this.c = c;
+	}
+
+	public D getD()
+	{
+		return d;
+	}
+
+	public void setD(D d)
+	{
+		this.d = d;
 	}
 }

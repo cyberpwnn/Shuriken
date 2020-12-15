@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @param <B>
  *            the second object type
  */
-public class GBiset<A, B> implements Serializable
+public class KBiset<A, B> implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private A a;
@@ -27,7 +27,7 @@ public class GBiset<A, B> implements Serializable
 	 * @param b
 	 *            the second object
 	 */
-	public GBiset(A a, B b)
+	public KBiset(A a, B b)
 	{
 		this.a = a;
 		this.b = b;

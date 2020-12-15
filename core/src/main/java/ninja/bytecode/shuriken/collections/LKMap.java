@@ -1,23 +1,21 @@
 package ninja.bytecode.shuriken.bukkit.lang.collection;
 
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class GMap<K, V> extends HashMap<K, V>
+public class LKMap<K, V> extends LinkedHashMap<K, V>
 {
 	private static final long serialVersionUID = 1527847670799761130L;
 
-	public GMap()
+	public LKMap()
 	{
 		super();
 	}
 
-	public GMap(Map<K, V> map)
+	public LKMap(Map<K, V> map)
 	{
 		super();
-
-		if (map == null) return;
 
 		for(K i : map.keySet())
 		{
@@ -30,9 +28,9 @@ public class GMap<K, V> extends HashMap<K, V>
 	 *
 	 * @return the copied map
 	 */
-	public GMap<K, V> copy()
+	public LKMap<K, V> copy()
 	{
-		GMap<K, V> m = new GMap<K, V>();
+		LKMap<K, V> m = new LKMap<K, V>();
 
 		for(K k : this.keySet())
 		{
@@ -51,7 +49,7 @@ public class GMap<K, V> extends HashMap<K, V>
 	 *            the value
 	 * @return the modified map
 	 */
-	public GMap<K, V> qput(K k, V v)
+	public LKMap<K, V> qput(K k, V v)
 	{
 		put(k, v);
 		return this.copy();
@@ -62,9 +60,9 @@ public class GMap<K, V> extends HashMap<K, V>
 	 *
 	 * @return GMap V, K instead of K, V
 	 */
-	public GMap<V, GList<K>> flip()
+	public LKMap<V, GList<K>> flip()
 	{
-		GMap<V, GList<K>> flipped = new GMap<V, GList<K>>();
+		LKMap<V, GList<K>> flipped = new LKMap<V, GList<K>>();
 
 		for(K i : keySet())
 		{
@@ -104,12 +102,11 @@ public class GMap<K, V> extends HashMap<K, V>
 	 *            the map to add in
 	 * @return the modified current map
 	 */
-	public GMap<K, V> append(GMap<K, V> umap)
+	public LKMap<K, V> append(LKMap<K, V> umap)
 	{
-		if (umap != null) {
-			for (K i : umap.keySet()) {
-				put(i, umap.get(i));
-			}
+		for(K i : umap.keySet())
+		{
+			put(i, umap.get(i));
 		}
 
 		return this;
@@ -199,9 +196,9 @@ public class GMap<K, V> extends HashMap<K, V>
 	 *
 	 * @return the modified map
 	 */
-	public GMap<K, V> removeDuplicateValues()
+	public LKMap<K, V> removeDuplicateValues()
 	{
-		GMap<K, V> map = this.copy();
+		LKMap<K, V> map = this.copy();
 		GList<K> keys = map.k().removeDuplicates();
 
 		clear();
