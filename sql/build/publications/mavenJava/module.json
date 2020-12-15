@@ -1,0 +1,133 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-sql",
+    "version": "2.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-sql-2.0.2.jar",
+          "url": "shuriken-sql-2.0.2.jar",
+          "size": 21033,
+          "sha512": "385543a7357beee5abd4a0e5cb865001071107e579cd9a68e3a3a63fe4858254c3dafd61fdd32498e543c43ce3103c5a099ddc465b7a2a4d2abbafaf45295100",
+          "sha256": "db0c21213def5d171b04ad736c72dbfc206e2e8d6d7c91c0e7b24a1d70100b3c",
+          "sha1": "564dc608cbb77fd000bca2ab692b4bf5201c81fa",
+          "md5": "f7087258f83390f44c3eb0d59095ff9f"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "mysql",
+          "module": "mysql-connector-java",
+          "version": {
+            "requires": "8.0.17"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-sql-2.0.2.jar",
+          "url": "shuriken-sql-2.0.2.jar",
+          "size": 21033,
+          "sha512": "385543a7357beee5abd4a0e5cb865001071107e579cd9a68e3a3a63fe4858254c3dafd61fdd32498e543c43ce3103c5a099ddc465b7a2a4d2abbafaf45295100",
+          "sha256": "db0c21213def5d171b04ad736c72dbfc206e2e8d6d7c91c0e7b24a1d70100b3c",
+          "sha1": "564dc608cbb77fd000bca2ab692b4bf5201c81fa",
+          "md5": "f7087258f83390f44c3eb0d59095ff9f"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-sql-2.0.2-javadoc.jar",
+          "url": "shuriken-sql-2.0.2-javadoc.jar",
+          "size": 43960,
+          "sha512": "d5324de7a99d7b50ed46545d72bc5dce25baa7917275bff4a1b9c730f51c2ac2db7f545b55b275f20d966692d01bf807d6b483a02cb20e83de5510bcb508daf5",
+          "sha256": "90ff8c00d13430784fdd5895db37174024be815c84efe72be5c193e9ddba73ed",
+          "sha1": "0c6b5d1c279553a720f0395d623ce07a9be12e28",
+          "md5": "8d5fd59e44887a9c1755226fcde646e5"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-sql-2.0.2-sources.jar",
+          "url": "shuriken-sql-2.0.2-sources.jar",
+          "size": 9285,
+          "sha512": "cc8dd6a3110288fd6b4eb6e847142d9f56621dd1a421686a31c657cd32f0ccfe338b0dfe835234609b3a92a55cd2841f24cc2aa94f0fe50d9d4fc7bdb5a432ed",
+          "sha256": "fc38d3c3c9792b8ae6e3ad7a57e7f5632100ae9db0d2ac2ed82d6debc4f8d77f",
+          "sha1": "098f80f80f40355be8ce6d3d3f3bfa72f5a73f41",
+          "md5": "a61cda6b5a0a7a14745c23e3604aad00"
+        }
+      ]
+    }
+  ]
+}

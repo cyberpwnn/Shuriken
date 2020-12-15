@@ -1,4 +1,4 @@
 dependencies {
-    api project(":core")
+    api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
     implementation 'mysql:mysql-connector-java:8.0.17'
 }

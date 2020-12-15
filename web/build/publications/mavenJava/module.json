@@ -1,0 +1,147 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-web",
+    "version": "2.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-web-2.0.2.jar",
+          "url": "shuriken-web-2.0.2.jar",
+          "size": 24859,
+          "sha512": "62a7068cb2e8ea2169221dbacba4c1231ab01e671326211b88c7545592fefa74efa77a7c14d410b66555dc6b0215e0da64a92dee028f08fcb23fe4eadd48abb9",
+          "sha256": "4c94d52f1d20195b81855e85342ee12597ca209a79a5f6eccab352c1a38036c2",
+          "sha1": "eb7a245185c3f76837057713c145473ed275394b",
+          "md5": "73a933e1ff2c5c8317b192d73c136891"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "org.eclipse.jetty",
+          "module": "jetty-server",
+          "version": {
+            "requires": "9.4.28.v20200408"
+          }
+        },
+        {
+          "group": "org.eclipse.jetty",
+          "module": "jetty-servlet",
+          "version": {
+            "requires": "9.4.28.v20200408"
+          }
+        },
+        {
+          "group": "org.eclipse.jetty",
+          "module": "jetty-webapp",
+          "version": {
+            "requires": "9.4.28.v20200408"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-web-2.0.2.jar",
+          "url": "shuriken-web-2.0.2.jar",
+          "size": 24859,
+          "sha512": "62a7068cb2e8ea2169221dbacba4c1231ab01e671326211b88c7545592fefa74efa77a7c14d410b66555dc6b0215e0da64a92dee028f08fcb23fe4eadd48abb9",
+          "sha256": "4c94d52f1d20195b81855e85342ee12597ca209a79a5f6eccab352c1a38036c2",
+          "sha1": "eb7a245185c3f76837057713c145473ed275394b",
+          "md5": "73a933e1ff2c5c8317b192d73c136891"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-web-2.0.2-javadoc.jar",
+          "url": "shuriken-web-2.0.2-javadoc.jar",
+          "size": 58283,
+          "sha512": "20ea2e225ace4256270fe235ba424ac6486409bddcbc485356fb836f6552cfea5fa19dcc6886133d6f487e2e8fed48efe371ad8dd558b8bafe054bfddf4ceb03",
+          "sha256": "e9df88b1616901e0429a868d4933c8028c7af4a2af6576cf35ed3cd2111f2e9b",
+          "sha1": "46b297f33364daed8b5e01619580e03ec6ca788a",
+          "md5": "70909cc6e0dbe7e96b80a06ddb046627"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-web-2.0.2-sources.jar",
+          "url": "shuriken-web-2.0.2-sources.jar",
+          "size": 12511,
+          "sha512": "2c4320d08fc029ca361f19f17f252bc5b9ebe0826cc40da57d9697a50b2c275168cdd8cae71afcf15786102e1b137a446778150c3682940389731034e96848cf",
+          "sha256": "75cdaefbc0a55f3b5b56a10c5ebcff2f0a39d2e8a114fc60c0f0f6d6bcaab9e0",
+          "sha1": "bc10ca9000a15d2c862449f2e0ea7ec410f7c985",
+          "md5": "440bcbc3c647dfcbfa65e3e072105a6d"
+        }
+      ]
+    }
+  ]
+}

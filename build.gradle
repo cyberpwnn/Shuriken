@@ -1,18 +1,52 @@
+buildscript {
+    dependencies {
+        classpath 'org.hibernate.build.gradle:gradle-maven-publish-auth:2.0.1'
+        classpath 'net.linguica.gradle:maven-settings-plugin:0.5'
+    }
+
+    repositories {
+        maven {
+            url = "http://repo.volmit.com/repository/volmit/"
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
 plugins {
     id 'java'
+    id 'maven-publish'
+    id "org.datlowe.maven-publish-auth" version "2.0.2"
+    id 'net.linguica.maven-settings' version '0.5'
 }
 
 group 'ninja.bytecode.shuriken'
-version '2.0'
+version '2.0.2'
+
+allprojects {
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
 
 subprojects {
     group rootProject.group
     version rootProject.version
     apply plugin: 'java'
     apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'maven-publish-auth'
 
     repositories {
+        mavenLocal()
         mavenCentral()
+        maven {
+            url = "http://repo.volmit.com/repository/volmit/"
+        }
+    }
+
+    mavenSettings {
+        userSettingsFileName = "C:Users/cyberpwn/Documents/development/maven/conf/settings.xml"
     }
 
     dependencies {
@@ -20,10 +54,44 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.16'
         implementation 'com.google.code.gson:gson:2.8.6'
     }
+
+    javadoc {
+        if(JavaVersion.current().isJava9Compatible()) {
+            options.addBooleanOption('html5', true)
+        }
+    }
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+
+
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                groupId = project.group
+                artifactId = "shuriken-" + project.name
+                version = project.version
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name "volmit"
+                url = "http://repo.volmit.com/repository/volmit/"
+            }
+        }
+    }
 }
 
 repositories {
     mavenCentral()
+    mavenLocal()
+    maven {
+        url = "http://repo.volmit.com/repository/volmit/"
+    }
 }
 
 dependencies {

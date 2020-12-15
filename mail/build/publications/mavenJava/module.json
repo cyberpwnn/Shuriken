@@ -1,0 +1,147 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-mail",
+    "version": "2.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-mail-2.0.2.jar",
+          "url": "shuriken-mail-2.0.2.jar",
+          "size": 5013,
+          "sha512": "5a566a640e9827f304bda16e61bb57b76799509d89b3ccff6382d84bf9faa6a8385e8c6e282b474a1ff4440c11ae6625873697a88ba11ee060c107fbae3315a5",
+          "sha256": "a8f65ab94017e9d5544874b09ec7f6a1327673690be6e322b4ec2e7be04487f1",
+          "sha1": "871fca050fa551075b5c7a174296723997e53b63",
+          "md5": "9df8e6700e938390f2c9db33958ab0d8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "javax.mail",
+          "module": "javax.mail-api",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "com.sun.mail",
+          "module": "javax.mail",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "javax.activation",
+          "module": "activation",
+          "version": {
+            "requires": "1.1.1"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-mail-2.0.2.jar",
+          "url": "shuriken-mail-2.0.2.jar",
+          "size": 5013,
+          "sha512": "5a566a640e9827f304bda16e61bb57b76799509d89b3ccff6382d84bf9faa6a8385e8c6e282b474a1ff4440c11ae6625873697a88ba11ee060c107fbae3315a5",
+          "sha256": "a8f65ab94017e9d5544874b09ec7f6a1327673690be6e322b4ec2e7be04487f1",
+          "sha1": "871fca050fa551075b5c7a174296723997e53b63",
+          "md5": "9df8e6700e938390f2c9db33958ab0d8"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-mail-2.0.2-javadoc.jar",
+          "url": "shuriken-mail-2.0.2-javadoc.jar",
+          "size": 22428,
+          "sha512": "5c266da089475c2f9d0b363f233216af14d679eed01daa0245b49c4d139ea98f67b8fb3512722c33915d7708070c1bc2fdab43dcb7121a732188bbb01d8c692e",
+          "sha256": "573cc271541cbb1580f8e9478ca5d618525889e08952976696122df91fb85358",
+          "sha1": "da34385be9b8b602f698a5c6f70d57fb9a57b83e",
+          "md5": "f422867d1b25a7a758d3222a5c40175b"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-mail-2.0.2-sources.jar",
+          "url": "shuriken-mail-2.0.2-sources.jar",
+          "size": 2526,
+          "sha512": "197281a8f3358d4180c6923cc814aa9b9d4006b1bf4032f905e8dbdc3018e785541fed9f98e720ad1f08746e61edaad08b68e08e2a93f72660b7bb273c52af34",
+          "sha256": "4efcd69da9bd1d298fd1e31b5e5002bc3ce9e7fa084dac825235ea7a43c05948",
+          "sha1": "5fd6fefebbc7ce8fae3c9326be36b60993c9ceb4",
+          "md5": "0cdd340446ce64e0685f44e10a4dc81e"
+        }
+      ]
+    }
+  ]
+}

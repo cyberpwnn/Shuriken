@@ -1,7 +1,7 @@
 String jettyVersion = '9.4.28.v20200408';
 
 dependencies {
-    api project(":core")
+    api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
     implementation 'org.eclipse.jetty:jetty-server:' + jettyVersion;
     implementation 'org.eclipse.jetty:jetty-servlet:' + jettyVersion;
     implementation 'org.eclipse.jetty:jetty-webapp:' + jettyVersion;

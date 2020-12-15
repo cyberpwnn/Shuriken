@@ -1,5 +1,0 @@
-dependencies {
-    api project(":shuriken-core")
-    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.327')
-    implementation 'com.amazonaws:aws-java-sdk-s3'
-}

@@ -10,11 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/shuriken-cloud" />
-            <option value="$PROJECT_DIR$/shuriken-core" />
-            <option value="$PROJECT_DIR$/shuriken-mail" />
-            <option value="$PROJECT_DIR$/shuriken-sql" />
-            <option value="$PROJECT_DIR$/shuriken-web" />
+            <option value="$PROJECT_DIR$/bukkit" />
+            <option value="$PROJECT_DIR$/cloud" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/mail" />
+            <option value="$PROJECT_DIR$/sql" />
+            <option value="$PROJECT_DIR$/web" />
           </set>
         </option>
       </GradleProjectSettings>

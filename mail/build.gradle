@@ -1,5 +1,5 @@
 dependencies {
-    api project(":core")
+    api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
     implementation 'javax.mail:javax.mail-api:1.6.0'
     implementation 'com.sun.mail:javax.mail:1.6.0'
     implementation 'javax.activation:activation:1.1.1'

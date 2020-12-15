@@ -1,14 +1,5 @@
-plugins {
-    id 'java'
-}
-
-group 'ninja.bytecode.shuriken'
-version '2.0.2'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+    api 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
+    api 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
 }

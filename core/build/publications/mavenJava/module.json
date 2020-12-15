@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-core",
+    "version": "2.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "shuriken-core-2.0.2.jar",
+          "url": "shuriken-core-2.0.2.jar",
+          "size": 275942,
+          "sha512": "788d847517021a44ab149d9eb3927ed9b2cdee665e06934598c6a474fe11297313188e0352d08700dc17b131619baa289372ccd7e44104ced622860f4134f300",
+          "sha256": "41184c96bad29f1e31989468a0797f097e96accfd3f3d19c18362465b9344835",
+          "sha1": "fbbc940a6dcd38b904841e1bde9770018119722d",
+          "md5": "b3e040b5b7fe3651dfb68eae30cfe22f"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-core-2.0.2.jar",
+          "url": "shuriken-core-2.0.2.jar",
+          "size": 275942,
+          "sha512": "788d847517021a44ab149d9eb3927ed9b2cdee665e06934598c6a474fe11297313188e0352d08700dc17b131619baa289372ccd7e44104ced622860f4134f300",
+          "sha256": "41184c96bad29f1e31989468a0797f097e96accfd3f3d19c18362465b9344835",
+          "sha1": "fbbc940a6dcd38b904841e1bde9770018119722d",
+          "md5": "b3e040b5b7fe3651dfb68eae30cfe22f"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-core-2.0.2-javadoc.jar",
+          "url": "shuriken-core-2.0.2-javadoc.jar",
+          "size": 635814,
+          "sha512": "b873cb7c476f1fbebb3958146606f2dc80883c82fbb371d4006dcd028d0c8f6e20262939f760449d194dc7154612d6556fef462fe5d3f25a587c4ccb98bece64",
+          "sha256": "e86bb8d0bfceabc6a26e9997a4b27f7da15268fda43cd4e90015a88adffb2934",
+          "sha1": "7d559c51c3d1e3e0407b273931a16d93816f4b0a",
+          "md5": "bc4cc2d4217225738b04293d9469fc52"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-core-2.0.2-sources.jar",
+          "url": "shuriken-core-2.0.2-sources.jar",
+          "size": 175878,
+          "sha512": "25603239f60f4d3edeaed27d61b68398ac81fa987d724d6ca901f7c43af4d3be54e47ee236ee5a105c6b04a29dd6994dcfe740281206c683f8ea44bf1955ed04",
+          "sha256": "25fb5078c9e35cf410a946fd9f61c0edab9858d3fdd5e3d1c1e3a7b7d17ff876",
+          "sha1": "21cd32670bdad77025806f41cc03287cd4547c9d",
+          "md5": "d07821ed7959efb4936f6dcc90aedb59"
+        }
+      ]
+    }
+  ]
+}

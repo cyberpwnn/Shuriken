@@ -1,0 +1,141 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-cloud",
+    "version": "2.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-cloud-2.0.2.jar",
+          "url": "shuriken-cloud-2.0.2.jar",
+          "size": 5412,
+          "sha512": "a5768a7a672eca1dc425ed608fe73eae1cad3abbd440135608304157b8c98e681f55cc0082f17bb705030af72c9fc2e2efb84926925b06480977ca5361bb74ea",
+          "sha256": "f8c2dacb64ba82c37e6e4e02dfd2a59bc0680b35671a3b600256a82efd829317",
+          "sha1": "6c351f7634e4bc70f66e018df1216bb437b731fa",
+          "md5": "be6edccc083564aaad43475b67dae811"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "com.amazonaws",
+          "module": "aws-java-sdk-bom",
+          "version": {
+            "requires": "1.11.327"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          },
+          "endorseStrictVersions": true
+        },
+        {
+          "group": "com.amazonaws",
+          "module": "aws-java-sdk-s3"
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-cloud-2.0.2.jar",
+          "url": "shuriken-cloud-2.0.2.jar",
+          "size": 5412,
+          "sha512": "a5768a7a672eca1dc425ed608fe73eae1cad3abbd440135608304157b8c98e681f55cc0082f17bb705030af72c9fc2e2efb84926925b06480977ca5361bb74ea",
+          "sha256": "f8c2dacb64ba82c37e6e4e02dfd2a59bc0680b35671a3b600256a82efd829317",
+          "sha1": "6c351f7634e4bc70f66e018df1216bb437b731fa",
+          "md5": "be6edccc083564aaad43475b67dae811"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-cloud-2.0.2-javadoc.jar",
+          "url": "shuriken-cloud-2.0.2-javadoc.jar",
+          "size": 20366,
+          "sha512": "3a7b46d6a610a9f1b27228d550a811ba9500a179ce2e8077b5e84e6344534c0f1afc87bc81d9da582b38fe1bb15d1998cf407c6b68ae568f4dc014a3c0d863b6",
+          "sha256": "2e0219020c7bb5329e562ceeedc8b72113f9cd41c92daca26bdb291ccabf883d",
+          "sha1": "3f93bcda06ae580a43edb63dedcbf75e35bd68a4",
+          "md5": "e7df95210e92e3a39c92d41b26865917"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-cloud-2.0.2-sources.jar",
+          "url": "shuriken-cloud-2.0.2-sources.jar",
+          "size": 2632,
+          "sha512": "d0d399a6eae3ebcff673ea361005724611fab5575e7685d8ab946c2ccd1ccbcc911811d3273ea7248541c0475c3221e132d3158a3825d3f99edf868b71c7bba7",
+          "sha256": "676cc637e15fcfc73aac6d2e5d3c63b7e9150e6da309a5c21e6a48bdbf079864",
+          "sha1": "c90b7a65bdc12319f8f82f8001373aedf3209f42",
+          "md5": "c6e70e46ed320a7ed17240b97f6c4009"
+        }
+      ]
+    }
+  ]
+}

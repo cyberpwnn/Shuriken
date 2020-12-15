@@ -24,8 +24,6 @@ public class Formula
 	 * 
 	 * @param expression
 	 *            the expression with variables
-	 * @param args
-	 *            the arguments/variables
 	 */
 	public Formula(String expression)
 	{
