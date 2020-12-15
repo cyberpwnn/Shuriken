@@ -38,7 +38,7 @@ import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 import ninja.bytecode.shuriken.bukkit.util.text.Logged;
 
-public abstract class MortarPlugin extends JavaPlugin implements Logged, Listener
+public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Listener
 {
 	private KMap<KList<String>, VirtualCommand> commands;
 	private KList<MortarCommand> commandCache;

@@ -9,13 +9,13 @@ public class CommandMortarUpdate extends MortarCommand
 	public CommandMortarUpdate()
 	{
 		super("update", "checkup");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override
 	public boolean handle(MortarSender sender, String[] args)
 	{
-		J.a(() -> MortarAPIPlugin.p.checkForUpdates(args.length > 0 && args[0].equalsIgnoreCase("-f")));
+		J.a(() -> ShurikenAPIPlugin.p.checkForUpdates(args.length > 0 && args[0].equalsIgnoreCase("-f")));
 
 		if(sender.isPlayer())
 		{

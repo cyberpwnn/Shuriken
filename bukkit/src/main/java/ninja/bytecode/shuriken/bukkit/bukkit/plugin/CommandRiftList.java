@@ -10,13 +10,13 @@ public class CommandRiftList extends MortarCommand
 	public CommandRiftList()
 	{
 		super("list");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override
 	public boolean handle(MortarSender sender, String[] args)
 	{
-		RiftController rc = Mortar.getController(RiftController.class);
+		RiftController rc = ShurikenBukkit.getController(RiftController.class);
 		for(Rift i : rc.getRifts())
 		{
 			sender.sendMessage("- " + i.getName() + " " + (i.isLoaded() ? "[Active]" : "[Hybernating]"));

@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.nms;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.world.Area;
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -53,7 +53,7 @@ public class Catalyst15 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public void sendAdvancement(Player p, FrameType type, ItemStack is, String text) {
-        AdvancementHolder15 a = new AdvancementHolder15(UUID.randomUUID().toString(), MortarAPIPlugin.p);
+        AdvancementHolder15 a = new AdvancementHolder15(UUID.randomUUID().toString(), ShurikenAPIPlugin.p);
         a.withToast(true);
         a.withDescription("?");
         a.withFrame(type);
@@ -193,7 +193,7 @@ public class Catalyst15 extends CatalystPacketListener implements CatalystHost {
     @Override
     public void start() {
         openListener();
-        Bukkit.getPluginManager().registerEvents(this, MortarAPIPlugin.p);
+        Bukkit.getPluginManager().registerEvents(this, ShurikenAPIPlugin.p);
     }
 
     @Override

@@ -341,7 +341,7 @@ public class PluginUtil
 
 	public static String getPluginFileName(String name)
 	{
-		File pluginDir = MortarAPIPlugin.p.getDataFolder().getParentFile();
+		File pluginDir = ShurikenAPIPlugin.p.getDataFolder().getParentFile();
 
 		for(File f : pluginDir.listFiles())
 		{
@@ -349,7 +349,7 @@ public class PluginUtil
 			{
 				try
 				{
-					PluginDescriptionFile desc = MortarAPIPlugin.p.getPluginLoader().getPluginDescription(f);
+					PluginDescriptionFile desc = ShurikenAPIPlugin.p.getPluginLoader().getPluginDescription(f);
 					if(desc.getName().equalsIgnoreCase(name))
 					{
 						return f.getName();
@@ -402,7 +402,7 @@ public class PluginUtil
 	 */
 	public static File getPluginFile(Plugin p)
 	{
-		return new File(MortarAPIPlugin.p.getDataFolder().getParentFile(), getPluginFileName(p.getName()));
+		return new File(ShurikenAPIPlugin.p.getDataFolder().getParentFile(), getPluginFileName(p.getName()));
 	}
 
 	/**
@@ -452,7 +452,7 @@ public class PluginUtil
 				{
 					try
 					{
-						PluginDescriptionFile desc = MortarAPIPlugin.p.getPluginLoader().getPluginDescription(f);
+						PluginDescriptionFile desc = ShurikenAPIPlugin.p.getPluginLoader().getPluginDescription(f);
 						if(desc.getName().equalsIgnoreCase(name))
 						{
 							pluginFile = f;

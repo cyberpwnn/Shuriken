@@ -3,14 +3,14 @@ package ninja.bytecode.shuriken.bukkit.api.tome;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 public class CommandReload extends MortarCommand
 {
 	public CommandReload()
 	{
 		super("reload", "relist", "load", "refresh");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override

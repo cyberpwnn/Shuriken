@@ -10,7 +10,7 @@ public class CommandRiftVisit extends MortarCommand
 	public CommandRiftVisit()
 	{
 		super("visit");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class CommandRiftVisit extends MortarCommand
 		}
 
 		String name = args[0];
-		RiftController rc = Mortar.getController(RiftController.class);
+		RiftController rc = ShurikenBukkit.getController(RiftController.class);
 		Rift rift = rc.getRift(name);
 		rift.send(sender.player());
 

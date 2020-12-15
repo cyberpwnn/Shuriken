@@ -5,7 +5,7 @@ import java.io.IOException;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 
 import ninja.bytecode.shuriken.bukkit.util.text.Alphabet;
@@ -19,7 +19,7 @@ public class CommandCatalogue extends MortarCommand
 	public CommandCatalogue()
 	{
 		super("catalogue", "list", "l", "c");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override

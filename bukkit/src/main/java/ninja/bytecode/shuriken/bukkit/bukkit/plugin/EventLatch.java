@@ -65,7 +65,7 @@ public class EventLatch<T extends Event> implements Listener
 					c.accept((T) arg1);
 				}
 			}
-		}, MortarAPIPlugin.p, ignoreCancelled);
+		}, ShurikenAPIPlugin.p, ignoreCancelled);
 	}
 
 	public void unbind()

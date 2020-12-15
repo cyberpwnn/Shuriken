@@ -18,8 +18,8 @@ import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.P;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
@@ -29,7 +29,7 @@ public class CommandSCM extends MortarCommand
 	public CommandSCM()
 	{
 		super("scm");
-		requiresPermission(MortarAPIPlugin.perm.scm);
+		requiresPermission(ShurikenAPIPlugin.perm.scm);
 	}
 
 	@Override
@@ -66,9 +66,9 @@ public class CommandSCM extends MortarCommand
 
 		else if(args[0].equalsIgnoreCase("list"))
 		{
-			sender.sendMessage("Listing " + Mortar.getController(SCMController.class).getVolumes().size() + " SCM Volumes");
+			sender.sendMessage("Listing " + ShurikenBukkit.getController(SCMController.class).getVolumes().size() + " SCM Volumes");
 
-			for(String i : Mortar.getController(SCMController.class).getVolumes().k())
+			for(String i : ShurikenBukkit.getController(SCMController.class).getVolumes().k())
 			{
 				sender.sendMessage(i);
 			}
@@ -78,19 +78,19 @@ public class CommandSCM extends MortarCommand
 		{
 			int s = 0;
 
-			for(String i : Mortar.getController(SCMController.class).getVolumes().k())
+			for(String i : ShurikenBukkit.getController(SCMController.class).getVolumes().k())
 			{
-				s += Mortar.getController(SCMController.class).getVolumes().get(i).getVectorSchematic().getTypes().size();
+				s += ShurikenBukkit.getController(SCMController.class).getVolumes().get(i).getVectorSchematic().getTypes().size();
 			}
 
-			sender.sendMessage("There are " + Mortar.getController(SCMController.class).getVolumes().size() + " SCM Volumes");
+			sender.sendMessage("There are " + ShurikenBukkit.getController(SCMController.class).getVolumes().size() + " SCM Volumes");
 			sender.sendMessage("Cached " + F.f(s) + " SCM Vector Maps");
 		}
 
 		else if(args[0].equalsIgnoreCase("update"))
 		{
-			Mortar.getController(SCMController.class).getVolumes().clear();
-			File gf = Mortar.getController(SCMController.class).getSCMFolder();
+			ShurikenBukkit.getController(SCMController.class).getVolumes().clear();
+			File gf = ShurikenBukkit.getController(SCMController.class).getSCMFolder();
 
 			if(gf.exists())
 			{
@@ -101,7 +101,7 @@ public class CommandSCM extends MortarCommand
 					try
 					{
 						IVolume v = new SCMVolume(i);
-						Mortar.getController(SCMController.class).getVolumes().put(i.getName().replace(".scmv", ""), v);
+						ShurikenBukkit.getController(SCMController.class).getVolumes().put(i.getName().replace(".scmv", ""), v);
 					}
 
 					catch(IOException e)
@@ -111,7 +111,7 @@ public class CommandSCM extends MortarCommand
 				}
 			}
 
-			sender.sendMessage("Updated " + Mortar.getController(SCMController.class).getVolumes().size() + " SCM Volumes");
+			sender.sendMessage("Updated " + ShurikenBukkit.getController(SCMController.class).getVolumes().size() + " SCM Volumes");
 		}
 
 		else if(args.length >= 1)
@@ -120,13 +120,13 @@ public class CommandSCM extends MortarCommand
 			{
 				if(args.length == 2)
 				{
-					File gf = Mortar.getController(SCMController.class).getSCMFile(args[1]);
-					File gg = Mortar.getController(SCMController.class).getSCMRawFile(args[1]);
+					File gf = ShurikenBukkit.getController(SCMController.class).getSCMFile(args[1]);
+					File gg = ShurikenBukkit.getController(SCMController.class).getSCMRawFile(args[1]);
 
 					if(gf.exists())
 					{
 						gf.delete();
-						Mortar.getController(SCMController.class).getVolumes().remove(args[1]);
+						ShurikenBukkit.getController(SCMController.class).getVolumes().remove(args[1]);
 						new Audio().s(SoundEnum.FIZZ.bukkitSound()).vp(1f, 1.5f).play(sender.player());
 						sender.sendMessage(args[1] + " Deleted.");
 					}
@@ -154,7 +154,7 @@ public class CommandSCM extends MortarCommand
 			{
 				if(args.length == 2)
 				{
-					Location[] f = Mortar.getController(SCMController.class).getSelection((sender.player()));
+					Location[] f = ShurikenBukkit.getController(SCMController.class).getSelection((sender.player()));
 
 					if(f != null)
 					{
@@ -163,7 +163,7 @@ public class CommandSCM extends MortarCommand
 						if(c.volume() > 8192)
 						{
 							sender.sendMessage("Saving SCM RAW " + args[1]);
-							SCMIO.write(Mortar.getController(SCMController.class).getSCMRawFile(args[1]), sender.player().getLocation(), c, (success) ->
+							SCMIO.write(ShurikenBukkit.getController(SCMController.class).getSCMRawFile(args[1]), sender.player().getLocation(), c, (success) ->
 							{
 								if(success)
 								{
@@ -190,9 +190,9 @@ public class CommandSCM extends MortarCommand
 							try
 							{
 								IVolume vv = new SCMVolume(c, PermutationType.ANY_AXIS);
-								vv.save(Mortar.getController(SCMController.class).getSCMFile(args[1]));
+								vv.save(ShurikenBukkit.getController(SCMController.class).getSCMFile(args[1]));
 								new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f).play(sender.player());
-								Mortar.getController(SCMController.class).getVolumes().put(args[1], vv);
+								ShurikenBukkit.getController(SCMController.class).getVolumes().put(args[1], vv);
 							}
 
 							catch(IOException e)
@@ -221,13 +221,13 @@ public class CommandSCM extends MortarCommand
 			{
 				if(args.length == 2)
 				{
-					File gg = Mortar.getController(SCMController.class).getSCMRawFile(args[1]);
+					File gg = ShurikenBukkit.getController(SCMController.class).getSCMRawFile(args[1]);
 
-					if(Mortar.getController(SCMController.class).getVolumes().containsKey(args[1]))
+					if(ShurikenBukkit.getController(SCMController.class).getVolumes().containsKey(args[1]))
 					{
 						Location lx = P.targetBlock((sender.player()), 12);
 						new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f).play(sender.player());
-						Mortar.getController(SCMController.class).getVolumes().get(args[1]).place(lx);
+						ShurikenBukkit.getController(SCMController.class).getVolumes().get(args[1]).place(lx);
 						sender.sendMessage("SCM Volume " + args[1] + " placed at target.");
 					}
 

@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
 import ninja.bytecode.shuriken.bukkit.api.config.Key;
 
-public class MortarConfig
+public class ShurikenConfig
 {
 	@Key("debug.agressive-logging")
 	public static boolean DEBUG_LOGGING = false;

@@ -8,8 +8,8 @@ import ninja.bytecode.shuriken.bukkit.api.generator.VoidGenerator;
 import ninja.bytecode.shuriken.bukkit.api.sched.AR;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.sched.S;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 
@@ -324,7 +324,7 @@ public class PhantomRift implements Rift, Listener
 					{
 						if(!i.getGameMode().equals(getForcedGameMode()))
 						{
-							i.sendMessage(Mortar.tag("Rift") + " This rift is forcing the gamemode " + getForcedGameMode().name().toLowerCase());
+							i.sendMessage(ShurikenBukkit.tag("Rift") + " This rift is forcing the gamemode " + getForcedGameMode().name().toLowerCase());
 							J.s(() -> i.setGameMode(getForcedGameMode()));
 						}
 					}
@@ -390,7 +390,7 @@ public class PhantomRift implements Rift, Listener
 	@Override
 	public Rift send(Player p)
 	{
-		if(!Mortar.getController(RiftController.class).isInRift(p.getWorld()))
+		if(!ShurikenBukkit.getController(RiftController.class).isInRift(p.getWorld()))
 		{
 			p.teleport(getSpawn());
 		}
@@ -444,7 +444,7 @@ public class PhantomRift implements Rift, Listener
 			unload();
 		}
 
-		Mortar.getController(RiftController.class).deleteRift(getName());
+		ShurikenBukkit.getController(RiftController.class).deleteRift(getName());
 		return this;
 	}
 
@@ -468,7 +468,7 @@ public class PhantomRift implements Rift, Listener
 
 		for(Player i : playersInRift)
 		{
-			i.sendMessage(Mortar.tag("Rift") + " The rift has been re-opened. Teleporting Back.");
+			i.sendMessage(ShurikenBukkit.tag("Rift") + " The rift has been re-opened. Teleporting Back.");
 			i.teleport(getWorld().getSpawnLocation());
 		}
 
@@ -522,7 +522,7 @@ public class PhantomRift implements Rift, Listener
 				}
 			};
 
-			MortarAPIPlugin.p.registerListener(this);
+			ShurikenAPIPlugin.p.registerListener(this);
 
 			slowlyPreload();
 		}
@@ -612,8 +612,8 @@ public class PhantomRift implements Rift, Listener
 
 		for(Player i : getWorld().getPlayers())
 		{
-			i.teleport(Mortar.getDefaultWorld().getSpawnLocation());
-			i.sendMessage(Mortar.tag("Rift") + " This Rift is colapsing! You were teleported out.");
+			i.teleport(ShurikenBukkit.getDefaultWorld().getSpawnLocation());
+			i.sendMessage(ShurikenBukkit.tag("Rift") + " This Rift is colapsing! You were teleported out.");
 		}
 
 		for(Chunk i : getWorld().getLoadedChunks())

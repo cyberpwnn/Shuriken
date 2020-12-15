@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.tome;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import org.bukkit.inventory.ItemStack;
 
 public class CommandGive extends MortarCommand
@@ -11,7 +11,7 @@ public class CommandGive extends MortarCommand
 	public CommandGive()
 	{
 		super("give", "g", "add");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override

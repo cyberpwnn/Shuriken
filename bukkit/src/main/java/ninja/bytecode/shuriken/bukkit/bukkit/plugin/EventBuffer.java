@@ -72,7 +72,7 @@ public class EventBuffer<T extends Event> implements Listener
 
 				offer((T) event);
 			}
-		}, MortarAPIPlugin.p);
+		}, ShurikenAPIPlugin.p);
 
 		return this;
 	}

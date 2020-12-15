@@ -9,7 +9,7 @@ import io.netty.channel.Channel;
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 
 public abstract class CatalystPacketListener implements PacketListener
@@ -37,7 +37,7 @@ public abstract class CatalystPacketListener implements PacketListener
 			throw new RuntimeException("Listener is already open");
 		}
 
-		protocol = new TinyProtocol(MortarAPIPlugin.p)
+		protocol = new TinyProtocol(ShurikenAPIPlugin.p)
 		{
 			@Override
 			public Object onPacketOutAsync(Player reciever, Channel channel, Object packet)

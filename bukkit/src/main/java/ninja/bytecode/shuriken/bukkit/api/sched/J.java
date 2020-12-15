@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.sched;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.collections.FInt;
 import ninja.bytecode.shuriken.collections.KList;
@@ -98,7 +98,7 @@ public class J
 	 */
 	public static void s(Runnable r)
 	{
-		Bukkit.getScheduler().scheduleSyncDelayedTask(MortarAPIPlugin.p, r);
+		Bukkit.getScheduler().scheduleSyncDelayedTask(ShurikenAPIPlugin.p, r);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class J
 	 */
 	public static void s(Runnable r, int delay)
 	{
-		Bukkit.getScheduler().scheduleSyncDelayedTask(MortarAPIPlugin.p, r, delay);
+		Bukkit.getScheduler().scheduleSyncDelayedTask(ShurikenAPIPlugin.p, r, delay);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class J
 	 */
 	public static int sr(Runnable r, int interval)
 	{
-		return Bukkit.getScheduler().scheduleSyncRepeatingTask(MortarAPIPlugin.p, r, 0, interval);
+		return Bukkit.getScheduler().scheduleSyncRepeatingTask(ShurikenAPIPlugin.p, r, 0, interval);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class J
 	@SuppressWarnings("deprecation")
 	public static void a(Runnable r)
 	{
-		Bukkit.getScheduler().scheduleAsyncDelayedTask(MortarAPIPlugin.p, r, 0);
+		Bukkit.getScheduler().scheduleAsyncDelayedTask(ShurikenAPIPlugin.p, r, 0);
 	}
 
 	/**
@@ -192,7 +192,7 @@ public class J
 	@SuppressWarnings("deprecation")
 	public static void a(Runnable r, int delay)
 	{
-		Bukkit.getScheduler().scheduleAsyncDelayedTask(MortarAPIPlugin.p, r, delay);
+		Bukkit.getScheduler().scheduleAsyncDelayedTask(ShurikenAPIPlugin.p, r, delay);
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class J
 	@SuppressWarnings("deprecation")
 	public static int ar(Runnable r, int interval)
 	{
-		return Bukkit.getScheduler().scheduleAsyncRepeatingTask(MortarAPIPlugin.p, r, 0, interval);
+		return Bukkit.getScheduler().scheduleAsyncRepeatingTask(ShurikenAPIPlugin.p, r, 0, interval);
 	}
 
 	/**

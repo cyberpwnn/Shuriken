@@ -5,8 +5,8 @@ import ninja.bytecode.shuriken.bukkit.api.particle.ParticleEffect.ParticleColor;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -58,7 +58,7 @@ public class Catalyst12 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public void sendAdvancement(Player p, FrameType type, ItemStack is, String text) {
-        AdvancementHolder12 a = new AdvancementHolder12(UUID.randomUUID().toString(), MortarAPIPlugin.p);
+        AdvancementHolder12 a = new AdvancementHolder12(UUID.randomUUID().toString(), ShurikenAPIPlugin.p);
         a.withToast(true);
         a.withDescription("?");
         a.withFrame(type);
@@ -167,7 +167,7 @@ public class Catalyst12 extends CatalystPacketListener implements CatalystHost {
     @Override
     public void start() {
         openListener();
-        Bukkit.getPluginManager().registerEvents(this, MortarAPIPlugin.p);
+        Bukkit.getPluginManager().registerEvents(this, ShurikenAPIPlugin.p);
     }
 
     @Override
@@ -712,7 +712,7 @@ public class Catalyst12 extends CatalystPacketListener implements CatalystHost {
         int z = zz >> 4;
         AtomicBoolean lx = new AtomicBoolean(false);
         if (!world.isChunkLoaded(x, z)) {
-            if (Mortar.isMainThread()) {
+            if (ShurikenBukkit.isMainThread()) {
                 world.loadChunk(x, z);
             } else {
                 int m = J.sr(() ->

@@ -9,7 +9,7 @@ public class CommandSound extends MortarCommand
 	public CommandSound()
 	{
 		super("sound", "inst");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override

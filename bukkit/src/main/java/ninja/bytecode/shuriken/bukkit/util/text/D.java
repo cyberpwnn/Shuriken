@@ -2,8 +2,8 @@ package ninja.bytecode.shuriken.bukkit.util.text;
 
 import java.io.Serializable;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarConfig;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenConfig;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
 
@@ -51,7 +51,7 @@ public class D implements Serializable, Logged
 			c = C.GRAY.toString();
 		}
 
-		MortarAPIPlugin.log(c + "|" + f.toUpperCase() + "| " + C.LIGHT_PURPLE + tag + C.WHITE + " " + c + msg + c);
+		ShurikenAPIPlugin.log(c + "|" + f.toUpperCase() + "| " + C.LIGHT_PURPLE + tag + C.WHITE + " " + c + msg + c);
 	}
 
 	public static D as(Object o)
@@ -78,7 +78,7 @@ public class D implements Serializable, Logged
 	@Override
 	public void v(Object... s)
 	{
-		if(!MortarConfig.DEBUG_LOGGING)
+		if(!ShurikenConfig.DEBUG_LOGGING)
 		{
 			return;
 		}

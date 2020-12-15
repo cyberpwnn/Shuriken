@@ -15,8 +15,8 @@ import ninja.bytecode.shuriken.bukkit.api.sound.Audio;
 import ninja.bytecode.shuriken.bukkit.api.world.P;
 import ninja.bytecode.shuriken.bukkit.api.world.W;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.event.VolumeConstructEvent;
 
@@ -95,12 +95,12 @@ public class SCMController extends Controller
 
 	public File getSCMFolder()
 	{
-		return new File(new File(MortarAPIPlugin.p.getDataFolder(), "scm"), "volumes");
+		return new File(new File(ShurikenAPIPlugin.p.getDataFolder(), "scm"), "volumes");
 	}
 
 	public File getSCMRawFolder()
 	{
-		return new File(MortarAPIPlugin.p.getDataFolder(), "scm");
+		return new File(ShurikenAPIPlugin.p.getDataFolder(), "scm");
 	}
 
 	public File getSCMFile(String name)
@@ -130,7 +130,7 @@ public class SCMController extends Controller
 						@Override
 						public void run()
 						{
-							Mortar.callEvent(new VolumeConstructEvent(e, volumes.get(s.getA()), s.getB(), s.getA()));
+							ShurikenBukkit.callEvent(new VolumeConstructEvent(e, volumes.get(s.getA()), s.getB(), s.getA()));
 						}
 					};
 				}
@@ -157,7 +157,7 @@ public class SCMController extends Controller
 							@Override
 							public void run()
 							{
-								Mortar.callEvent(new VolumeConstructEvent(e, volumes.get(s.getA()), s.getB(), s.getA()));
+								ShurikenBukkit.callEvent(new VolumeConstructEvent(e, volumes.get(s.getA()), s.getB(), s.getA()));
 							}
 						};
 
@@ -174,7 +174,7 @@ public class SCMController extends Controller
 						@Override
 						public void run()
 						{
-							Mortar.callEvent(new VolumeConstructEvent(e, volumes.get(s.getA()), s.getB(), s.getA()));
+							ShurikenBukkit.callEvent(new VolumeConstructEvent(e, volumes.get(s.getA()), s.getB(), s.getA()));
 						}
 					};
 				}

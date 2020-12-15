@@ -15,14 +15,14 @@ public class CommandMortar extends MortarCommand
 	public CommandMortar()
 	{
 		super("ninja/bytecode/shuriken/bukkit", "mort", "morty", "mortal", "mtr");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override
 	public boolean handle(MortarSender sender, String[] args)
 	{
-		sender.sendMessage("v" + MortarAPIPlugin.p.getDescription().getVersion());
-		Mortar.checkForUpdates(sender);
+		sender.sendMessage("v" + ShurikenAPIPlugin.p.getDescription().getVersion());
+		ShurikenBukkit.checkForUpdates(sender);
 		return true;
 	}
 }

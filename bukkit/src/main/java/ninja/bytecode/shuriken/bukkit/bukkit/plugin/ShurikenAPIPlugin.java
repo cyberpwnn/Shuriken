@@ -34,10 +34,10 @@ import ninja.bytecode.shuriken.bukkit.util.text.C;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 import net.md_5.bungee.api.ChatColor;
 
-public class MortarAPIPlugin extends MortarPlugin
+public class ShurikenAPIPlugin extends ShurikenPlugin
 {
 	@Instance
-	public static MortarAPIPlugin p;
+	public static ShurikenAPIPlugin p;
 
 	@Permission
 	public static PermissionMortar perm;
@@ -73,20 +73,20 @@ public class MortarAPIPlugin extends MortarPlugin
 	private CommandTome tome;
 
 	private static Queue<String> logQueue;
-	private MortarConfig cfg;
+	private ShurikenConfig cfg;
 
 	@Override
 	public void start()
 	{
 		justStarted();
-		Configurator.JSON.load(cfg = new MortarConfig(), getDataFile("config.json"));
+		Configurator.JSON.load(cfg = new ShurikenConfig(), getDataFile("config.json"));
 		v("Configuration Loaded... Looks like we're in debug mode!");
 		M.initTicking();
 		v("Ticking Initiated");
 
-		if(MortarConfig.UPDATES)
+		if(ShurikenConfig.UPDATES)
 		{
-			J.s(() -> Mortar.checkForUpdates(new MortarSender(Bukkit.getConsoleSender())), 160);
+			J.s(() -> ShurikenBukkit.checkForUpdates(new MortarSender(Bukkit.getConsoleSender())), 160);
 		}
 
 		J.sr(() -> flushLogBuffer(), 20);
@@ -105,16 +105,16 @@ public class MortarAPIPlugin extends MortarPlugin
 
 		if(M.ms() - f.lastModified() < TimeUnit.SECONDS.toMillis(30))
 		{
-			Mortar.STARTUP_LOAD = true;
+			ShurikenBukkit.STARTUP_LOAD = true;
 		}
 
 		else
 		{
-			Mortar.STARTUP_LOAD = false;
+			ShurikenBukkit.STARTUP_LOAD = false;
 		}
 	}
 
-	public MortarConfig getMortarConfig()
+	public ShurikenConfig getMortarConfig()
 	{
 		return cfg;
 	}
@@ -205,10 +205,10 @@ public class MortarAPIPlugin extends MortarPlugin
 	{
 		if(t.trim().isEmpty())
 		{
-			return Mortar.tag(getName());
+			return ShurikenBukkit.tag(getName());
 		}
 
-		return Mortar.tag(getName() + " " + C.GRAY + " - " + C.WHITE + t);
+		return ShurikenBukkit.tag(getName() + " " + C.GRAY + " - " + C.WHITE + t);
 	}
 
 	public void checkForUpdates(boolean install)
@@ -261,7 +261,7 @@ public class MortarAPIPlugin extends MortarPlugin
 		catch(Throwable e)
 		{
 			D.as("Mortar Updater").f("Failed to check for updates.");
-			if(MortarConfig.DEBUG_LOGGING)
+			if(ShurikenConfig.DEBUG_LOGGING)
 			{
 				e.printStackTrace();
 			}

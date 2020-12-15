@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.inventory;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.KSet;
@@ -39,7 +39,7 @@ public class UIWindow implements Window, Listener
 	public UIWindow(Player viewer)
 	{
 		clickcheck = 0;
-		this.plugin = MortarAPIPlugin.p;
+		this.plugin = ShurikenAPIPlugin.p;
 		doubleclicked = false;
 		this.viewer = viewer;
 		this.elements = new KMap<>();

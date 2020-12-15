@@ -16,7 +16,7 @@ public class CommandRiftOpen extends MortarCommand
 	public CommandRiftOpen()
 	{
 		super("open");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class CommandRiftOpen extends MortarCommand
 		String name = args[0];
 		try
 		{
-			RiftController rc = Mortar.getController(RiftController.class);
+			RiftController rc = ShurikenBukkit.getController(RiftController.class);
 			Rift rift = rc.createRift(name);
 			rift.setGenerator(FlatGenerator.class);
 			rift.setTemporary(true);

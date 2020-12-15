@@ -24,7 +24,7 @@ import ninja.bytecode.shuriken.bukkit.util.text.D;
 import ninja.bytecode.shuriken.bukkit.util.text.TXT;
 import ninja.bytecode.shuriken.bukkit.util.text.VersionCodes;
 
-public class Mortar
+public class ShurikenBukkit
 {
 	public static final int API_VERSION = readAPIVersion();
 	public static boolean STARTUP_LOAD = false;
@@ -74,12 +74,12 @@ public class Mortar
 	@SuppressWarnings("unchecked")
 	public static <T extends IController> T getController(Class<? extends T> t, Plugin p)
 	{
-		return (T) ((MortarPlugin) p).getController(t);
+		return (T) ((ShurikenPlugin) p).getController(t);
 	}
 
 	public static <T extends IController> T getController(Class<? extends T> t)
 	{
-		return getController(t, MortarAPIPlugin.p);
+		return getController(t, ShurikenAPIPlugin.p);
 	}
 
 	public static World getDefaultWorld()
@@ -112,7 +112,7 @@ public class Mortar
 	{
 		try
 		{
-			Integer.valueOf(VIO.readAll(Mortar.class.getResourceAsStream("/apiversion.info")).replaceAll("\\Q\n\\E", "").replaceAll("\\Q\"\\E", "").trim());
+			Integer.valueOf(VIO.readAll(ShurikenBukkit.class.getResourceAsStream("/apiversion.info")).replaceAll("\\Q\n\\E", "").replaceAll("\\Q\"\\E", "").trim());
 		}
 
 		catch(Throwable e)
@@ -141,7 +141,7 @@ public class Mortar
 					J.s(() ->
 					{
 						int grv = VersionCodes.getVersionCode(version);
-						int cv = VersionCodes.getVersionCode(MortarAPIPlugin.p.getDescription().getVersion());
+						int cv = VersionCodes.getVersionCode(ShurikenAPIPlugin.p.getDescription().getVersion());
 
 						if(grv == cv)
 						{

@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.GhostWorldController;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Mortar;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -112,7 +112,7 @@ public class BlockType
 
 	public static BlockType snapshotOf(Location l)
 	{
-		return Mortar.getController(GhostWorldController.class).get(l);
+		return ShurikenBukkit.getController(GhostWorldController.class).get(l);
 	}
 
 	@SuppressWarnings("deprecation")

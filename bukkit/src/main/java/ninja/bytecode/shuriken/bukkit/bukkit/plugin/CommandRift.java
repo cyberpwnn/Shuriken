@@ -21,7 +21,7 @@ public class CommandRift extends MortarCommand
 	public CommandRift()
 	{
 		super("rift");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override

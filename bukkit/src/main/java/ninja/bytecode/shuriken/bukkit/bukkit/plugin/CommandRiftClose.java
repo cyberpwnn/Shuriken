@@ -10,7 +10,7 @@ public class CommandRiftClose extends MortarCommand
 	public CommandRiftClose()
 	{
 		super("close");
-		requiresPermission(MortarAPIPlugin.perm);
+		requiresPermission(ShurikenAPIPlugin.perm);
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class CommandRiftClose extends MortarCommand
 
 		if(args.length == 0)
 		{
-			RiftController rc = Mortar.getController(RiftController.class);
+			RiftController rc = ShurikenBukkit.getController(RiftController.class);
 			Rift rift = rc.getRift(sender.player().getWorld());
 
 			if(rift != null)
@@ -38,7 +38,7 @@ public class CommandRiftClose extends MortarCommand
 		}
 
 		String name = args[0];
-		RiftController rc = Mortar.getController(RiftController.class);
+		RiftController rc = ShurikenBukkit.getController(RiftController.class);
 		Rift rift = rc.getRift(name);
 		rift.unload();
 		rc.getRifts().remove(rift);

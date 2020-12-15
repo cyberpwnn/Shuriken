@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.pluginmessage;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.entity.Player;
@@ -41,7 +41,7 @@ public class PluginMessage
 
 		for(Player i : ps)
 		{
-			i.sendPluginMessage(MortarAPIPlugin.p, "BungeeCord", out.toByteArray());
+			i.sendPluginMessage(ShurikenAPIPlugin.p, "BungeeCord", out.toByteArray());
 		}
 
 		return this;
