@@ -309,7 +309,6 @@ public enum C
 		dyeChatMap.put(DyeColor.PINK, C.LIGHT_PURPLE);
 		dyeChatMap.put(DyeColor.PURPLE, C.DARK_PURPLE);
 		dyeChatMap.put(DyeColor.RED, C.RED);
-		dyeChatMap.put(DyeColor.SILVER, C.GRAY);
 		dyeChatMap.put(DyeColor.WHITE, C.WHITE);
 		dyeChatMap.put(DyeColor.YELLOW, C.YELLOW);
 		dyeHexMap.put(DyeColor.BLACK, "#181414");
@@ -325,7 +324,6 @@ public enum C
 		dyeHexMap.put(DyeColor.PINK, "#d98199");
 		dyeHexMap.put(DyeColor.PURPLE, "#7e34bf");
 		dyeHexMap.put(DyeColor.RED, "#9e2b27");
-		dyeHexMap.put(DyeColor.SILVER, "#a0a7a7");
 		dyeHexMap.put(DyeColor.WHITE, "#a4a4a4");
 		dyeHexMap.put(DyeColor.YELLOW, "#c2b51c");
 	}

@@ -9,8 +9,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.KSet;
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
+import ninja.bytecode.shuriken.collections.KSet;
 
 public abstract class DL
 {

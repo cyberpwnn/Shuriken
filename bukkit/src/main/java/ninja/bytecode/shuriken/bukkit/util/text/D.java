@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarConfig;
-
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 
 
 public class D implements Serializable, Logged

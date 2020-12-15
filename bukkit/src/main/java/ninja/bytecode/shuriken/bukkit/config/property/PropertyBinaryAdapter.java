@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 
 import ninja.bytecode.shuriken.bukkit.api.sql.CustomOutputStream;
+import ninja.bytecode.shuriken.collections.KList;
 
 
 public class PropertyBinaryAdapter implements PropertyAdapter<ByteBuffer>

@@ -2,10 +2,9 @@ package ninja.bytecode.shuriken.bukkit.util.text;
 
 import java.util.ArrayList;
 
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import org.json.JSONObject;
 
 public class RawText
 {

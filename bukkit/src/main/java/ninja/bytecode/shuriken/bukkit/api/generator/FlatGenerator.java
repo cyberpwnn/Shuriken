@@ -8,41 +8,28 @@ import org.bukkit.generator.ChunkGenerator;
 
 public class FlatGenerator extends ChunkGenerator
 {
-	@SuppressWarnings("deprecation")
 	@Override
-	public short[][] generateExtBlockSections(World world, Random random, int x, int z, BiomeGrid biomes)
-	{
-		int maxY = world.getMaxHeight();
-		short[][] result = new short[maxY / 16][];
+	public ChunkData generateChunkData(World world, Random random, int x, int z, BiomeGrid biome) {
+		ChunkData c = createChunkData(world);
 
 		for(int i = 0; i < 16; i++)
 		{
 			for(int j = 0; j < 16; j++)
 			{
-				setBlock(result, i, 0, j, (short) MaterialEnum.BEDROCK.bukkitMaterial().getId());
+				c.setBlock(i, 0, j, MaterialEnum.BEDROCK.bukkitMaterial());
 
 				if(x % 2 == 0 ^ z % 2 == 0)
 				{
-					setBlock(result, i, 1, j, (short) MaterialEnum.PURPUR_BLOCK.bukkitMaterial().getId());
+					c.setBlock(i, 1, j, MaterialEnum.PURPUR_BLOCK.bukkitMaterial());
 				}
 
 				else
 				{
-					setBlock(result, i, 1, j, (short) MaterialEnum.END_BRICKS.bukkitMaterial().getId());
+					c.setBlock(i, 1, j, MaterialEnum.END_BRICKS.bukkitMaterial());
 				}
 			}
 		}
 
-		return result;
-	}
-
-	private void setBlock(short[][] result, int x, int y, int z, short blkid)
-	{
-		if(result[y >> 4] == null)
-		{
-			result[y >> 4] = new short[4096];
-		}
-
-		result[y >> 4][((y & 0xF) << 8) | (z << 4) | x] = blkid;
+		return c;
 	}
 }

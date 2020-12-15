@@ -1,5 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.util.reflection;
 
+import ninja.bytecode.shuriken.collections.KList;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.logic.queue;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 
 public class GQueue<T> implements Queue<T>
 {

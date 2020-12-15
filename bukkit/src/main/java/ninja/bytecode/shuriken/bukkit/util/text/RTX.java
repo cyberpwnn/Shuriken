@@ -1,10 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
+import ninja.bytecode.shuriken.json.JSONArray;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 /**
  * Raw Text holder
@@ -145,8 +144,6 @@ public class RTX
 	 *            the command
 	 * @param color
 	 *            the color
-	 * @param formatting
-	 *            the formatting
 	 */
 	public void addTextFireCommand(String text, String cmd, C color)
 	{
@@ -173,8 +170,6 @@ public class RTX
 	 *            the command
 	 * @param color
 	 *            the color
-	 * @param formatting
-	 *            the formatting
 	 */
 	public void addTextSuggestedHoverCommand(String text, RTEX hover, String cmd, C color)
 	{

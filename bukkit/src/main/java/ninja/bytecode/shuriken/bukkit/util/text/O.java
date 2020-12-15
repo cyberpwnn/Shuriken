@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 
 public class O<T> implements Observable<T>
 {

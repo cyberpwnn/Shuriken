@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
+import ninja.bytecode.shuriken.collections.KList;
 import org.apache.commons.lang.WordUtils;
 
 

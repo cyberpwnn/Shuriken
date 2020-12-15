@@ -44,7 +44,11 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		}
     }
 
-    public Chunker<T> chunk()
+	public static KList<String> asStringList(List<?> oo) {
+		return new KList<Object>(oo).toStrinKList();
+	}
+
+	public Chunker<T> chunk()
 	{
 		return new Chunker<T>(this);
 	}
@@ -277,6 +281,16 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 * @return the string list
 	 */
 	public KList<String> toStrinKList()
+	{
+		return convert((t) -> t.toString());
+	}
+
+	/**
+	 * Invoke tostring on each value in the list into a string list
+	 *
+	 * @return the string list
+	 */
+	public KList<String> toStringList()
 	{
 		return convert((t) -> t.toString());
 	}

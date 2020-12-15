@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.command;
 
 import java.util.Set;
+import java.util.UUID;
 
 import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
@@ -187,6 +188,16 @@ public class MortarSender implements CommandSender
 	{
 		for(String str : messages)
 			s.sendMessage(C.translateAlternateColorCodes('&', getTag() + str));
+	}
+
+	@Override
+	public void sendMessage(UUID sender, String message) {
+		sendMessage(message);
+	}
+
+	@Override
+	public void sendMessage(UUID sender, String[] messages) {
+		sendMessage(messages);
 	}
 
 	@Override

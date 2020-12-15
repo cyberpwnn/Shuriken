@@ -33,7 +33,7 @@ public class MaterialBlock
 
 	public MaterialBlock(int material, byte data)
 	{
-		this.material = Material.getMaterial(material);
+		this.material = Material.getMaterial("" + material + ":" + data);
 		this.data = data;
 	}
 

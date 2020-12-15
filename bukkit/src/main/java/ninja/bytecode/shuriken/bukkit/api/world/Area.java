@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -128,7 +129,7 @@ public class Area
 	 */
 	public Entity[] getNearbyEntities(EntityType type)
 	{
-		KList<Entity> e = new KList<Entity>(getNearbyEntities());
+		KList<Entity> e = new KList<>(getNearbyEntities());
 
 		for(Entity i : e.copy())
 		{

@@ -15,9 +15,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.Callback;
-
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
+import ninja.bytecode.shuriken.collections.Callback;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class VIO
 {
@@ -29,8 +29,6 @@ public class VIO
 	 *            the input
 	 * @param out
 	 *            the output
-	 * @param amount
-	 *            the buffer and size to use
 	 * @return the actual transfered amount
 	 * @throws IOException
 	 *             shit happens

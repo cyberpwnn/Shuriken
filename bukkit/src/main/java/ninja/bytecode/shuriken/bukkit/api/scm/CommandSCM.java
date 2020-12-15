@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.SoundEnum;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -55,7 +56,7 @@ public class CommandSCM extends MortarCommand
 			ItemMeta im = is.getItemMeta();
 			im.setDisplayName(C.YELLOW + "SCM Wand");
 			Location ll = (sender.player()).getLocation();
-			KList<String> s = new KList<String>();
+			KList<String> s = new KList<>();
 			s.add(C.AQUA + "A: " + ll.getWorld().getName() + "@" + ll.getBlockX() + "." + ll.getBlockY() + "." + ll.getBlockZ());
 			s.add(C.AQUA + "B: " + ll.getWorld().getName() + "@" + ll.getBlockX() + "." + ll.getBlockY() + "." + ll.getBlockZ());
 			im.setLore(s);

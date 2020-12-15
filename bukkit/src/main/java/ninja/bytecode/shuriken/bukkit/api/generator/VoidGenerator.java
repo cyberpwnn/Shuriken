@@ -8,8 +8,7 @@ import org.bukkit.generator.ChunkGenerator;
 public class VoidGenerator extends ChunkGenerator
 {
 	@Override
-	public short[][] generateExtBlockSections(World world, Random random, int x, int z, BiomeGrid biomes)
-	{
-		return new short[world.getMaxHeight() / 16][];
+	public ChunkData generateChunkData(World world, Random random, int x, int z, BiomeGrid biome) {
+		return createChunkData(world);
 	}
 }

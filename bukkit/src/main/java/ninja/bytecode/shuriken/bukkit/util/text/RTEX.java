@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.util.text;
 
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.json.JSONArray;
+import ninja.bytecode.shuriken.json.JSONObject;
 
 /**
  * Raw Text EXTRA

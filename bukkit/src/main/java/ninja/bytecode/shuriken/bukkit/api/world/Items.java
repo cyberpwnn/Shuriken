@@ -4,6 +4,7 @@ import java.util.List;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
