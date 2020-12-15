@@ -1,0 +1,86 @@
+package ninja.bytecode.shuriken.bukkit.api.tome;
+
+import java.io.IOException;
+
+import ninja.bytecode.shuriken.bukkit.api.sched.J;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.plugin.MortarAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.lang.collection.GList;
+import ninja.bytecode.shuriken.bukkit.lang.collection.GMap;
+import ninja.bytecode.shuriken.bukkit.lang.collection.LGMap;
+import ninja.bytecode.shuriken.bukkit.util.text.Alphabet;
+import org.bukkit.inventory.ItemStack;
+
+public class CommandCatalogue extends MortarCommand
+{
+	public CommandCatalogue()
+	{
+		super("catalogue", "list", "l", "c");
+		requiresPermission(MortarAPIPlugin.perm);
+	}
+
+	@Override
+	public boolean handle(MortarSender sender, String[] args)
+	{
+		J.a(() ->
+		{
+			GMap<String, Tome> rtomes = TomeLibrary.getInstance().getTomes();
+			GList<Tome> tomes = rtomes.sortV();
+			LGMap<Alphabet, TomeSection> sections = new LGMap<>();
+
+			//@builder
+			Tome tome = new Tome();
+			tome.setName("Tome Catalogue");
+			tome.setAuthor("Mortar");
+			tome.getRoot()
+			.add(new TomeMeta("tableOfContents", "true"))
+			.add(new TomeMeta("frontPage", "true"));
+			//@done
+
+			for(Tome i : tomes)
+			{
+				if(!sections.containsKey(i.getLetter()))
+				{
+					sections.put(i.getLetter(), new TomeSection((i.getLetter().getChar() + "").toUpperCase()));
+				}
+
+				TomeSection s = sections.get(i.getLetter());
+				//@builder
+				s.add(new TomeParagraph()
+						.add(new TomeFormat()
+								.setFormat("italic")
+								.setOnClick("run /tome give " + i.getId())
+								.add(new TomeHover()
+										.add(new TomeParagraph().add(i.getName()))
+										.add(new TomeParagraph().add("by " + i.getAuthor()))
+										.add(new TomeParagraph().add(" "))
+										.add(new TomeParagraph().add("Click to add this tome to your inventory.")))
+								.add("\u270E " + i.getName())));
+				//@done
+			}
+
+			for(Alphabet i : sections.k())
+			{
+				tome.getRoot().add(sections.get(i));
+			}
+			ItemStack listing = tome.toItemStack();
+
+			try
+			{
+				System.out.println(tome.save());
+			}
+
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+
+
+			J.s(() -> sender.player().getInventory().addItem(listing));
+		});
+
+		return true;
+	}
+
+}
