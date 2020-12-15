@@ -2,8 +2,9 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.CDou;
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.KListAdapter;
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KListAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;

@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Material;
 
 /**
@@ -71,7 +72,7 @@ public class VariableBlock
 
 	public MaterialBlock random()
 	{
-		return blocks.pickRandom();
+		return blocks.getRandom();
 	}
 
 	/**

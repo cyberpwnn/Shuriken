@@ -17,16 +17,14 @@ import ninja.bytecode.shuriken.bukkit.bukkit.command.Command;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.fulcrum.CommandFulcrum;
+import ninja.bytecode.shuriken.collections.LKMap;
 import org.bukkit.Bukkit;
 
 import ninja.bytecode.shuriken.bukkit.api.config.Configurator;
-import ninja.bytecode.shuriken.bukkit.api.fulcrum.FulcrumController;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.scm.SCMController;
 import ninja.bytecode.shuriken.bukkit.api.tetris.JobScheduler;
 import ninja.bytecode.shuriken.bukkit.api.tome.CommandTome;
-import ninja.bytecode.shuriken.bukkit.lang.collection.LKMap;
 import ninja.bytecode.shuriken.bukkit.lib.control.CacheController;
 import ninja.bytecode.shuriken.bukkit.lib.control.MojangProfileController;
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
@@ -51,9 +49,6 @@ public class MortarAPIPlugin extends MortarPlugin
 	private CommandRift rift;
 
 	@Command
-	private CommandFulcrum fulcrum;
-
-	@Command
 	private CommandClearConsole cls;
 
 	@Command
@@ -70,9 +65,6 @@ public class MortarAPIPlugin extends MortarPlugin
 
 	@Control
 	private GhostWorldController ghostWorldControlller;
-
-	@Control
-	private FulcrumController fulcrumController;
 
 	@Control
 	private SCMController scmController;

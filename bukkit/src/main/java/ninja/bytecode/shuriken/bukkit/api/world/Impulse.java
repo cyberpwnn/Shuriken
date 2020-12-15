@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;

@@ -4,7 +4,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.KListAdapter;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KListAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -244,7 +245,7 @@ public class Players
 	{
 		if(isAnyoneOnline())
 		{
-			return getPlayers().pickRandom();
+			return getPlayers().getRandom();
 		}
 
 		return null;
@@ -286,7 +287,7 @@ public class Players
 
 		if(!found.isEmpty())
 		{
-			return found.removeDuplicates();
+			return found.dedupe();
 		}
 
 		for(Player i : players)
@@ -299,7 +300,7 @@ public class Players
 
 		if(!found.isEmpty())
 		{
-			return found.removeDuplicates();
+			return found.dedupe();
 		}
 
 		for(Player i : players)
@@ -310,7 +311,7 @@ public class Players
 			}
 		}
 
-		return found.removeDuplicates();
+		return found.dedupe();
 	}
 
 	/**

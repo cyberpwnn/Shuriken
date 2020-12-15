@@ -3,6 +3,8 @@ package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;

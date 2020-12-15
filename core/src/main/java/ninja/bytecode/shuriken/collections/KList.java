@@ -681,4 +681,9 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		add(t);
 		return this;
 	}
+
+	public KList<T> qadd(T[] args) {
+		add(args);
+		return this;
+	}
 }

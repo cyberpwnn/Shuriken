@@ -9,7 +9,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
-import ninja.bytecode.shuriken.bukkit.api.fulcrum.util.BlocksScraper;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import net.minecraft.server.v1_12_R1.DamageSource;
 import net.minecraft.server.v1_12_R1.EnchantmentManager;
@@ -18,7 +17,6 @@ import net.minecraft.server.v1_12_R1.EntityLiving;
 
 public class DataRipper
 {
-	private static BlocksScraper scraper = new BlocksScraper();
 
 	@SuppressWarnings("unchecked")
 	public static void forceDeathSequence(LivingEntity e, Entity damager)
@@ -64,20 +62,5 @@ public class DataRipper
 	public static void undie(Entity e)
 	{
 		((CraftEntity) e).getHandle().dead = false;
-	}
-
-	public static String getEffectiveToolType(Material material)
-	{
-		return scraper.getEffectiveTool(material);
-	}
-
-	public static int getMinimumToolLevel(Material material)
-	{
-		return scraper.getMinimumLevel(material);
-	}
-
-	public static double getHardness(Material material)
-	{
-		return scraper.getHardness(material);
 	}
 }

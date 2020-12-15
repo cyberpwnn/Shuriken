@@ -3,11 +3,12 @@ package ninja.bytecode.shuriken.bukkit.lib.control;
 import java.util.UUID;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
-import ninja.bytecode.shuriken.bukkit.lang.collection.CacheMap;
 
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import ninja.bytecode.shuriken.collections.CacheMap;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.json.JSONArray;
+import ninja.bytecode.shuriken.json.JSONObject;
 
 public class MojangProfileController extends Controller
 {

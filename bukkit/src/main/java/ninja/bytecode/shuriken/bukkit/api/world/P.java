@@ -3,7 +3,8 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 import java.util.Set;
 
 
-import ninja.bytecode.shuriken.bukkit.lang.collection.KListAdapter;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KListAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -76,7 +77,7 @@ public class P
 	 */
 	public static Player getAnyPlayer()
 	{
-		return onlinePlayers().isEmpty() ? null : onlinePlayers().pickRandom();
+		return onlinePlayers().isEmpty() ? null : onlinePlayers().getRandom();
 	}
 
 	/**

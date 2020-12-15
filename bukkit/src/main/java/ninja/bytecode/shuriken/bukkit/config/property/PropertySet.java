@@ -1,5 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.config.property;
 
+import ninja.bytecode.shuriken.collections.KList;
+
 import java.util.UUID;
 
 

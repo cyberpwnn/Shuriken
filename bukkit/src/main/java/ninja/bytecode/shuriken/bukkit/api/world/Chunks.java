@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 
@@ -69,7 +70,7 @@ public class Chunks
 	@SuppressWarnings("deprecation")
 	public static boolean unload(Chunk chunk, boolean save, boolean safe)
 	{
-		return chunk.unload(save, safe);
+		return chunk.unload(save);
 	}
 
 	/**

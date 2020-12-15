@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
+import ninja.bytecode.shuriken.collections.KList;
 
 
 public class DelayedController extends Controller

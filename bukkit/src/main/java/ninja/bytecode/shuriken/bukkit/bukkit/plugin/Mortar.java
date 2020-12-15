@@ -10,6 +10,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.collections.KSet;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
@@ -17,7 +18,6 @@ import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.lang.collection.KSet;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import ninja.bytecode.shuriken.bukkit.util.text.D;

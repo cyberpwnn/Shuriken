@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
@@ -234,7 +236,7 @@ public abstract class MortarPlugin extends JavaPlugin implements Logged, Listene
 			}
 		}
 
-		return g.removeDuplicates();
+		return g.dedupe();
 	}
 
 	private KList<org.bukkit.permissions.Permission> computePermissions(MortarPermission p)

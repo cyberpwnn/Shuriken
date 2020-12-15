@@ -2,6 +2,8 @@ package ninja.bytecode.shuriken.bukkit.bukkit.command;
 
 import java.lang.reflect.Field;
 
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.command.CommandSender;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;

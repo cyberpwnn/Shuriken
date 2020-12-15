@@ -2,6 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
 
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 

@@ -2,6 +2,8 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 
 
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 

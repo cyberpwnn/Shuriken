@@ -7,6 +7,9 @@ import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
 
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.json.JSONException;
+import ninja.bytecode.shuriken.json.JSONObject;
 import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -16,8 +19,6 @@ import ninja.bytecode.shuriken.bukkit.api.generator.FlatGenerator;
 import ninja.bytecode.shuriken.bukkit.api.rift.PhantomRift;
 import ninja.bytecode.shuriken.bukkit.api.rift.Rift;
 import ninja.bytecode.shuriken.bukkit.api.rift.RiftException;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class RiftController extends Controller
 {
