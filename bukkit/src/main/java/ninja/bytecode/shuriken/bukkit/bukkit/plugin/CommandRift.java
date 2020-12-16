@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Command;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 
-public class CommandRift extends MortarCommand
+public class CommandRift extends ShurikenCommand
 {
 	@Command
 	private CommandRiftOpen open;
@@ -25,7 +25,7 @@ public class CommandRift extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		sender.sendMessage("/rift list - List all active rifts");
 		sender.sendMessage("/rift close [name] - Close the rift you are currently in or the name of the rift.");

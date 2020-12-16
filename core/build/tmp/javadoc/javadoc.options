@@ -1,10 +1,10 @@
 -Xdoclint:none '-quiet'
 -classpath 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\build\\resources\\main;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\org.projectlombok\\lombok\\1.18.16\\6dc192c7f93ec1853f70d59d8a6dcf94eb42866\\lombok-1.18.16.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\code\\gson\\gson\\2.8.6\\gson-2.8.6.jar'
 -d 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\build\\docs\\javadoc'
--doctitle 'core 2.0.3 API'
+-doctitle 'core 2.0.6 API'
 -notimestamp 
 -quiet 
--windowtitle 'core 2.0.3 API'
+-windowtitle 'core 2.0.6 API'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\src\\main\\java\\ninja\\bytecode\\shuriken\\bench\\PrecisionStopwatch.java'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\src\\main\\java\\ninja\\bytecode\\shuriken\\bench\\Profiler.java'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\src\\main\\java\\ninja\\bytecode\\shuriken\\bench\\Timer.java'

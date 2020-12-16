@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-cloud",
-    "version": "2.0.2",
+    "version": "2.0.6",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
     }
   },
   "variants": [
@@ -24,24 +24,15 @@
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
-      "dependencies": [
-        {
-          "group": "ninja.bytecode.shuriken",
-          "module": "shuriken-core",
-          "version": {
-            "requires": "2.0.2"
-          }
-        }
-      ],
       "files": [
         {
-          "name": "shuriken-cloud-2.0.2.jar",
-          "url": "shuriken-cloud-2.0.2.jar",
+          "name": "shuriken-cloud-2.0.6.jar",
+          "url": "shuriken-cloud-2.0.6.jar",
           "size": 5412,
-          "sha512": "a5768a7a672eca1dc425ed608fe73eae1cad3abbd440135608304157b8c98e681f55cc0082f17bb705030af72c9fc2e2efb84926925b06480977ca5361bb74ea",
-          "sha256": "f8c2dacb64ba82c37e6e4e02dfd2a59bc0680b35671a3b600256a82efd829317",
-          "sha1": "6c351f7634e4bc70f66e018df1216bb437b731fa",
-          "md5": "be6edccc083564aaad43475b67dae811"
+          "sha512": "75dd415b99ad40c0355a9ca9c1278d65dcb5eb14b0a97ce33e680c510d6daccc8d991793935cf74a1e25e284b4970abedc66c6c2f31184612b0c3ce8167f7027",
+          "sha256": "28e036cc61becb7e6d8e6ee53a94487574254982f223e89de812e041d7c682a9",
+          "sha1": "514b62d5d5aa97b5d01dcd3282e11c4cac35489c",
+          "md5": "4db8dfaddc7615ccf150b40cd7c00ace"
         }
       ]
     },
@@ -63,6 +54,13 @@
           }
         },
         {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.6"
+          }
+        },
+        {
           "group": "com.amazonaws",
           "module": "aws-java-sdk-bom",
           "version": {
@@ -76,24 +74,17 @@
         {
           "group": "com.amazonaws",
           "module": "aws-java-sdk-s3"
-        },
-        {
-          "group": "ninja.bytecode.shuriken",
-          "module": "shuriken-core",
-          "version": {
-            "requires": "2.0.2"
-          }
         }
       ],
       "files": [
         {
-          "name": "shuriken-cloud-2.0.2.jar",
-          "url": "shuriken-cloud-2.0.2.jar",
+          "name": "shuriken-cloud-2.0.6.jar",
+          "url": "shuriken-cloud-2.0.6.jar",
           "size": 5412,
-          "sha512": "a5768a7a672eca1dc425ed608fe73eae1cad3abbd440135608304157b8c98e681f55cc0082f17bb705030af72c9fc2e2efb84926925b06480977ca5361bb74ea",
-          "sha256": "f8c2dacb64ba82c37e6e4e02dfd2a59bc0680b35671a3b600256a82efd829317",
-          "sha1": "6c351f7634e4bc70f66e018df1216bb437b731fa",
-          "md5": "be6edccc083564aaad43475b67dae811"
+          "sha512": "75dd415b99ad40c0355a9ca9c1278d65dcb5eb14b0a97ce33e680c510d6daccc8d991793935cf74a1e25e284b4970abedc66c6c2f31184612b0c3ce8167f7027",
+          "sha256": "28e036cc61becb7e6d8e6ee53a94487574254982f223e89de812e041d7c682a9",
+          "sha1": "514b62d5d5aa97b5d01dcd3282e11c4cac35489c",
+          "md5": "4db8dfaddc7615ccf150b40cd7c00ace"
         }
       ]
     },
@@ -107,13 +98,13 @@
       },
       "files": [
         {
-          "name": "shuriken-cloud-2.0.2-javadoc.jar",
-          "url": "shuriken-cloud-2.0.2-javadoc.jar",
-          "size": 20366,
-          "sha512": "3a7b46d6a610a9f1b27228d550a811ba9500a179ce2e8077b5e84e6344534c0f1afc87bc81d9da582b38fe1bb15d1998cf407c6b68ae568f4dc014a3c0d863b6",
-          "sha256": "2e0219020c7bb5329e562ceeedc8b72113f9cd41c92daca26bdb291ccabf883d",
-          "sha1": "3f93bcda06ae580a43edb63dedcbf75e35bd68a4",
-          "md5": "e7df95210e92e3a39c92d41b26865917"
+          "name": "shuriken-cloud-2.0.6-javadoc.jar",
+          "url": "shuriken-cloud-2.0.6-javadoc.jar",
+          "size": 20378,
+          "sha512": "467032bbfca7ac2d60b1d2951c4a5ff4eb88bf49b12a12e6d27ab50af23af3a3dd41cac342d9a58d219e0ec86151f7c9b7a732348c44bd073cc36522d8dd235c",
+          "sha256": "d90c419905e361223273f738edeabc9174149d401cd10bd597f67345223215c8",
+          "sha1": "81f45c96742021723ca2efc0e67a139d5657edde",
+          "md5": "077f11c747dbd04adcccd48f64a07389"
         }
       ]
     },
@@ -127,13 +118,13 @@
       },
       "files": [
         {
-          "name": "shuriken-cloud-2.0.2-sources.jar",
-          "url": "shuriken-cloud-2.0.2-sources.jar",
+          "name": "shuriken-cloud-2.0.6-sources.jar",
+          "url": "shuriken-cloud-2.0.6-sources.jar",
           "size": 2632,
-          "sha512": "d0d399a6eae3ebcff673ea361005724611fab5575e7685d8ab946c2ccd1ccbcc911811d3273ea7248541c0475c3221e132d3158a3825d3f99edf868b71c7bba7",
-          "sha256": "676cc637e15fcfc73aac6d2e5d3c63b7e9150e6da309a5c21e6a48bdbf079864",
-          "sha1": "c90b7a65bdc12319f8f82f8001373aedf3209f42",
-          "md5": "c6e70e46ed320a7ed17240b97f6c4009"
+          "sha512": "aa96772476ce6f735976ededdcd9b3768fc839173fa5f45ccf338e04adedeaaf71aa5c537d954b26c43c3cd1e42b0b5f7cbdda8813d61dd31ab61eb4a47f271e",
+          "sha256": "f0e5b9e827a1960dbc6644126530ba9cba2de0a41d8b48bff7e67839f9fc00e0",
+          "sha1": "3ec3add905b8f2fef38652818af53cb2c715ebba",
+          "md5": "48ca13fbd80a7b2b17c7103614cbd3f0"
         }
       ]
     }

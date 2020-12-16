@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ninja.bytecode.shuriken</groupId>
   <artifactId>shuriken-core</artifactId>
-  <version>2.0.3</version>
+  <version>2.0.6</version>
   <dependencies>
     <dependency>
       <groupId>com.google.code.gson</groupId>

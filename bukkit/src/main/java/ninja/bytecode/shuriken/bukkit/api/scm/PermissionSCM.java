@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarPermission;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenPermission;
 
-public class PermissionSCM extends MortarPermission
+public class PermissionSCM extends ShurikenPermission
 {
 	@Override
 	protected String getNode()

@@ -3,14 +3,14 @@ package ninja.bytecode.shuriken.bukkit.api.nms;
 import java.util.Objects;
 
 import org.bukkit.NamespacedKey;
-import org.bukkit.craftbukkit.v1_16_R2.inventory.CraftItemStack;
-import org.bukkit.craftbukkit.v1_16_R2.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_16_R3.util.CraftMagicNumbers;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import net.minecraft.server.v1_16_R2.IRegistry;
-import net.minecraft.server.v1_16_R2.Item;
-import net.minecraft.server.v1_16_R2.MinecraftKey;
+import net.minecraft.server.v1_16_R3.IRegistry;
+import net.minecraft.server.v1_16_R3.Item;
+import net.minecraft.server.v1_16_R3.MinecraftKey;
 
 public class AdvancementHolder16 extends AdvancementHolder
 {

@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 
-public class CommandClearConsole extends MortarCommand
+public class CommandClearConsole extends ShurikenCommand
 {
 	public CommandClearConsole()
 	{
@@ -14,7 +14,7 @@ public class CommandClearConsole extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		if(sender.isPlayer())
 		{

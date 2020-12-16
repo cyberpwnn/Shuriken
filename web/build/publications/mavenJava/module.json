@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-web",
-    "version": "2.0.2",
+    "version": "2.0.6",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
     }
   },
   "variants": [
@@ -24,24 +24,15 @@
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
-      "dependencies": [
-        {
-          "group": "ninja.bytecode.shuriken",
-          "module": "shuriken-core",
-          "version": {
-            "requires": "2.0.2"
-          }
-        }
-      ],
       "files": [
         {
-          "name": "shuriken-web-2.0.2.jar",
-          "url": "shuriken-web-2.0.2.jar",
+          "name": "shuriken-web-2.0.6.jar",
+          "url": "shuriken-web-2.0.6.jar",
           "size": 24859,
-          "sha512": "62a7068cb2e8ea2169221dbacba4c1231ab01e671326211b88c7545592fefa74efa77a7c14d410b66555dc6b0215e0da64a92dee028f08fcb23fe4eadd48abb9",
-          "sha256": "4c94d52f1d20195b81855e85342ee12597ca209a79a5f6eccab352c1a38036c2",
-          "sha1": "eb7a245185c3f76837057713c145473ed275394b",
-          "md5": "73a933e1ff2c5c8317b192d73c136891"
+          "sha512": "b0d01af6c8f76649d06c114bac6bd1a4bceb54981d12434402a3f730e1de43c3a59c7f5ff019b2211845e77ce12399913ec6e60b65a74be23f76d30ef55648ad",
+          "sha256": "bdafca3e95b3af9b43d20bcedb3dccc4fd293e93e51c3983f0cc10c4b7c02f2e",
+          "sha1": "fe15b2c848838abb884e0ef0b13c7b98b690de75",
+          "md5": "de4dbcebd82714f69940679c9e476326"
         }
       ]
     },
@@ -60,6 +51,13 @@
           "module": "gson",
           "version": {
             "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.6"
           }
         },
         {
@@ -82,24 +80,17 @@
           "version": {
             "requires": "9.4.28.v20200408"
           }
-        },
-        {
-          "group": "ninja.bytecode.shuriken",
-          "module": "shuriken-core",
-          "version": {
-            "requires": "2.0.2"
-          }
         }
       ],
       "files": [
         {
-          "name": "shuriken-web-2.0.2.jar",
-          "url": "shuriken-web-2.0.2.jar",
+          "name": "shuriken-web-2.0.6.jar",
+          "url": "shuriken-web-2.0.6.jar",
           "size": 24859,
-          "sha512": "62a7068cb2e8ea2169221dbacba4c1231ab01e671326211b88c7545592fefa74efa77a7c14d410b66555dc6b0215e0da64a92dee028f08fcb23fe4eadd48abb9",
-          "sha256": "4c94d52f1d20195b81855e85342ee12597ca209a79a5f6eccab352c1a38036c2",
-          "sha1": "eb7a245185c3f76837057713c145473ed275394b",
-          "md5": "73a933e1ff2c5c8317b192d73c136891"
+          "sha512": "b0d01af6c8f76649d06c114bac6bd1a4bceb54981d12434402a3f730e1de43c3a59c7f5ff019b2211845e77ce12399913ec6e60b65a74be23f76d30ef55648ad",
+          "sha256": "bdafca3e95b3af9b43d20bcedb3dccc4fd293e93e51c3983f0cc10c4b7c02f2e",
+          "sha1": "fe15b2c848838abb884e0ef0b13c7b98b690de75",
+          "md5": "de4dbcebd82714f69940679c9e476326"
         }
       ]
     },
@@ -113,13 +104,13 @@
       },
       "files": [
         {
-          "name": "shuriken-web-2.0.2-javadoc.jar",
-          "url": "shuriken-web-2.0.2-javadoc.jar",
-          "size": 58283,
-          "sha512": "20ea2e225ace4256270fe235ba424ac6486409bddcbc485356fb836f6552cfea5fa19dcc6886133d6f487e2e8fed48efe371ad8dd558b8bafe054bfddf4ceb03",
-          "sha256": "e9df88b1616901e0429a868d4933c8028c7af4a2af6576cf35ed3cd2111f2e9b",
-          "sha1": "46b297f33364daed8b5e01619580e03ec6ca788a",
-          "md5": "70909cc6e0dbe7e96b80a06ddb046627"
+          "name": "shuriken-web-2.0.6-javadoc.jar",
+          "url": "shuriken-web-2.0.6-javadoc.jar",
+          "size": 58306,
+          "sha512": "a05efbf366c17bd75ca419142cb7547d7bc4152ad55d2072de3dd515631fbd2865c16ce2da8f599690c7f75551f9b2b221d46d3633f3a9eaa2772351b4536c28",
+          "sha256": "3057230188ebc6082fa0ac954ca054938c5e5b23a8755ea081348d9d30e8020e",
+          "sha1": "f0f8fcac5b1c79965302ed0d8153c58904109fe6",
+          "md5": "d82c2b33b41505a107c32e6b9c54b71c"
         }
       ]
     },
@@ -133,13 +124,13 @@
       },
       "files": [
         {
-          "name": "shuriken-web-2.0.2-sources.jar",
-          "url": "shuriken-web-2.0.2-sources.jar",
+          "name": "shuriken-web-2.0.6-sources.jar",
+          "url": "shuriken-web-2.0.6-sources.jar",
           "size": 12511,
-          "sha512": "2c4320d08fc029ca361f19f17f252bc5b9ebe0826cc40da57d9697a50b2c275168cdd8cae71afcf15786102e1b137a446778150c3682940389731034e96848cf",
-          "sha256": "75cdaefbc0a55f3b5b56a10c5ebcff2f0a39d2e8a114fc60c0f0f6d6bcaab9e0",
-          "sha1": "bc10ca9000a15d2c862449f2e0ea7ec410f7c985",
-          "md5": "440bcbc3c647dfcbfa65e3e072105a6d"
+          "sha512": "b498d302f9f70ceb39f92a4c14be07dc13ac23566e22c9d657ece62b81101b1e1c0341705d4345c05e11e215d0689de94f5bafe1338fd769ba0e588427f1a755",
+          "sha256": "4e610a5ceb4a717f2578a32c331918a034f9dd83763da3cd8f23fe760081dc1c",
+          "sha1": "32d894fcd63bdfe7fc986265e71bee63ec6f82c2",
+          "md5": "bea20959dd3cca60b7f236a9b27ad8ba"
         }
       ]
     }

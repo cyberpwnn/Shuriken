@@ -14,7 +14,7 @@ import ninja.bytecode.shuriken.bukkit.api.nms.Catalyst;
 import ninja.bytecode.shuriken.bukkit.api.nms.NMP;
 import ninja.bytecode.shuriken.bukkit.api.scm.CommandSCM;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Command;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.collections.LKMap;
@@ -40,10 +40,10 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 	public static ShurikenAPIPlugin p;
 
 	@Permission
-	public static PermissionMortar perm;
+	public static PermissionShuriken perm;
 
 	@Command
-	private CommandMortar mort;
+	private CommandShuriken shuriken;
 
 	@Command
 	private CommandRift rift;
@@ -86,7 +86,7 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 
 		if(ShurikenConfig.UPDATES)
 		{
-			J.s(() -> ShurikenBukkit.checkForUpdates(new MortarSender(Bukkit.getConsoleSender())), 160);
+			J.s(() -> ShurikenBukkit.checkForUpdates(new ShurikenSender(Bukkit.getConsoleSender())), 160);
 		}
 
 		J.sr(() -> flushLogBuffer(), 20);

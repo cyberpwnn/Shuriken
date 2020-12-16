@@ -1,11 +1,11 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
 import ninja.bytecode.shuriken.bukkit.api.rift.Rift;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
 
-public class CommandRiftList extends MortarCommand
+public class CommandRiftList extends ShurikenCommand
 {
 	public CommandRiftList()
 	{
@@ -14,7 +14,7 @@ public class CommandRiftList extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		RiftController rc = ShurikenBukkit.getController(RiftController.class);
 		for(Rift i : rc.getRifts())

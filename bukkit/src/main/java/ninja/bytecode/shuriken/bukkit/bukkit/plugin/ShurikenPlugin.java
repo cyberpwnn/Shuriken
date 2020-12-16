@@ -26,8 +26,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.ICommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarPermission;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenPermission;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.RouterCommand;
 import ninja.bytecode.shuriken.bukkit.bukkit.command.VirtualCommand;
@@ -41,8 +41,8 @@ import ninja.bytecode.shuriken.bukkit.util.text.Logged;
 public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Listener
 {
 	private KMap<KList<String>, VirtualCommand> commands;
-	private KList<MortarCommand> commandCache;
-	private KList<MortarPermission> permissionCache;
+	private KList<ShurikenCommand> commandCache;
+	private KList<ShurikenPermission> permissionCache;
 	private KMap<String, IController> controllers;
 	private KList<IController> cachedControllers;
 	private KMap<Class<? extends IController>, IController> cachedClassControllers;
@@ -115,7 +115,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 	{
 		FileConfiguration fc = new YamlConfiguration();
 
-		for(MortarPermission i : permissionCache)
+		for(ShurikenPermission i : permissionCache)
 		{
 			chain(i, fc);
 		}
@@ -123,11 +123,11 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		fc.save(getDataFile("info", "permissions.yml"));
 	}
 
-	private void chain(MortarPermission i, FileConfiguration fc)
+	private void chain(ShurikenPermission i, FileConfiguration fc)
 	{
 		KList<String> ff = new KList<String>();
 
-		for(MortarPermission j : i.getChildren())
+		for(ShurikenPermission j : i.getChildren())
 		{
 			ff.add(j.getFullNode());
 		}
@@ -136,7 +136,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		fc.set(i.getFullNode().replaceAll("\\Q.\\E", ",") + "." + "default", i.isDefault());
 		fc.set(i.getFullNode().replaceAll("\\Q.\\E", ",") + "." + "children", ff);
 
-		for(MortarPermission j : i.getChildren())
+		for(ShurikenPermission j : i.getChildren())
 		{
 			chain(j, fc);
 		}
@@ -146,7 +146,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 	{
 		FileConfiguration fc = new YamlConfiguration();
 
-		for(MortarCommand i : commandCache)
+		for(ShurikenCommand i : commandCache)
 		{
 			chain(i, "/", fc);
 		}
@@ -154,14 +154,14 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		fc.save(getDataFile("info", "commands.yml"));
 	}
 
-	private void chain(MortarCommand i, String c, FileConfiguration fc)
+	private void chain(ShurikenCommand i, String c, FileConfiguration fc)
 	{
 		String n = c + (c.length() == 1 ? "" : " ") + i.getNode();
 		fc.set(n + "." + "description", i.getDescription());
 		fc.set(n + "." + "required-permissions", i.getRequiredPermissions());
 		fc.set(n + "." + "aliases", i.getAllNodes());
 
-		for(MortarCommand j : i.getChildren())
+		for(ShurikenCommand j : i.getChildren())
 		{
 			chain(j, n, fc);
 		}
@@ -186,7 +186,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 				try
 				{
 					i.setAccessible(true);
-					MortarPermission pc = (MortarPermission) i.getType().getConstructor().newInstance();
+					ShurikenPermission pc = (ShurikenPermission) i.getType().getConstructor().newInstance();
 					i.set(Modifier.isStatic(i.getModifiers()) ? null : this, pc);
 					registerPermission(pc);
 					permissionCache.add(pc);
@@ -224,7 +224,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 			{
 				try
 				{
-					MortarPermission x = (MortarPermission) i.get(Modifier.isStatic(i.getModifiers()) ? null : this);
+					ShurikenPermission x = (ShurikenPermission) i.get(Modifier.isStatic(i.getModifiers()) ? null : this);
 					g.add(toPermission(x));
 					g.addAll(computePermissions(x));
 				}
@@ -239,7 +239,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		return g.dedupe();
 	}
 
-	private KList<org.bukkit.permissions.Permission> computePermissions(MortarPermission p)
+	private KList<org.bukkit.permissions.Permission> computePermissions(ShurikenPermission p)
 	{
 		KList<org.bukkit.permissions.Permission> g = new KList<>();
 
@@ -248,7 +248,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 			return g;
 		}
 
-		for(MortarPermission i : p.getChildren())
+		for(ShurikenPermission i : p.getChildren())
 		{
 			if(i == null)
 			{
@@ -262,7 +262,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		return g;
 	}
 
-	private org.bukkit.permissions.Permission toPermission(MortarPermission p)
+	private org.bukkit.permissions.Permission toPermission(ShurikenPermission p)
 	{
 		if(p == null)
 		{
@@ -273,7 +273,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		perm.setDescription(p.getDescription() == null ? "" : p.getDescription());
 		perm.setDefault(p.isDefault() ? PermissionDefault.TRUE : PermissionDefault.OP);
 
-		for(MortarPermission i : p.getChildren())
+		for(ShurikenPermission i : p.getChildren())
 		{
 			perm.getChildren().put(i.getFullNode(), true);
 		}
@@ -281,7 +281,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 		return perm;
 	}
 
-	private void registerPermission(MortarPermission pc)
+	private void registerPermission(ShurikenPermission pc)
 	{
 
 	}
@@ -439,7 +439,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 				try
 				{
 					i.setAccessible(true);
-					MortarCommand pc = (MortarCommand) i.getType().getConstructor().newInstance();
+					ShurikenCommand pc = (ShurikenCommand) i.getType().getConstructor().newInstance();
 					ninja.bytecode.shuriken.bukkit.bukkit.command.Command c = i.getAnnotation(ninja.bytecode.shuriken.bukkit.bukkit.command.Command.class);
 					registerCommand(pc, c.value());
 					commandCache.add(pc);

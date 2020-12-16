@@ -1,11 +1,11 @@
 package ninja.bytecode.shuriken.bukkit.api.tome;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.command.Command;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
-public class CommandTome extends MortarCommand
+public class CommandTome extends ShurikenCommand
 {
 	@Command
 	public CommandReload reload;
@@ -23,7 +23,7 @@ public class CommandTome extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		sender.sendMessage("/tome catalogue");
 		sender.sendMessage("/tome reload");

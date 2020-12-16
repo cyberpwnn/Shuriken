@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
 import ninja.bytecode.shuriken.bukkit.api.sound.Instrument;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 
-public class CommandSound extends MortarCommand
+public class CommandSound extends ShurikenCommand
 {
 	public CommandSound()
 	{
@@ -13,7 +13,7 @@ public class CommandSound extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		if(args.length == 0)
 		{

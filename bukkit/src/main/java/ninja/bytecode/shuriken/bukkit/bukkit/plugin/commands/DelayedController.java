@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.bukkit.plugin.commands;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
 import ninja.bytecode.shuriken.collections.KList;
 
@@ -42,7 +42,7 @@ public class DelayedController extends Controller
 		return cmd;
 	}
 
-	public boolean confirm(MortarSender sender)
+	public boolean confirm(ShurikenSender sender)
 	{
 		for (DelayedCommand cmd : cmds) {
 			if (!cmd.getSender().player().equals(sender.player())) continue;
@@ -56,7 +56,7 @@ public class DelayedController extends Controller
 		return false;
 	}
 
-	public boolean cancel(MortarSender sender)
+	public boolean cancel(ShurikenSender sender)
 	{
 		for (DelayedCommand cmd : cmds) {
 			if (!cmd.getSender().player().equals(sender.player())) continue;

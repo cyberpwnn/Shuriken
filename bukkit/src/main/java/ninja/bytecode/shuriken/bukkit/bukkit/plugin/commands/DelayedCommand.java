@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.bukkit.plugin.commands;
 
 import lombok.Getter;
 import lombok.Setter;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 
 public class DelayedCommand
 {
@@ -12,7 +12,7 @@ public class DelayedCommand
 	private String id;
 
 	@Getter
-	private MortarSender sender;
+	private ShurikenSender sender;
 
 	@Getter
 	@Setter
@@ -37,7 +37,7 @@ public class DelayedCommand
 	@Getter
 	private Long ttl = 10 * 1000L; // 5 second delay
 
-	public DelayedCommand(String id, MortarSender sender, Runnable success)
+	public DelayedCommand(String id, ShurikenSender sender, Runnable success)
 	{
 		this.id = id;
 		this.time = System.currentTimeMillis();
@@ -53,7 +53,7 @@ public class DelayedCommand
 		};
 	}
 
-	public DelayedCommand(String id, MortarSender sender, Runnable success, Runnable failed)
+	public DelayedCommand(String id, ShurikenSender sender, Runnable success, Runnable failed)
 	{
 		this(id, sender, success);
 		this.failed = failed;

@@ -1,0 +1,221 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-bukkit",
+    "version": "2.0.6",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "shuriken-bukkit-2.0.6.jar",
+          "url": "shuriken-bukkit-2.0.6.jar",
+          "size": 858963,
+          "sha512": "11a2f58bf36b20d8ec73351f8b078fac3e63075d5d7679a4590fbd082c53746ec1734946134df1645f8d1dbe9eb2e97379174d7be68efa54649e9c08d4f69d00",
+          "sha256": "c67f048da065715673d193feeed8fe78fcc9171e03d1b9bb3da10d9f3cc0d231",
+          "sha1": "7d36d041ad314f3ee09afd7327965a4b6e484247",
+          "md5": "bb0e3ab2dcc24f8c3f27d2ff0d4b52c8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.6"
+          }
+        },
+        {
+          "group": "org.dom4j",
+          "module": "dom4j",
+          "version": {
+            "requires": "2.1.3"
+          }
+        },
+        {
+          "group": "org.spigotmc",
+          "module": "spigot-api",
+          "version": {
+            "requires": "1.16.4-R0.1-SNAPSHOT"
+          }
+        },
+        {
+          "group": "com.destroystokyo.paper",
+          "module": "paper-api",
+          "version": {
+            "requires": "1.16.4-R0.1-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.16.2",
+          "version": {
+            "requires": "1.16.2"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.15.1",
+          "version": {
+            "requires": "1.15.1"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.14.4",
+          "version": {
+            "requires": "1.14.4"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.13.2",
+          "version": {
+            "requires": "1.13.2"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.12.2",
+          "version": {
+            "requires": "1.12.2"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.11.2",
+          "version": {
+            "requires": "1.11.2"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.10.2",
+          "version": {
+            "requires": "1.10.2"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.9.4",
+          "version": {
+            "requires": "1.9.4"
+          }
+        },
+        {
+          "group": "org.bukkit.craftbukkit",
+          "module": "cb-1.8.8",
+          "version": {
+            "requires": "1.8.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-bukkit-2.0.6.jar",
+          "url": "shuriken-bukkit-2.0.6.jar",
+          "size": 858963,
+          "sha512": "11a2f58bf36b20d8ec73351f8b078fac3e63075d5d7679a4590fbd082c53746ec1734946134df1645f8d1dbe9eb2e97379174d7be68efa54649e9c08d4f69d00",
+          "sha256": "c67f048da065715673d193feeed8fe78fcc9171e03d1b9bb3da10d9f3cc0d231",
+          "sha1": "7d36d041ad314f3ee09afd7327965a4b6e484247",
+          "md5": "bb0e3ab2dcc24f8c3f27d2ff0d4b52c8"
+        }
+      ]
+    },
+    {
+      "name": "shadowRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "shadowed",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-bukkit-2.0.6-all.jar",
+          "url": "shuriken-bukkit-2.0.6-all.jar",
+          "size": 4518559,
+          "sha512": "759c7d2b39eff3e595d04541db67fdd9d54e4bcd15d07af811c6bb260609fb2c2ef630a9d7bbfc72fd4d860897f02b38b7879bd8b3510c7c1a989b622cf53bff",
+          "sha256": "1d07de2d6ca52a1c0c233bc55014a2d5f096b613717979f1ec6a7508ea8f3c1a",
+          "sha1": "f2a784e33a5aeb2c79cf26daec046271162e785a",
+          "md5": "3e403f7786f2e44bc57f93d80a4f4f6e"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-bukkit-2.0.6-javadoc.jar",
+          "url": "shuriken-bukkit-2.0.6-javadoc.jar",
+          "size": 1556532,
+          "sha512": "fdbc8fd1063d95d8e2f81d384a09cfe3f70a0e66d671d762c882ca0637121f412f83a74b87fd0003d4eb5c2c5de02515b30ab0b82f70a4835e5b3e8b7267bc5c",
+          "sha256": "844d5de0d1b8abeb04a38cd2d894ea2a8715b08c4db1985c94669dbe32a114d7",
+          "sha1": "5e865a070cfd3b43cec36518a8cfe44870c9c0da",
+          "md5": "e2dcd74da909009d551167ae1e123492"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-bukkit-2.0.6-sources.jar",
+          "url": "shuriken-bukkit-2.0.6-sources.jar",
+          "size": 393424,
+          "sha512": "a09b9d87365afe08f155b5dc313e68b53785627156d39827c862800f8968d7c1a76085f9422af53b0d0e930d18d49cc25acf56f5fa1b52212b0b6b7ed96b5138",
+          "sha256": "087605d042f47ef15bfb792577b064cde88420dfdecc327f090107104d678a13",
+          "sha1": "323c2df113834f4c9f47490b3902f907161f9d37",
+          "md5": "59c74e61a23126448bda20c5d06d7268"
+        }
+      ]
+    }
+  ]
+}

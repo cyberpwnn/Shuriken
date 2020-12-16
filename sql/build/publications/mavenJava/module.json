@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-sql",
-    "version": "2.0.2",
+    "version": "2.0.6",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
     }
   },
   "variants": [
@@ -24,24 +24,15 @@
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
-      "dependencies": [
-        {
-          "group": "ninja.bytecode.shuriken",
-          "module": "shuriken-core",
-          "version": {
-            "requires": "2.0.2"
-          }
-        }
-      ],
       "files": [
         {
-          "name": "shuriken-sql-2.0.2.jar",
-          "url": "shuriken-sql-2.0.2.jar",
+          "name": "shuriken-sql-2.0.6.jar",
+          "url": "shuriken-sql-2.0.6.jar",
           "size": 21033,
-          "sha512": "385543a7357beee5abd4a0e5cb865001071107e579cd9a68e3a3a63fe4858254c3dafd61fdd32498e543c43ce3103c5a099ddc465b7a2a4d2abbafaf45295100",
-          "sha256": "db0c21213def5d171b04ad736c72dbfc206e2e8d6d7c91c0e7b24a1d70100b3c",
-          "sha1": "564dc608cbb77fd000bca2ab692b4bf5201c81fa",
-          "md5": "f7087258f83390f44c3eb0d59095ff9f"
+          "sha512": "8fc8c4d18a7c87aa74614e351e1516ecfa34d8623fb8009d8fb37236565c2c86e086c188a0a67c9fec81674f69ac6c83f7ce49ff2637d05a355dab65347d34c7",
+          "sha256": "52b027608c93d9615df627100b9e07f22626885cf1b224abdf970e8b4f978996",
+          "sha1": "781cd8e29950f7fa33f7e60b1031e859a4eb9313",
+          "md5": "e014543bb4cdfa0d931b82fecace60cb"
         }
       ]
     },
@@ -63,29 +54,29 @@
           }
         },
         {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.6"
+          }
+        },
+        {
           "group": "mysql",
           "module": "mysql-connector-java",
           "version": {
             "requires": "8.0.17"
           }
-        },
-        {
-          "group": "ninja.bytecode.shuriken",
-          "module": "shuriken-core",
-          "version": {
-            "requires": "2.0.2"
-          }
         }
       ],
       "files": [
         {
-          "name": "shuriken-sql-2.0.2.jar",
-          "url": "shuriken-sql-2.0.2.jar",
+          "name": "shuriken-sql-2.0.6.jar",
+          "url": "shuriken-sql-2.0.6.jar",
           "size": 21033,
-          "sha512": "385543a7357beee5abd4a0e5cb865001071107e579cd9a68e3a3a63fe4858254c3dafd61fdd32498e543c43ce3103c5a099ddc465b7a2a4d2abbafaf45295100",
-          "sha256": "db0c21213def5d171b04ad736c72dbfc206e2e8d6d7c91c0e7b24a1d70100b3c",
-          "sha1": "564dc608cbb77fd000bca2ab692b4bf5201c81fa",
-          "md5": "f7087258f83390f44c3eb0d59095ff9f"
+          "sha512": "8fc8c4d18a7c87aa74614e351e1516ecfa34d8623fb8009d8fb37236565c2c86e086c188a0a67c9fec81674f69ac6c83f7ce49ff2637d05a355dab65347d34c7",
+          "sha256": "52b027608c93d9615df627100b9e07f22626885cf1b224abdf970e8b4f978996",
+          "sha1": "781cd8e29950f7fa33f7e60b1031e859a4eb9313",
+          "md5": "e014543bb4cdfa0d931b82fecace60cb"
         }
       ]
     },
@@ -99,13 +90,13 @@
       },
       "files": [
         {
-          "name": "shuriken-sql-2.0.2-javadoc.jar",
-          "url": "shuriken-sql-2.0.2-javadoc.jar",
-          "size": 43960,
-          "sha512": "d5324de7a99d7b50ed46545d72bc5dce25baa7917275bff4a1b9c730f51c2ac2db7f545b55b275f20d966692d01bf807d6b483a02cb20e83de5510bcb508daf5",
-          "sha256": "90ff8c00d13430784fdd5895db37174024be815c84efe72be5c193e9ddba73ed",
-          "sha1": "0c6b5d1c279553a720f0395d623ce07a9be12e28",
-          "md5": "8d5fd59e44887a9c1755226fcde646e5"
+          "name": "shuriken-sql-2.0.6-javadoc.jar",
+          "url": "shuriken-sql-2.0.6-javadoc.jar",
+          "size": 43973,
+          "sha512": "9bb9c6fe734f0a252f6aaf1672f73a5d5efeb05a68326642a6f3b8407b4ae3f9345b76a848c4886f7ac2eb30088637807e987a7b5667034817a6a7adafeacf2a",
+          "sha256": "e78329f3ad5cb4362b5aef34484d6c2f0266a26480206bb118a3406739de46e1",
+          "sha1": "d343e3131e11153c2dc7b3f826857c9d29cd4e9d",
+          "md5": "840a1b09fac1ad58a2cfc6cb9862075c"
         }
       ]
     },
@@ -119,13 +110,13 @@
       },
       "files": [
         {
-          "name": "shuriken-sql-2.0.2-sources.jar",
-          "url": "shuriken-sql-2.0.2-sources.jar",
+          "name": "shuriken-sql-2.0.6-sources.jar",
+          "url": "shuriken-sql-2.0.6-sources.jar",
           "size": 9285,
-          "sha512": "cc8dd6a3110288fd6b4eb6e847142d9f56621dd1a421686a31c657cd32f0ccfe338b0dfe835234609b3a92a55cd2841f24cc2aa94f0fe50d9d4fc7bdb5a432ed",
-          "sha256": "fc38d3c3c9792b8ae6e3ad7a57e7f5632100ae9db0d2ac2ed82d6debc4f8d77f",
-          "sha1": "098f80f80f40355be8ce6d3d3f3bfa72f5a73f41",
-          "md5": "a61cda6b5a0a7a14745c23e3604aad00"
+          "sha512": "1036cf8ae87013c82cc2b28cda1ffdeee4e4758afd08fbe73c1aacd2962ce24e11a2e022898cedfa5e9ab6bb74dfc5c2a67c37407469e431fa91944f01ba25df",
+          "sha256": "1add9a9b0bfc1b7f7190b5382de860d247c44da08a3bc50354b10a69711aab79",
+          "sha1": "ab4fb3cf58126eb0bd05e61534c287f3c59e0f58",
+          "md5": "8e6edd428f51d6056692f7330db8d424"
         }
       ]
     }

@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-mail",
-    "version": "2.0.2",
+    "version": "2.0.6",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "fxiuewqdp5cuzmcf54cs6tqolu"
+      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
     }
   },
   "variants": [
@@ -29,19 +29,19 @@
           "group": "ninja.bytecode.shuriken",
           "module": "shuriken-core",
           "version": {
-            "requires": "2.0.2"
+            "requires": "2.0.6"
           }
         }
       ],
       "files": [
         {
-          "name": "shuriken-mail-2.0.2.jar",
-          "url": "shuriken-mail-2.0.2.jar",
+          "name": "shuriken-mail-2.0.6.jar",
+          "url": "shuriken-mail-2.0.6.jar",
           "size": 5013,
-          "sha512": "5a566a640e9827f304bda16e61bb57b76799509d89b3ccff6382d84bf9faa6a8385e8c6e282b474a1ff4440c11ae6625873697a88ba11ee060c107fbae3315a5",
-          "sha256": "a8f65ab94017e9d5544874b09ec7f6a1327673690be6e322b4ec2e7be04487f1",
-          "sha1": "871fca050fa551075b5c7a174296723997e53b63",
-          "md5": "9df8e6700e938390f2c9db33958ab0d8"
+          "sha512": "9dd3f4bf294eb2dca562d131cd9f97350f1ec4d9211b39b0a750ad4dd9b6553b6ffb68bcf3b9e7b40b3a28e3caffc98ae39863432b7c3b700bde753550e78240",
+          "sha256": "7eccb9aa9912206c47e03227b8e9d06b4674e3830a140ed882311d1962698826",
+          "sha1": "b2db5501b0378e40b695933ec97e2192efcc159b",
+          "md5": "4a1c3d7d753b3a67d76a7f0c9ffbdd83"
         }
       ]
     },
@@ -60,6 +60,13 @@
           "module": "gson",
           "version": {
             "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.0.6"
           }
         },
         {
@@ -87,19 +94,19 @@
           "group": "ninja.bytecode.shuriken",
           "module": "shuriken-core",
           "version": {
-            "requires": "2.0.2"
+            "requires": "2.0.6"
           }
         }
       ],
       "files": [
         {
-          "name": "shuriken-mail-2.0.2.jar",
-          "url": "shuriken-mail-2.0.2.jar",
+          "name": "shuriken-mail-2.0.6.jar",
+          "url": "shuriken-mail-2.0.6.jar",
           "size": 5013,
-          "sha512": "5a566a640e9827f304bda16e61bb57b76799509d89b3ccff6382d84bf9faa6a8385e8c6e282b474a1ff4440c11ae6625873697a88ba11ee060c107fbae3315a5",
-          "sha256": "a8f65ab94017e9d5544874b09ec7f6a1327673690be6e322b4ec2e7be04487f1",
-          "sha1": "871fca050fa551075b5c7a174296723997e53b63",
-          "md5": "9df8e6700e938390f2c9db33958ab0d8"
+          "sha512": "9dd3f4bf294eb2dca562d131cd9f97350f1ec4d9211b39b0a750ad4dd9b6553b6ffb68bcf3b9e7b40b3a28e3caffc98ae39863432b7c3b700bde753550e78240",
+          "sha256": "7eccb9aa9912206c47e03227b8e9d06b4674e3830a140ed882311d1962698826",
+          "sha1": "b2db5501b0378e40b695933ec97e2192efcc159b",
+          "md5": "4a1c3d7d753b3a67d76a7f0c9ffbdd83"
         }
       ]
     },
@@ -113,13 +120,13 @@
       },
       "files": [
         {
-          "name": "shuriken-mail-2.0.2-javadoc.jar",
-          "url": "shuriken-mail-2.0.2-javadoc.jar",
-          "size": 22428,
-          "sha512": "5c266da089475c2f9d0b363f233216af14d679eed01daa0245b49c4d139ea98f67b8fb3512722c33915d7708070c1bc2fdab43dcb7121a732188bbb01d8c692e",
-          "sha256": "573cc271541cbb1580f8e9478ca5d618525889e08952976696122df91fb85358",
-          "sha1": "da34385be9b8b602f698a5c6f70d57fb9a57b83e",
-          "md5": "f422867d1b25a7a758d3222a5c40175b"
+          "name": "shuriken-mail-2.0.6-javadoc.jar",
+          "url": "shuriken-mail-2.0.6-javadoc.jar",
+          "size": 22439,
+          "sha512": "1bbbf54bb6c309c40176b8adfebea01121d4eddd0fd861b6a1310b14af7e3e1ac5e3f77056ef8b4a4dcfe2ff3821670fddce985811ab18bf134d040e5de9244c",
+          "sha256": "2b87ef49e55d2a399a728398c647535a1dc3731d66bafa3d8436d5babcffa90b",
+          "sha1": "eb6296694a304287981f4214d6389c4138c52a44",
+          "md5": "24d97c686cc1038c100e62636f290895"
         }
       ]
     },
@@ -133,13 +140,13 @@
       },
       "files": [
         {
-          "name": "shuriken-mail-2.0.2-sources.jar",
-          "url": "shuriken-mail-2.0.2-sources.jar",
+          "name": "shuriken-mail-2.0.6-sources.jar",
+          "url": "shuriken-mail-2.0.6-sources.jar",
           "size": 2526,
-          "sha512": "197281a8f3358d4180c6923cc814aa9b9d4006b1bf4032f905e8dbdc3018e785541fed9f98e720ad1f08746e61edaad08b68e08e2a93f72660b7bb273c52af34",
-          "sha256": "4efcd69da9bd1d298fd1e31b5e5002bc3ce9e7fa084dac825235ea7a43c05948",
-          "sha1": "5fd6fefebbc7ce8fae3c9326be36b60993c9ceb4",
-          "md5": "0cdd340446ce64e0685f44e10a4dc81e"
+          "sha512": "03b54e5de671bffe360575e5f1e61d1c6a76ef55375ef50b886a38257860e14f30378c3768ad254ea173f464a44aa59ad347c1ee75b7bcf72b3207b1e614f7d2",
+          "sha256": "b0b92246e979d308a3be88c4d47c8214ac45e40660f9f4ccdd37063d4c2bb6eb",
+          "sha1": "1dc34558035e2e2073dd0bbd47c86f67b1bb431a",
+          "md5": "af3a22ee0c17c72282a8e8bf399a55b3"
         }
       ]
     }

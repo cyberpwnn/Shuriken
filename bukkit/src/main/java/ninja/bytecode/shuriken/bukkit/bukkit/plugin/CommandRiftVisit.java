@@ -1,11 +1,11 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
 import ninja.bytecode.shuriken.bukkit.api.rift.Rift;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
 
-public class CommandRiftVisit extends MortarCommand
+public class CommandRiftVisit extends ShurikenCommand
 {
 	public CommandRiftVisit()
 	{
@@ -14,7 +14,7 @@ public class CommandRiftVisit extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		if(!sender.isPlayer())
 		{

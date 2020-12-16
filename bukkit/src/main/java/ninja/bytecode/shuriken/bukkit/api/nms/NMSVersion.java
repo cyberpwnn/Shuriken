@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.nms;
 
+import ninja.bytecode.shuriken.logging.L;
 import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public enum NMSVersion {
         String version = name.substring(name.lastIndexOf('.') + 1);
         try {
             current = valueOf(version);
-        } catch (Throwable ignored) {
+        } catch (Throwable e) {
+            L.ex(e);
         }
     }
 

@@ -3,8 +3,8 @@ package ninja.bytecode.shuriken.bukkit.api.tome;
 import java.io.IOException;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 
@@ -14,7 +14,7 @@ import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.LKMap;
 import org.bukkit.inventory.ItemStack;
 
-public class CommandCatalogue extends MortarCommand
+public class CommandCatalogue extends ShurikenCommand
 {
 	public CommandCatalogue()
 	{
@@ -23,7 +23,7 @@ public class CommandCatalogue extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		J.a(() ->
 		{

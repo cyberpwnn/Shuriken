@@ -79,7 +79,7 @@ public class VirtualCommand
 
 	public boolean hit(CommandSender sender, KList<String> chain, String label)
 	{
-		MortarSender vs = new MortarSender(sender);
+		ShurikenSender vs = new ShurikenSender(sender);
 		vs.setTag(tag);
 
 		if (label != null)

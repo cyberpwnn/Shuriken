@@ -18,10 +18,13 @@ plugins {
     id 'maven-publish'
     id "org.datlowe.maven-publish-auth" version "2.0.2"
     id 'net.linguica.maven-settings' version '0.5'
+    id "com.github.johnrengelman.shadow" version "6.1.0" apply false
 }
 
+String jettyVersion = '9.4.28.v20200408';
+boolean deploying = false;
 group 'ninja.bytecode.shuriken'
-version '2.0.3'
+version '2.0.6'
 
 allprojects {
     tasks.withType(Javadoc) {
@@ -36,6 +39,34 @@ subprojects {
     apply plugin: 'java-library'
     apply plugin: 'maven-publish'
     apply plugin: 'maven-publish-auth'
+
+    if(project.name == 'bukkit')
+    {
+        apply plugin: 'com.github.johnrengelman.shadow'
+        String archiveName = "Shuriken.jar"
+        String archivePath = jar.archiveFile.get().getAsFile().getParentFile().getAbsolutePath()
+        String archiveFilePath = "C:\\Users\\cyberpwn\\Documents\\development\\server\\plugins" + "\\" + archiveName
+
+        task buildAPIPlugin {
+            group 'shuriken'
+            dependsOn 'shadowJar'
+        }
+
+        shadowJar {
+            zip64 true
+            minimize()
+            project.configurations.implementation.canBeResolved = true
+            project.configurations.runtime.canBeResolved = true
+            project.configurations.api.canBeResolved = true
+            project.configurations.compile.canBeResolved = true
+            archiveFileName = archiveFilePath
+            dependencies {
+                exclude(dependency {
+                    it.moduleGroup == 'org.bukkit.craftbukkit'
+                })
+            }
+        }
+    }
 
     repositories {
         mavenLocal()
@@ -66,8 +97,6 @@ subprojects {
         withSourcesJar()
     }
 
-
-
     publishing {
         publications {
             mavenJava(MavenPublication) {
@@ -84,6 +113,23 @@ subprojects {
             }
         }
     }
+
+    task predeploy {
+        doLast {
+            deploying = true;
+        }
+    }
+
+    publishAllPublicationsToVolmitRepository.dependsOn predeploy;
+
+    task deployAll {
+        group 'shuriken'
+        dependsOn publishAllPublicationsToVolmitRepository
+
+        doLast {
+            deploying = false;
+        }
+    }
 }
 
 repositories {
@@ -97,4 +143,100 @@ repositories {
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
+}
+
+project(":bukkit") {
+    dependencies {
+        if(deploying)
+        {
+            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+        }
+
+        else
+        {
+            implementation project(":core")
+        }
+
+        implementation 'org.dom4j:dom4j:2.1.3'
+        implementation 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
+        implementation 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
+        implementation 'org.bukkit.craftbukkit:1.16.4:1.16.4'
+        implementation 'org.bukkit.craftbukkit:1.15.1:1.15.1'
+        implementation 'org.bukkit.craftbukkit:1.14.4:1.14.4'
+        implementation 'org.bukkit.craftbukkit:1.13.2:1.13.2'
+        implementation 'org.bukkit.craftbukkit:1.12.2:1.12.2'
+        implementation 'org.bukkit.craftbukkit:1.11.2:1.11.2'
+        implementation 'org.bukkit.craftbukkit:1.10.2:1.10.2'
+        implementation 'org.bukkit.craftbukkit:1.9.4:1.9.4'
+        implementation 'org.bukkit.craftbukkit:1.8.8:1.8.8'
+    }
+}
+
+project(":cloud") {
+    dependencies {
+        if(deploying)
+        {
+            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+        }
+
+        else
+        {
+            implementation project(":core")
+        }
+
+        implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.327')
+        implementation 'com.amazonaws:aws-java-sdk-s3'
+    }
+}
+
+project(":mail") {
+    dependencies {
+        if(deploying)
+        {
+            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+        }
+
+        else
+        {
+            implementation project(":core")
+        }
+
+        implementation 'javax.mail:javax.mail-api:1.6.0'
+        implementation 'com.sun.mail:javax.mail:1.6.0'
+        implementation 'javax.activation:activation:1.1.1'
+    }
+}
+
+project(":sql") {
+    dependencies {
+        if(deploying)
+        {
+            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+        }
+
+        else
+        {
+            implementation project(":core")
+        }
+
+        implementation 'mysql:mysql-connector-java:8.0.17'
+    }
+}
+
+project(":web") {
+    dependencies {
+        if(deploying)
+        {
+            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+        }
+
+        else
+        {
+            implementation project(":core")
+        }
+
+        implementation 'org.eclipse.jetty:jetty-server:' + jettyVersion;
+        implementation 'org.eclipse.jetty:jetty-servlet:' + jettyVersion;
+        implementation 'org.eclipse.jetty:jetty-webapp:' + jettyVersion;
+    }
 }

@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.World.Environment;
@@ -11,7 +11,7 @@ import ninja.bytecode.shuriken.bukkit.api.rift.Rift;
 import ninja.bytecode.shuriken.bukkit.api.rift.RiftException;
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
 
-public class CommandRiftOpen extends MortarCommand
+public class CommandRiftOpen extends ShurikenCommand
 {
 	public CommandRiftOpen()
 	{
@@ -20,7 +20,7 @@ public class CommandRiftOpen extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		if(args.length == 0)
 		{

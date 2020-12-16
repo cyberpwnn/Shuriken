@@ -1,5 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
+import ninja.bytecode.shuriken.bukkit.api.nms.NMP;
+import ninja.bytecode.shuriken.bukkit.api.nms.ShadowChunk;
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;

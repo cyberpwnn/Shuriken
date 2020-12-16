@@ -16,15 +16,15 @@ import ninja.bytecode.shuriken.bukkit.api.sound.GSound;
 import ninja.bytecode.shuriken.bukkit.api.sound.Instrument;
 import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.P;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
 import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 
-public class CommandSCM extends MortarCommand
+public class CommandSCM extends ShurikenCommand
 {
 	public CommandSCM()
 	{
@@ -33,7 +33,7 @@ public class CommandSCM extends MortarCommand
 	}
 
 	@Override
-	public boolean handle(MortarSender sender, String[] args)
+	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		if(args.length == 0)
 		{

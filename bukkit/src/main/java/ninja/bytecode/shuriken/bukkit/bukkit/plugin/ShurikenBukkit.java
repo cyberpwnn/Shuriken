@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.MortarSender;
+import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.collections.KSet;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -123,7 +123,7 @@ public class ShurikenBukkit
 		return -1;
 	}
 
-	public static void checkForUpdates(MortarSender sender)
+	public static void checkForUpdates(ShurikenSender sender)
 	{
 		J.a(() ->
 		{
