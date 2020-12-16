@@ -24,7 +24,7 @@ plugins {
 String jettyVersion = '9.4.28.v20200408';
 boolean deploying = false;
 group 'ninja.bytecode.shuriken'
-version '2.0.9'
+version '2.0.13'
 
 apply plugin: 'java-library'
 
@@ -151,12 +151,12 @@ project(":bukkit") {
     dependencies {
         if(deploying)
         {
-            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            compile 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            api project(":core")
+            compile project(":core")
         }
 
         api 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
@@ -178,12 +178,12 @@ project(":cloud") {
     dependencies {
         if(deploying)
         {
-            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            compile 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            api project(":core")
+            compile project(":core")
         }
 
         implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.327')
@@ -195,12 +195,12 @@ project(":mail") {
     dependencies {
         if(deploying)
         {
-            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            compile 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            api project(":core")
+            compile project(":core")
         }
 
         implementation 'javax.mail:javax.mail-api:1.6.0'
@@ -213,12 +213,12 @@ project(":sql") {
     dependencies {
         if(deploying)
         {
-            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            compile 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            api project(":core")
+            compile project(":core")
         }
 
         implementation 'mysql:mysql-connector-java:8.0.17'
@@ -229,12 +229,12 @@ project(":web") {
     dependencies {
         if(deploying)
         {
-            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            compile 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            api project(":core")
+            compile project(":core")
         }
 
         implementation 'org.eclipse.jetty:jetty-server:' + jettyVersion;
