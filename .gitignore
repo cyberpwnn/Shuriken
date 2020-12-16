@@ -1,0 +1,14 @@
+
+bukkit/build/
+
+cloud/build/
+
+core/build/
+
+mail/build/
+
+sql/build/
+
+web/build/
+
+.gradle/

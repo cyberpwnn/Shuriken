@@ -1,6 +1,0 @@
-name: Shuriken
-version: 2x
-main: ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin
-author: cyberpwn
-api-version: 1.16
-load: STARTUP

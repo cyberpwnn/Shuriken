@@ -24,7 +24,9 @@ plugins {
 String jettyVersion = '9.4.28.v20200408';
 boolean deploying = false;
 group 'ninja.bytecode.shuriken'
-version '2.0.8'
+version '2.0.9'
+
+apply plugin: 'java-library'
 
 allprojects {
     tasks.withType(Javadoc) {
@@ -149,17 +151,17 @@ project(":bukkit") {
     dependencies {
         if(deploying)
         {
-            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            implementation project(":core")
+            api project(":core")
         }
 
+        api 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
+        api 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
         implementation 'org.dom4j:dom4j:2.1.3'
-        implementation 'org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT'
-        implementation 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
         implementation 'org.bukkit.craftbukkit:1.16.4:1.16.4'
         implementation 'org.bukkit.craftbukkit:1.15.1:1.15.1'
         implementation 'org.bukkit.craftbukkit:1.14.4:1.14.4'
@@ -176,12 +178,12 @@ project(":cloud") {
     dependencies {
         if(deploying)
         {
-            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            implementation project(":core")
+            api project(":core")
         }
 
         implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.327')
@@ -193,12 +195,12 @@ project(":mail") {
     dependencies {
         if(deploying)
         {
-            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            implementation project(":core")
+            api project(":core")
         }
 
         implementation 'javax.mail:javax.mail-api:1.6.0'
@@ -211,12 +213,12 @@ project(":sql") {
     dependencies {
         if(deploying)
         {
-            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            implementation project(":core")
+            api project(":core")
         }
 
         implementation 'mysql:mysql-connector-java:8.0.17'
@@ -227,12 +229,12 @@ project(":web") {
     dependencies {
         if(deploying)
         {
-            implementation 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            api 'ninja.bytecode.shuriken:shuriken-core:' + project.version
         }
 
         else
         {
-            implementation project(":core")
+            api project(":core")
         }
 
         implementation 'org.eclipse.jetty:jetty-server:' + jettyVersion;
