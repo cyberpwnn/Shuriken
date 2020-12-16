@@ -22,7 +22,6 @@ public class CommandShuriken extends ShurikenCommand
 	public boolean handle(ShurikenSender sender, String[] args)
 	{
 		sender.sendMessage("v" + ShurikenAPIPlugin.p.getDescription().getVersion());
-		ShurikenBukkit.checkForUpdates(sender);
 		return true;
 	}
 }

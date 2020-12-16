@@ -53,11 +53,6 @@ public class SCMController extends Controller
 	@Override
 	public void start()
 	{
-		if(NMSVersion.current().equals(NMSVersion.v1_8_R3))
-		{
-			return;
-		}
-
 		volumes = new KMap<String, IVolume>();
 
 		File gf = getSCMFolder();

@@ -26,7 +26,6 @@ import ninja.bytecode.shuriken.bukkit.util.text.VersionCodes;
 
 public class ShurikenBukkit
 {
-	public static final int API_VERSION = readAPIVersion();
 	public static boolean STARTUP_LOAD = false;
 
 	public static boolean isMainThread()
@@ -106,71 +105,5 @@ public class ShurikenBukkit
 	public static void callEvent(Event e)
 	{
 		Bukkit.getServer().getPluginManager().callEvent(e);
-	}
-
-	private static int readAPIVersion()
-	{
-		try
-		{
-			Integer.valueOf(VIO.readAll(ShurikenBukkit.class.getResourceAsStream("/apiversion.info")).replaceAll("\\Q\n\\E", "").replaceAll("\\Q\"\\E", "").trim());
-		}
-
-		catch(Throwable e)
-		{
-			e.printStackTrace();
-		}
-
-		return -1;
-	}
-
-	public static void checkForUpdates(ShurikenSender sender)
-	{
-		J.a(() ->
-		{
-			try
-			{
-				try
-				{
-					D.as("Mortar Updater").l("Checking for Updates");
-					URL url = new URL("https://raw.githubusercontent.com/VolmitSoftware/Mortar/master/version.txt");
-					InputStream in = url.openStream();
-					BufferedReader bu = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
-					String version = bu.readLine().trim().toLowerCase();
-					in.close();
-					bu.close();
-					J.s(() ->
-					{
-						int grv = VersionCodes.getVersionCode(version);
-						int cv = VersionCodes.getVersionCode(ShurikenAPIPlugin.p.getDescription().getVersion());
-
-						if(grv == cv)
-						{
-							sender.sendMessage("Mortar is up to date.");
-						}
-
-						else if(grv < cv)
-						{
-							sender.sendMessage("Mortar is ahead of date...");
-						}
-
-						else
-						{
-							sender.sendMessage("There is an update for mortar: " + C.WHITE + version);
-							sender.sendMessage("Use /mortar update");
-						}
-					});
-				}
-
-				catch(Throwable e)
-				{
-
-				}
-			}
-
-			catch(Throwable e)
-			{
-
-			}
-		});
 	}
 }

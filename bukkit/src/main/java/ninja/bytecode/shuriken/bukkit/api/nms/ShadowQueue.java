@@ -134,7 +134,8 @@ public class ShadowQueue
 
 	public void setBiome(int x, int z, Biome biome)
 	{
-		getChunk(x >> 4, z >> 4).setBiome(x & 15, z & 15, biome);
+		// TODO: Fix this please
+		getChunk(x >> 4, z >> 4).setBiome(x & 15, 0, z & 15, biome);
 	}
 
 	public Vector getPlayerSection()
