@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ninja.bytecode.shuriken</groupId>
   <artifactId>shuriken-bukkit</artifactId>
-  <version>2.0.6</version>
+  <version>2.0.8</version>
   <dependencies>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -20,7 +20,7 @@
     <dependency>
       <groupId>ninja.bytecode.shuriken</groupId>
       <artifactId>shuriken-core</artifactId>
-      <version>2.0.6</version>
+      <version>2.0.8</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -43,55 +43,55 @@
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.16.2</artifactId>
-      <version>1.16.2</version>
+      <artifactId>1.16.4</artifactId>
+      <version>1.16.4</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.15.1</artifactId>
+      <artifactId>1.15.1</artifactId>
       <version>1.15.1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.14.4</artifactId>
+      <artifactId>1.14.4</artifactId>
       <version>1.14.4</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.13.2</artifactId>
+      <artifactId>1.13.2</artifactId>
       <version>1.13.2</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.12.2</artifactId>
+      <artifactId>1.12.2</artifactId>
       <version>1.12.2</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.11.2</artifactId>
+      <artifactId>1.11.2</artifactId>
       <version>1.11.2</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.10.2</artifactId>
+      <artifactId>1.10.2</artifactId>
       <version>1.10.2</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.9.4</artifactId>
+      <artifactId>1.9.4</artifactId>
       <version>1.9.4</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.bukkit.craftbukkit</groupId>
-      <artifactId>cb-1.8.8</artifactId>
+      <artifactId>1.8.8</artifactId>
       <version>1.8.8</version>
       <scope>runtime</scope>
     </dependency>

@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-sql",
-    "version": "2.0.6",
+    "version": "2.0.8",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
+      "buildId": "nb2iyjspyvdrpf7i2hswhbvo5i"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "shuriken-sql-2.0.6.jar",
-          "url": "shuriken-sql-2.0.6.jar",
+          "name": "shuriken-sql-2.0.8.jar",
+          "url": "shuriken-sql-2.0.8.jar",
           "size": 21033,
-          "sha512": "8fc8c4d18a7c87aa74614e351e1516ecfa34d8623fb8009d8fb37236565c2c86e086c188a0a67c9fec81674f69ac6c83f7ce49ff2637d05a355dab65347d34c7",
-          "sha256": "52b027608c93d9615df627100b9e07f22626885cf1b224abdf970e8b4f978996",
-          "sha1": "781cd8e29950f7fa33f7e60b1031e859a4eb9313",
-          "md5": "e014543bb4cdfa0d931b82fecace60cb"
+          "sha512": "661a0ce11e3c1fdafbc631ad7da50589d94b26138dfaad726966086a09ec87fab1c94f13a3d0edf73bf6cefbcc581e7713eefc5b7a7f0ee85c072c35993643a0",
+          "sha256": "e427c5816d57b00a07aff52fc52c0ab7cef3defb0bed3d8bb613ce7ff688718a",
+          "sha1": "5fc085ebefdc8ee7777cb589f9a526bc254eae95",
+          "md5": "060d0c50a60399ba2f916f8abf1fe17d"
         }
       ]
     },
@@ -57,7 +57,7 @@
           "group": "ninja.bytecode.shuriken",
           "module": "shuriken-core",
           "version": {
-            "requires": "2.0.6"
+            "requires": "2.0.8"
           }
         },
         {
@@ -70,13 +70,13 @@
       ],
       "files": [
         {
-          "name": "shuriken-sql-2.0.6.jar",
-          "url": "shuriken-sql-2.0.6.jar",
+          "name": "shuriken-sql-2.0.8.jar",
+          "url": "shuriken-sql-2.0.8.jar",
           "size": 21033,
-          "sha512": "8fc8c4d18a7c87aa74614e351e1516ecfa34d8623fb8009d8fb37236565c2c86e086c188a0a67c9fec81674f69ac6c83f7ce49ff2637d05a355dab65347d34c7",
-          "sha256": "52b027608c93d9615df627100b9e07f22626885cf1b224abdf970e8b4f978996",
-          "sha1": "781cd8e29950f7fa33f7e60b1031e859a4eb9313",
-          "md5": "e014543bb4cdfa0d931b82fecace60cb"
+          "sha512": "661a0ce11e3c1fdafbc631ad7da50589d94b26138dfaad726966086a09ec87fab1c94f13a3d0edf73bf6cefbcc581e7713eefc5b7a7f0ee85c072c35993643a0",
+          "sha256": "e427c5816d57b00a07aff52fc52c0ab7cef3defb0bed3d8bb613ce7ff688718a",
+          "sha1": "5fc085ebefdc8ee7777cb589f9a526bc254eae95",
+          "md5": "060d0c50a60399ba2f916f8abf1fe17d"
         }
       ]
     },
@@ -90,13 +90,13 @@
       },
       "files": [
         {
-          "name": "shuriken-sql-2.0.6-javadoc.jar",
-          "url": "shuriken-sql-2.0.6-javadoc.jar",
-          "size": 43973,
-          "sha512": "9bb9c6fe734f0a252f6aaf1672f73a5d5efeb05a68326642a6f3b8407b4ae3f9345b76a848c4886f7ac2eb30088637807e987a7b5667034817a6a7adafeacf2a",
-          "sha256": "e78329f3ad5cb4362b5aef34484d6c2f0266a26480206bb118a3406739de46e1",
-          "sha1": "d343e3131e11153c2dc7b3f826857c9d29cd4e9d",
-          "md5": "840a1b09fac1ad58a2cfc6cb9862075c"
+          "name": "shuriken-sql-2.0.8-javadoc.jar",
+          "url": "shuriken-sql-2.0.8-javadoc.jar",
+          "size": 43974,
+          "sha512": "e6467eb1af0214de8e3f8d351c11c2c01da63594caae6fbcc92397646e9378857e262d6640603ac68b931ec4b6d61568f6f79f2eac8e17314925eedb4dd30c70",
+          "sha256": "c35cabf0370e72b83da8343ed54d298fb4ca310f93c8cd61c7c3e8c55aaa41c7",
+          "sha1": "7edb387a6494dc280ea8d6d21191336e27fafd68",
+          "md5": "681331bfa852461d035e227d38fbcc2f"
         }
       ]
     },
@@ -110,13 +110,13 @@
       },
       "files": [
         {
-          "name": "shuriken-sql-2.0.6-sources.jar",
-          "url": "shuriken-sql-2.0.6-sources.jar",
+          "name": "shuriken-sql-2.0.8-sources.jar",
+          "url": "shuriken-sql-2.0.8-sources.jar",
           "size": 9285,
-          "sha512": "1036cf8ae87013c82cc2b28cda1ffdeee4e4758afd08fbe73c1aacd2962ce24e11a2e022898cedfa5e9ab6bb74dfc5c2a67c37407469e431fa91944f01ba25df",
-          "sha256": "1add9a9b0bfc1b7f7190b5382de860d247c44da08a3bc50354b10a69711aab79",
-          "sha1": "ab4fb3cf58126eb0bd05e61534c287f3c59e0f58",
-          "md5": "8e6edd428f51d6056692f7330db8d424"
+          "sha512": "70d5286ad420230e7877e4310bdd99cb02aef779cb9bfd3380c6663794586bee2fdcfacccae55005237d9af2d5f7833942c6e2591b0ff17f31a034966aba7bbd",
+          "sha256": "b12ace6881199832bcf04a7340a6e1bc6ea7ce9ca0488feddd7641ff4e1ac3ee",
+          "sha1": "036ad30efeb22c4cb1688f7e7a53b6d847b55722",
+          "md5": "67a01a8d0404013bf24e0351d64eb709"
         }
       ]
     }

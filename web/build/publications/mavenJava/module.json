@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-web",
-    "version": "2.0.6",
+    "version": "2.0.8",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
+      "buildId": "nb2iyjspyvdrpf7i2hswhbvo5i"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "shuriken-web-2.0.6.jar",
-          "url": "shuriken-web-2.0.6.jar",
+          "name": "shuriken-web-2.0.8.jar",
+          "url": "shuriken-web-2.0.8.jar",
           "size": 24859,
-          "sha512": "b0d01af6c8f76649d06c114bac6bd1a4bceb54981d12434402a3f730e1de43c3a59c7f5ff019b2211845e77ce12399913ec6e60b65a74be23f76d30ef55648ad",
-          "sha256": "bdafca3e95b3af9b43d20bcedb3dccc4fd293e93e51c3983f0cc10c4b7c02f2e",
-          "sha1": "fe15b2c848838abb884e0ef0b13c7b98b690de75",
-          "md5": "de4dbcebd82714f69940679c9e476326"
+          "sha512": "d0965c8c08c8e56db25cb6da27bbd9724292e2d112e02221dc1a73090d3ba79fdf7edd0f29cdcb8a55d0191e7407d12afb35bf52f04d74f7ac4fc02d4138ee8f",
+          "sha256": "3124b144178f17c0b7117fd80a57d54f5f06bf9b49448773e46282e7f49d7e72",
+          "sha1": "7b67ca87c8f68ed86a68c7bb1975581677874d93",
+          "md5": "3b3d0881e5f424842eb9684a4754dc3e"
         }
       ]
     },
@@ -57,7 +57,7 @@
           "group": "ninja.bytecode.shuriken",
           "module": "shuriken-core",
           "version": {
-            "requires": "2.0.6"
+            "requires": "2.0.8"
           }
         },
         {
@@ -84,13 +84,13 @@
       ],
       "files": [
         {
-          "name": "shuriken-web-2.0.6.jar",
-          "url": "shuriken-web-2.0.6.jar",
+          "name": "shuriken-web-2.0.8.jar",
+          "url": "shuriken-web-2.0.8.jar",
           "size": 24859,
-          "sha512": "b0d01af6c8f76649d06c114bac6bd1a4bceb54981d12434402a3f730e1de43c3a59c7f5ff019b2211845e77ce12399913ec6e60b65a74be23f76d30ef55648ad",
-          "sha256": "bdafca3e95b3af9b43d20bcedb3dccc4fd293e93e51c3983f0cc10c4b7c02f2e",
-          "sha1": "fe15b2c848838abb884e0ef0b13c7b98b690de75",
-          "md5": "de4dbcebd82714f69940679c9e476326"
+          "sha512": "d0965c8c08c8e56db25cb6da27bbd9724292e2d112e02221dc1a73090d3ba79fdf7edd0f29cdcb8a55d0191e7407d12afb35bf52f04d74f7ac4fc02d4138ee8f",
+          "sha256": "3124b144178f17c0b7117fd80a57d54f5f06bf9b49448773e46282e7f49d7e72",
+          "sha1": "7b67ca87c8f68ed86a68c7bb1975581677874d93",
+          "md5": "3b3d0881e5f424842eb9684a4754dc3e"
         }
       ]
     },
@@ -104,13 +104,13 @@
       },
       "files": [
         {
-          "name": "shuriken-web-2.0.6-javadoc.jar",
-          "url": "shuriken-web-2.0.6-javadoc.jar",
-          "size": 58306,
-          "sha512": "a05efbf366c17bd75ca419142cb7547d7bc4152ad55d2072de3dd515631fbd2865c16ce2da8f599690c7f75551f9b2b221d46d3633f3a9eaa2772351b4536c28",
-          "sha256": "3057230188ebc6082fa0ac954ca054938c5e5b23a8755ea081348d9d30e8020e",
-          "sha1": "f0f8fcac5b1c79965302ed0d8153c58904109fe6",
-          "md5": "d82c2b33b41505a107c32e6b9c54b71c"
+          "name": "shuriken-web-2.0.8-javadoc.jar",
+          "url": "shuriken-web-2.0.8-javadoc.jar",
+          "size": 58310,
+          "sha512": "a124d4904a7f98f74b9fd4b62c0029536452581424d62849133c14c327b33283b6062a2048e8b6b11053f8320d8c3bad07abe0a1dd00ffed9564dad60201412f",
+          "sha256": "96e10d93dc742a4031a03365c1d59b74d26aa521be22b190924598381b312e7f",
+          "sha1": "3619cbf5c1480c63e75ca3c8e892e5b81c457048",
+          "md5": "762ccb90fdf7a674be57950c41f4ea10"
         }
       ]
     },
@@ -124,13 +124,13 @@
       },
       "files": [
         {
-          "name": "shuriken-web-2.0.6-sources.jar",
-          "url": "shuriken-web-2.0.6-sources.jar",
+          "name": "shuriken-web-2.0.8-sources.jar",
+          "url": "shuriken-web-2.0.8-sources.jar",
           "size": 12511,
-          "sha512": "b498d302f9f70ceb39f92a4c14be07dc13ac23566e22c9d657ece62b81101b1e1c0341705d4345c05e11e215d0689de94f5bafe1338fd769ba0e588427f1a755",
-          "sha256": "4e610a5ceb4a717f2578a32c331918a034f9dd83763da3cd8f23fe760081dc1c",
-          "sha1": "32d894fcd63bdfe7fc986265e71bee63ec6f82c2",
-          "md5": "bea20959dd3cca60b7f236a9b27ad8ba"
+          "sha512": "46f8811e358fe8dbe02c129b47c749a98f25f9e646fa3e9d8e04d88d4aa484888de527b49ef04280987f15c2d9e2a778acb3ce64ffe7c77279f01898ffdb8091",
+          "sha256": "2f3c3705d6270df7024bb5a1795ca03aaedb77f1a83ac775241f59758d08d622",
+          "sha1": "07ea7f1c497bfc2b09b86337482a62e4ab99ad25",
+          "md5": "0af9ad5887a638939b417004177c0513"
         }
       ]
     }

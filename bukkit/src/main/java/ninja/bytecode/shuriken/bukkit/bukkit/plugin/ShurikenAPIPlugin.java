@@ -84,11 +84,6 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 		M.initTicking();
 		v("Ticking Initiated");
 
-		if(ShurikenConfig.UPDATES)
-		{
-			J.s(() -> ShurikenBukkit.checkForUpdates(new ShurikenSender(Bukkit.getConsoleSender())), 160);
-		}
-
 		J.sr(() -> flushLogBuffer(), 20);
 		J.ar(() -> M.uptickAsync(), 0);
 		J.sr(() -> M.uptick(), 0);

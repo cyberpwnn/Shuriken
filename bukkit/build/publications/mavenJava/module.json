@@ -3,7 +3,7 @@
   "component": {
     "group": "ninja.bytecode.shuriken",
     "module": "shuriken-bukkit",
-    "version": "2.0.6",
+    "version": "2.0.8",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "vdes3xu2xzbwffvfkvw5ovo4me"
+      "buildId": "yztt4kxg5rbjvi6sglup3kxl4q"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "shuriken-bukkit-2.0.6.jar",
-          "url": "shuriken-bukkit-2.0.6.jar",
-          "size": 858963,
-          "sha512": "11a2f58bf36b20d8ec73351f8b078fac3e63075d5d7679a4590fbd082c53746ec1734946134df1645f8d1dbe9eb2e97379174d7be68efa54649e9c08d4f69d00",
-          "sha256": "c67f048da065715673d193feeed8fe78fcc9171e03d1b9bb3da10d9f3cc0d231",
-          "sha1": "7d36d041ad314f3ee09afd7327965a4b6e484247",
-          "md5": "bb0e3ab2dcc24f8c3f27d2ff0d4b52c8"
+          "name": "shuriken-bukkit-2.0.8.jar",
+          "url": "shuriken-bukkit-2.0.8.jar",
+          "size": 707103,
+          "sha512": "ecc79be7dbce2adc7532df585cd39654c2dd1b97ad0379ea6edc674e5f5d8f9c03ca082a260f703b618137c2b1964b48ce13b2f7317a9c0d2c31d51e15cde469",
+          "sha256": "f06e028b377656ac9b8aad2689aa7e6659865a6c61260906be2db0f33a806e25",
+          "sha1": "370c7f67c269fc7b451a9a95e5c50a8c22a2f1d0",
+          "md5": "3d93d74190396f6ed6a28c7052cc382d"
         }
       ]
     },
@@ -57,7 +57,7 @@
           "group": "ninja.bytecode.shuriken",
           "module": "shuriken-core",
           "version": {
-            "requires": "2.0.6"
+            "requires": "2.0.8"
           }
         },
         {
@@ -83,63 +83,63 @@
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.16.2",
+          "module": "1.16.4",
           "version": {
-            "requires": "1.16.2"
+            "requires": "1.16.4"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.15.1",
+          "module": "1.15.1",
           "version": {
             "requires": "1.15.1"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.14.4",
+          "module": "1.14.4",
           "version": {
             "requires": "1.14.4"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.13.2",
+          "module": "1.13.2",
           "version": {
             "requires": "1.13.2"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.12.2",
+          "module": "1.12.2",
           "version": {
             "requires": "1.12.2"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.11.2",
+          "module": "1.11.2",
           "version": {
             "requires": "1.11.2"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.10.2",
+          "module": "1.10.2",
           "version": {
             "requires": "1.10.2"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.9.4",
+          "module": "1.9.4",
           "version": {
             "requires": "1.9.4"
           }
         },
         {
           "group": "org.bukkit.craftbukkit",
-          "module": "cb-1.8.8",
+          "module": "1.8.8",
           "version": {
             "requires": "1.8.8"
           }
@@ -147,13 +147,13 @@
       ],
       "files": [
         {
-          "name": "shuriken-bukkit-2.0.6.jar",
-          "url": "shuriken-bukkit-2.0.6.jar",
-          "size": 858963,
-          "sha512": "11a2f58bf36b20d8ec73351f8b078fac3e63075d5d7679a4590fbd082c53746ec1734946134df1645f8d1dbe9eb2e97379174d7be68efa54649e9c08d4f69d00",
-          "sha256": "c67f048da065715673d193feeed8fe78fcc9171e03d1b9bb3da10d9f3cc0d231",
-          "sha1": "7d36d041ad314f3ee09afd7327965a4b6e484247",
-          "md5": "bb0e3ab2dcc24f8c3f27d2ff0d4b52c8"
+          "name": "shuriken-bukkit-2.0.8.jar",
+          "url": "shuriken-bukkit-2.0.8.jar",
+          "size": 707103,
+          "sha512": "ecc79be7dbce2adc7532df585cd39654c2dd1b97ad0379ea6edc674e5f5d8f9c03ca082a260f703b618137c2b1964b48ce13b2f7317a9c0d2c31d51e15cde469",
+          "sha256": "f06e028b377656ac9b8aad2689aa7e6659865a6c61260906be2db0f33a806e25",
+          "sha1": "370c7f67c269fc7b451a9a95e5c50a8c22a2f1d0",
+          "md5": "3d93d74190396f6ed6a28c7052cc382d"
         }
       ]
     },
@@ -167,13 +167,13 @@
       },
       "files": [
         {
-          "name": "shuriken-bukkit-2.0.6-all.jar",
-          "url": "shuriken-bukkit-2.0.6-all.jar",
-          "size": 4518559,
-          "sha512": "759c7d2b39eff3e595d04541db67fdd9d54e4bcd15d07af811c6bb260609fb2c2ef630a9d7bbfc72fd4d860897f02b38b7879bd8b3510c7c1a989b622cf53bff",
-          "sha256": "1d07de2d6ca52a1c0c233bc55014a2d5f096b613717979f1ec6a7508ea8f3c1a",
-          "sha1": "f2a784e33a5aeb2c79cf26daec046271162e785a",
-          "md5": "3e403f7786f2e44bc57f93d80a4f4f6e"
+          "name": "shuriken-bukkit-2.0.8-all.jar",
+          "url": "shuriken-bukkit-2.0.8-all.jar",
+          "size": 4366279,
+          "sha512": "79c6966d0b234d25a0b0ec0a4cdd05d88231ebf7bd8f0dbed88d4056337542f61a0e5b9e50213a0db9403efdf35bea2ff33f1bd499c94eeb34862dda3fcbfafd",
+          "sha256": "29c1810f3294ff8417be0dc85ffe88c37056831f4423006e0bf2102000ab8546",
+          "sha1": "ad8bf6ddc8e56e307a3ee7b5b713b88ab4e08103",
+          "md5": "d515f96dec75aff94bd372a056db8e30"
         }
       ]
     },
@@ -187,13 +187,13 @@
       },
       "files": [
         {
-          "name": "shuriken-bukkit-2.0.6-javadoc.jar",
-          "url": "shuriken-bukkit-2.0.6-javadoc.jar",
-          "size": 1556532,
-          "sha512": "fdbc8fd1063d95d8e2f81d384a09cfe3f70a0e66d671d762c882ca0637121f412f83a74b87fd0003d4eb5c2c5de02515b30ab0b82f70a4835e5b3e8b7267bc5c",
-          "sha256": "844d5de0d1b8abeb04a38cd2d894ea2a8715b08c4db1985c94669dbe32a114d7",
-          "sha1": "5e865a070cfd3b43cec36518a8cfe44870c9c0da",
-          "md5": "e2dcd74da909009d551167ae1e123492"
+          "name": "shuriken-bukkit-2.0.8-javadoc.jar",
+          "url": "shuriken-bukkit-2.0.8-javadoc.jar",
+          "size": 1392229,
+          "sha512": "da1e5ba2e6b836435c9cd6e8327ee648f169784b48ae74c092eb26647dcf69794a1fa18405684e5a258eb961c684ce0b1d20422aa1786ce7535192398528523e",
+          "sha256": "c0f9136827ba234ba236e7bc80d4bc43139584d09ef9324a6d6c1910e12aa068",
+          "sha1": "de6b22529f7b7531ba3ddbdfa8f59e235c42f7b3",
+          "md5": "3578dcf04bbde55bb199c6399f0296ec"
         }
       ]
     },
@@ -207,13 +207,13 @@
       },
       "files": [
         {
-          "name": "shuriken-bukkit-2.0.6-sources.jar",
-          "url": "shuriken-bukkit-2.0.6-sources.jar",
-          "size": 393424,
-          "sha512": "a09b9d87365afe08f155b5dc313e68b53785627156d39827c862800f8968d7c1a76085f9422af53b0d0e930d18d49cc25acf56f5fa1b52212b0b6b7ed96b5138",
-          "sha256": "087605d042f47ef15bfb792577b064cde88420dfdecc327f090107104d678a13",
-          "sha1": "323c2df113834f4c9f47490b3902f907161f9d37",
-          "md5": "59c74e61a23126448bda20c5d06d7268"
+          "name": "shuriken-bukkit-2.0.8-sources.jar",
+          "url": "shuriken-bukkit-2.0.8-sources.jar",
+          "size": 334150,
+          "sha512": "873ee3786bf63c57a64f2c683375dc038f6237ac680ed16e244509b6319ba1bae3c4b57be0aa789fb2f057c202fa47937d7fef7072406642772aac9915efcd5b",
+          "sha256": "61614a8979742b88857d653e328aa2d061e2400bac3885aac9af97b309a0eeb7",
+          "sha1": "8195e376ff24c2181c3e4ecd55996d4747c156c1",
+          "md5": "51b7a439b66832017f6a87097197eab4"
         }
       ]
     }

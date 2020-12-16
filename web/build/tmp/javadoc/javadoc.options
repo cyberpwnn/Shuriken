@@ -1,10 +1,10 @@
 -Xdoclint:none '-quiet'
 -classpath 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\build\\resources\\main;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\org.projectlombok\\lombok\\1.18.16\\6dc192c7f93ec1853f70d59d8a6dcf94eb42866\\lombok-1.18.16.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\code\\gson\\gson\\2.8.6\\gson-2.8.6.jar;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-webapp\\9.4.28.v20200408\\jetty-webapp-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-servlet\\9.4.28.v20200408\\jetty-servlet-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-security\\9.4.28.v20200408\\jetty-security-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-server\\9.4.28.v20200408\\jetty-server-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\javax\\servlet\\javax.servlet-api\\3.1.0\\javax.servlet-api-3.1.0.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-http\\9.4.28.v20200408\\jetty-http-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-io\\9.4.28.v20200408\\jetty-io-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-xml\\9.4.28.v20200408\\jetty-xml-9.4.28.v20200408.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\eclipse\\jetty\\jetty-util\\9.4.28.v20200408\\jetty-util-9.4.28.v20200408.jar'
 -d 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\build\\docs\\javadoc'
--doctitle 'web 2.0.6 API'
+-doctitle 'web 2.0.8 API'
 -notimestamp 
 -quiet 
--windowtitle 'web 2.0.6 API'
+-windowtitle 'web 2.0.8 API'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\src\\main\\java\\ninja\\bytecode\\shuriken\\web\\BasicErrorHandler.java'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\src\\main\\java\\ninja\\bytecode\\shuriken\\web\\DownloadParcelable.java'
 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\src\\main\\java\\ninja\\bytecode\\shuriken\\web\\FancyParcelable.java'
