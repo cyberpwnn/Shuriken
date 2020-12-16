@@ -1,18 +1,20 @@
 package ninja.bytecode.shuriken.bukkit.api.nms;
 
-import net.minecraft.server.v1_14_R1.*;
+import net.minecraft.server.v1_16_R3.*;
+import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World.Environment;
 import org.bukkit.block.Biome;
-import org.bukkit.craftbukkit.v1_14_R1.CraftChunk;
-import org.bukkit.craftbukkit.v1_14_R1.block.CraftBlock;
+import org.bukkit.craftbukkit.v1_16_R3.CraftChunk;
+import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
+import org.bukkit.craftbukkit.v1_16_R3.block.CraftBlock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShadowChunk14 implements ShadowChunk
+public class ShadowChunk16 implements ShadowChunk
 {
 	private final Chunk actual;
 	private final org.bukkit.Chunk chunk;
@@ -20,8 +22,9 @@ public class ShadowChunk14 implements ShadowChunk
 	private final boolean skylight;
 	private final boolean[] modified;
 	private boolean biomeModified;
+	private boolean biomeBackModified;
 
-	public ShadowChunk14(org.bukkit.Chunk chunk)
+	public ShadowChunk16(org.bukkit.Chunk chunk)
 	{
 		this.chunk = chunk;
 		actual = ((CraftChunk) chunk).getHandle();
@@ -104,7 +107,8 @@ public class ShadowChunk14 implements ShadowChunk
 	@Override
 	public void rebase()
 	{
-		biomeModified = !Arrays.equals(nmsCopy.getBiomeIndex(), actual.getBiomeIndex());
+		biomeModified = false;
+		biomeBackModified = false;
 		nmsCopy = copy(actual);
 
 		for(int i = 0; i < 16; i++)
@@ -131,6 +135,7 @@ public class ShadowChunk14 implements ShadowChunk
 		}
 
 		packets.add(new PacketPlayOutMapChunk(nmsCopy, modMask));
+		biomeModified = false;
 		dumpModifications();
 
 		return packets;
@@ -224,16 +229,12 @@ public class ShadowChunk14 implements ShadowChunk
 	}
 
 	@Override
-	public void setBiome(int x, int z, Biome bio)
+	public void setBiome(int x, int y, int z, Biome bio)
 	{
-		setBiome(x, z, BiomeBase.c.getId(CraftBlock.biomeToBiomeBase(bio)));
-	}
-
-	@Override
-	public void setBiome(int x, int z, int id)
-	{
-		nmsCopy.getBiomeIndex()[(z & 15) << 4 | x & 15] = BiomeBase.c.fromId(id);
+		WorldServer w = ((CraftWorld)actual.bukkitChunk.getWorld()).getHandle();
+		nmsCopy.getBiomeIndex().setBiome(x, y, z, CraftBlock.biomeToBiomeBase(w.r().b(IRegistry.ay), bio));
 		biomeModified = true;
+		biomeBackModified = true;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -294,10 +295,10 @@ public class ShadowChunk14 implements ShadowChunk
 
 	private void copyBiomes(Chunk actual, Chunk c)
 	{
-		for(int i = 0; i < actual.getBiomeIndex().length; i++)
-		{
-			c.getBiomeIndex()[i] = actual.getBiomeIndex()[i];
-		}
+		Registry<BiomeBase> v = actual.getBiomeIndex().g;
+		BiomeBase[] data = new V(actual, true, false).get("h");
+		data = Arrays.copyOf(data, data.length);
+		new V(c, true).set("d", new BiomeStorage(v, data));
 	}
 
 	private void copyTileEntities(Chunk actual, Chunk c)

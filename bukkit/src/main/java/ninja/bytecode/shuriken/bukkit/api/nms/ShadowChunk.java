@@ -133,24 +133,14 @@ public interface ShadowChunk
 	 *
 	 * @param x
 	 *            chunk relative x
+	 * @param y
+	 *            chunk relative y
 	 * @param z
 	 *            chunk relative z
 	 * @param bio
 	 *            the biome
 	 */
-	public void setBiome(int x, int z, Biome bio);
-
-	/**
-	 * Set the biome
-	 *
-	 * @param x
-	 *            chunk relative x
-	 * @param z
-	 *            chunk relative z
-	 * @param bio
-	 *            the biome id
-	 */
-	public void setBiome(int x, int z, int bio);
+	public void setBiome(int x, int y, int z, Biome bio);
 
 	/**
 	 * Set a block

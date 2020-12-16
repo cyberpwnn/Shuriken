@@ -199,12 +199,12 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public String getServerVersion() {
-        return "1_16_R2";
+        return "1_16_R3";
     }
 
     @Override
     public String getVersion() {
-        return "1.16.2";
+        return "1.16.4";
     }
 
     @Override
@@ -318,7 +318,7 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public ShadowChunk shadowCopy(Chunk at) {
-        return null;
+        return new ShadowChunk16(at);
     }
 
     @Override

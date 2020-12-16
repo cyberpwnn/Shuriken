@@ -7,15 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum NMSVersion {
-    v1_16_R2(Catalyst16.class),
-    v1_15_R1(Catalyst15.class),
-    v1_14_R1(Catalyst14.class),
-    v1_13_R2(Catalyst13.class),
-    v1_12_R1(Catalyst12.class),
-    v1_11_R1(Catalyst11.class),
-    v1_10_R1(Catalyst10.class),
-    v1_9_R2(Catalyst9.class),
-    v1_8_R3(Catalyst8.class);
+    v1_16_R3(Catalyst16.class);
 
     private static NMSVersion current;
     private final Class<? extends CatalystHost> hostClazz;
