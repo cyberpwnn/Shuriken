@@ -9,7 +9,6 @@ package ninja.bytecode.shuriken.bukkit.bukkit.compatibility;
  */
 public enum SoundEnum
 {
-
 	AMBIENCE_CAVE("AMBIENCE_CAVE", "AMBIENT_CAVE"),
 	AMBIENCE_RAIN("AMBIENCE_RAIN", "WEATHER_RAIN"),
 	AMBIENCE_THUNDER("AMBIENCE_THUNDER", "ENTITY_LIGHTNING_THUNDER", "ENTITY_LIGHTNING_BOLT_THUNDER"),

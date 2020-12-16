@@ -2,10 +2,17 @@ package ninja.bytecode.shuriken.bukkit.api.sound;
 
 import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.SoundEnum;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public enum Instrument
 {
+	CHOP_HIGH(new MFADistortion(4, 1.9f).distort(new Audio().s(Sound.ITEM_AXE_STRIP).vp(1f, 1.5f))),
+	CHOP_MID(new MFADistortion(4, 1.1f).distort(new Audio().s(Sound.ITEM_AXE_STRIP).vp(1f, 1.5f))),
+	CHOP_LOW(new MFADistortion(4, 0.11f).distort(new Audio().s(Sound.ITEM_AXE_STRIP).vp(1f, 1.5f))),
+
+
+
 	ENCHANT_HIGH(new MFADistortion(4, 1.9f).distort(new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f))),
 	ENCHANT_MID(new MFADistortion(4, 1.1f).distort(new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f))),
 	ENCHANT_LOW(new MFADistortion(4, 0.11f).distort(new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f))),
