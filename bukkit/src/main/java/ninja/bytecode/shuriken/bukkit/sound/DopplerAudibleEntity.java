@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.sound;
+package ninja.bytecode.shuriken.bukkit.sound;
 
 import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
 import org.bukkit.entity.Entity;

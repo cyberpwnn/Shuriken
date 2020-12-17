@@ -15,7 +15,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.api.nms.Catalyst;
+import ninja.bytecode.shuriken.bukkit.nms.Catalyst;
 
 
 import ninja.bytecode.shuriken.bukkit.logic.format.F;

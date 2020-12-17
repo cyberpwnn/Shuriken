@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.sound;
+package ninja.bytecode.shuriken.bukkit.sound;
 
 public class MFAFilter implements AudioFilter
 {

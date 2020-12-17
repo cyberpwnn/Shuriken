@@ -1,10 +1,10 @@
-package ninja.bytecode.shuriken.bukkit.api.sound;
+package ninja.bytecode.shuriken.bukkit.sound;
 
 import ninja.bytecode.shuriken.bukkit.api.world.Area;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.SR;
+import ninja.bytecode.shuriken.bukkit.sched.SR;
 
 /**
  * Audio bound to entities

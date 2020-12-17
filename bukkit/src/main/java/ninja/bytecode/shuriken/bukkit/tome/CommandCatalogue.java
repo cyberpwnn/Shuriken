@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.tome;
 
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
+import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;

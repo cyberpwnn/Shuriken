@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.sound;
+package ninja.bytecode.shuriken.bukkit.sound;
 
 
 import ninja.bytecode.shuriken.collections.KList;
@@ -7,7 +7,7 @@ import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.S;
+import ninja.bytecode.shuriken.bukkit.sched.S;
 
 public class Audio implements Audible
 {

@@ -21,7 +21,7 @@ import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.api.nms.NMP;
+import ninja.bytecode.shuriken.bukkit.nms.NMP;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;

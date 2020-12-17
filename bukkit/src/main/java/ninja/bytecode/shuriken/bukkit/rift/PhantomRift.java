@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-import ninja.bytecode.shuriken.bukkit.api.generator.VoidGenerator;
+import ninja.bytecode.shuriken.bukkit.generator.VoidGenerator;
 import ninja.bytecode.shuriken.bukkit.api.sched.AR;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.sched.S;
