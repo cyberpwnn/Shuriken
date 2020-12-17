@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.host;
+package ninja.bytecode.shuriken.bukkit.host.permission;
 
 import ninja.bytecode.shuriken.bukkit.scm.PermissionSCM;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenPermission;

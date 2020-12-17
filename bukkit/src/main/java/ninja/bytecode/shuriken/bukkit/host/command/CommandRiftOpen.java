@@ -8,10 +8,10 @@ import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.World.Environment;
 
-import ninja.bytecode.shuriken.bukkit.generator.FlatGenerator;
+import ninja.bytecode.shuriken.bukkit.world.generator.FlatGenerator;
 import ninja.bytecode.shuriken.bukkit.rift.Rift;
 import ninja.bytecode.shuriken.bukkit.rift.RiftException;
-import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
+import ninja.bytecode.shuriken.bukkit.host.control.RiftController;
 
 public class CommandRiftOpen extends ShurikenCommand
 {

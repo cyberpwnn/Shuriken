@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.lib.control;
+package ninja.bytecode.shuriken.bukkit.host.control;
 
 import java.util.UUID;
 

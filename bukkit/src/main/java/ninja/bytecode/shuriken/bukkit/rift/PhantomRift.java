@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
-import ninja.bytecode.shuriken.bukkit.generator.VoidGenerator;
+import ninja.bytecode.shuriken.bukkit.world.generator.VoidGenerator;
 import ninja.bytecode.shuriken.bukkit.sched.AR;
 import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.sched.S;
@@ -13,7 +13,7 @@ import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 
-import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
+import ninja.bytecode.shuriken.bukkit.host.control.RiftController;
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 import ninja.bytecode.shuriken.collections.KList;

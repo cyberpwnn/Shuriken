@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.generator;
+package ninja.bytecode.shuriken.bukkit.world.generator;
 
 import java.util.Random;
 

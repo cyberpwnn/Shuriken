@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.host;
+package ninja.bytecode.shuriken.bukkit.host.control;
 
 import ninja.bytecode.shuriken.bukkit.scm.GhostWorld;
 import ninja.bytecode.shuriken.bukkit.plugin.Controller;

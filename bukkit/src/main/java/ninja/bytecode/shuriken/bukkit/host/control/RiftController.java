@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.lib.control;
+package ninja.bytecode.shuriken.bukkit.host.control;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 
-import ninja.bytecode.shuriken.bukkit.generator.FlatGenerator;
+import ninja.bytecode.shuriken.bukkit.world.generator.FlatGenerator;
 import ninja.bytecode.shuriken.bukkit.rift.PhantomRift;
 import ninja.bytecode.shuriken.bukkit.rift.Rift;
 import ninja.bytecode.shuriken.bukkit.rift.RiftException;

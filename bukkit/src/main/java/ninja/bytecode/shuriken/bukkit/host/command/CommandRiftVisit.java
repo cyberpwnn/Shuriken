@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.host.command;
 import ninja.bytecode.shuriken.bukkit.rift.Rift;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
-import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;
+import ninja.bytecode.shuriken.bukkit.host.control.RiftController;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 
