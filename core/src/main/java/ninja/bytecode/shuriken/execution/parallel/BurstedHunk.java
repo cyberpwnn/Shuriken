@@ -1,6 +1,6 @@
-package com.volmit.iris.scaffold.parallel;
+package ninja.bytecode.shuriken.execution.parallel;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
+import ninja.bytecode.shuriken.collections.hunk.Hunk;
 
 public interface BurstedHunk<T> extends Hunk<T>
 {

@@ -1,4 +1,4 @@
-package org.jnbt;
+package ninja.bytecode.shuriken.io.bytetag.jnbt;
 
 //@formatter:off
 
