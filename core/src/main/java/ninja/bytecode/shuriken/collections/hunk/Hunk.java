@@ -122,6 +122,7 @@ public interface Hunk<T>
 	@SafeVarargs
 	public static Hunk<Double> newCombinedAtomicDoubleHunk(Hunk<Double>... hunks)
 	{
+		//noinspection unchecked
 		return combined(Hunk::newAtomicDoubleHunk, hunks);
 	}
 
