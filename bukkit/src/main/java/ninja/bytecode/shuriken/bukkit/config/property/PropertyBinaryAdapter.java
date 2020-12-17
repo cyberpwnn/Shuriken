@@ -7,9 +7,8 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 
-import ninja.bytecode.shuriken.bukkit.api.sql.CustomOutputStream;
 import ninja.bytecode.shuriken.collections.KList;
-
+import ninja.bytecode.shuriken.io.CustomOutputStream;
 
 public class PropertyBinaryAdapter implements PropertyAdapter<ByteBuffer>
 {
@@ -84,7 +83,7 @@ public class PropertyBinaryAdapter implements PropertyAdapter<ByteBuffer>
 	@Override
 	public PropertySet read(ByteBuffer t) throws IOException
 	{
-		// TODO Auto-generated method stub
+		// TODO DO IT
 		return null;
 	}
 }

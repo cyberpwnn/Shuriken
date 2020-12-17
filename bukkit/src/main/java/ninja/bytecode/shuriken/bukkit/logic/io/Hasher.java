@@ -15,8 +15,8 @@ import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import ninja.bytecode.shuriken.bukkit.api.sql.CustomOutputStream;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
+import ninja.bytecode.shuriken.io.CustomOutputStream;
 
 public class Hasher
 {
