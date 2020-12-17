@@ -73,7 +73,7 @@ public abstract class NBTTag<T> implements Cloneable {
 	/**
 	 * @return The value of this Tag.
 	 * */
-	protected T getValue() {
+	public T getValue() {
 		return value;
 	}
 

@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.view;
 
-import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
+import ninja.bytecode.shuriken.collections.hunk.Hunk;
 import org.bukkit.Chunk;
 import org.bukkit.block.data.BlockData;
 
@@ -39,12 +39,12 @@ public class ChunkHunkView implements Hunk<BlockData>
 			return;
 		}
 
-		Iris.edit.set(chunk.getWorld(), x + (chunk.getX() * 16), y, z + (chunk.getZ() * 16), t);
+		chunk.getBlock(x,y,z).setBlockData(t);
 	}
 
 	@Override
 	public BlockData getRaw(int x, int y, int z)
 	{
-		return Iris.edit.get(chunk.getWorld(), x + (chunk.getX() * 16), y, z + (chunk.getZ() * 16));
+		return chunk.getBlock(x,y,z).getBlockData();
 	}
 }

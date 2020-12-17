@@ -1,8 +1,19 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.io;
 
-import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
+import ninja.bytecode.shuriken.bukkit.compute.math.M;
+import ninja.bytecode.shuriken.bukkit.util.positions.ChunkPosition;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.collections.hunk.Hunk;
+import ninja.bytecode.shuriken.collections.hunk.io.BooleanHunkIOAdapter;
+import ninja.bytecode.shuriken.collections.hunk.io.HunkIOAdapter;
+import ninja.bytecode.shuriken.collections.hunk.io.StringHunkIOAdapter;
+import ninja.bytecode.shuriken.execution.Function2;
+import ninja.bytecode.shuriken.execution.Function3;
+import ninja.bytecode.shuriken.io.bytetag.jnbt.ByteArrayTag;
+import ninja.bytecode.shuriken.io.bytetag.jnbt.CompoundTag;
+import ninja.bytecode.shuriken.io.bytetag.jnbt.Tag;
+import ninja.bytecode.shuriken.logging.L;
 import org.bukkit.block.data.BlockData;
 
 import java.io.IOException;
@@ -37,20 +48,20 @@ public class HunkRegionSlice<T>
 	{
 		if(loadedChunks.size() != lastUse.size())
 		{
-			Iris.warn("Incorrect chunk use counts in " + key);
+			L.w("Incorrect chunk use counts in " + key);
 
 			for(ChunkPosition i : lastUse.k())
 			{
 				if(!loadedChunks.containsKey(i))
 				{
-					Iris.warn("  Missing LoadChunkKey " + i);
+					L.w("  Missing LoadChunkKey " + i);
 				}
 			}
 		}
 
 		for(ChunkPosition i : lastUse.k())
 		{
-			if(M.ms() - lastUse.get(i) > t)
+			if(ninja.bytecode.shuriken.math.M.ms() - lastUse.get(i) > t)
 			{
 				unload(i.getX(), i.getZ());
 			}
@@ -97,7 +108,7 @@ public class HunkRegionSlice<T>
 
 		if(!(t instanceof ByteArrayTag))
 		{
-			Iris.verbose("NOT BYTE ARRAY!");
+			L.v("NOT BYTE ARRAY!");
 			return null;
 		}
 

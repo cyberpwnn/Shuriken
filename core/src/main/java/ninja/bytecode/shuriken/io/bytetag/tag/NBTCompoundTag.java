@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.io.bytetag.tag;
 
+import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.io.bytetag.NBTRawMaxDepthIO;
 
 import java.util.Collection;
@@ -15,7 +16,11 @@ public class NBTCompoundTag extends NBTTag<Map<String, NBTTag<?>>> implements It
 	public static final byte ID = 10;
 
 	public NBTCompoundTag() {
-		super(createEmptyValue());
+		this(createEmptyValue());
+	}
+
+	public NBTCompoundTag(Map<String, NBTTag<?>> map) {
+		super(map);
 	}
 
 	@Override
@@ -24,7 +29,7 @@ public class NBTCompoundTag extends NBTTag<Map<String, NBTTag<?>>> implements It
 	}
 
 	private static Map<String, NBTTag<?>> createEmptyValue() {
-		return new HashMap<>(8);
+		return new KMap<>(8);
 	}
 
 	public int size() {
@@ -274,5 +279,9 @@ public class NBTCompoundTag extends NBTTag<Map<String, NBTTag<?>>> implements It
 			copy.put(e.getKey(), e.getValue().clone());
 		}
 		return copy;
+	}
+
+	public Map<String, NBTTag<?>> getMap() {
+		return getValue();
 	}
 }

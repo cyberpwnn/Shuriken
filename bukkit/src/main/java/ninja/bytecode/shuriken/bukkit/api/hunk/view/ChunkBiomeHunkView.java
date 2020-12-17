@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.view;
 
-import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
+import ninja.bytecode.shuriken.collections.hunk.Hunk;
 import org.bukkit.Chunk;
 import org.bukkit.block.Biome;
 
@@ -39,12 +39,12 @@ public class ChunkBiomeHunkView implements Hunk<Biome>
 			return;
 		}
 
-		Iris.edit.setBiome(chunk.getWorld(), x + (chunk.getX() * 16), y, z + (chunk.getZ() * 16), t);
+		chunk.getBlock(x, y, z).setBiome(t);
 	}
 
 	@Override
 	public Biome getRaw(int x, int y, int z)
 	{
-		return Iris.edit.getBiome(chunk.getWorld(), x + (chunk.getX() * 16), y, z + (chunk.getZ() * 16));
+		return chunk.getBlock(x,y,z).getBiome();
 	}
 }

@@ -1,5 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.io;
 
+import ninja.bytecode.shuriken.bukkit.api.block.B;
+import ninja.bytecode.shuriken.collections.hunk.io.PaletteHunkIOAdapter;
 import org.bukkit.block.data.BlockData;
 
 import java.io.DataInputStream;

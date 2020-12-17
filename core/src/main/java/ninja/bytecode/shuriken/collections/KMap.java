@@ -19,10 +19,15 @@ public class KMap<K, V> extends ConcurrentHashMap<K, V>
 		super();
 	}
 
-	public KMap(KMap<K, V> KMap)
+	public KMap(int cap)
+	{
+		super(cap);
+	}
+
+	public KMap(Map<K, V> k)
 	{
 		this();
-		put(KMap);
+		put(k);
 	}
 
 	/**

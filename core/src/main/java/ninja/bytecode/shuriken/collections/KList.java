@@ -24,6 +24,11 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		super();
 	}
 
+	public KList(int initialCapacity)
+	{
+		super(initialCapacity);
+	}
+
 	public KList(Collection<T> values)
 	{
 		super();
@@ -66,6 +71,16 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	public Queue<T> enqueue()
 	{
 		return Queue.create(this);
+	}
+
+	public KList<T> addIfMissing(T t)
+	{
+		if(!contains(t))
+		{
+			add(t);
+		}
+
+		return this;
 	}
 
 	private KList<T> add(Enumeration<T> e)
