@@ -1,5 +1,5 @@
 name: Shuriken
-version: 2x
+version: 2.1
 main: ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin
 author: cyberpwn
 api-version: 1.16
