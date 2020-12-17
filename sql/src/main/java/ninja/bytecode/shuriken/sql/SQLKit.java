@@ -402,7 +402,7 @@ public class SQLKit
 		}
 
 		@SuppressWarnings("unchecked")
-		T tx = (T) t.getClass().getConstructor(g.toArray(new Class<?>[g.size()])).newInstance(params);
+		T tx = (T) t.getConstructor(g.toArray(new Class<?>[g.size()])).newInstance(params);
 		get(tx);
 
 		return tx;
