@@ -76,7 +76,7 @@ public class BinaryTools
 	 * @param n
 	 * @return
 	 */
-	public final static int memcmp(byte[] s1, int s1offset, byte[] s2, int s2offset)
+	public static int memcmp(byte[] s1, int s1offset, byte[] s2, int s2offset)
 	{
 		int n = s1.length - s1offset;
 
@@ -95,7 +95,7 @@ public class BinaryTools
 		return 0;
 	}
 
-	public static final boolean readFromStream(InputStream in, byte[] buf, int offset, int len) throws IOException
+	public static boolean readFromStream(InputStream in, byte[] buf, int offset, int len) throws IOException
 	{
 		int totalBytesRead = 0;
 		int nbytes;

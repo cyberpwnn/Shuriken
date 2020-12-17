@@ -1948,7 +1948,7 @@ public class JSONObject
 		return this.write(writer, 0, 0);
 	}
 	
-	static final Writer writeValue(Writer writer, Object value, int indentFactor, int indent) throws JSONException, IOException
+	static Writer writeValue(Writer writer, Object value, int indentFactor, int indent) throws JSONException, IOException
 	{
 		if(value == null || value.equals(null))
 		{
@@ -1996,7 +1996,7 @@ public class JSONObject
 		return writer;
 	}
 	
-	static final void indent(Writer writer, int indent) throws IOException
+	static void indent(Writer writer, int indent) throws IOException
 	{
 		for(int i = 0; i < indent; i += 1)
 		{

@@ -71,7 +71,7 @@ public class Props extends KMap<String, Object>
 		return p;
 	}
 
-	protected static final File getProperties(String key)
+	protected static File getProperties(String key)
 	{
 		File f = new File(Shuriken.DIR + "/Property Caches/" + UUID.nameUUIDFromBytes(key.getBytes()) + ".properties");
 		f.getParentFile().mkdirs();

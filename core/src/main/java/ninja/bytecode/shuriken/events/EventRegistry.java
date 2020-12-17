@@ -11,7 +11,7 @@ public class EventRegistry
 {
 	private static final KMap<Class<? extends Event>, KList<EventTarget>> registry = new KMap<>();
 
-	public static final void fire(Event event)
+	public static void fire(Event event)
 	{
 		Class<? extends Event> c = event.getClass();
 
@@ -33,12 +33,12 @@ public class EventRegistry
 		}
 	}
 
-	public static final void unregisterAll()
+	public static void unregisterAll()
 	{
 		registry.clear();
 	}
 
-	public static final void unregister(Object instance)
+	public static void unregister(Object instance)
 	{
 		for(Method i : instance.getClass().getDeclaredMethods())
 		{
@@ -95,7 +95,7 @@ public class EventRegistry
 		}
 	}
 
-	public static final void register(Object instance)
+	public static void register(Object instance)
 	{
 		for(Method i : instance.getClass().getDeclaredMethods())
 		{
