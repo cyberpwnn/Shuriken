@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import ninja.bytecode.shuriken.bukkit.fx.ParticleRedstone;
 import ninja.bytecode.shuriken.bukkit.particle.ParticleEffect;
 import ninja.bytecode.shuriken.bukkit.sched.A;
@@ -25,6 +23,8 @@ import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -206,13 +206,13 @@ public class SCMController extends Controller
 			return;
 		}
 
-		if(i.getType().equals(MaterialEnum.IRON_AXE.bukkitMaterial()) && i.hasItemMeta() && i.getItemMeta().getDisplayName().equalsIgnoreCase(WAND_NAME))
+		if(i.getType().equals(Material.IRON_AXE) && i.hasItemMeta() && i.getItemMeta().getDisplayName().equalsIgnoreCase(WAND_NAME))
 		{
 			e.setCancelled(true);
 
 			if(e.getAction().equals(Action.LEFT_CLICK_BLOCK))
 			{
-				new Audio().s(SoundEnum.ENTITY_ENDEREYE_DEATH.bukkitSound()).vp(1f, 1.5f).play(e.getPlayer());
+				new Audio().s(Sound.ENTITY_ENDER_EYE_DEATH).vp(1f, 1.5f).play(e.getPlayer());
 				ParticleEffect.ENCHANTMENT_TABLE.display(2.15f, 40, e.getClickedBlock().getLocation().clone().add(0.5, 1, 0.5), 32);
 				ParticleEffect.SWEEP_ATTACK.display(2.15f, 1, P.getHand(e.getPlayer()), 32);
 
@@ -230,7 +230,7 @@ public class SCMController extends Controller
 
 			else if(e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
 			{
-				new Audio().s(SoundEnum.ENTITY_ENDEREYE_DEATH.bukkitSound()).vp(1f, 1.2f).play(e.getPlayer());
+				new Audio().s(Sound.ENTITY_ENDER_EYE_DEATH).vp(1f, 1.2f).play(e.getPlayer());
 				ParticleEffect.ENCHANTMENT_TABLE.display(2.15f, 40, e.getClickedBlock().getLocation().clone().add(0.5, 0.5, 0.5), 32);
 				ParticleEffect.SWEEP_ATTACK.display(2.15f, 1, P.getHand(e.getPlayer()), 32);
 				ItemStack is = i.clone();
@@ -257,7 +257,7 @@ public class SCMController extends Controller
 			return null;
 		}
 
-		if(is.getType().equals(MaterialEnum.IRON_AXE.bukkitMaterial()))
+		if(is.getType().equals(Material.IRON_AXE))
 		{
 			ItemMeta im = is.getItemMeta();
 
@@ -282,7 +282,7 @@ public class SCMController extends Controller
 		{
 			for(Player i : P.onlinePlayers())
 			{
-				if(i.getInventory().getItemInHand().getType().equals(MaterialEnum.IRON_AXE.bukkitMaterial()))
+				if(i.getInventory().getItemInHand().getType().equals(Material.IRON_AXE))
 				{
 					Location[] d = getSelection(i);
 
@@ -389,7 +389,7 @@ public class SCMController extends Controller
 			((BlockBreakEvent) e.getCause()).getPlayer().sendMessage("Constructed " + e.getVolumeName());
 		}
 
-		new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(5f, 1.5f).play(e.getMappedVolume().getReverseRealizedMapping().k().getRandom());
+		new Audio().s(Sound.BLOCK_ENCHANTMENT_TABLE_USE).vp(5f, 1.5f).play(e.getMappedVolume().getReverseRealizedMapping().k().getRandom());
 	}
 
 	public KMap<String, IVolume> getVolumes()

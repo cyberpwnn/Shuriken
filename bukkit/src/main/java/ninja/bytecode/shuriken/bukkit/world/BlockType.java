@@ -1,6 +1,5 @@
 package ninja.bytecode.shuriken.bukkit.world;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.host.control.GhostWorldController;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import org.bukkit.Location;
@@ -99,7 +98,7 @@ public class BlockType
 
 	public BlockType(Material material, short s, boolean spawner)
 	{
-		this.material = MaterialEnum.MOB_SPAWNER.bukkitMaterial();
+		this.material = Material.SPAWNER;
 		data = 0;
 		cmat = material;
 		cdur = s;
@@ -131,7 +130,7 @@ public class BlockType
 
 	public BlockType()
 	{
-		material = MaterialEnum.AIR.bukkitMaterial();
+		material = Material.AIR;
 		data = 0;
 	}
 

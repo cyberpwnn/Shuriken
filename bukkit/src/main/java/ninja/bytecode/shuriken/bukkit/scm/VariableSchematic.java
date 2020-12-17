@@ -2,7 +2,6 @@ package ninja.bytecode.shuriken.bukkit.scm;
 
 import java.util.Iterator;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.world.BlockType;
 import ninja.bytecode.shuriken.bukkit.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.world.Dimension;
@@ -40,7 +39,7 @@ public class VariableSchematic
 			{
 				for(int k = 0; k < dimension.getDepth(); k++)
 				{
-					set(i, j, k, MaterialEnum.AIR.bukkitMaterial(), (byte) 0);
+					set(i, j, k, Material.AIR, (byte) 0);
 				}
 			}
 		}
@@ -447,10 +446,9 @@ public class VariableSchematic
 
 	public void remove(Vector add)
 	{
-		set(add.getBlockX(), add.getBlockY(), add.getBlockZ(), MaterialEnum.AIR.bukkitMaterial(), (byte) 0);
+		set(add.getBlockX(), add.getBlockY(), add.getBlockZ(), Material.AIR, (byte) 0);
 	}
 
-	@SuppressWarnings("deprecation")
 	public void place(Location lx)
 	{
 		for(int i = 0; i < dimension.getWidth(); i++)

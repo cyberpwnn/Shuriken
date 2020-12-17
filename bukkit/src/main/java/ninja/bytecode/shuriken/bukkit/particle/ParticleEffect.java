@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
@@ -569,7 +568,7 @@ public enum ParticleEffect
 	private static boolean isWater(Location location)
 	{
 		Material material = location.getBlock().getType();
-		return material == MaterialEnum.WATER.bukkitMaterial() || material == MaterialEnum.STATIONARY_WATER.bukkitMaterial();
+		return material == Material.WATER;
 	}
 
 	/**

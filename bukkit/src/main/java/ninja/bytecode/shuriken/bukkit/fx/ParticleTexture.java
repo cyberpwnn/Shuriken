@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.fx;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -18,7 +18,7 @@ public class ParticleTexture extends ParticleBase implements MotionEffect, Direc
 	public ParticleTexture()
 	{
 		direction = new Vector();
-		type = new BlockType(MaterialEnum.STONE.bukkitMaterial());
+		type = new BlockType(Material.STONE);
 		speed = 0f;
 		blockDust = false;
 	}

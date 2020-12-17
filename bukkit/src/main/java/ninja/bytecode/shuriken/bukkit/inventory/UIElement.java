@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.inventory;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.functional.Callback;
 import ninja.bytecode.shuriken.math.M;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -36,7 +36,7 @@ public class UIElement implements Element
 		lore = new KList<>();
 		enchanted = false;
 		count = 1;
-		material = new MaterialBlock(MaterialEnum.AIR.bukkitMaterial());
+		material = new MaterialBlock(Material.AIR);
 	}
 
 	@Override

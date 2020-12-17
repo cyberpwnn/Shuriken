@@ -1,6 +1,5 @@
 package ninja.bytecode.shuriken.bukkit.world;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -67,7 +66,7 @@ public class MaterialBlock
 
 	public MaterialBlock()
 	{
-		material = MaterialEnum.AIR.bukkitMaterial();
+		material = Material.AIR;
 		data = 0;
 	}
 

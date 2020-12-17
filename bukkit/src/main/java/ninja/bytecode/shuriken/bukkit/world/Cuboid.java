@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -574,37 +572,37 @@ public class Cuboid implements Iterable<Block>, Cloneable, ConfigurationSerializ
 		switch(dir)
 		{
 			case Down:
-				while(face.containsOnly(MaterialEnum.AIR.bukkitMaterial()) && face.getLowerY() > this.getLowerY())
+				while(face.containsOnly(Material.AIR) && face.getLowerY() > this.getLowerY())
 				{
 					face = face.shift(CuboidDirection.Down, 1);
 				}
 				return new Cuboid(worldName, x1, y1, z1, x2, face.getUpperY(), z2);
 			case Up:
-				while(face.containsOnly(MaterialEnum.AIR.bukkitMaterial()) && face.getUpperY() < this.getUpperY())
+				while(face.containsOnly(Material.AIR) && face.getUpperY() < this.getUpperY())
 				{
 					face = face.shift(CuboidDirection.Up, 1);
 				}
 				return new Cuboid(worldName, x1, face.getLowerY(), z1, x2, y2, z2);
 			case North:
-				while(face.containsOnly(MaterialEnum.AIR.bukkitMaterial()) && face.getLowerX() > this.getLowerX())
+				while(face.containsOnly(Material.AIR) && face.getLowerX() > this.getLowerX())
 				{
 					face = face.shift(CuboidDirection.North, 1);
 				}
 				return new Cuboid(worldName, x1, y1, z1, face.getUpperX(), y2, z2);
 			case South:
-				while(face.containsOnly(MaterialEnum.AIR.bukkitMaterial()) && face.getUpperX() < this.getUpperX())
+				while(face.containsOnly(Material.AIR) && face.getUpperX() < this.getUpperX())
 				{
 					face = face.shift(CuboidDirection.South, 1);
 				}
 				return new Cuboid(worldName, face.getLowerX(), y1, z1, x2, y2, z2);
 			case East:
-				while(face.containsOnly(MaterialEnum.AIR.bukkitMaterial()) && face.getLowerZ() > this.getLowerZ())
+				while(face.containsOnly(Material.AIR) && face.getLowerZ() > this.getLowerZ())
 				{
 					face = face.shift(CuboidDirection.East, 1);
 				}
 				return new Cuboid(worldName, x1, y1, z1, x2, y2, face.getUpperZ());
 			case West:
-				while(face.containsOnly(MaterialEnum.AIR.bukkitMaterial()) && face.getUpperZ() < this.getUpperZ())
+				while(face.containsOnly(Material.AIR) && face.getUpperZ() < this.getUpperZ())
 				{
 					face = face.shift(CuboidDirection.West, 1);
 				}

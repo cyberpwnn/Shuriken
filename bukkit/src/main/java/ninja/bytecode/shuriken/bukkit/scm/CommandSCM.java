@@ -3,10 +3,10 @@ package ninja.bytecode.shuriken.bukkit.scm;
 import java.io.File;
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -49,10 +49,10 @@ public class CommandSCM extends ShurikenCommand
 
 		else if(args[0].equalsIgnoreCase("wand"))
 		{
-			GSound g = new GSound(SoundEnum.BLOCK_END_PORTAL_FRAME_FILL.bukkitSound());
+			GSound g = new GSound(Sound.BLOCK_END_PORTAL_FRAME_FILL);
 			g.setPitch(0.5f);
 			g.play(sender.player());
-			ItemStack is = new ItemStack(MaterialEnum.IRON_AXE.bukkitMaterial());
+			ItemStack is = new ItemStack(Material.IRON_AXE);
 			ItemMeta im = is.getItemMeta();
 			im.setDisplayName(C.YELLOW + "SCM Wand");
 			Location ll = (sender.player()).getLocation();
@@ -127,14 +127,14 @@ public class CommandSCM extends ShurikenCommand
 					{
 						gf.delete();
 						ShurikenBukkit.getController(SCMController.class).getVolumes().remove(args[1]);
-						new Audio().s(SoundEnum.FIZZ.bukkitSound()).vp(1f, 1.5f).play(sender.player());
+						new Audio().s(Sound.BLOCK_FIRE_EXTINGUISH).vp(1f, 1.5f).play(sender.player());
 						sender.sendMessage(args[1] + " Deleted.");
 					}
 
 					else if(gg.exists())
 					{
 						gg.delete();
-						new Audio().s(SoundEnum.FIZZ.bukkitSound()).vp(1f, 1.5f).play(sender.player());
+						new Audio().s(Sound.BLOCK_FIRE_EXTINGUISH).vp(1f, 1.5f).play(sender.player());
 						sender.sendMessage(args[1] + " (raw) Deleted.");
 					}
 
@@ -191,7 +191,7 @@ public class CommandSCM extends ShurikenCommand
 							{
 								IVolume vv = new SCMVolume(c, PermutationType.ANY_AXIS);
 								vv.save(ShurikenBukkit.getController(SCMController.class).getSCMFile(args[1]));
-								new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f).play(sender.player());
+								new Audio().s(Sound.BLOCK_ENCHANTMENT_TABLE_USE).vp(1f, 1.5f).play(sender.player());
 								ShurikenBukkit.getController(SCMController.class).getVolumes().put(args[1], vv);
 							}
 
@@ -226,7 +226,7 @@ public class CommandSCM extends ShurikenCommand
 					if(ShurikenBukkit.getController(SCMController.class).getVolumes().containsKey(args[1]))
 					{
 						Location lx = P.targetBlock((sender.player()), 12);
-						new Audio().s(SoundEnum.BLOCK_ENCHANTMENT_TABLE_USE.bukkitSound()).vp(1f, 1.5f).play(sender.player());
+						new Audio().s(Sound.BLOCK_ENCHANTMENT_TABLE_USE).vp(1f, 1.5f).play(sender.player());
 						ShurikenBukkit.getController(SCMController.class).getVolumes().get(args[1]).place(lx);
 						sender.sendMessage("SCM Volume " + args[1] + " placed at target.");
 					}

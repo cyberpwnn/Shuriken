@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.fx;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -19,8 +19,8 @@ public class EffectCauldronBubble implements Effect
 
 	public EffectCauldronBubble()
 	{
-		audio = new Audio().c(SoundCategory.AMBIENT).vp(0.7f, 0.1f).setSound(SoundEnum.ENTITY_BOAT_PADDLE_WATER.bukkitSound());
-		audio2 = new Audio().c(SoundCategory.AMBIENT).vp(0.3f, 0.1f).setSound(SoundEnum.ITEM_BUCKET_EMPTY_LAVA.bukkitSound());
+		audio = new Audio().c(SoundCategory.AMBIENT).vp(0.7f, 0.1f).setSound(Sound.ENTITY_BOAT_PADDLE_WATER);
+		audio2 = new Audio().c(SoundCategory.AMBIENT).vp(0.3f, 0.1f).setSound(Sound.ITEM_BUCKET_EMPTY_LAVA);
 		effect = new ParticleWaterWake().setDirection(new Vector(0, 0.1, 0));
 		effect2 = new ParticleWaterSplash().setDirection(new Vector(0, 0.1, 0));
 	}
