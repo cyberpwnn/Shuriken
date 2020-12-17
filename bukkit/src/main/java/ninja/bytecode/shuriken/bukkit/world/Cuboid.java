@@ -794,7 +794,7 @@ public class Cuboid implements Iterable<Block>, Cloneable, ConfigurationSerializ
 		return "Cuboid: " + worldName + "," + x1 + "," + y1 + "," + z1 + "=>" + x2 + "," + y2 + "," + z2;
 	}
 
-	public class CuboidIterator implements Iterator<Block>
+	public static class CuboidIterator implements Iterator<Block>
 	{
 		private World w;
 		private int baseX, baseY, baseZ;
