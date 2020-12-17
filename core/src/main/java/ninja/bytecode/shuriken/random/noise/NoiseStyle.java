@@ -1,12 +1,9 @@
-package com.volmit.iris.object;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.generator.noise.CNG;
-import com.volmit.iris.generator.noise.CNGFactory;
-import com.volmit.iris.generator.noise.NoiseType;
-import com.volmit.iris.util.Desc;
-import com.volmit.iris.util.DontObfuscate;
-import com.volmit.iris.util.RNG;
+import ninja.bytecode.shuriken.random.RNG;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
+import ninja.bytecode.shuriken.tools.Desc;
+import ninja.bytecode.shuriken.tools.DontObfuscate;
 
 @Desc("Styles of noise")
 @DontObfuscate
@@ -422,10 +419,5 @@ public enum NoiseStyle
 	public CNG create(RNG seed)
 	{
 		return f.create(seed).bake();
-	}
-
-	public IrisGeneratorStyle style()
-	{
-		return new IrisGeneratorStyle(this);
 	}
 }

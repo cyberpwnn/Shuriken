@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.random.noise.stream.interpolation;
 
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.util.IrisInterpolation;
+
+import ninja.bytecode.shuriken.math.IrisInterpolation;
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 public class TriHermiteStream<T> extends BasicStream<T> implements Interpolator<T>
 {

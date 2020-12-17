@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.random.noise.stream.interpolation;
 
-import com.volmit.iris.scaffold.stream.ProceduralStream;
+
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 public interface Interpolator<T>
 {

@@ -29,9 +29,9 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.tuple;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.tools.VecMathUtil;
 
 /**
  * A 4 element tuple represented by double precision floating point 
@@ -758,7 +758,7 @@ public abstract class Tuple4d implements java.io.Serializable, Cloneable {
      *
      * @return a clone of this instance.
      * @exception OutOfMemoryError if there is not enough memory.
-     * @see java.lang.Cloneable
+     * @see Cloneable
      * @since vecmath 1.3
      */
     public Object clone() {

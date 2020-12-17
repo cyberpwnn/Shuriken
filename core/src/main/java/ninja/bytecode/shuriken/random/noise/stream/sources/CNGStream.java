@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.random.noise.stream.sources;
 
-import com.volmit.iris.scaffold.stream.BasicLayer;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.generator.noise.CNG;
+
+import ninja.bytecode.shuriken.random.noise.CNG;
+import ninja.bytecode.shuriken.random.noise.stream.BasicLayer;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 public class CNGStream extends BasicLayer implements ProceduralStream<Double>
 {

@@ -1,4 +1,4 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
 public enum NoiseType {
 	WHITE(seed -> new WhiteNoise(seed)), 

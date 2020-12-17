@@ -1,12 +1,12 @@
 package ninja.bytecode.shuriken.random.noise.stream.utility;
 
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.util.Form;
-import com.volmit.iris.util.KList;
-import com.volmit.iris.util.PrecisionStopwatch;
-import com.volmit.iris.util.RollingSequence;
 import lombok.Data;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.format.Form;
+import ninja.bytecode.shuriken.math.PSW;
+import ninja.bytecode.shuriken.math.RollingSequence;
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -44,7 +44,7 @@ public class ProfiledStream<T> extends BasicStream<T>
 	@Override
 	public T get(double x, double z)
 	{
-		PrecisionStopwatch p = PrecisionStopwatch.start();
+		PSW p = PSW.start();
 		T t = getTypedSource().get(x, z);
 		try
 		{
@@ -60,7 +60,7 @@ public class ProfiledStream<T> extends BasicStream<T>
 	@Override
 	public T get(double x, double y, double z)
 	{
-		PrecisionStopwatch p = PrecisionStopwatch.start();
+		PSW p = PSW.start();
 		T t = getTypedSource().get(x, y, z);
 		try
 		{

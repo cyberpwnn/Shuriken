@@ -29,9 +29,10 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.tuple;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.point.Point3d;
+import ninja.bytecode.shuriken.tools.VecMathUtil;
 
 /**
  * A generic 3-element tuple that is represented by double-precision 
@@ -673,7 +674,7 @@ public abstract class Tuple3d implements java.io.Serializable, Cloneable {
      *
      * @return a clone of this instance.
      * @exception OutOfMemoryError if there is not enough memory.
-     * @see java.lang.Cloneable
+     * @see Cloneable
      * @since vecmath 1.3
      */
     public Object clone() {

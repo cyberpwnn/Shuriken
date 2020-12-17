@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.random.noise.stream;
 
-import com.volmit.iris.util.KList;
+
+import ninja.bytecode.shuriken.collections.KList;
 
 public class ArraySignificance<T> implements Significance<T>
 {

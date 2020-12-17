@@ -29,9 +29,11 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.point;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3f;
+import ninja.bytecode.shuriken.collections.tuple.Tuple4d;
+import ninja.bytecode.shuriken.collections.tuple.Tuple4f;
 
 /**
  * A 4 element point represented by single precision floating point x,y,z,w 
@@ -72,16 +74,6 @@ public class Point4f extends Tuple4f implements java.io.Serializable {
    * @param p1 the Point4f containing the initialization x y z w data
    */
   public Point4f(Point4f p1)
-  {
-      super(p1);
-  }
-
-
-  /**
-   * Constructs and initializes a Point4f from the specified Point4d.
-   * @param p1 the Point4d containing the initialization x y z w data
-   */
-  public Point4f(Point4d p1)
   {
       super(p1);
   }

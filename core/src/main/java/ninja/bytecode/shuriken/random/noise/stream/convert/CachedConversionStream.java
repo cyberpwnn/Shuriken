@@ -1,10 +1,11 @@
 package ninja.bytecode.shuriken.random.noise.stream.convert;
 
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.random.noise.stream.BasicLayer;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
+
 import java.util.function.Function;
 
-import com.volmit.iris.scaffold.stream.BasicLayer;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.util.KMap;
 
 public class CachedConversionStream<T, V> extends BasicLayer implements ProceduralStream<V>
 {

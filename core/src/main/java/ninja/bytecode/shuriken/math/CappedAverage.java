@@ -21,19 +21,22 @@ public class CappedAverage extends Average
 		this.trim = trim;
 	}
 
-	@Override
 	protected double computeAverage()
 	{
 		double a = 0;
 
-		KList<Double> minmax = new KList<>(data);
+		KList<Double> minmax = new KList<Double>();
+		for(double i : values)
+		{
+			minmax.add(i);
+		}
 		Collections.sort(minmax);
 
-		for(int i = trim; i < data.length - trim; i++)
+		for(int i = trim; i < values.length - trim; i++)
 		{
 			a += minmax.get(i);
 		}
 
-		return a / ((double) data.length - (double) trim);
+		return a / ((double) values.length - (double) trim);
 	}
 }

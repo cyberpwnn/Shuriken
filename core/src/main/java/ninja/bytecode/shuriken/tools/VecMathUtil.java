@@ -29,13 +29,13 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.tools;
 
 /**
  * Utility vecmath class used when computing the hash code for vecmath
  * objects containing float or double values. This fixes Issue 36.
  */
-class VecMathUtil {
+public class VecMathUtil {
     /**
      * Returns the representation of the specified floating-point
      * value according to the IEEE 754 floating-point "single format"
@@ -55,7 +55,7 @@ class VecMathUtil {
      * @return the integer bits representing that floating-point
      * number, after first mapping -0.0f to 0.0f
      */
-    static int floatToIntBits(float f) {
+    public static int floatToIntBits(float f) {
 	// Check for +0 or -0
 	if (f == 0.0f) {
 	    return 0;
@@ -84,7 +84,7 @@ class VecMathUtil {
      * @return the integer bits representing that floating-point
      * number, after first mapping -0.0f to 0.0f
      */
-    static long doubleToLongBits(double d) {
+    public static long doubleToLongBits(double d) {
 	// Check for +0 or -0
 	if (d == 0.0) {
 	    return 0L;

@@ -1,7 +1,7 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.generator.noise.FastNoiseDouble.FractalType;
-import com.volmit.iris.util.RNG;
+
+import ninja.bytecode.shuriken.random.RNG;
 
 public class FractalRigidMultiSimplexNoise implements NoiseGenerator, OctaveNoise
 {
@@ -11,7 +11,7 @@ public class FractalRigidMultiSimplexNoise implements NoiseGenerator, OctaveNois
 	{
 		this.n = new FastNoiseDouble(new RNG(seed).lmax());
 		n.setFractalOctaves(1);
-		n.setFractalType(FractalType.RigidMulti);
+		n.setFractalType(FastNoiseDouble.FractalType.RigidMulti);
 	}
 
 	public double f(double v)

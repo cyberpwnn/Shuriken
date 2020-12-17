@@ -1,9 +1,10 @@
 package ninja.bytecode.shuriken.random.noise.stream.convert;
 
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
+
 import java.util.List;
 
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
 
 public class SelectionStream<T> extends BasicStream<T>
 {

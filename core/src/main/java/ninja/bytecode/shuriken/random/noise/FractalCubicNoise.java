@@ -1,7 +1,6 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.generator.noise.FastNoiseDouble.FractalType;
-import com.volmit.iris.util.RNG;
+import ninja.bytecode.shuriken.random.RNG;
 
 public class FractalCubicNoise implements NoiseGenerator
 {
@@ -10,7 +9,7 @@ public class FractalCubicNoise implements NoiseGenerator
 	public FractalCubicNoise(long seed)
 	{
 		this.n = new FastNoiseDouble(new RNG(seed).lmax());
-		n.setFractalType(FractalType.Billow);
+		n.setFractalType(FastNoiseDouble.FractalType.Billow);
 	}
 
 	private double f(double n)

@@ -1,10 +1,11 @@
 package ninja.bytecode.shuriken.random.noise.stream.convert;
 
-import com.volmit.iris.scaffold.stream.ArraySignificance;
-import com.volmit.iris.scaffold.stream.Significance;
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.util.KList;
+
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.random.noise.stream.ArraySignificance;
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
+import ninja.bytecode.shuriken.random.noise.stream.Significance;
 
 public class SignificanceStream<K extends Significance<T>, T> extends BasicStream<K>
 {

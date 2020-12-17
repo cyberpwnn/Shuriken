@@ -29,9 +29,10 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.vector;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.tuple.Tuple2d;
+import ninja.bytecode.shuriken.collections.tuple.Tuple2f;
 
 /**
  * A 2-element vector that is represented by double-precision floating 

@@ -29,9 +29,10 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.vector;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.tuple.Tuple2d;
+import ninja.bytecode.shuriken.collections.tuple.Tuple2f;
 
 /**
  * A 2-element vector that is represented by single-precision floating 
@@ -69,16 +70,6 @@ public class Vector2f extends Tuple2f implements java.io.Serializable {
      * @param v1 the Vector2f containing the initialization x y data
      */
     public Vector2f(Vector2f v1)
-    {
-       super(v1);
-    }
-
-
-    /**
-     * Constructs and initializes a Vector2f from the specified Vector2d.
-     * @param v1 the Vector2d containing the initialization x y data
-     */
-    public Vector2f(Vector2d v1)
     {
        super(v1);
     }

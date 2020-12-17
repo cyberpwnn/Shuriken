@@ -15,7 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import ninja.bytecode.shuriken.math.M;
-import ninja.bytecode.shuriken.random.RollingSequence;
+import ninja.bytecode.shuriken.math.RollingSequence;
 
 public class Form
 {

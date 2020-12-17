@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.math;
 
-import ninja.bytecode.shuriken.bukkit.logic.format.F;
+
+import ninja.bytecode.shuriken.format.Form;
 
 public class Profiler
 {
@@ -60,25 +61,25 @@ public class Profiler
 	{
 		if(getNanoseconds() < 1000.0)
 		{
-			return F.f(getNanoseconds()) + "ns";
+			return Form.f(getNanoseconds()) + "ns";
 		}
 
 		if(getMilliseconds() < 1000.0)
 		{
-			return F.f(getMilliseconds(), dec) + "ms";
+			return Form.f(getMilliseconds(), dec) + "ms";
 		}
 
 		if(getSeconds() < 60.0)
 		{
-			return F.f(getSeconds(), dec) + "s";
+			return Form.f(getSeconds(), dec) + "s";
 		}
 
 		if(getMinutes() < 60.0)
 		{
-			return F.f(getMinutes(), dec) + "m";
+			return Form.f(getMinutes(), dec) + "m";
 		}
 
-		return F.f(getHours(), dec) + "h";
+		return Form.f(getHours(), dec) + "h";
 	}
 
 	public double getTicks()

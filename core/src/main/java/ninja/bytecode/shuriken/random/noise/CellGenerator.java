@@ -1,9 +1,8 @@
-package com.volmit.iris.generator.noise;
-
-import com.volmit.iris.util.RNG;
+package ninja.bytecode.shuriken.random.noise;
 
 import lombok.Getter;
 import lombok.Setter;
+import ninja.bytecode.shuriken.random.RNG;
 
 public class CellGenerator
 {

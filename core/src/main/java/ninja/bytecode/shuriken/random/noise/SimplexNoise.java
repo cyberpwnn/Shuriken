@@ -1,6 +1,7 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.util.RNG;
+
+import ninja.bytecode.shuriken.random.RNG;
 
 public class SimplexNoise implements NoiseGenerator, OctaveNoise
 {

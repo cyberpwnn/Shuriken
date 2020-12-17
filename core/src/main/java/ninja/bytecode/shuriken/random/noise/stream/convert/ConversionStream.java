@@ -1,9 +1,10 @@
 package ninja.bytecode.shuriken.random.noise.stream.convert;
 
+import ninja.bytecode.shuriken.random.noise.stream.BasicLayer;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
+
 import java.util.function.Function;
 
-import com.volmit.iris.scaffold.stream.BasicLayer;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
 
 public class ConversionStream<T, V> extends BasicLayer implements ProceduralStream<V>
 {

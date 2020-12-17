@@ -1,4 +1,4 @@
-package com.volmit.iris.scaffold.cache;
+package ninja.bytecode.shuriken.cache;
 
 public interface Multicache
 {

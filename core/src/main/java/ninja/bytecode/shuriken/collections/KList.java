@@ -73,14 +73,15 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		return Queue.create(this);
 	}
 
-	public KList<T> addIfMissing(T t)
+	public boolean addIfMissing(T t)
 	{
 		if(!contains(t))
 		{
 			add(t);
+			return true;
 		}
 
-		return this;
+		return false;
 	}
 
 	private KList<T> add(Enumeration<T> e)
@@ -714,5 +715,12 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	public KList<T> qadd(T[] args) {
 		add(args);
 		return this;
+	}
+
+	public void addMultiple(T v, int times) {
+		for(int i = 0; i < times; i++)
+		{
+			add(v);
+		}
 	}
 }

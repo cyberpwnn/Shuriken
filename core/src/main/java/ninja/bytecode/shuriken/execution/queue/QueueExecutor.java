@@ -34,15 +34,20 @@ public class QueueExecutor extends Looper
 				e.printStackTrace();
 			}
 		}
-		
+
 		if(shutdown && !queue.hasNext())
 		{
 			interrupt();
 			return -1;
 		}
 		
-		return Math.max(500, 0);
+		return Math.max(500, (long) getRunTime() * 10);
 	}
+
+	public double getRunTime() {
+		return 10; //TODO: ACTUALLY CHECK
+	}
+
 	public void shutdown()
 	{
 		shutdown = true;

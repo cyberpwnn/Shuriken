@@ -1,4 +1,4 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
 @FunctionalInterface
 public interface NoiseFactory 

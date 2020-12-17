@@ -1,9 +1,10 @@
 package ninja.bytecode.shuriken.random.noise.stream.sources;
 
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.interpolation.Interpolated;
-import com.volmit.iris.util.Function2;
-import com.volmit.iris.util.Function3;
+
+import ninja.bytecode.shuriken.collections.functional.Function2;
+import ninja.bytecode.shuriken.collections.functional.Function3;
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.interpolation.Interpolated;
 
 public class FunctionStream<T> extends BasicStream<T>
 {

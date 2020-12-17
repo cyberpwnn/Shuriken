@@ -26,10 +26,10 @@
 // off every 'zix'.)
 //
 
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.util.Vector2f;
-import com.volmit.iris.util.Vector3f;
+import ninja.bytecode.shuriken.collections.vector.Vector2f;
+import ninja.bytecode.shuriken.collections.vector.Vector3f;
 
 public class FastNoise
 {

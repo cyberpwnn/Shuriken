@@ -1,10 +1,14 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.scaffold.stream.arithmetic.FittedStream;
-import com.volmit.iris.scaffold.stream.sources.CNGStream;
-import com.volmit.iris.util.*;
 import lombok.Data;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.math.IrisInterpolation;
+import ninja.bytecode.shuriken.random.IRare;
+import ninja.bytecode.shuriken.random.NoiseInjector;
+import ninja.bytecode.shuriken.random.RNG;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
+import ninja.bytecode.shuriken.random.noise.stream.arithmetic.FittedStream;
+import ninja.bytecode.shuriken.random.noise.stream.sources.CNGStream;
 
 import java.util.List;
 

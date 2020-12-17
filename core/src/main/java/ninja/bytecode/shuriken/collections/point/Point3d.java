@@ -29,9 +29,10 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.point;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3d;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3f;
 
 /**
  * A 3 element point that is represented by double precision floating point 
@@ -89,7 +90,7 @@ public class Point3d extends Tuple3d implements java.io.Serializable {
      * Constructs and initializes a Point3d from the specified Tuple3f. 
      * @param t1 the Tuple3f containing the initialization x y z data 
      */  
-    public Point3d(Tuple3f t1)  
+    public Point3d(Tuple3f t1)
     { 
        super(t1); 
     }

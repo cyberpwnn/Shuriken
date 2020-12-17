@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken;
 
 import java.lang.reflect.InvocationTargetException;
 
-import ninja.bytecode.shuriken.bench.Profiler;
+import ninja.bytecode.shuriken.math.Profiler;
 import ninja.bytecode.shuriken.service.IService;
 
 public class Shuriken

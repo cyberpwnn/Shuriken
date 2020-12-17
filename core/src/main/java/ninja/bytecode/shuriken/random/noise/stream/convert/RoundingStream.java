@@ -1,7 +1,8 @@
 package ninja.bytecode.shuriken.random.noise.stream.convert;
 
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
+
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 public class RoundingStream extends BasicStream<Integer>
 {

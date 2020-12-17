@@ -1,7 +1,7 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.util.M;
-import com.volmit.iris.util.RNG;
+import ninja.bytecode.shuriken.math.M;
+import ninja.bytecode.shuriken.random.RNG;
 
 public class VascularNoise implements NoiseGenerator
 {

@@ -1,10 +1,11 @@
 package ninja.bytecode.shuriken.random.noise.stream.utility;
 
+
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
-import com.volmit.iris.scaffold.cache.Cache;
-import com.volmit.iris.scaffold.stream.BasicStream;
-import com.volmit.iris.scaffold.stream.ProceduralStream;
+import ninja.bytecode.shuriken.cache.Cache;
+import ninja.bytecode.shuriken.random.noise.stream.BasicStream;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 public class CachedStream2D<T> extends BasicStream<T> implements ProceduralStream<T>
 {

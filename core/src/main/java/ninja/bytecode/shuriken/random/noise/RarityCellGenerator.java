@@ -1,8 +1,9 @@
-package com.volmit.iris.generator.noise;
+package ninja.bytecode.shuriken.random.noise;
 
-import com.volmit.iris.util.IRare;
-import com.volmit.iris.util.KList;
-import com.volmit.iris.util.RNG;
+
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.random.IRare;
+import ninja.bytecode.shuriken.random.RNG;
 
 public class RarityCellGenerator<T extends IRare> extends CellGenerator
 {

@@ -1,12 +1,16 @@
 package ninja.bytecode.shuriken.random.noise.stream;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
-import com.volmit.iris.scaffold.stream.arithmetic.*;
-import com.volmit.iris.scaffold.stream.convert.*;
-import com.volmit.iris.scaffold.stream.interpolation.Interpolated;
-import com.volmit.iris.scaffold.stream.sources.FunctionStream;
-import com.volmit.iris.scaffold.stream.utility.*;
-import com.volmit.iris.util.*;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.functional.Function2;
+import ninja.bytecode.shuriken.collections.functional.Function3;
+import ninja.bytecode.shuriken.collections.functional.Function4;
+import ninja.bytecode.shuriken.collections.hunk.Hunk;
+import ninja.bytecode.shuriken.random.IRare;
+import ninja.bytecode.shuriken.random.noise.stream.arithmetic.*;
+import ninja.bytecode.shuriken.random.noise.stream.convert.*;
+import ninja.bytecode.shuriken.random.noise.stream.interpolation.Interpolated;
+import ninja.bytecode.shuriken.random.noise.stream.sources.FunctionStream;
+import ninja.bytecode.shuriken.random.noise.stream.utility.*;
 
 import java.util.List;
 import java.util.function.Function;

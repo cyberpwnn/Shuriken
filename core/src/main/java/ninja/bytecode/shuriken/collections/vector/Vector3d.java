@@ -29,9 +29,10 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.vector;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3d;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3f;
 
 /**
  * A 3-element vector that is represented by double-precision floating point 
@@ -74,17 +75,6 @@ public class Vector3d extends Tuple3d implements java.io.Serializable {
     {
          super(v1);
     }
-
-
-    /**
-     * Constructs and initializes a Vector3d from the specified Vector3f.
-     * @param v1 the Vector3f containing the initialization x y z data
-     */
-    public Vector3d(Vector3f v1)
-    {
-       super(v1);
-    }
-
 
     /**
      * Constructs and initializes a Vector3d from the specified Tuple3f.

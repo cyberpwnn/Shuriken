@@ -29,9 +29,10 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.vector;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3d;
+import ninja.bytecode.shuriken.collections.tuple.Tuple3f;
 
 /**
  * A 3-element vector that is represented by single-precision floating point 

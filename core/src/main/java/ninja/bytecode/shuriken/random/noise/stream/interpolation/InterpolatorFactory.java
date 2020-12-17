@@ -1,7 +1,8 @@
 package ninja.bytecode.shuriken.random.noise.stream.interpolation;
 
-import com.volmit.iris.scaffold.stream.ProceduralStream;
-import com.volmit.iris.object.InterpolationMethod;
+
+import ninja.bytecode.shuriken.math.InterpolationMethod;
+import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 public class InterpolatorFactory<T>
 {

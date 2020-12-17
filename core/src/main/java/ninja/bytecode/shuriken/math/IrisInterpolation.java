@@ -1,8 +1,9 @@
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.math;
 
-import com.volmit.iris.generator.noise.CNG;
-import com.volmit.iris.object.InterpolationMethod;
-import com.volmit.iris.object.NoiseStyle;
+import ninja.bytecode.shuriken.random.NoiseProvider;
+import ninja.bytecode.shuriken.random.RNG;
+import ninja.bytecode.shuriken.random.noise.CNG;
+import ninja.bytecode.shuriken.random.noise.NoiseStyle;
 
 public class IrisInterpolation
 {

@@ -1,8 +1,8 @@
-package com.volmit.iris.scaffold.cache;
+package ninja.bytecode.shuriken.cache;
 
-import com.volmit.iris.util.IrisLock;
-import com.volmit.iris.util.M;
+import ninja.bytecode.shuriken.math.M;
 
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
 
 public class AtomicCache<T>
@@ -10,9 +10,9 @@ public class AtomicCache<T>
 	private transient volatile T t;
 	private transient volatile long a;
 	private transient volatile int validations;
-	private final IrisLock check;
-	private final IrisLock time;
-	private final IrisLock write;
+	private final ReentrantLock check;
+	private final ReentrantLock time;
+	private final ReentrantLock write;
 	private final boolean nullSupport;
 
 	public AtomicCache()
@@ -23,9 +23,9 @@ public class AtomicCache<T>
 	public AtomicCache(boolean nullSupport)
 	{
 		this.nullSupport = nullSupport;
-		check = new IrisLock("Check");
-		write = new IrisLock("Write");
-		time = new IrisLock("Time");
+		check = new ReentrantLock();
+		write = new ReentrantLock();
+		time = new ReentrantLock();
 		validations = 0;
 		a = -1;
 		t = null;

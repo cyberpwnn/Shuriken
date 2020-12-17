@@ -29,9 +29,9 @@
  * $State$
  */
 
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.collections.tuple;
 
-import java.lang.Math;
+import ninja.bytecode.shuriken.tools.VecMathUtil;
 
 /**
  * A generic 3-element tuple that is represented by single precision-floating  
@@ -408,7 +408,7 @@ public abstract class Tuple3f implements java.io.Serializable, Cloneable {
      */  
     public int hashCode() {
 	long bits = 1L;
-	bits = 31L * bits + (long)VecMathUtil.floatToIntBits(x);
+	bits = 31L * bits + (long) VecMathUtil.floatToIntBits(x);
 	bits = 31L * bits + (long)VecMathUtil.floatToIntBits(y);
 	bits = 31L * bits + (long)VecMathUtil.floatToIntBits(z);
 	return (int) (bits ^ (bits >> 32));
@@ -627,7 +627,7 @@ public abstract class Tuple3f implements java.io.Serializable, Cloneable {
      *
      * @return a clone of this instance.
      * @exception OutOfMemoryError if there is not enough memory.
-     * @see java.lang.Cloneable
+     * @see Cloneable
      * @since vecmath 1.3
      */
     public Object clone() {
