@@ -475,6 +475,7 @@ public class PhantomRift implements Rift, Listener
 		return this;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public Rift load()
 	{

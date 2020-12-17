@@ -37,6 +37,7 @@ public class W
 	 *            the block
 	 * @return returns true if you could see this block ingame from a position
 	 */
+	@SuppressWarnings("deprecation")
 	public static boolean visible(Block block)
 	{
 		for(Block i : W.blockFaces(block))
@@ -463,6 +464,7 @@ public class W
 	 * @param data
 	 *            to set to
 	 */
+	@SuppressWarnings("deprecation")
 	public static void setTypeAndData(Block block, Material type, MaterialData data)
 	{
 		setTypeAndData(block, type, data, true);

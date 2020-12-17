@@ -319,6 +319,7 @@ public class Items
 	 *            the item
 	 * @return the item durability
 	 */
+	@SuppressWarnings("deprecation")
 	public static short getDurability(ItemStack is)
 	{
 		if(!is(is))
@@ -337,6 +338,7 @@ public class Items
 	 * @param dmg
 	 *            the durability
 	 */
+	@SuppressWarnings("deprecation")
 	public static void setDurability(ItemStack is, short dmg)
 	{
 		if(!is(is))

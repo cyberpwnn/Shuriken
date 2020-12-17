@@ -735,6 +735,7 @@ public class Tome
 		return g;
 	}
 
+	@SuppressWarnings("deprecation")
 	private KList<BaseComponent> exportTableOfContents(KList<String> tables)
 	{
 		KList<BaseComponent> pg = new KList<>();
@@ -941,6 +942,7 @@ public class Tome
 		return v.substring(sp.length());
 	}
 
+	@SuppressWarnings("deprecation")
 	private BaseComponent exportChildren(TomeFormat format)
 	{
 		TextComponent sub = new TextComponent();

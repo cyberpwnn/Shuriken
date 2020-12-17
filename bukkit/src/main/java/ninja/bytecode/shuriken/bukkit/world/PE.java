@@ -176,6 +176,7 @@ public class PE extends PotionEffect
 		l.addPotionEffect(new PE(getType(), getDuration(), getAmplifier(), false, false).c());
 	}
 
+	@SuppressWarnings("deprecation")
 	public void crm(LivingEntity l)
 	{
 		l.addPotionEffect(new PE(getType(), getDuration(), getAmplifier(), false, false).c(), true);
