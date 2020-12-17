@@ -1,8 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.io;
 
-import com.volmit.iris.scaffold.data.DataPalette;
-import com.volmit.iris.scaffold.hunk.Hunk;
-import com.volmit.iris.util.Function3;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
 
 import java.io.*;
 import java.util.concurrent.atomic.AtomicBoolean;

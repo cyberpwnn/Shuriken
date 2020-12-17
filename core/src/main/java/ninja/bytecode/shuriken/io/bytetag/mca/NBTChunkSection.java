@@ -1,9 +1,10 @@
-package bytetag.mca;
+package ninja.bytecode.shuriken.io.bytetag.mca;
 
-import bytetag.tag.NBTByteArrayTag;
-import bytetag.tag.NBTCompoundTag;
-import bytetag.tag.NBTListTag;
-import bytetag.tag.NBTLongArrayTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTByteArrayTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTCompoundTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTListTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTLongArrayTag;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

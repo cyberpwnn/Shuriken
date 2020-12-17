@@ -1,4 +1,4 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
 public final class NBTEndTag extends NBTTag<Void> {
 

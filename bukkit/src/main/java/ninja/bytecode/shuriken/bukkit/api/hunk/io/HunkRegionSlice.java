@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.io;
 
-import com.volmit.iris.Iris;
-import com.volmit.iris.scaffold.hunk.Hunk;
-import com.volmit.iris.util.*;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.block.data.BlockData;
 
 import java.io.IOException;

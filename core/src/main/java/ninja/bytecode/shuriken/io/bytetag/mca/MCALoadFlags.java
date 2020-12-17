@@ -1,4 +1,4 @@
-package bytetag.mca;
+package ninja.bytecode.shuriken.io.bytetag.mca;
 
 public class MCALoadFlags {
 

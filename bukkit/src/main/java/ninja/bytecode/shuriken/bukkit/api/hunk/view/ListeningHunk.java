@@ -1,7 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.view;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
-import com.volmit.iris.util.Consumer4;
+
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
+import ninja.bytecode.shuriken.execution.Consumer4;
 
 public class ListeningHunk<T> implements Hunk<T> {
     private final Hunk<T> src;

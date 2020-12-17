@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.storage;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
 import lombok.Data;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
 
 @Data
 public abstract class StorageHunk<T> implements Hunk<T>
@@ -9,6 +9,11 @@ public abstract class StorageHunk<T> implements Hunk<T>
 	private final int width;
 	private final int height;
 	private final int depth;
+
+	public StorageHunk()
+	{
+		this(1,1,1);
+	}
 
 	public StorageHunk(int width, int height, int depth)
 	{

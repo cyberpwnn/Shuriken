@@ -1,10 +1,10 @@
-package bytetag.mca;
+package ninja.bytecode.shuriken.io.bytetag.mca;
 
-import bytetag.NBTDeserializer;
-import bytetag.NBTSerializer;
-import bytetag.NBTRawNamedTag;
-import bytetag.tag.NBTListTag;
-import bytetag.tag.NBTCompoundTag;
+import ninja.bytecode.shuriken.io.bytetag.NBTDeserializer;
+import ninja.bytecode.shuriken.io.bytetag.NBTSerializer;
+import ninja.bytecode.shuriken.io.bytetag.NBTRawNamedTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTListTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTCompoundTag;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Arrays;
-import static bytetag.mca.MCALoadFlags.*;
+import static ninja.bytecode.shuriken.io.bytetag.mca.MCALoadFlags.*;
 
 public class NBTMCAChunk {
 

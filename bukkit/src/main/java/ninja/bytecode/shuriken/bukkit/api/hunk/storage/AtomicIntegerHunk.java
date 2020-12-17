@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.storage;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 

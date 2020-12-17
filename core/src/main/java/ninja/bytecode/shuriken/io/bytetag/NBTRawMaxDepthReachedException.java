@@ -1,4 +1,4 @@
-package bytetag;
+package ninja.bytecode.shuriken.io.bytetag;
 
 /**
  * Exception indicating that the maximum (de-)serialization depth has been reached.

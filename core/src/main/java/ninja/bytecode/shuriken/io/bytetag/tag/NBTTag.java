@@ -1,6 +1,7 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
-import bytetag.NBTRawMaxDepthReachedException;
+import ninja.bytecode.shuriken.io.bytetag.NBTRawMaxDepthReachedException;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

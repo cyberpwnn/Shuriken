@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.storage;
 
 import com.google.common.util.concurrent.AtomicDoubleArray;
-import com.volmit.iris.scaffold.hunk.Hunk;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
 
 @Data
 @EqualsAndHashCode(callSuper = false)

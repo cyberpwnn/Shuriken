@@ -1,4 +1,4 @@
-package bytetag.mca;
+package ninja.bytecode.shuriken.io.bytetag.mca;
 
 import java.io.File;
 import java.io.IOException;

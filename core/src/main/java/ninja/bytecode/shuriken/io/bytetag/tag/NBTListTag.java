@@ -1,6 +1,6 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
-import bytetag.NBTRawMaxDepthIO;
+import ninja.bytecode.shuriken.io.bytetag.NBTRawMaxDepthIO;
 
 import java.util.ArrayList;
 import java.util.Collection;

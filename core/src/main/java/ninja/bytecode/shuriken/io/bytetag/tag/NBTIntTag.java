@@ -1,4 +1,4 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
 public class NBTIntTag extends NBTNumberTag<Integer> implements Comparable<NBTIntTag> {
 

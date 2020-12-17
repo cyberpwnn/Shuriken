@@ -1,4 +1,4 @@
-package bytetag;
+package ninja.bytecode.shuriken.io.bytetag;
 
 public class NBTRawStringPointer {
 

@@ -1,19 +1,20 @@
-package bytetag;
+package ninja.bytecode.shuriken.io.bytetag;
 
-import bytetag.tag.NBTByteArrayTag;
-import bytetag.tag.NBTByteTag;
-import bytetag.tag.NBTCompoundTag;
-import bytetag.tag.NBTDoubleTag;
-import bytetag.tag.NBTEndTag;
-import bytetag.tag.NBTFloatTag;
-import bytetag.tag.NBTIntArrayTag;
-import bytetag.tag.NBTIntTag;
-import bytetag.tag.NBTListTag;
-import bytetag.tag.NBTLongArrayTag;
-import bytetag.tag.NBTLongTag;
-import bytetag.tag.NBTShortTag;
-import bytetag.tag.NBTStringTag;
-import bytetag.tag.NBTTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTByteArrayTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTByteTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTCompoundTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTDoubleTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTEndTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTFloatTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTIntArrayTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTIntTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTListTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTLongArrayTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTLongTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTShortTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTStringTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTTag;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;

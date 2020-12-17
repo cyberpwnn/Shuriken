@@ -1,4 +1,4 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
 import java.util.Collection;
 import java.util.Iterator;

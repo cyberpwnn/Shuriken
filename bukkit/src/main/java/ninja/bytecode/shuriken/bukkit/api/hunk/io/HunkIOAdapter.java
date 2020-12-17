@@ -1,10 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.io;
 
-import com.volmit.iris.scaffold.data.IOAdapter;
-import com.volmit.iris.scaffold.hunk.Hunk;
-import com.volmit.iris.util.ByteArrayTag;
-import com.volmit.iris.util.CustomOutputStream;
-import com.volmit.iris.util.Function3;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
 
 import java.io.*;
 import java.util.zip.GZIPInputStream;

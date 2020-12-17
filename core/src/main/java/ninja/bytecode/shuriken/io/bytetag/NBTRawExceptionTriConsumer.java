@@ -1,4 +1,4 @@
-package bytetag;
+package ninja.bytecode.shuriken.io.bytetag;
 
 @FunctionalInterface
 public interface NBTRawExceptionTriConsumer<T, U, V, E extends Exception> {

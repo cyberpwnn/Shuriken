@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.view;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.generator.ChunkGenerator.ChunkData;
 

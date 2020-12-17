@@ -1,4 +1,4 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
 public class NBTFloatTag extends NBTNumberTag<Float> implements Comparable<NBTFloatTag> {
 

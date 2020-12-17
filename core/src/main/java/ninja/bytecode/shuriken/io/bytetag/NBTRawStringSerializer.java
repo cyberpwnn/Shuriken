@@ -1,4 +1,4 @@
-package bytetag;
+package ninja.bytecode.shuriken.io.bytetag;
 
 import java.io.File;
 import java.io.FileWriter;

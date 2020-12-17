@@ -1,6 +1,6 @@
-package bytetag.mca;
+package ninja.bytecode.shuriken.io.bytetag.mca;
 
-import bytetag.tag.NBTCompoundTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTCompoundTag;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 

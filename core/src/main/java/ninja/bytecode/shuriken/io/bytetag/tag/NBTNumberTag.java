@@ -1,4 +1,4 @@
-package bytetag.tag;
+package ninja.bytecode.shuriken.io.bytetag.tag;
 
 public abstract class NBTNumberTag<T extends Number & Comparable<T>> extends NBTTag<T> {
 

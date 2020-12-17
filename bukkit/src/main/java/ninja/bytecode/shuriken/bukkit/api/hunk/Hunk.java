@@ -1,11 +1,14 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk;
 
-import com.volmit.iris.scaffold.hunk.io.HunkIOAdapter;
-import com.volmit.iris.scaffold.hunk.storage.*;
-import com.volmit.iris.scaffold.hunk.view.*;
-import com.volmit.iris.scaffold.parallel.BurstExecutor;
-import com.volmit.iris.scaffold.parallel.MultiBurst;
-import com.volmit.iris.util.*;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTByteArrayTag;
+import ninja.bytecode.shuriken.bukkit.api.hunk.io.HunkIOAdapter;
+import ninja.bytecode.shuriken.bukkit.api.hunk.storage.*;
+import ninja.bytecode.shuriken.bukkit.api.hunk.view.*;
+import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.execution.Consumer2;
+import ninja.bytecode.shuriken.execution.Consumer3;
+import ninja.bytecode.shuriken.execution.Consumer4;
+import ninja.bytecode.shuriken.execution.Function3;
 import org.bukkit.Chunk;
 import org.bukkit.block.Biome;
 import org.bukkit.block.data.BlockData;
@@ -223,7 +226,7 @@ public interface Hunk<T>
 		h.write(this, s);
 	}
 
-	default ByteArrayTag writeByteArrayTag(HunkIOAdapter<T> h, String name) throws IOException
+	default NBTByteArrayTag writeByteArrayTag(HunkIOAdapter<T> h, String name) throws IOException
 	{
 		return h.writeByteArrayTag(this, name);
 	}

@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.storage;
 
-import com.volmit.iris.scaffold.hunk.Hunk;
-import com.volmit.iris.util.Consumer4;
-import com.volmit.iris.util.KMap;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ninja.bytecode.shuriken.bukkit.api.hunk.Hunk;
+import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.execution.Consumer4;
 
 import java.util.Map;
 

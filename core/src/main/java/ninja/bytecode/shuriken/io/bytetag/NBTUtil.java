@@ -1,6 +1,6 @@
-package bytetag;
+package ninja.bytecode.shuriken.io.bytetag;
 
-import bytetag.tag.NBTTag;
+import ninja.bytecode.shuriken.io.bytetag.tag.NBTTag;
 
 import java.io.File;
 import java.io.FileInputStream;

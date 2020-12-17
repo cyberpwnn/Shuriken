@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.hunk.io;
 
-import com.volmit.iris.util.*;
+import ninja.bytecode.shuriken.collections.KMap;
 
 import java.io.File;
 import java.io.FileInputStream;
