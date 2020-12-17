@@ -2,9 +2,9 @@ package ninja.bytecode.shuriken.bukkit.fx;
 
 import java.awt.Color;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 
@@ -18,7 +18,8 @@ public class EffectCauldronAcceptItem implements Effect
 
 	public EffectCauldronAcceptItem()
 	{
-		audio = new Audio().c(SoundCategory.AMBIENT).vp(1f, 0.1f).setSound(SoundEnum.BLOCK_BREWING_STAND_BREW.bukkitSound());
+		audio = new Audio().c(SoundCategory.AMBIENT).vp(1f, 0.1f)
+				.setSound(Sound.BLOCK_BREWING_STAND_BREW);
 		audio.addChild(((Audio) audio).clone().p(1.5f));
 		effect = new ParticleSpellMob(Color.MAGENTA);
 	}
