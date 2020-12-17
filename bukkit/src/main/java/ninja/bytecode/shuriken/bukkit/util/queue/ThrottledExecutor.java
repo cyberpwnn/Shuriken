@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.util.queue;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
+
+import ninja.bytecode.shuriken.math.M;
 
 public abstract class ThrottledExecutor<T> extends PhantomExecutor<T>
 {
