@@ -1,6 +1,5 @@
 package ninja.bytecode.shuriken.bukkit.scm;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
 
@@ -114,7 +113,7 @@ public class ST
 
 	public static VariableBlock wildcard(Material material, int size)
 	{
-		VariableBlock vb = new VariableBlock(MaterialEnum.AIR.bukkitMaterial());
+		VariableBlock vb = new VariableBlock(Material.AIR);
 		vb.getBlocks().clear();
 
 		for(int i = 0; i < size; i++)

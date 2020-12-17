@@ -2,8 +2,6 @@ package ninja.bytecode.shuriken.bukkit.world;
 
 import java.util.List;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -26,7 +24,7 @@ public class Items
 	 */
 	public static boolean is(ItemStack is)
 	{
-		return is != null && !is.getType().equals(MaterialEnum.AIR.bukkitMaterial());
+		return is != null && !is.getType().equals(Material.AIR);
 	}
 
 	/**

@@ -2,8 +2,6 @@ package ninja.bytecode.shuriken.bukkit.world;
 
 import java.util.Collection;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -635,11 +633,9 @@ public class W
 
 			Material type = new Location(from.getWorld(), from.getBlockX(), check, from.getBlockZ()).getBlock().getType();
 
-			if(!(type.equals(MaterialEnum.AIR.bukkitMaterial()) ||
-						type.equals(MaterialEnum.WATER.bukkitMaterial()) ||
-						type.equals(MaterialEnum.STATIONARY_WATER.bukkitMaterial()) ||
-						type.equals(MaterialEnum.LAVA.bukkitMaterial()) ||
-						type.equals(MaterialEnum.STATIONARY_LAVA.bukkitMaterial())))
+			if(!(type.equals(Material.AIR) ||
+						type.equals(Material.WATER) ||
+						type.equals(Material.LAVA)))
 			{
 				return new Location(from.getWorld(), from.getBlockX(), check + 1, from.getBlockZ());
 			}

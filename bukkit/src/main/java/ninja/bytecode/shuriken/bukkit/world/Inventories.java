@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.world;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 
 import ninja.bytecode.shuriken.collections.KList;
+import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -105,7 +105,7 @@ public class Inventories
 
 		for(ItemStack i : ix.getContents())
 		{
-			if(i == null || i.getType().equals(MaterialEnum.AIR.bukkitMaterial()))
+			if(i == null || i.getType().equals(Material.AIR))
 			{
 				x++;
 			}

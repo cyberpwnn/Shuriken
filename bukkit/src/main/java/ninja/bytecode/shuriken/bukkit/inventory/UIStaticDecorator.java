@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.inventory;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 
 import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
+import org.bukkit.Material;
 
 public class UIStaticDecorator implements WindowDecorator
 {
@@ -10,7 +10,7 @@ public class UIStaticDecorator implements WindowDecorator
 
 	public UIStaticDecorator(Element element)
 	{
-		this.element = element == null ? new UIElement("bg").setMaterial(new MaterialBlock(MaterialEnum.AIR.bukkitMaterial())) : element;
+		this.element = element == null ? new UIElement("bg").setMaterial(new MaterialBlock(Material.AIR)) : element;
 	}
 
 	@Override

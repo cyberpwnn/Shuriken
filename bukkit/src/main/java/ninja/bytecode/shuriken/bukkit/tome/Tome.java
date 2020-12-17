@@ -14,7 +14,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.nms.Catalyst;
 
 
@@ -26,6 +25,7 @@ import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
+import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftMetaBook;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
@@ -66,7 +66,7 @@ public class Tome
 
 	public ItemStack toItemStack()
 	{
-		ItemStack isc = new ItemStack(MaterialEnum.WRITTEN_BOOK.bukkitMaterial());
+		ItemStack isc = new ItemStack(Material.WRITTEN_BOOK);
 		BookMeta bm = (BookMeta) isc.getItemMeta();
 		isc.setItemMeta(export(bm));
 

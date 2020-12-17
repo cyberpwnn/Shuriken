@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.collections.Callback;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.math.M;
@@ -132,24 +131,6 @@ public class SCMIO
 								{
 									Location sign = min.clone().add(din.readInt(), din.readInt(), din.readInt());
 									Block b = sign.getBlock();
-
-									if(b.getType().equals(MaterialEnum.SIGN_POST.bukkitMaterial()) || b.getType().equals(MaterialEnum.WALL_SIGN.bukkitMaterial()))
-									{
-										Sign s = (Sign) b.getState();
-
-										for(int j = 0; j < 4; j++)
-										{
-											s.setLine(j, din.readUTF());
-										}
-
-										s.setRawData(din.readByte());
-										s.update();
-									}
-
-									else
-									{
-										System.out.println("WARNING MISSING SIGN DATA!");
-									}
 								}
 
 								J.a(() ->
@@ -247,11 +228,6 @@ public class SCMIO
 							Material m = mb.getMaterial();
 							dos.writeInt(m.getId());
 							dos.writeByte(mb.getData());
-
-							if(m.equals(MaterialEnum.SIGN_POST.bukkitMaterial()) || m.equals(MaterialEnum.WALL_SIGN.bukkitMaterial()))
-							{
-								signs.add(new Location(c.getWorld(), i, j, k));
-							}
 
 							did++;
 						}

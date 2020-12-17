@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.world.generator;
 
 import java.util.Random;
 
-import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
 
@@ -16,16 +16,16 @@ public class FlatGenerator extends ChunkGenerator
 		{
 			for(int j = 0; j < 16; j++)
 			{
-				c.setBlock(i, 0, j, MaterialEnum.BEDROCK.bukkitMaterial());
+				c.setBlock(i, 0, j, Material.BEDROCK);
 
 				if(x % 2 == 0 ^ z % 2 == 0)
 				{
-					c.setBlock(i, 1, j, MaterialEnum.PURPUR_BLOCK.bukkitMaterial());
+					c.setBlock(i, 1, j, Material.PURPUR_BLOCK);
 				}
 
 				else
 				{
-					c.setBlock(i, 1, j, MaterialEnum.END_BRICKS.bukkitMaterial());
+					c.setBlock(i, 1, j, Material.END_STONE_BRICKS);
 				}
 			}
 		}
