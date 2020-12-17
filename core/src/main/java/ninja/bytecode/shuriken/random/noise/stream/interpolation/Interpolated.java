@@ -1,6 +1,5 @@
 package ninja.bytecode.shuriken.random.noise.stream.interpolation;
 
-import ninja.bytecode.shuriken.random.RNG;
 import ninja.bytecode.shuriken.random.noise.stream.ProceduralStream;
 
 import java.util.function.Function;

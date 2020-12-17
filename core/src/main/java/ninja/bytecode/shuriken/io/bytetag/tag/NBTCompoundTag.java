@@ -4,7 +4,6 @@ import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.io.bytetag.NBTRawMaxDepthIO;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
