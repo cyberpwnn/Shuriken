@@ -1,19 +1,9 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.host.command;
 
-import ninja.bytecode.shuriken.bukkit.api.fx.ParticleRedstone;
-import ninja.bytecode.shuriken.bukkit.api.particle.LineParticleManipulator;
-import ninja.bytecode.shuriken.bukkit.api.particle.SphereParticleManipulator;
-import ninja.bytecode.shuriken.bukkit.api.sound.Audible;
-import ninja.bytecode.shuriken.bukkit.api.sound.Audio;
 import ninja.bytecode.shuriken.bukkit.api.sound.Instrument;
-import ninja.bytecode.shuriken.bukkit.api.sound.MFADistortion;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
-import org.bukkit.Location;
-import org.bukkit.Sound;
-import org.bukkit.SoundCategory;
-
-import java.awt.*;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 public class CommandSound extends ShurikenCommand
 {

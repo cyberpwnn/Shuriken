@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.inventory;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.collections.KList;
-import ninja.bytecode.shuriken.execution.Callback;
+import ninja.bytecode.shuriken.collections.functional.Callback;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;

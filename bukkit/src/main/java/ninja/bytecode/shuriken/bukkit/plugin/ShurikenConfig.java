@@ -1,6 +1,6 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.plugin;
 
-import ninja.bytecode.shuriken.bukkit.api.config.Key;
+import ninja.bytecode.shuriken.bukkit.config.Key;
 
 public class ShurikenConfig
 {

@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.command;
+package ninja.bytecode.shuriken.bukkit.command;
 
 
 import ninja.bytecode.shuriken.collections.KList;

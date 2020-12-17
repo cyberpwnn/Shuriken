@@ -3,9 +3,9 @@ package ninja.bytecode.shuriken.bukkit.api.tome;
 import java.io.IOException;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 
 import ninja.bytecode.shuriken.bukkit.util.text.Alphabet;

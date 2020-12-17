@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.command;
+package ninja.bytecode.shuriken.bukkit.command;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;

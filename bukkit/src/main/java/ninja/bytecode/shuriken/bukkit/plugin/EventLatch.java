@@ -1,8 +1,9 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.plugin;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventException;

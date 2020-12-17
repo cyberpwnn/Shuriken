@@ -1,6 +1,7 @@
-package ninja.bytecode.shuriken.execution;
+package ninja.bytecode.shuriken.execution.queue;
 
 import ninja.bytecode.shuriken.Shuriken;
+import ninja.bytecode.shuriken.execution.Looper;
 
 public class QueueExecutor extends Looper
 {

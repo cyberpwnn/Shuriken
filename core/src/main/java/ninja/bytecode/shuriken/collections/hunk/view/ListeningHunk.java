@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.collections.hunk.view;
 
 
 import ninja.bytecode.shuriken.collections.hunk.Hunk;
-import ninja.bytecode.shuriken.execution.Consumer4;
+import ninja.bytecode.shuriken.collections.functional.Consumer4;
 
 public class ListeningHunk<T> implements Hunk<T> {
     private final Hunk<T> src;

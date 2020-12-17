@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.plugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +12,7 @@ import java.util.SortedSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

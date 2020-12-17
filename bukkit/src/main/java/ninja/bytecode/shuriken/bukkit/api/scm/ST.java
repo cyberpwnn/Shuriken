@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.scm;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
 

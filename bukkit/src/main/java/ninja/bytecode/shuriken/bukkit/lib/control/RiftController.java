@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.lib.control;
 import java.io.File;
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
+import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.D;

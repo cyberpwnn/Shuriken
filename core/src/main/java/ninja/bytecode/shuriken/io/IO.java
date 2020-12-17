@@ -39,7 +39,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 import ninja.bytecode.shuriken.collections.KList;
-import ninja.bytecode.shuriken.execution.Callback;
+import ninja.bytecode.shuriken.collections.functional.Callback;
 import ninja.bytecode.shuriken.execution.ChronoLatch;
 import ninja.bytecode.shuriken.math.M;
 

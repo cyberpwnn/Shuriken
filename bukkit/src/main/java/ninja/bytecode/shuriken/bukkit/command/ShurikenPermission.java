@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.command;
+package ninja.bytecode.shuriken.bukkit.command;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

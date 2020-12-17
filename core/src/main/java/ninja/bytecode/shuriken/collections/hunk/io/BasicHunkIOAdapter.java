@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.collections.hunk.io;
 
 
 import ninja.bytecode.shuriken.collections.hunk.Hunk;
-import ninja.bytecode.shuriken.execution.Function3;
+import ninja.bytecode.shuriken.collections.functional.Function3;
 
 import java.io.*;
 import java.util.concurrent.atomic.AtomicBoolean;

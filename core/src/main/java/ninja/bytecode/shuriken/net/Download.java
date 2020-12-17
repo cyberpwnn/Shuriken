@@ -15,7 +15,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.concurrent.Future;
 
-import ninja.bytecode.shuriken.execution.Callback;
+import ninja.bytecode.shuriken.collections.functional.Callback;
 import ninja.bytecode.shuriken.execution.ChronoLatch;
 import ninja.bytecode.shuriken.execution.J;
 

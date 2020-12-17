@@ -1,8 +1,8 @@
 package ninja.bytecode.shuriken.bukkit.api.world;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.GhostWorldController;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.host.GhostWorldController;
+import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

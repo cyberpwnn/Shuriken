@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.command;
+package ninja.bytecode.shuriken.bukkit.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

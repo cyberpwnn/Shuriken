@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.sched;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.collections.FInt;
 import ninja.bytecode.shuriken.collections.KList;

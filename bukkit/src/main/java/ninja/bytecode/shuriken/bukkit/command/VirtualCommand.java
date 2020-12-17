@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.command;
+package ninja.bytecode.shuriken.bukkit.command;
 
 import java.lang.reflect.Field;
 

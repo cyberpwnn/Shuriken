@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.lace;
+package ninja.bytecode.shuriken.bukkit.lace;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;

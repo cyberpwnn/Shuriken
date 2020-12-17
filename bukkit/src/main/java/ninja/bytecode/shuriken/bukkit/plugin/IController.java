@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.plugin;
 
 import org.bukkit.event.Listener;
 

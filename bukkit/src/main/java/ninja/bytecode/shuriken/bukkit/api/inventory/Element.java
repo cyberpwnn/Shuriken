@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.inventory;
 
 import ninja.bytecode.shuriken.collections.KList;
-import ninja.bytecode.shuriken.execution.Callback;
+import ninja.bytecode.shuriken.collections.functional.Callback;
 import org.bukkit.inventory.ItemStack;
 
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;

@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.execution;
+package ninja.bytecode.shuriken.execution.queue;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -9,6 +9,8 @@ import java.util.concurrent.ForkJoinWorkerThread;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import ninja.bytecode.shuriken.collections.functional.NastyRunnable;
+import ninja.bytecode.shuriken.execution.J;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.collections.KList;

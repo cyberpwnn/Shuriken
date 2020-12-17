@@ -9,6 +9,9 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import ninja.bytecode.shuriken.collections.functional.NastyFunction;
+import ninja.bytecode.shuriken.collections.functional.NastyFuture;
+import ninja.bytecode.shuriken.collections.functional.NastyRunnable;
 import ninja.bytecode.shuriken.logging.L;
 
 public class J

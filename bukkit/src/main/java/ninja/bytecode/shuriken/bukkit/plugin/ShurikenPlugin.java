@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.plugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,12 +25,12 @@ import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ICommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenPermission;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.RouterCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.VirtualCommand;
+import ninja.bytecode.shuriken.bukkit.command.ICommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenPermission;
+import ninja.bytecode.shuriken.bukkit.command.Permission;
+import ninja.bytecode.shuriken.bukkit.command.RouterCommand;
+import ninja.bytecode.shuriken.bukkit.command.VirtualCommand;
 
 
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
@@ -434,13 +434,13 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 
 		for(Field i : getClass().getDeclaredFields())
 		{
-			if(i.isAnnotationPresent(ninja.bytecode.shuriken.bukkit.bukkit.command.Command.class))
+			if(i.isAnnotationPresent(ninja.bytecode.shuriken.bukkit.command.Command.class))
 			{
 				try
 				{
 					i.setAccessible(true);
 					ShurikenCommand pc = (ShurikenCommand) i.getType().getConstructor().newInstance();
-					ninja.bytecode.shuriken.bukkit.bukkit.command.Command c = i.getAnnotation(ninja.bytecode.shuriken.bukkit.bukkit.command.Command.class);
+					ninja.bytecode.shuriken.bukkit.command.Command c = i.getAnnotation(ninja.bytecode.shuriken.bukkit.command.Command.class);
 					registerCommand(pc, c.value());
 					commandCache.add(pc);
 					v("Registered Commands /" + pc.getNode() + " (" + i.getName() + ")");

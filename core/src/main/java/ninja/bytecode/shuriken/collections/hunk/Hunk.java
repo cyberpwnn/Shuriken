@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.collections.hunk;
 
 import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.collections.functional.*;
 import ninja.bytecode.shuriken.collections.hunk.io.HunkIOAdapter;
 import ninja.bytecode.shuriken.collections.hunk.storage.*;
 import ninja.bytecode.shuriken.collections.hunk.view.*;
-import ninja.bytecode.shuriken.execution.*;
 import ninja.bytecode.shuriken.execution.parallel.BurstExecutor;
 import ninja.bytecode.shuriken.execution.parallel.MultiBurst;
 import ninja.bytecode.shuriken.io.bytetag.jnbt.ByteArrayTag;

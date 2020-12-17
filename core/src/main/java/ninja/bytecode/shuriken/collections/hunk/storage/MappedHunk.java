@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.hunk.Hunk;
-import ninja.bytecode.shuriken.execution.Consumer4;
+import ninja.bytecode.shuriken.collections.functional.Consumer4;
 
 import java.util.Map;
 

@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.pluginmessage;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.entity.Player;

@@ -1,15 +1,10 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.plugin;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.collections.KSet;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -17,12 +12,8 @@ import org.bukkit.World.Environment;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
-import ninja.bytecode.shuriken.bukkit.util.text.D;
 import ninja.bytecode.shuriken.bukkit.util.text.TXT;
-import ninja.bytecode.shuriken.bukkit.util.text.VersionCodes;
 
 public class ShurikenBukkit
 {

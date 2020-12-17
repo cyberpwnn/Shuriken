@@ -2,8 +2,8 @@ package ninja.bytecode.shuriken.bukkit.util.text;
 
 import java.io.Serializable;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenConfig;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.plugin.ShurikenConfig;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
 

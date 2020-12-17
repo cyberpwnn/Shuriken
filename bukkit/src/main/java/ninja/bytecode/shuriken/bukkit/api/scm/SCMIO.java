@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.collections.Callback;
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;

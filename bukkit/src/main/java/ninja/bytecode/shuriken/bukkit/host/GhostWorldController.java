@@ -1,6 +1,7 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.host;
 
 import ninja.bytecode.shuriken.bukkit.api.scm.GhostWorld;
+import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;

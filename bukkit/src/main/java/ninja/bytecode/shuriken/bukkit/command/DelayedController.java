@@ -1,9 +1,8 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin.commands;
+package ninja.bytecode.shuriken.bukkit.command;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
+import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 import ninja.bytecode.shuriken.collections.KList;
 
 

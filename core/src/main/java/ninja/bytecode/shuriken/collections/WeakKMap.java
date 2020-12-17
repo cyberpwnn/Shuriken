@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
 
-import ninja.bytecode.shuriken.execution.Consumer2;
-import ninja.bytecode.shuriken.execution.Consumer3;
-import ninja.bytecode.shuriken.execution.Queue;
+import ninja.bytecode.shuriken.collections.functional.Consumer2;
+import ninja.bytecode.shuriken.collections.functional.Consumer3;
+import ninja.bytecode.shuriken.execution.queue.Queue;
 
 public class WeakKMap<K, V> extends WeakHashMap<K, V>
 {

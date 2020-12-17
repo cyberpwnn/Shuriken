@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.block;
+package ninja.bytecode.shuriken.bukkit.block;
 
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;

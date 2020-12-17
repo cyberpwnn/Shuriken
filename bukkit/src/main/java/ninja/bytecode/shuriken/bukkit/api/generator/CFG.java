@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.api.generator;
 
-import ninja.bytecode.shuriken.bukkit.api.config.Comment;
-import ninja.bytecode.shuriken.bukkit.api.config.Key;
+import ninja.bytecode.shuriken.bukkit.config.Comment;
+import ninja.bytecode.shuriken.bukkit.config.Key;
 
 public class CFG
 {

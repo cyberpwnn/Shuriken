@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.api.nms;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.world.Area;
 import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;
 import ninja.bytecode.shuriken.bukkit.util.text.C;

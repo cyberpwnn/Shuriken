@@ -9,8 +9,8 @@ import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.tools.ExceptionTools;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.execution.Looper;
-import ninja.bytecode.shuriken.execution.Queue;
-import ninja.bytecode.shuriken.execution.ShurikenQueue;
+import ninja.bytecode.shuriken.execution.queue.Queue;
+import ninja.bytecode.shuriken.execution.queue.ShurikenQueue;
 
 public class L
 {

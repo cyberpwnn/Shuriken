@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.world;
 
 import java.util.Collection;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Bukkit;

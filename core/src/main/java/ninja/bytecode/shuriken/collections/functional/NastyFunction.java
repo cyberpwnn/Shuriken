@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.execution;
+package ninja.bytecode.shuriken.collections.functional;
 
 public interface NastyFunction<T, R>
 {

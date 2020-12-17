@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.generator;
 
 import java.util.Random;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
 

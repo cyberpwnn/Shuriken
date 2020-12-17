@@ -1,8 +1,7 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin.commands;
+package ninja.bytecode.shuriken.bukkit.command;
 
 import lombok.Getter;
 import lombok.Setter;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
 
 public abstract class DelayedRunnable implements Runnable
 {

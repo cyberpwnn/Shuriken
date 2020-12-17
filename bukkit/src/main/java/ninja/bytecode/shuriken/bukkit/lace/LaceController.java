@@ -1,6 +1,6 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.lace;
+package ninja.bytecode.shuriken.bukkit.lace;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
+import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;

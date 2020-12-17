@@ -1,7 +1,9 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.host.command;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.World.Environment;

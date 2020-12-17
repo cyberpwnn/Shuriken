@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.api.tome;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.command.Command;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.command.Command;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 public class CommandTome extends ShurikenCommand
 {

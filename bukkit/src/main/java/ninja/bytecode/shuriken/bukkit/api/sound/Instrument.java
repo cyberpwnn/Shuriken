@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.api.sound;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.SoundEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;

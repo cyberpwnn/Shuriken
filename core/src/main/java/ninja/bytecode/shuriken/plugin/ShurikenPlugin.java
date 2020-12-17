@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.plugin;
 
-import ninja.bytecode.shuriken.execution.QueueExecutor;
+import ninja.bytecode.shuriken.execution.queue.QueueExecutor;
 import ninja.bytecode.shuriken.logging.L;
 
 public abstract class ShurikenPlugin extends L implements Plugin

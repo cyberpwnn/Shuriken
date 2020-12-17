@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.lib.control;
 
 import java.util.UUID;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.Controller;
+import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 
 import ninja.bytecode.shuriken.bukkit.logic.io.VIO;
 import ninja.bytecode.shuriken.collections.CacheMap;

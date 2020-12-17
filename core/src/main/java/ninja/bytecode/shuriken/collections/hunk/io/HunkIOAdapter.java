@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.collections.hunk.io;
 
 import ninja.bytecode.shuriken.collections.hunk.Hunk;
-import ninja.bytecode.shuriken.execution.Function3;
+import ninja.bytecode.shuriken.collections.functional.Function3;
 import ninja.bytecode.shuriken.io.CustomOutputStream;
 import ninja.bytecode.shuriken.io.IOAdapter;
 import ninja.bytecode.shuriken.io.bytetag.jnbt.ByteArrayTag;

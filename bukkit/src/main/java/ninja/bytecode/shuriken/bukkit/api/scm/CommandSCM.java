@@ -3,8 +3,8 @@ package ninja.bytecode.shuriken.bukkit.api.scm;
 import java.io.File;
 import java.io.IOException;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.SoundEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
@@ -16,10 +16,10 @@ import ninja.bytecode.shuriken.bukkit.api.sound.GSound;
 import ninja.bytecode.shuriken.bukkit.api.sound.Instrument;
 import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.P;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenCommand;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
+import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import ninja.bytecode.shuriken.bukkit.util.text.C;

@@ -1,8 +1,8 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.host;
 
 import ninja.bytecode.shuriken.bukkit.api.scm.PermissionSCM;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenPermission;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
+import ninja.bytecode.shuriken.bukkit.command.ShurikenPermission;
+import ninja.bytecode.shuriken.bukkit.command.Permission;
 
 public class PermissionShuriken extends ShurikenPermission
 {

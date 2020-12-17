@@ -9,7 +9,7 @@ import io.netty.channel.Channel;
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 
 public abstract class CatalystPacketListener implements PacketListener

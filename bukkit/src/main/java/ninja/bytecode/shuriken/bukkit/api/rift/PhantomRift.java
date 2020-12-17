@@ -8,8 +8,8 @@ import ninja.bytecode.shuriken.bukkit.api.generator.VoidGenerator;
 import ninja.bytecode.shuriken.bukkit.api.sched.AR;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.sched.S;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenBukkit;
-import ninja.bytecode.shuriken.bukkit.bukkit.plugin.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 

@@ -1,8 +1,7 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.data;
+package ninja.bytecode.shuriken.bukkit.util.gross;
 
 import java.util.ArrayList;
 
-import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftLivingEntity;
 import org.bukkit.entity.Entity;

@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 
 import ninja.bytecode.shuriken.execution.Chunker;
-import ninja.bytecode.shuriken.execution.Queue;
+import ninja.bytecode.shuriken.execution.queue.Queue;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.math.M;
 

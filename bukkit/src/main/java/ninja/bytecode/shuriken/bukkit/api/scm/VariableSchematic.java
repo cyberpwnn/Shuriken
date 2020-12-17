@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.api.scm;
 
 import java.util.Iterator;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
 import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.api.world.Dimension;

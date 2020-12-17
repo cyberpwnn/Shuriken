@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.compatibility;
+package ninja.bytecode.shuriken.bukkit.compatibility;
 
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;

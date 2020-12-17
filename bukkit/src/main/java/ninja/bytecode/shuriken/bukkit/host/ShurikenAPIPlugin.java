@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.bukkit.plugin;
+package ninja.bytecode.shuriken.bukkit.host;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,14 +13,18 @@ import java.util.concurrent.TimeUnit;
 import ninja.bytecode.shuriken.bukkit.api.nms.Catalyst;
 import ninja.bytecode.shuriken.bukkit.api.nms.NMP;
 import ninja.bytecode.shuriken.bukkit.api.scm.CommandSCM;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.Command;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.ShurikenSender;
-import ninja.bytecode.shuriken.bukkit.bukkit.command.Permission;
+import ninja.bytecode.shuriken.bukkit.host.command.CommandClearConsole;
+import ninja.bytecode.shuriken.bukkit.host.command.CommandRift;
+import ninja.bytecode.shuriken.bukkit.host.command.CommandShuriken;
+import ninja.bytecode.shuriken.bukkit.plugin.*;
+import ninja.bytecode.shuriken.bukkit.command.Command;
+import ninja.bytecode.shuriken.bukkit.command.Permission;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
+import ninja.bytecode.shuriken.bukkit.plugin.plugin.*;
 import ninja.bytecode.shuriken.collections.LKMap;
 import org.bukkit.Bukkit;
 
-import ninja.bytecode.shuriken.bukkit.api.config.Configurator;
+import ninja.bytecode.shuriken.bukkit.config.Configurator;
 import ninja.bytecode.shuriken.bukkit.api.sched.J;
 import ninja.bytecode.shuriken.bukkit.api.scm.SCMController;
 import ninja.bytecode.shuriken.bukkit.api.tetris.JobScheduler;

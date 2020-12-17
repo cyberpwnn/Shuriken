@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import ninja.bytecode.shuriken.bukkit.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.api.nms.NMSVersion;
+import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
