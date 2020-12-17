@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.math;
+package com.volmit.iris.util;
 public enum InterpolationType
 {
 	LINEAR,

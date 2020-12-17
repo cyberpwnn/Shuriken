@@ -11,8 +11,6 @@ public class QueueExecutor extends Looper
 	public QueueExecutor()
 	{
 		queue = new ShurikenQueue<Runnable>();
-		Shuriken.profiler.start("executor-" + getId());
-		Shuriken.profiler.stop("executor-" + getId());
 		shutdown = false;
 	}
 	
@@ -24,8 +22,6 @@ public class QueueExecutor extends Looper
 	@Override
 	protected long loop()
 	{
-		Shuriken.profiler.start("executor-" + getId());
-		
 		while(queue.hasNext())
 		{
 			try
@@ -39,21 +35,14 @@ public class QueueExecutor extends Looper
 			}
 		}
 		
-		Shuriken.profiler.stop("executor-" + getId());
-		
 		if(shutdown && !queue.hasNext())
 		{
 			interrupt();
 			return -1;
 		}
 		
-		return Math.max(500, (long) getRunTime() * 10);
+		return Math.max(500, 0);
 	}
-
-	public double getRunTime() {
-		return Shuriken.profiler.getResult("executor-" + getId()).getAverage();
-	}
-
 	public void shutdown()
 	{
 		shutdown = true;
