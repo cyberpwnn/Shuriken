@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.hunk.io;
+package ninja.bytecode.shuriken.bukkit.hunk.io;
 
 import ninja.bytecode.shuriken.bukkit.block.B;
 import ninja.bytecode.shuriken.collections.hunk.io.PaletteHunkIOAdapter;

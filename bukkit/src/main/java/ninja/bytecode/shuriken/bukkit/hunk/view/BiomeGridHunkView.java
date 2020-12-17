@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.hunk.view;
+package ninja.bytecode.shuriken.bukkit.hunk.view;
 
 import ninja.bytecode.shuriken.collections.hunk.Hunk;
 import org.bukkit.block.Biome;

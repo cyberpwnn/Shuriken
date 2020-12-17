@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,10 +22,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import ninja.bytecode.shuriken.bukkit.nms.NMP;
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
-import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
-import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
+import ninja.bytecode.shuriken.bukkit.sched.J;
+import ninja.bytecode.shuriken.bukkit.world.Cuboid;
+import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
+import ninja.bytecode.shuriken.bukkit.world.VectorMath;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;

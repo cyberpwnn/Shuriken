@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.event;
 
-import ninja.bytecode.shuriken.bukkit.api.scm.IMappedVolume;
-import ninja.bytecode.shuriken.bukkit.api.scm.IVolume;
+import ninja.bytecode.shuriken.bukkit.scm.IMappedVolume;
+import ninja.bytecode.shuriken.bukkit.scm.IVolume;
 import org.bukkit.event.Event;
 
 public class VolumeConstructEvent extends MortarEvent

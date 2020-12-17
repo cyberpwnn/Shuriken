@@ -1,8 +1,8 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.api.world.Area;
-import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
+import ninja.bytecode.shuriken.bukkit.sched.J;
+import ninja.bytecode.shuriken.bukkit.world.Area;
+import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;

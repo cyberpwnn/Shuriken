@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Chunk;
@@ -7,7 +7,7 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.S;
+import ninja.bytecode.shuriken.bukkit.sched.S;
 
 
 public class NMP

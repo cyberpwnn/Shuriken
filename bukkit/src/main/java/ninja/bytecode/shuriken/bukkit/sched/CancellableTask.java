@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.sched;
+package ninja.bytecode.shuriken.bukkit.sched;
 
 public interface CancellableTask
 {

@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.host.command;
 
-import ninja.bytecode.shuriken.bukkit.api.sound.Instrument;
+import ninja.bytecode.shuriken.bukkit.sound.Instrument;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;

@@ -1,10 +1,10 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import org.bukkit.Material;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
+import ninja.bytecode.shuriken.bukkit.world.BlockType;
 
 public class ST
 {

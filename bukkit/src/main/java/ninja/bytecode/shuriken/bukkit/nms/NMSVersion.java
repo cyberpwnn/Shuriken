@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
 import ninja.bytecode.shuriken.logging.L;
 import org.bukkit.Bukkit;

@@ -1,13 +1,13 @@
-package ninja.bytecode.shuriken.bukkit.api.rift;
+package ninja.bytecode.shuriken.bukkit.rift;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 import ninja.bytecode.shuriken.bukkit.generator.VoidGenerator;
-import ninja.bytecode.shuriken.bukkit.api.sched.AR;
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.api.sched.S;
+import ninja.bytecode.shuriken.bukkit.sched.AR;
+import ninja.bytecode.shuriken.bukkit.sched.J;
+import ninja.bytecode.shuriken.bukkit.sched.S;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;

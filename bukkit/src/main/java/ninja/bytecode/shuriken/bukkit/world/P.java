@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.world;
+package ninja.bytecode.shuriken.bukkit.world;
 
 import java.util.Set;
 

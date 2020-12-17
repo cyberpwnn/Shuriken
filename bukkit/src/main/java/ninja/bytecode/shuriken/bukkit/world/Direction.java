@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.world;
+package ninja.bytecode.shuriken.bukkit.world;
 
 
 import ninja.bytecode.shuriken.collections.KBiset;
@@ -7,7 +7,7 @@ import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.block.BlockFace;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.api.world.Cuboid.CuboidDirection;
+import ninja.bytecode.shuriken.bukkit.world.Cuboid.CuboidDirection;
 
 /**
  * Directions

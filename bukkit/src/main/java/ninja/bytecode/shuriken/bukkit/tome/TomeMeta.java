@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.tome;
+package ninja.bytecode.shuriken.bukkit.tome;
 
 import org.dom4j.Attribute;
 import org.dom4j.Element;

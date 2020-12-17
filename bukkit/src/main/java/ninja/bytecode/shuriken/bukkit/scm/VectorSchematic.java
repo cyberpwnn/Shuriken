@@ -1,9 +1,9 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
-import ninja.bytecode.shuriken.bukkit.api.world.Axis;
-import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
-import ninja.bytecode.shuriken.bukkit.api.world.Direction;
-import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
+import ninja.bytecode.shuriken.bukkit.world.Axis;
+import ninja.bytecode.shuriken.bukkit.world.BlockType;
+import ninja.bytecode.shuriken.bukkit.world.Direction;
+import ninja.bytecode.shuriken.bukkit.world.VectorMath;
 
 
 import ninja.bytecode.shuriken.collections.KList;

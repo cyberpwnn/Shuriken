@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.particle;
+package ninja.bytecode.shuriken.bukkit.particle;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;

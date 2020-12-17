@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.inventory;
+package ninja.bytecode.shuriken.bukkit.inventory;
 
 public class WindowPosition
 {

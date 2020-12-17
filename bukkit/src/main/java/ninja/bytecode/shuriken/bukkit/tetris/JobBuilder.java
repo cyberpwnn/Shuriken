@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.tetris;
+package ninja.bytecode.shuriken.bukkit.tetris;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.compute.math.Profiler;

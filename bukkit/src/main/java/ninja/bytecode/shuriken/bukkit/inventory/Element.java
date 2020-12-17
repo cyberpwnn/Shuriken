@@ -1,10 +1,10 @@
-package ninja.bytecode.shuriken.bukkit.api.inventory;
+package ninja.bytecode.shuriken.bukkit.inventory;
 
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.functional.Callback;
 import org.bukkit.inventory.ItemStack;
 
-import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
+import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
 
 public interface Element
 {

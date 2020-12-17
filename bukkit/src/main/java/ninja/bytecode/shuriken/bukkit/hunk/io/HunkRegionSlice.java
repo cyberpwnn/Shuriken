@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.hunk.io;
+package ninja.bytecode.shuriken.bukkit.hunk.io;
 
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.util.positions.ChunkPosition;

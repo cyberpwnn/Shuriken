@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
 import java.util.ArrayList;
 import java.util.List;

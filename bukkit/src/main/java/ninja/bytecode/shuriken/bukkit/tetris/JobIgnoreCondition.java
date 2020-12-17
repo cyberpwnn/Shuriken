@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.tetris;
+package ninja.bytecode.shuriken.bukkit.tetris;
 
 /**
  * Determines when the job scheduler is allowed to skip execution on this job

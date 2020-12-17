@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.inventory;
+package ninja.bytecode.shuriken.bukkit.inventory;
 
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
@@ -17,7 +17,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
+import ninja.bytecode.shuriken.bukkit.sched.J;
 
 public class UIWindow implements Window, Listener
 {

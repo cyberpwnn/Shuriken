@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
 import net.minecraft.server.v1_16_R3.*;
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;

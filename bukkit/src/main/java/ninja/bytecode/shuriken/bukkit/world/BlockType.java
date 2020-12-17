@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.world;
+package ninja.bytecode.shuriken.bukkit.world;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.host.GhostWorldController;

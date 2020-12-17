@@ -1,11 +1,11 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.Location;
 
-import ninja.bytecode.shuriken.bukkit.api.world.Dimension;
+import ninja.bytecode.shuriken.bukkit.world.Dimension;
 
 public interface IVolume
 {

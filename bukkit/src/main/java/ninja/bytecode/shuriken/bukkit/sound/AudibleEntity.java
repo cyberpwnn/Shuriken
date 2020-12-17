@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.sound;
 
-import ninja.bytecode.shuriken.bukkit.api.world.Area;
+import ninja.bytecode.shuriken.bukkit.world.Area;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 

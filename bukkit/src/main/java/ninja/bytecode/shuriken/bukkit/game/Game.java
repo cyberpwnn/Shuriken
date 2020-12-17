@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.game;
+package ninja.bytecode.shuriken.bukkit.game;
 
 import org.bukkit.Location;
 import org.bukkit.World;

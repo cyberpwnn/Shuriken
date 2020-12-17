@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.particle;
+package ninja.bytecode.shuriken.bukkit.particle;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

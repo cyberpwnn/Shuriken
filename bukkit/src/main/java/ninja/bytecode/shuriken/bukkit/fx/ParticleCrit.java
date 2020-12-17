@@ -4,7 +4,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.api.particle.ParticleEffect;
+import ninja.bytecode.shuriken.bukkit.particle.ParticleEffect;
 
 public class ParticleCrit extends ParticleBase implements MotionEffect, DirectionalEffect
 {

@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
 import java.awt.Color;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
+import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import net.md_5.bungee.api.chat.BaseComponent;
 

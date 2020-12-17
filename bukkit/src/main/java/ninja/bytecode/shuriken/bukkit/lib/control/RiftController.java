@@ -15,10 +15,10 @@ import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 
-import ninja.bytecode.shuriken.bukkit.api.generator.FlatGenerator;
-import ninja.bytecode.shuriken.bukkit.api.rift.PhantomRift;
-import ninja.bytecode.shuriken.bukkit.api.rift.Rift;
-import ninja.bytecode.shuriken.bukkit.api.rift.RiftException;
+import ninja.bytecode.shuriken.bukkit.generator.FlatGenerator;
+import ninja.bytecode.shuriken.bukkit.rift.PhantomRift;
+import ninja.bytecode.shuriken.bukkit.rift.Rift;
+import ninja.bytecode.shuriken.bukkit.rift.RiftException;
 
 public class RiftController extends Controller
 {

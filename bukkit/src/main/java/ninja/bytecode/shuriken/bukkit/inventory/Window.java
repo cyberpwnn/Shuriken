@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.inventory;
+package ninja.bytecode.shuriken.bukkit.inventory;
 
 import ninja.bytecode.shuriken.collections.functional.Callback;
 import org.bukkit.entity.Player;

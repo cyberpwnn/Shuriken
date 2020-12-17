@@ -1,11 +1,11 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;
 import org.bukkit.Location;
 
-import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
+import ninja.bytecode.shuriken.bukkit.world.BlockType;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 

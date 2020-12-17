@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.generator;
+package ninja.bytecode.shuriken.bukkit.generator;
 
 import ninja.bytecode.shuriken.bukkit.config.Comment;
 import ninja.bytecode.shuriken.bukkit.config.Key;

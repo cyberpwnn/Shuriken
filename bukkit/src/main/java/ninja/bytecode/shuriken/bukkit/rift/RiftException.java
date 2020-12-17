@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.rift;
+package ninja.bytecode.shuriken.bukkit.rift;
 
 public class RiftException extends Exception
 {

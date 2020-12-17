@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.fx;
 
 import java.awt.Color;
 
-import ninja.bytecode.shuriken.bukkit.api.nms.NMP;
+import ninja.bytecode.shuriken.bukkit.nms.NMP;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 

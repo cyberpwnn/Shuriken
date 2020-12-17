@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.tome;
+package ninja.bytecode.shuriken.bukkit.tome;
 
 import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;

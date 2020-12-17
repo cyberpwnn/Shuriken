@@ -3,7 +3,7 @@ package ninja.bytecode.shuriken.bukkit.fx;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.api.particle.ParticleEffect;
+import ninja.bytecode.shuriken.bukkit.particle.ParticleEffect;
 
 public class ParticleAttackSweep extends ParticleBase implements SizedEffect
 {

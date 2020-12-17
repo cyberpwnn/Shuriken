@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.inventory;
+package ninja.bytecode.shuriken.bukkit.inventory;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import ninja.bytecode.shuriken.bukkit.api.world.MaterialBlock;
+import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
 
 public class UIElement implements Element
 {

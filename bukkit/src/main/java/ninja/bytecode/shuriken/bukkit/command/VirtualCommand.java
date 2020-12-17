@@ -6,7 +6,7 @@ import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
 import org.bukkit.command.CommandSender;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
+import ninja.bytecode.shuriken.bukkit.sched.J;
 
 
 import ninja.bytecode.shuriken.bukkit.util.reflection.V;

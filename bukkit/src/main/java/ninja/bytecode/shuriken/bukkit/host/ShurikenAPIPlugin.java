@@ -10,9 +10,9 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
-import ninja.bytecode.shuriken.bukkit.api.nms.Catalyst;
-import ninja.bytecode.shuriken.bukkit.api.nms.NMP;
-import ninja.bytecode.shuriken.bukkit.api.scm.CommandSCM;
+import ninja.bytecode.shuriken.bukkit.nms.Catalyst;
+import ninja.bytecode.shuriken.bukkit.nms.NMP;
+import ninja.bytecode.shuriken.bukkit.scm.CommandSCM;
 import ninja.bytecode.shuriken.bukkit.host.command.CommandClearConsole;
 import ninja.bytecode.shuriken.bukkit.host.command.CommandRift;
 import ninja.bytecode.shuriken.bukkit.host.command.CommandShuriken;
@@ -25,10 +25,10 @@ import ninja.bytecode.shuriken.collections.LKMap;
 import org.bukkit.Bukkit;
 
 import ninja.bytecode.shuriken.bukkit.config.Configurator;
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.api.scm.SCMController;
-import ninja.bytecode.shuriken.bukkit.api.tetris.JobScheduler;
-import ninja.bytecode.shuriken.bukkit.api.tome.CommandTome;
+import ninja.bytecode.shuriken.bukkit.sched.J;
+import ninja.bytecode.shuriken.bukkit.scm.SCMController;
+import ninja.bytecode.shuriken.bukkit.tetris.JobScheduler;
+import ninja.bytecode.shuriken.bukkit.tome.CommandTome;
 import ninja.bytecode.shuriken.bukkit.lib.control.CacheController;
 import ninja.bytecode.shuriken.bukkit.lib.control.MojangProfileController;
 import ninja.bytecode.shuriken.bukkit.lib.control.RiftController;

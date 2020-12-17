@@ -7,9 +7,9 @@ import org.bukkit.Location;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.S;
-import ninja.bytecode.shuriken.bukkit.api.sound.Audible;
-import ninja.bytecode.shuriken.bukkit.api.sound.Audio;
+import ninja.bytecode.shuriken.bukkit.sched.S;
+import ninja.bytecode.shuriken.bukkit.sound.Audible;
+import ninja.bytecode.shuriken.bukkit.sound.Audio;
 import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 public class EffectCauldronAcceptRecipe implements Effect

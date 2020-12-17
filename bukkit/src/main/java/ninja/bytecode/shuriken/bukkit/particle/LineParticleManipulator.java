@@ -1,8 +1,8 @@
-package ninja.bytecode.shuriken.bukkit.api.particle;
+package ninja.bytecode.shuriken.bukkit.particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
-import ninja.bytecode.shuriken.bukkit.api.world.VectorMath;
+import ninja.bytecode.shuriken.bukkit.world.VectorMath;
 
 /**
  * A Particle effect which is a line from a to b. Override play(location) to

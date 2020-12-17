@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.fx;
 
-import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
+import ninja.bytecode.shuriken.bukkit.world.BlockType;
 
 public interface TypeEffect
 {

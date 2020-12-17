@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.nms;
+package ninja.bytecode.shuriken.bukkit.nms;
 
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
@@ -6,9 +6,9 @@ import ninja.bytecode.shuriken.collections.KSet;
 import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.A;
-import ninja.bytecode.shuriken.bukkit.api.sched.S;
-import ninja.bytecode.shuriken.bukkit.api.sched.SR;
+import ninja.bytecode.shuriken.bukkit.sched.A;
+import ninja.bytecode.shuriken.bukkit.sched.S;
+import ninja.bytecode.shuriken.bukkit.sched.SR;
 
 public class ChunkSendQueue
 {

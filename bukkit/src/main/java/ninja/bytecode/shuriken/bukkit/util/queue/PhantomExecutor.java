@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.util.queue;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.AR;
-import ninja.bytecode.shuriken.bukkit.api.sched.CancellableTask;
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.api.sched.SR;
+import ninja.bytecode.shuriken.bukkit.sched.AR;
+import ninja.bytecode.shuriken.bukkit.sched.CancellableTask;
+import ninja.bytecode.shuriken.bukkit.sched.J;
+import ninja.bytecode.shuriken.bukkit.sched.SR;
 
 public abstract class PhantomExecutor<T> implements QueueExecutor<T>
 {

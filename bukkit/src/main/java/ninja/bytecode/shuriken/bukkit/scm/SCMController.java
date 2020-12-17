@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import java.awt.Color;
 import java.io.File;
@@ -7,12 +7,12 @@ import java.io.IOException;
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
 import ninja.bytecode.shuriken.bukkit.fx.ParticleRedstone;
-import ninja.bytecode.shuriken.bukkit.api.particle.ParticleEffect;
-import ninja.bytecode.shuriken.bukkit.api.sched.A;
-import ninja.bytecode.shuriken.bukkit.api.sched.S;
-import ninja.bytecode.shuriken.bukkit.api.sound.Audio;
-import ninja.bytecode.shuriken.bukkit.api.world.P;
-import ninja.bytecode.shuriken.bukkit.api.world.W;
+import ninja.bytecode.shuriken.bukkit.particle.ParticleEffect;
+import ninja.bytecode.shuriken.bukkit.sched.A;
+import ninja.bytecode.shuriken.bukkit.sched.S;
+import ninja.bytecode.shuriken.bukkit.sound.Audio;
+import ninja.bytecode.shuriken.bukkit.world.P;
+import ninja.bytecode.shuriken.bukkit.world.W;
 import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;

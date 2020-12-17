@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.pluginmessage;
+package ninja.bytecode.shuriken.bukkit.pluginmessage;
 
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 

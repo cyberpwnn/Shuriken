@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.rift;
+package ninja.bytecode.shuriken.bukkit.rift;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,12 +10,12 @@ import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import ninja.bytecode.shuriken.bukkit.api.sched.J;
-import ninja.bytecode.shuriken.bukkit.api.sound.Audio;
-import ninja.bytecode.shuriken.bukkit.api.sound.GSound;
-import ninja.bytecode.shuriken.bukkit.api.sound.Instrument;
-import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
-import ninja.bytecode.shuriken.bukkit.api.world.P;
+import ninja.bytecode.shuriken.bukkit.sched.J;
+import ninja.bytecode.shuriken.bukkit.sound.Audio;
+import ninja.bytecode.shuriken.bukkit.sound.GSound;
+import ninja.bytecode.shuriken.bukkit.sound.Instrument;
+import ninja.bytecode.shuriken.bukkit.world.Cuboid;
+import ninja.bytecode.shuriken.bukkit.world.P;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;

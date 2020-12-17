@@ -1,6 +1,6 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
-import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
+import ninja.bytecode.shuriken.bukkit.world.BlockType;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Material;

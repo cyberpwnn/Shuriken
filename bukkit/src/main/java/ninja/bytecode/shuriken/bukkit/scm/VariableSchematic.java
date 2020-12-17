@@ -1,12 +1,12 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 import java.util.Iterator;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.api.world.BlockType;
-import ninja.bytecode.shuriken.bukkit.api.world.Cuboid;
-import ninja.bytecode.shuriken.bukkit.api.world.Dimension;
-import ninja.bytecode.shuriken.bukkit.api.world.Direction;
+import ninja.bytecode.shuriken.bukkit.world.BlockType;
+import ninja.bytecode.shuriken.bukkit.world.Cuboid;
+import ninja.bytecode.shuriken.bukkit.world.Dimension;
+import ninja.bytecode.shuriken.bukkit.world.Direction;
 
 import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Location;

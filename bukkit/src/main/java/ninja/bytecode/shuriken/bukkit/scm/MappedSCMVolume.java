@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.api.scm;
+package ninja.bytecode.shuriken.bukkit.scm;
 
 
 import ninja.bytecode.shuriken.collections.KMap;

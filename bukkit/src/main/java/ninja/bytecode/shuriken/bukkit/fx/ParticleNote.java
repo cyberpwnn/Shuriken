@@ -5,8 +5,8 @@ import java.awt.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import ninja.bytecode.shuriken.bukkit.api.particle.ParticleEffect;
-import ninja.bytecode.shuriken.bukkit.api.particle.ParticleEffect.ParticleColor;
+import ninja.bytecode.shuriken.bukkit.particle.ParticleEffect;
+import ninja.bytecode.shuriken.bukkit.particle.ParticleEffect.ParticleColor;
 
 public class ParticleNote extends ParticleBase implements ColoredEffect
 {
