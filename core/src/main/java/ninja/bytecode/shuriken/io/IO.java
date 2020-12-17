@@ -219,8 +219,6 @@ public class IO
 	 *            the input
 	 * @param out
 	 *            the output
-	 * @param amount
-	 *            the buffer and size to use
 	 * @return the actual transfered amount
 	 * @throws IOException
 	 *             shit happens
@@ -619,7 +617,6 @@ public class IO
 	 *             if source or destination is invalid
 	 * @throws IOException
 	 *             if an IO error occurs during copying
-	 * @see #copyFileToDirectory
 	 */
 	public static void copyFile(File srcFile, File destFile) throws IOException
 	{
@@ -648,7 +645,6 @@ public class IO
 	 *             if source or destination is invalid
 	 * @throws IOException
 	 *             if an IO error occurs during copying
-	 * @see #copyFileToDirectory
 	 */
 	public static void copyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException
 	{

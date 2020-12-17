@@ -465,8 +465,6 @@ public interface CatalystHost extends PacketListener, Listener
 	 * List all of the players that has the specified location's chunk in their
 	 * visible view distnace
 	 *
-	 * @param c
-	 *            the chunk
 	 * @return the players
 	 */
 	public List<Player> getObservers(Location l);

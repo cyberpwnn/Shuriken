@@ -97,8 +97,6 @@ public class Inventories
 	/**
 	 * Get the count of empty slots (or air slots)
 	 *
-	 * @param i
-	 *            the inventory
 	 * @return the number of empty slots
 	 */
 	public static int getEmptySlots(Inventory ix)

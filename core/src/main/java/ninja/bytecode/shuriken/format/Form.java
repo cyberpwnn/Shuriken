@@ -1086,8 +1086,6 @@ public class Form
 	/**
 	 * Get a formatted representation of the memory given in kilobytes
 	 *
-	 * @param mb
-	 *            the kilobytes
 	 * @return the string representation with suffixes
 	 */
 	public static String memx(long kb)
@@ -1379,8 +1377,6 @@ public class Form
 	/**
 	 * nanoseconds to seconds (double)
 	 *
-	 * @param ms
-	 *            the nanoseconds
 	 * @return a formatted string to nanoseconds
 	 */
 	public static String nsMs(long ns)
@@ -1391,8 +1387,6 @@ public class Form
 	/**
 	 * nanoseconds to seconds (double) custom decimals
 	 *
-	 * @param ms
-	 *            the nanoseconds
 	 * @param p
 	 *            number of decimal points
 	 * @return a formatted string to nanoseconds
@@ -1405,8 +1399,6 @@ public class Form
 	/**
 	 * nanoseconds to seconds (double) custom decimals
 	 *
-	 * @param ms
-	 *            the nanoseconds
 	 * @param p
 	 *            number of decimal points
 	 * @return a formatted string to nanoseconds

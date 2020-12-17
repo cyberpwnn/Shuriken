@@ -627,15 +627,6 @@ public enum ParticleEffect
 	 * Displays a particle effect which is only visible for all players within a
 	 * certain range in the world of @param center
 	 *
-	 * @param offsetX
-	 *            Maximum distance particles can fly away from the center on the
-	 *            x-axis
-	 * @param offsetY
-	 *            Maximum distance particles can fly away from the center on the
-	 *            y-axis
-	 * @param offsetZ
-	 *            Maximum distance particles can fly away from the center on the
-	 *            z-axis
 	 * @param speed
 	 *            Display speed of the particles
 	 * @param amount
@@ -677,15 +668,6 @@ public enum ParticleEffect
 	/**
 	 * Displays a particle effect which is only visible for the specified players
 	 *
-	 * @param offsetX
-	 *            Maximum distance particles can fly away from the center on the
-	 *            x-axis
-	 * @param offsetY
-	 *            Maximum distance particles can fly away from the center on the
-	 *            y-axis
-	 * @param offsetZ
-	 *            Maximum distance particles can fly away from the center on the
-	 *            z-axis
 	 * @param speed
 	 *            Display speed of the particles
 	 * @param amount
@@ -724,15 +706,6 @@ public enum ParticleEffect
 	/**
 	 * Displays a particle effect which is only visible for the specified players
 	 *
-	 * @param offsetX
-	 *            Maximum distance particles can fly away from the center on the
-	 *            x-axis
-	 * @param offsetY
-	 *            Maximum distance particles can fly away from the center on the
-	 *            y-axis
-	 * @param offsetZ
-	 *            Maximum distance particles can fly away from the center on the
-	 *            z-axis
 	 * @param speed
 	 *            Display speed of the particles
 	 * @param amount
@@ -748,7 +721,6 @@ public enum ParticleEffect
 	 * @throws IllegalArgumentException
 	 *             If the particle effect requires water and none is at the center
 	 *             location
-	 * @see #display(float, float, float, float, int, Location, List)
 	 */
 	public void display(float speed, int amount, Location center, Player... players) throws ParticleVersionException, ParticleDataException, IllegalArgumentException
 	{
@@ -968,15 +940,6 @@ public enum ParticleEffect
 	 *
 	 * @param data
 	 *            Data of the effect
-	 * @param offsetX
-	 *            Maximum distance particles can fly away from the center on the
-	 *            x-axis
-	 * @param offsetY
-	 *            Maximum distance particles can fly away from the center on the
-	 *            y-axis
-	 * @param offsetZ
-	 *            Maximum distance particles can fly away from the center on the
-	 *            z-axis
 	 * @param speed
 	 *            Display speed of the particles
 	 * @param amount
@@ -1019,15 +982,6 @@ public enum ParticleEffect
 	 *
 	 * @param data
 	 *            Data of the effect
-	 * @param offsetX
-	 *            Maximum distance particles can fly away from the center on the
-	 *            x-axis
-	 * @param offsetY
-	 *            Maximum distance particles can fly away from the center on the
-	 *            y-axis
-	 * @param offsetZ
-	 *            Maximum distance particles can fly away from the center on the
-	 *            z-axis
 	 * @param speed
 	 *            Display speed of the particles
 	 * @param amount
@@ -1067,15 +1021,6 @@ public enum ParticleEffect
 	 *
 	 * @param data
 	 *            Data of the effect
-	 * @param offsetX
-	 *            Maximum distance particles can fly away from the center on the
-	 *            x-axis
-	 * @param offsetY
-	 *            Maximum distance particles can fly away from the center on the
-	 *            y-axis
-	 * @param offsetZ
-	 *            Maximum distance particles can fly away from the center on the
-	 *            z-axis
 	 * @param speed
 	 *            Display speed of the particles
 	 * @param amount
@@ -1089,7 +1034,6 @@ public enum ParticleEffect
 	 * @throws ParticleDataException
 	 *             If the particle effect does not require additional data or if the
 	 *             data type is incorrect
-	 * @see #display(ParticleData, float, float, float, float, int, Location, List)
 	 */
 	public void display(ParticleData data, float speed, int amount, Location center, Player... players) throws ParticleVersionException, ParticleDataException
 	{
@@ -1774,8 +1718,6 @@ public enum ParticleEffect
 		 *            Data of the effect
 		 * @throws IllegalArgumentException
 		 *             If the speed is lower than 0
-		 * @see #ParticleEffect(ParticleEffect, float, float, float, float, int,
-		 *      boolean, ParticleData)
 		 */
 		public ParticlePacket(ParticleEffect effect, Vector direction, float speed, boolean longDistance, ParticleData data) throws IllegalArgumentException
 		{
@@ -1792,8 +1734,6 @@ public enum ParticleEffect
 		 * @param longDistance
 		 *            Indicates whether the maximum distance is increased from 256 to
 		 *            65536
-		 * @see #ParticleEffect(ParticleEffect, float, float, float, float, int,
-		 *      boolean, ParticleData)
 		 */
 		public ParticlePacket(ParticleEffect effect, ParticleColor color, boolean longDistance)
 		{

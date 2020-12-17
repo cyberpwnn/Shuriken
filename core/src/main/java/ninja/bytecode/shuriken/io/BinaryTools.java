@@ -73,7 +73,6 @@ public class BinaryTools
 	 * @param s1
 	 * @param s1offset
 	 * @param s2
-	 * @param n
 	 * @return
 	 */
 	public static int memcmp(byte[] s1, int s1offset, byte[] s2, int s2offset)
