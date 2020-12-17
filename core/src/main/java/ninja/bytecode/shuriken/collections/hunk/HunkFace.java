@@ -7,5 +7,5 @@ public enum HunkFace
 	EAST,
 	WEST,
 	NORTH,
-	SOUTH;
+	SOUTH
 }

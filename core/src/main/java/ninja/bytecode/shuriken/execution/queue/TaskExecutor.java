@@ -191,7 +191,7 @@ public class TaskExecutor
 		QUEUED,
 		RUNNING,
 		COMPLETED,
-		FAILED;
+		FAILED
 	}
 
 	public static class AssignedTask

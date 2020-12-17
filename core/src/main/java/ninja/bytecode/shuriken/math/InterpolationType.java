@@ -5,5 +5,5 @@ public enum InterpolationType
 	PARAMETRIC_2,
 	PARAMETRIC_4,
 	BEZIER,
-	NONE;
+	NONE
 }

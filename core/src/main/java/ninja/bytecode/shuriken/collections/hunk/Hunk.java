@@ -840,7 +840,6 @@ public interface Hunk<T>
 				j = j == 0 ? j + dr : j;
 			}
 		}
-		;
 
 		return this;
 	}
@@ -873,7 +872,6 @@ public interface Hunk<T>
 				j = j == 0 ? j + dr : j;
 			}
 		}
-		;
 
 		return this;
 	}

@@ -4,5 +4,5 @@ public enum ExplosionSize
 {
 	NORMAL,
 	LARGE,
-	HUGE;
+	HUGE
 }

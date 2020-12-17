@@ -27,5 +27,5 @@ public enum JobIgnoreCondition
 	 * allowed to be cancelled. It is also allowed to be cancelled if a newer job
 	 * with the same id is scheduled and there isnt enough time to execute both.
 	 */
-	ANYTIME;
+	ANYTIME
 }
