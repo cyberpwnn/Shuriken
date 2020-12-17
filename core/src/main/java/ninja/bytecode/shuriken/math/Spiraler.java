@@ -1,4 +1,4 @@
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.math;
 
 public class Spiraler
 {

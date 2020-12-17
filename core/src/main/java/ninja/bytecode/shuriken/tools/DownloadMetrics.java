@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.net;
+package ninja.bytecode.shuriken.tools;
 
 import ninja.bytecode.shuriken.math.M;
 import ninja.bytecode.shuriken.random.RollingSequence;

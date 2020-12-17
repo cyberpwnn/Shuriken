@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bench;
+package ninja.bytecode.shuriken.math;
 
 import ninja.bytecode.shuriken.math.M;
 

@@ -1,6 +1,6 @@
 package ninja.bytecode.shuriken.execution;
 
-import ninja.bytecode.shuriken.bench.PrecisionStopwatch;
+import ninja.bytecode.shuriken.math.PSW;
 import ninja.bytecode.shuriken.format.Form;
 import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.random.RollingSequence;
@@ -16,14 +16,14 @@ public class ThreadMonitor extends Thread
 	private boolean running;
 	private State lastState;
 	private ChronoLatch cl;
-	private PrecisionStopwatch st;
+	private PSW st;
 	int cycles = 0;
 	private RollingSequence sq = new RollingSequence(3);
 	
 	private ThreadMonitor(Thread monitor)
 	{
 		running = true;
-		st = PrecisionStopwatch.start();
+		st = PSW.start();
 		this.monitor = monitor;
 		lastState = State.NEW;
 		cl = new ChronoLatch(1000);
@@ -73,7 +73,7 @@ public class ThreadMonitor extends Thread
 		else
 		{
 
-			st = PrecisionStopwatch.start();
+			st = PSW.start();
 		}
 	}
 	

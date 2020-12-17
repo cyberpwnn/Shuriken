@@ -1,4 +1,4 @@
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.math;
 
 @FunctionalInterface
 public interface Spiraled

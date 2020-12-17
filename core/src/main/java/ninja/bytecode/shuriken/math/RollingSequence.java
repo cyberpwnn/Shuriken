@@ -1,4 +1,6 @@
-package com.volmit.iris.util;
+package ninja.bytecode.shuriken.math;
+
+import ninja.bytecode.shuriken.collections.KList;
 
 public class RollingSequence extends Average
 {

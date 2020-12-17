@@ -1,9 +1,8 @@
-package ninja.bytecode.shuriken.bukkit.compute.math;
+package ninja.bytecode.shuriken.math;
 
 import ninja.bytecode.shuriken.collections.KList;
 
 import java.util.Collections;
-
 
 
 public class CappedAverage extends Average

@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.net;
+package ninja.bytecode.shuriken.tools;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

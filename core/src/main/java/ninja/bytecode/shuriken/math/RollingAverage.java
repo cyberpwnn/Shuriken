@@ -1,4 +1,4 @@
-package ninja.bytecode.shuriken.bukkit.compute.math;
+package ninja.bytecode.shuriken.math;
 
 import java.util.Arrays;
 

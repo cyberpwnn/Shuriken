@@ -1,6 +1,8 @@
-package ninja.bytecode.shuriken.bench;
+package ninja.bytecode.shuriken.math;
 
-public class PrecisionStopwatch {
+import ninja.bytecode.shuriken.collections.functional.NastyRunnable;
+
+public class PSW {
 	private long nanos;
 	private long startNano;
 	private long millis;
@@ -8,16 +10,30 @@ public class PrecisionStopwatch {
 	private double time;
 	private boolean profiling;
 
-	public static PrecisionStopwatch start() {
-		PrecisionStopwatch p = new PrecisionStopwatch();
+	public static PSW start() {
+		PSW p = new PSW();
 		p.begin();
 
 		return p;
 	}
 
-	public PrecisionStopwatch() {
+	public PSW() {
 		reset();
 		profiling = false;
+	}
+
+	public double profile(Runnable r)
+	{
+		PSW p = start();
+		r.run();
+		return p.getMilliseconds();
+
+	}
+
+	public double profile(NastyRunnable r) throws Throwable {
+		PSW p = start();
+		r.run();
+		return p.getMilliseconds();
 	}
 
 	public void begin() {
