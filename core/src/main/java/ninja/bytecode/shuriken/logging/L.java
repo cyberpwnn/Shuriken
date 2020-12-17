@@ -185,7 +185,7 @@ public class L
 		looper.start();
 	}
 
-	private static final void dump(String f)
+	private static void dump(String f)
 	{
 		if(consoleConsumer != null)
 		{

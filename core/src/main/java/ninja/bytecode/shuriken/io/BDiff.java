@@ -50,12 +50,12 @@ import java.util.zip.GZIPOutputStream;
 
 public class BDiff
 {
-	private static final int min(int x, int y)
+	private static int min(int x, int y)
 	{
 		return x < y ? x : y;
 	}
 
-	private final static void split(int[] I, int[] V, int start, int len, int h)
+	private static void split(int[] I, int[] V, int start, int len, int h)
 	{
 
 		int i, j, k, x, tmp, jj, kk;
@@ -278,7 +278,7 @@ public class BDiff
 	 * @param newOffset
 	 * @return
 	 */
-	private final static int matchlen(byte[] oldBuf, int oldOffset, byte[] newBuf, int newOffset)
+	private static int matchlen(byte[] oldBuf, int oldOffset, byte[] newBuf, int newOffset)
 	{
 		int end = min(oldBuf.length - oldOffset, newBuf.length - newOffset);
 		int i;
@@ -292,7 +292,7 @@ public class BDiff
 		return i;
 	}
 
-	private final static int search(int[] I, byte[] oldBuf, byte[] newBuf, int newBufOffset, int start, int end, IntByRef pos)
+	private static int search(int[] I, byte[] oldBuf, byte[] newBuf, int newBufOffset, int start, int end, IntByRef pos)
 	{
 		int x, y;
 

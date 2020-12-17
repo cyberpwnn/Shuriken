@@ -1090,12 +1090,12 @@ public class Tome
 		return format(w.toString());
 	}
 
-	private final static String format(String input)
+	private static String format(String input)
 	{
 		return format(input, 4);
 	}
 
-	private final static String format(String input, int indent)
+	private static String format(String input, int indent)
 	{
 		try
 		{
