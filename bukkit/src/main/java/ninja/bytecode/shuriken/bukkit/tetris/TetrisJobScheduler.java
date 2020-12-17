@@ -8,14 +8,14 @@ import java.util.concurrent.ForkJoinPool.ForkJoinWorkerThreadFactory;
 import java.util.concurrent.ForkJoinWorkerThread;
 import java.util.concurrent.RejectedExecutionException;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.Profiler;
-import ninja.bytecode.shuriken.bukkit.compute.math.RollingAverage;
 
 import ninja.bytecode.shuriken.bukkit.util.queue.PhantomQueue;
 import ninja.bytecode.shuriken.bukkit.util.queue.Queue;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 import ninja.bytecode.shuriken.collections.Callback;
 import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.math.Profiler;
+import ninja.bytecode.shuriken.math.RollingAverage;
 
 public class TetrisJobScheduler implements JobScheduler
 {

@@ -12,6 +12,7 @@ import java.util.zip.GZIPOutputStream;
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
 import ninja.bytecode.shuriken.collections.Callback;
 import ninja.bytecode.shuriken.collections.KList;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -26,7 +27,6 @@ import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.world.Cuboid;
 import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
 import ninja.bytecode.shuriken.bukkit.world.VectorMath;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 import ninja.bytecode.shuriken.bukkit.logic.queue.ChronoLatch;
 import ninja.bytecode.shuriken.bukkit.util.queue.PhantomQueue;

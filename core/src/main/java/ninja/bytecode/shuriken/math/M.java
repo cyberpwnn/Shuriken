@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.math;
 
+import java.io.File;
 import java.util.regex.Matcher;
 
 import javax.script.ScriptEngine;
@@ -16,6 +17,69 @@ public class M
 	private static final int precision = 128;
 	private static final int modulus = 360 * precision;
 	private static final float[] sin = new float[modulus];
+	private static long TICK = 0;
+	private static long ATICK = 0;
+	private static long TIME = -1;
+	public static int rand(int f, int t)
+	{
+		return f + (int) (Math.random() * ((t - f) + 1));
+	}
+	public static int iclip(double value, double min, double max)
+	{
+		return (int) clip(value, min, max).intValue();
+	}
+
+	public static void uptick()
+	{
+		TICK++;
+	}
+
+	public static void uptickAsync()
+	{
+		ATICK++;
+	}
+
+	public static boolean interval(int m)
+	{
+		return tick() % Math.max(1, m) == 0;
+	}
+
+	public static boolean intervalAsync(int m)
+	{
+		return tickAsync() % Math.max(1, m) == 0;
+	}
+
+	public static long tick()
+	{
+		return TICK;
+	}
+
+	public static long tickAsync()
+	{
+		return ATICK;
+	}
+
+	public static long ticksOnline()
+	{
+		return timeOnline() / 50;
+	}
+
+	public static long timeStarted()
+	{
+		return TIME;
+	}
+
+	public static long timeOnline()
+	{
+		return ms() - TIME;
+	}
+
+	public static void initTicking()
+	{
+		TIME = new File("server.properties").lastModified();
+		TICK = ticksOnline();
+		ATICK = ticksOnline();
+	}
 
 	/**
 	 * Scales B by an external range change so that <br/>
@@ -91,10 +155,6 @@ public class M
 	 *            the third point (0, 1)
 	 * @param d
 	 *            the fourth point (1, 1)
-	 * @param tx
-	 *            the x
-	 * @param ty
-	 *            the y
 	 * @return the bilerped value
 	 */
 	public static double bilerp(double a, double b, double c, double d, double x, double y)
@@ -297,8 +357,6 @@ public class M
 	/**
 	 * Biggest number
 	 *
-	 * @param numbers
-	 *            the numbers
 	 * @return the biggest one
 	 */
 	@SuppressWarnings("unchecked")
@@ -439,5 +497,4 @@ public class M
 	{
 		return a >= 0 ? sin[a % (modulus)] : -sin[-a % (modulus)];
 	}
-
 }

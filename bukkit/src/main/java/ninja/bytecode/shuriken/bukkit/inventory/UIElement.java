@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.inventory;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.MaterialEnum;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.functional.Callback;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -264,7 +264,7 @@ public class UIElement implements Element
 		else
 		{
 			int prog = (int) ((double) getMaterial().getMaterial().getMaxDurability() * (1D - getProgress()));
-			return (short) M.clip(prog, 1, (getMaterial().getMaterial().getMaxDurability() - 1));
+			return M.clip(prog, 1, (getMaterial().getMaterial().getMaxDurability() - 1)).shortValue();
 		}
 	}
 

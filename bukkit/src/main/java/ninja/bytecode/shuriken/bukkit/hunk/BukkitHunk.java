@@ -1,6 +1,5 @@
 package ninja.bytecode.shuriken.bukkit.hunk;
 
-import ninja.bytecode.shuriken.bukkit.api.hunk.view.*;
 import ninja.bytecode.shuriken.bukkit.hunk.view.BiomeGridHunkView;
 import ninja.bytecode.shuriken.bukkit.hunk.view.ChunkBiomeHunkView;
 import ninja.bytecode.shuriken.bukkit.hunk.view.ChunkDataHunkView;

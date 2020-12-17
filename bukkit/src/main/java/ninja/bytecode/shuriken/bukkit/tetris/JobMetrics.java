@@ -1,7 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.tetris;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.CappedAverage;
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
+import ninja.bytecode.shuriken.math.CappedAverage;
 
 public class JobMetrics
 {
@@ -24,7 +24,7 @@ public class JobMetrics
 
 	public double getEstimatedComputeTime()
 	{
-		return (time.getMean() + time.getMax()) / 2D;
+		return (time.getAverage());
 	}
 
 	public CappedAverage getTime()
@@ -35,6 +35,6 @@ public class JobMetrics
 	@Override
 	public String toString()
 	{
-		return "Estimated: " + F.time(getEstimatedComputeTime(), 2) + " Range: " + F.time(time.getMin(), 2) + " - " + F.time(time.getMax(), 2) + " Mean: " + F.time(time.getMean(), 2) + " AVG: " + F.time(time.getAverage(), 2);
+		return "Estimated: " + F.time(getEstimatedComputeTime(), 2) + " AVG: " + F.time(time.getAverage(), 2);
 	}
 }

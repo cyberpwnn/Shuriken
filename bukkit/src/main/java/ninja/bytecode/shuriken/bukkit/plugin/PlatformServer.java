@@ -1,8 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.plugin;
 
+import ninja.bytecode.shuriken.math.M;
+
 import java.io.File;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 /**
  * Server platform tools

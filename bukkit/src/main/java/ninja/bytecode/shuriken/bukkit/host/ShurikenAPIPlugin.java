@@ -21,9 +21,8 @@ import ninja.bytecode.shuriken.bukkit.host.command.CommandShuriken;
 import ninja.bytecode.shuriken.bukkit.plugin.*;
 import ninja.bytecode.shuriken.bukkit.command.Command;
 import ninja.bytecode.shuriken.bukkit.command.Permission;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.plugin.plugin.*;
 import ninja.bytecode.shuriken.collections.LKMap;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
 
 import ninja.bytecode.shuriken.bukkit.config.Configurator;

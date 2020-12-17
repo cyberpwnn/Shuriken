@@ -10,7 +10,6 @@ import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.sched.S;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 
 import ninja.bytecode.shuriken.bukkit.host.control.RiftController;
@@ -20,6 +19,7 @@ import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.json.JSONException;
 import ninja.bytecode.shuriken.json.JSONObject;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Difficulty;

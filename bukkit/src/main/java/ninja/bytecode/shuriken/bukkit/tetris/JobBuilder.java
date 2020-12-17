@@ -1,9 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.tetris;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
-import ninja.bytecode.shuriken.bukkit.compute.math.Profiler;
 import ninja.bytecode.shuriken.bukkit.util.text.D;
 import ninja.bytecode.shuriken.collections.Callback;
+import ninja.bytecode.shuriken.math.M;
+import ninja.bytecode.shuriken.math.Profiler;
 
 public class JobBuilder
 {

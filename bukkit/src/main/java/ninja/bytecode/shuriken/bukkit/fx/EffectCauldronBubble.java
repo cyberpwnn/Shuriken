@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.fx;
 
 import ninja.bytecode.shuriken.bukkit.compatibility.SoundEnum;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Location;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
@@ -8,7 +9,6 @@ import org.bukkit.util.Vector;
 
 import ninja.bytecode.shuriken.bukkit.sound.Audible;
 import ninja.bytecode.shuriken.bukkit.sound.Audio;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 public class EffectCauldronBubble implements Effect
 {

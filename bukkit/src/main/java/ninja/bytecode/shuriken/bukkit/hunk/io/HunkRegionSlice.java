@@ -1,6 +1,5 @@
 package ninja.bytecode.shuriken.bukkit.hunk.io;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.util.positions.ChunkPosition;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
@@ -14,6 +13,7 @@ import ninja.bytecode.shuriken.io.bytetag.jnbt.ByteArrayTag;
 import ninja.bytecode.shuriken.io.bytetag.jnbt.CompoundTag;
 import ninja.bytecode.shuriken.io.bytetag.jnbt.Tag;
 import ninja.bytecode.shuriken.logging.L;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.block.data.BlockData;
 
 import java.io.IOException;

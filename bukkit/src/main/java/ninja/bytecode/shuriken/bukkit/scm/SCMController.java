@@ -16,14 +16,13 @@ import ninja.bytecode.shuriken.bukkit.world.W;
 import ninja.bytecode.shuriken.bukkit.plugin.Controller;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.event.VolumeConstructEvent;
-
 
 import ninja.bytecode.shuriken.bukkit.util.text.C;
 import ninja.bytecode.shuriken.collections.KBiset;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

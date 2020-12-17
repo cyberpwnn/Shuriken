@@ -1,10 +1,10 @@
 package ninja.bytecode.shuriken.bukkit.inventory;
 
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.collections.KMap;
 import ninja.bytecode.shuriken.collections.KSet;
 import ninja.bytecode.shuriken.collections.functional.Callback;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

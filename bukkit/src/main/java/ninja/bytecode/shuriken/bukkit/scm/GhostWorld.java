@@ -1,12 +1,12 @@
 package ninja.bytecode.shuriken.bukkit.scm;
 
 import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;
 import org.bukkit.Location;
 
 import ninja.bytecode.shuriken.bukkit.world.BlockType;
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 
 
 public class GhostWorld

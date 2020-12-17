@@ -11,8 +11,8 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ninja.bytecode.shuriken.bukkit.compute.math.M;
 import ninja.bytecode.shuriken.bukkit.util.text.C;
+import ninja.bytecode.shuriken.math.M;
 
 /**
  * Formatter
