@@ -4,6 +4,7 @@ import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CommandReload extends ShurikenCommand
 {
@@ -25,4 +26,13 @@ public class CommandReload extends ShurikenCommand
 		return true;
 	}
 
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "";
+	}
 }

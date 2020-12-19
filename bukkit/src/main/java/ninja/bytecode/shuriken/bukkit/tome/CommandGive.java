@@ -4,6 +4,7 @@ import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.inventory.ItemStack;
 
 public class CommandGive extends ShurikenCommand
@@ -52,4 +53,13 @@ public class CommandGive extends ShurikenCommand
 		return true;
 	}
 
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "<id> [-d|--disk]";
+	}
 }

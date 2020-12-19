@@ -4,6 +4,7 @@ import ninja.bytecode.shuriken.bukkit.command.Command;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CommandTome extends ShurikenCommand
 {
@@ -25,11 +26,17 @@ public class CommandTome extends ShurikenCommand
 	@Override
 	public boolean handle(ShurikenSender sender, String[] args)
 	{
-		sender.sendMessage("/tome catalogue");
-		sender.sendMessage("/tome reload");
-		sender.sendMessage("/tome give <id> [-d|--disk]");
-
+		printHelp(sender);
 		return true;
 	}
 
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "";
+	}
 }

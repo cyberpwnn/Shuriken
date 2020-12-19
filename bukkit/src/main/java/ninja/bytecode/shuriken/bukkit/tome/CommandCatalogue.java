@@ -85,4 +85,13 @@ public class CommandCatalogue extends ShurikenCommand
 		return true;
 	}
 
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "";
+	}
 }

@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import ninja.bytecode.shuriken.collections.KList;
@@ -70,6 +71,41 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 	public void v(Object... l)
 	{
 		D.as(getName()).v(l);
+	}
+
+	@Override
+	public List<String> onTabComplete(CommandSender sender, Command command,
+							    String alias, String[] args) {
+		KList<String> chain = new KList<String>();
+
+		for(String i : args)
+		{
+			if(i.trim().isEmpty())
+			{
+				continue;
+			}
+
+			chain.add(i.trim());
+		}
+
+		for(KList<String> i : commands.k())
+		{
+			for(String j : i)
+			{
+				if(j.equalsIgnoreCase(alias))
+				{
+					VirtualCommand cmd = commands.get(i);
+
+					List<String> v = cmd.hitTab(sender, chain.copy(), alias);
+					if(v != null)
+					{
+						return v;
+					}
+				}
+			}
+		}
+
+		return super.onTabComplete(sender, command, alias, args);
 	}
 
 	@Override
