@@ -101,7 +101,18 @@ public class J
 	
 	public static boolean sleep(long ms)
 	{
-		return J.attempt(() -> Thread.sleep(ms));
+		try
+		{
+			Thread.sleep(ms);
+			return false;
+		}
+
+		catch(Throwable e)
+		{
+
+		}
+
+		return false;
 	}
 	
 	public static boolean attempt(NastyRunnable r)

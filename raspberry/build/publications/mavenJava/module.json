@@ -1,0 +1,195 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ninja.bytecode.shuriken",
+    "module": "shuriken-raspberry",
+    "version": "2.1.18",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.3",
+      "buildId": "4hzsuh57ojdofaznzhur4ivkm4"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.1.18"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-web",
+          "version": {
+            "requires": "2.1.18"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "com.github.ben-manes.caffeine",
+          "module": "caffeine",
+          "version": {
+            "requires": "2.8.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-raspberry-2.1.18.jar",
+          "url": "shuriken-raspberry-2.1.18.jar",
+          "size": 11430,
+          "sha512": "98195187851f49154797ae146952ce9ae7b9ccb6c4d0f3bbd64d9b482016497bbbb8f72ad1a70bafa765ad6ec52e2b4dbe8ba632b328e1741eb034b98b506a46",
+          "sha256": "dc41a98080c00bb332509857cbc8956c8ed878dadc2d09a052acc2fe235a91a4",
+          "sha1": "25cdd999e9ea9f411ae5bb023263a35ba3395e11",
+          "md5": "427a3ca00d6d376b475e26f33cf7d951"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.pi4j",
+          "module": "pi4j-core",
+          "version": {
+            "requires": "1.2"
+          }
+        },
+        {
+          "group": "uk.co.caprica",
+          "module": "picam",
+          "version": {
+            "requires": "2.0.2"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-core",
+          "version": {
+            "requires": "2.1.18"
+          }
+        },
+        {
+          "group": "ninja.bytecode.shuriken",
+          "module": "shuriken-web",
+          "version": {
+            "requires": "2.1.18"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "com.github.ben-manes.caffeine",
+          "module": "caffeine",
+          "version": {
+            "requires": "2.8.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "shuriken-raspberry-2.1.18.jar",
+          "url": "shuriken-raspberry-2.1.18.jar",
+          "size": 11430,
+          "sha512": "98195187851f49154797ae146952ce9ae7b9ccb6c4d0f3bbd64d9b482016497bbbb8f72ad1a70bafa765ad6ec52e2b4dbe8ba632b328e1741eb034b98b506a46",
+          "sha256": "dc41a98080c00bb332509857cbc8956c8ed878dadc2d09a052acc2fe235a91a4",
+          "sha1": "25cdd999e9ea9f411ae5bb023263a35ba3395e11",
+          "md5": "427a3ca00d6d376b475e26f33cf7d951"
+        }
+      ]
+    },
+    {
+      "name": "shadowRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "shadowed",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-raspberry-2.1.18-all.jar",
+          "url": "shuriken-raspberry-2.1.18-all.jar",
+          "size": 4888393,
+          "sha512": "a0f7f51233e6447b5a7dd5aa19d83fbe83373a95d6c2fdceec9c455184f153fe2acd24b9b0ccf5b2740f046756371c1caaadf52332b464d48242fe04a0cfad7c",
+          "sha256": "e20e264b757ecd39a9292bf53a67816f68fb8d9488beb368c5e682bdbb6f4405",
+          "sha1": "f94f4716e549f39617523e48272b8b1ff000a5a8",
+          "md5": "b1db48bc42ecbdd38a78eff444945c34"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-raspberry-2.1.18-javadoc.jar",
+          "url": "shuriken-raspberry-2.1.18-javadoc.jar",
+          "size": 33138,
+          "sha512": "167a678383a77aad971ceee45bed123857dec2b614e0e65c7b6fd2a1e40aeb9ba91c84fe2f9db513bfc6a35c3aa9af491fd22081231bb3209d672675b410d9f8",
+          "sha256": "923d46b3ab44bedb2a7ce5e9f926506b85b00006bde280ca968d961e51e30e87",
+          "sha1": "3f25cf51157cf109be3b4d3964020e24a181bee1",
+          "md5": "281298a85af08a2c5ff008b1cfa2b512"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "shuriken-raspberry-2.1.18-sources.jar",
+          "url": "shuriken-raspberry-2.1.18-sources.jar",
+          "size": 5246,
+          "sha512": "58a2c7dd8d3db670fa47ae932315d9096ad93e5a81f827e60ebcd729b9af0e418e14d05691ec939431dec1c926b5742b233cd26ba617a9b86a1827b65d36b820",
+          "sha256": "10f5baaaa5aad9cf962d324dbe69d4d0c476c0c081817c216732f62bdc4dfbc4",
+          "sha1": "c83194b80e8f03e70214eb17e48f45619cc66107",
+          "md5": "64131b8045ef04949848ab406d7a1e43"
+        }
+      ]
+    }
+  ]
+}

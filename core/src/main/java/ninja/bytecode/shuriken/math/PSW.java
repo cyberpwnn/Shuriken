@@ -22,7 +22,7 @@ public class PSW {
 		profiling = false;
 	}
 
-	public double profile(Runnable r)
+	public static double profile(Runnable r)
 	{
 		PSW p = start();
 		r.run();
@@ -30,10 +30,12 @@ public class PSW {
 
 	}
 
-	public double profile(NastyRunnable r) throws Throwable {
+	public static double profileNasty(NastyRunnable r) throws Throwable
+	{
 		PSW p = start();
 		r.run();
 		return p.getMilliseconds();
+
 	}
 
 	public void begin() {

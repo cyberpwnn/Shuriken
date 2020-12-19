@@ -1,0 +1,11 @@
+-Xdoclint:none '-quiet'
+-classpath 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\build\\resources\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\web\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\core\\build\\classes\\java\\main;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\code\\gson\\gson\\2.8.6\\gson-2.8.6.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\github\\ben-manes\\caffeine\\caffeine\\2.8.5\\caffeine-2.8.5.jar;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\org.projectlombok\\lombok\\1.18.16\\6dc192c7f93ec1853f70d59d8a6dcf94eb42866\\lombok-1.18.16.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\pi4j\\pi4j-core\\1.2\\pi4j-core-1.2.jar;C:\\Users\\cyberpwn\\.gradle\\caches\\modules-2\\files-2.1\\uk.co.caprica\\picam\\2.0.2\\baf887c4b8cc08877f3d3c7b9672c3b3510c26b5\\picam-2.0.2.jar;C:\\Users\\cyberpwn\\.m2\\repository\\org\\checkerframework\\checker-qual\\3.4.1\\checker-qual-3.4.1.jar;C:\\Users\\cyberpwn\\.m2\\repository\\com\\google\\errorprone\\error_prone_annotations\\2.4.0\\error_prone_annotations-2.4.0.jar'
+-d 'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\build\\docs\\javadoc'
+-doctitle 'raspberry 2.1.18 API'
+-notimestamp 
+-quiet 
+-windowtitle 'raspberry 2.1.18 API'
+'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\src\\main\\java\\ninja\\bytecode\\shuriken\\raspberry\\ShurikenRaspberry.java'
+'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\src\\main\\java\\ninja\\bytecode\\shuriken\\raspberry\\util\\CameraStream.java'
+'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\src\\main\\java\\ninja\\bytecode\\shuriken\\raspberry\\util\\ColorDisplay.java'
+'C:\\Users\\cyberpwn\\Documents\\development\\workspace\\Shuriken\\raspberry\\src\\main\\java\\ninja\\bytecode\\shuriken\\raspberry\\util\\SmoothColorDisplay.java'

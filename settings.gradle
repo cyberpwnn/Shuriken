@@ -5,4 +5,5 @@ include 'mail'
 include 'web'
 include 'cloud'
 include 'bukkit'
+include 'raspberry'
 

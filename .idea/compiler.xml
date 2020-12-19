@@ -13,6 +13,7 @@
         <module name="Shuriken.bukkit.main" />
         <module name="Shuriken.core.main" />
         <module name="Shuriken.mail.main" />
+        <module name="Shuriken.raspberry.main" />
         <module name="Shuriken.web.main" />
         <module name="Shuriken.main" />
       </profile>

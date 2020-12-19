@@ -144,6 +144,11 @@ public class M
 		return a + (f * (b - a));
 	}
 
+	public static float flerp(float a, float b, float f)
+	{
+		return a + (f * (b - a));
+	}
+
 	/**
 	 * Bilinear interpolation
 	 * 

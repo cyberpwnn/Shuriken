@@ -24,7 +24,7 @@ plugins {
 String jettyVersion = '9.4.28.v20200408';
 boolean deploying = false;
 group 'ninja.bytecode.shuriken'
-version '2.1.16'
+version '2.1.18'
 
 apply plugin: 'java-library'
 
@@ -56,7 +56,6 @@ subprojects {
 
         shadowJar {
             zip64 true
-            minimize()
             project.configurations.implementation.canBeResolved = true
             project.configurations.runtime.canBeResolved = true
             project.configurations.api.canBeResolved = true
@@ -67,6 +66,27 @@ subprojects {
                     it.moduleGroup == 'org.bukkit.craftbukkit'
                 })
             }
+        }
+    }
+
+    if(project.name == 'raspberry')
+    {
+        apply plugin: 'com.github.johnrengelman.shadow'
+        String archiveName = "ShurikenRaspberry.jar"
+        String archivePath = jar.archiveFile.get().getAsFile().getParentFile().getAbsolutePath() + "\\" + archiveName;
+
+        task buildAPIPlugin {
+            group 'shuriken'
+            dependsOn 'shadowJar'
+        }
+
+        shadowJar {
+            zip64 true
+            project.configurations.implementation.canBeResolved = true
+            project.configurations.runtime.canBeResolved = true
+            project.configurations.api.canBeResolved = true
+            project.configurations.compile.canBeResolved = true
+            archiveFileName = archivePath
         }
     }
 
@@ -86,6 +106,7 @@ subprojects {
         compileOnly 'org.projectlombok:lombok:1.18.16'
         annotationProcessor 'org.projectlombok:lombok:1.18.16'
         api 'com.google.code.gson:gson:2.8.6'
+        api 'org.mongodb:bson:4.1.1'
         api 'com.github.ben-manes.caffeine:caffeine:2.8.5'
     }
 
@@ -189,6 +210,25 @@ project(":cloud") {
 
         implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.327')
         implementation 'com.amazonaws:aws-java-sdk-s3'
+    }
+}
+
+project(":raspberry") {
+    dependencies {
+        if(deploying)
+        {
+            compile 'ninja.bytecode.shuriken:shuriken-core:' + project.version
+            compile 'ninja.bytecode.shuriken:shuriken-web:' + project.version
+        }
+
+        else
+        {
+            compile project(":core")
+            compile project(":web")
+        }
+
+        implementation 'com.pi4j:pi4j-core:1.2'
+        implementation 'uk.co.caprica:picam:2.0.2'
     }
 }
 
