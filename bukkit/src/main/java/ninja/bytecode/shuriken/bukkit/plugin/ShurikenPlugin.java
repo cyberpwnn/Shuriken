@@ -9,8 +9,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import ninja.bytecode.shuriken.bukkit.test.ShurikenTestSuite;
+import ninja.bytecode.shuriken.bukkit.test.Test;
+import ninja.bytecode.shuriken.bukkit.test.TestRegistry;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.KMap;
+import ninja.bytecode.shuriken.logging.L;
 import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -113,6 +117,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 	{
 		registerInstance();
 		registerPermissions();
+		registerTests();
 		registerCommands();
 		registerControllers();
 		controllerTick = J.sr(() -> tickControllers(), 0);
@@ -124,6 +129,7 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 	public void unregisterAll()
 	{
 		stopControllers();
+		unregisterTests();
 		unregisterListeners();
 		unregisterCommands();
 		unregisterPermissions();
@@ -436,6 +442,48 @@ public abstract class ShurikenPlugin extends JavaPlugin implements Logged, Liste
 				{
 					w("Failed to register instance (field " + i.getName() + ")");
 					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	private void registerTests()
+	{
+		for(Field i : getClass().getDeclaredFields())
+		{
+			if(i.isAnnotationPresent(Test.class))
+			{
+				try
+				{
+					TestRegistry.registerAll(this, (Class<? extends ShurikenTestSuite>) i.getType());
+					v("Registered Test Suite " + i.getName());
+				}
+
+				catch(Throwable e)
+				{
+					f("Failed to register test suite (field " + i.getName() + ")");
+					L.ex(e);
+				}
+			}
+		}
+	}
+
+	private void unregisterTests()
+	{
+		for(Field i : getClass().getDeclaredFields())
+		{
+			if(i.isAnnotationPresent(Test.class))
+			{
+				try
+				{
+					TestRegistry.unregisterAll(this, (Class<? extends ShurikenTestSuite>) i.getType());
+					v("Unregistered Test Suite " + i.getName());
+				}
+
+				catch(Throwable e)
+				{
+					f("Failed to unregister test suite (field " + i.getName() + ")");
+					L.ex(e);
 				}
 			}
 		}

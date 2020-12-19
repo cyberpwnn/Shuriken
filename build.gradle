@@ -25,7 +25,6 @@ String jettyVersion = '9.4.28.v20200408';
 boolean deploying = false;
 group 'ninja.bytecode.shuriken'
 version '2.1.19'
-
 apply plugin: 'java-library'
 
 allprojects {

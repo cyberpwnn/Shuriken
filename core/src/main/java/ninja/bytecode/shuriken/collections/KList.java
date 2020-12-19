@@ -7,6 +7,7 @@ import ninja.bytecode.shuriken.execution.Chunker;
 import ninja.bytecode.shuriken.execution.queue.Queue;
 import ninja.bytecode.shuriken.json.JSONArray;
 import ninja.bytecode.shuriken.math.M;
+import org.checkerframework.checker.units.qual.K;
 
 public class KList<T> extends ArrayList<T> implements List<T>
 {
@@ -39,6 +40,63 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	{
 		super();
 		add(e);
+	}
+
+	@SafeVarargs
+	public static <T> KList<T> from(T... v)
+	{
+		return new KList<T>(v);
+	}
+
+	public String[] toStringArray()
+	{
+		return toStringList().toArray(new String[0]);
+	}
+
+	public static <T> KList<T> fromFuzzy(List<? extends T> v)
+	{
+		KList<T> vv = new KList<T>();
+		vv.addAll(v);
+		return vv;
+	}
+
+	public static <T> KList<T> from(Set<T> s)
+	{
+		return new KList<T>(s);
+	}
+
+	public static <T> KList<T> fromFuzzy(Set<? extends T> s)
+	{
+		KList<T> vv = new KList<T>();
+		vv.addAll(s);
+		return vv;
+	}
+
+	public static <T> KList<T> from(Iterator<T> s)
+	{
+		return new KList<T>(s);
+	}
+
+	public static <T> KList<T> from(Collection<T> s)
+	{
+		return new KList<T>(s);
+	}
+
+	public static <T> KList<T> fromFuzzy(Collection<? extends T> s)
+	{
+		KList<T> vv = new KList<T>();
+		vv.addAll(s);
+		return vv;
+	}
+
+	public static <T> KList<T> fromKeys(Map<T, ?> map)
+	{
+		return new KList<T>(map.keySet());
+	}
+
+	public static <T> KList<T> fromValues(Map<?, T> map)
+	{
+		return new KList<T>(map.values());
 	}
 
     public KList(Iterator<T> iterator) {
@@ -712,6 +770,12 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		return this;
 	}
 
+	public KList<T> qadd(int index, T t)
+	{
+		add(index, t);
+		return this;
+	}
+
 	public KList<T> qadd(T[] args) {
 		add(args);
 		return this;
@@ -722,5 +786,10 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		{
 			add(v);
 		}
+	}
+
+	public KList<T> qdelFirst() {
+		remove(0);
+		return this;
 	}
 }

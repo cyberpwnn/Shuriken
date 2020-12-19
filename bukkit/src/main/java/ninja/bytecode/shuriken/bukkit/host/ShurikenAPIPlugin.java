@@ -19,6 +19,8 @@ import ninja.bytecode.shuriken.bukkit.host.command.CommandShuriken;
 import ninja.bytecode.shuriken.bukkit.plugin.*;
 import ninja.bytecode.shuriken.bukkit.command.Command;
 import ninja.bytecode.shuriken.bukkit.command.Permission;
+import ninja.bytecode.shuriken.bukkit.test.CommandTest;
+import ninja.bytecode.shuriken.bukkit.test.Test;
 import ninja.bytecode.shuriken.collections.LKMap;
 import ninja.bytecode.shuriken.math.M;
 import org.bukkit.Bukkit;
@@ -63,7 +65,13 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 	private RiftController riftController;
 
 	@Command
+	private CommandTest test;
+
+	@Command
 	private CommandTome tome;
+
+	@Test
+	private ShurikenAPITests apiTests;
 
 	private static Queue<String> logQueue;
 	private ShurikenConfig cfg;
@@ -77,11 +85,11 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 		M.initTicking();
 		v("Ticking Initiated");
 
-		J.sr(() -> flushLogBuffer(), 20);
-		J.ar(() -> M.uptickAsync(), 0);
-		J.sr(() -> M.uptick(), 0);
-		J.ar(() -> JobScheduler.scheduler.tick(), 0);
-		J.sr(() -> JobScheduler.scheduler.tock(), 0);
+		J.sr(this::flushLogBuffer, 20);
+		J.ar(M::uptickAsync, 0);
+		J.sr(M::uptick, 0);
+		J.ar(JobScheduler.scheduler::tick, 0);
+		J.sr(JobScheduler.scheduler::tock, 0);
 		v("Updating & Log Flushing Initiated");
 		startNMS();
 		Bukkit.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");

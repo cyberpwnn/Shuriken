@@ -430,4 +430,11 @@ public class KMap<K, V> extends ConcurrentHashMap<K, V>
 	{
 		return Queue.create(v());
 	}
+
+    public void removeAll(KList<K> k) {
+		for(K i : k)
+		{
+			remove(i);
+		}
+    }
 }
