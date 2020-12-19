@@ -25,6 +25,14 @@ public class CommandTest extends ShurikenCommand {
 
     @Override
     public boolean handle(ShurikenSender sender, String[] args) {
+        if(args.length == 0)
+        {
+            KList<String> s = new KList<>();
+            TestRegistry.addArgs(s);
+            s.forEach(sender::sendMessage);
+            return true;
+        }
+
         try {
             TestRegistry.test(sender, args);
         } catch (Throwable e) {

@@ -40,6 +40,11 @@ public class TestRegistry {
 
         for(Method i : c.getDeclaredMethods())
         {
+            if(i.getName().equals("getName"))
+            {
+                continue;
+            }
+
             i.setAccessible(true);
             String tag = plugin.getName() + "." + suite.getName() + "." + i.getName();
             r.put(tag, (a, b) -> c.getConstructor(ShurikenSender.class, String[].class)
@@ -61,6 +66,7 @@ public class TestRegistry {
         {
             if(i.equals(args[0]))
             {
+                sender.sendMessage("Testing " + args[0]);
                 tests.get(i).accept(sender, KList.from(args).qdelFirst().toStringArray());
             }
         }
