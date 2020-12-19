@@ -12,3 +12,5 @@ sql/build/
 web/build/
 
 .gradle/
+
+raspberry/build/
