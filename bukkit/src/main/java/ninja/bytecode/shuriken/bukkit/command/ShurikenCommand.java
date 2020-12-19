@@ -1,6 +1,7 @@
 package ninja.bytecode.shuriken.bukkit.command;
 
 import ninja.bytecode.shuriken.collections.KList;
+import org.bukkit.Sound;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -38,6 +39,58 @@ public abstract class ShurikenCommand implements ICommand
 		children = buildChildren();
 		description = "No Description";
 	}
+
+	@Override
+	public KList<String> handleTab(ShurikenSender sender, String[] args)
+	{
+		KList<String> v = new KList<>();
+		if(args.length == 0)
+		{
+			for(ShurikenCommand i : getChildren())
+			{
+				v.add(i.getNode());
+			}
+		}
+
+		addTabOptions(sender, args, v);
+
+		if(v.isEmpty())
+		{
+			return null;
+		}
+
+		return v;
+	}
+
+	public abstract void addTabOptions(ShurikenSender sender, String[] args, KList<String> list);
+
+
+	public void printHelp(ShurikenSender sender)
+	{
+		boolean b = false;
+
+		for(ShurikenCommand i : getChildren())
+		{
+			for(String j : i.getRequiredPermissions())
+			{
+				if(!sender.hasPermission(j))
+				{
+					continue;
+				}
+			}
+
+			b = true;
+
+			sender.sendMessage(C.GREEN + i.getNode() + " " + C.WHITE + i.getArgsUsage() + C.GRAY + " - " + i.getDescription());
+		}
+
+		if(!b)
+		{
+			sender.sendMessage("There are either no sub-commands or you do not have permission to use them.");
+		}
+	}
+
+	protected abstract String getArgsUsage();
 
 	public String getDescription()
 	{

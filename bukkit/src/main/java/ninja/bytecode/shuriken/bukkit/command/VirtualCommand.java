@@ -57,6 +57,53 @@ public class VirtualCommand
 		}
 	}
 
+	public KList<String> hitTab(CommandSender sender, KList<String> chain, String label)
+	{
+		ShurikenSender vs = new ShurikenSender(sender);
+		vs.setTag(tag);
+
+		if(label != null)
+			vs.setCommand(label);
+
+		if(chain.isEmpty())
+		{
+			if(!checkPermissions(sender, command))
+			{
+				return null;
+			}
+
+			return command.handleTab(vs, new String[0]);
+		}
+
+		String nl = chain.get(0);
+
+		for(KList<String> i : children.k())
+		{
+			for(String j : i)
+			{
+				if(j.equalsIgnoreCase(nl))
+				{
+					vs.setCommand(chain.get(0));
+					VirtualCommand cmd = children.get(i);
+					KList<String> c = chain.copy();
+					c.remove(0);
+					KList<String> v = cmd.hitTab(sender, c, vs.getCommand());
+					if(v != null)
+					{
+						return v;
+					}
+				}
+			}
+		}
+
+		if(!checkPermissions(sender, command))
+		{
+			return null;
+		}
+
+		return command.handleTab(vs, chain.toArray(new String[chain.size()]));
+	}
+
 	public String getTag()
 	{
 		return tag;

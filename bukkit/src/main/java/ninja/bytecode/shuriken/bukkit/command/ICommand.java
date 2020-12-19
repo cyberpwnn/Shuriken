@@ -13,6 +13,9 @@ public interface ICommand
 {
 	public KList<String> getRequiredPermissions();
 
+
+	public KList<String> handleTab(ShurikenSender sender, String[] args);
+
 	/**
 	 * Get the name of this command (node)
 	 *
