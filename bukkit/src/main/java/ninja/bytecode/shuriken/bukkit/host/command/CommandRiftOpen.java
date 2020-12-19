@@ -4,6 +4,7 @@ import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.collections.KList;
 import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.World.Environment;
@@ -64,5 +65,15 @@ public class CommandRiftOpen extends ShurikenCommand
 		}
 
 		return true;
+	}
+
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "<rift>";
 	}
 }

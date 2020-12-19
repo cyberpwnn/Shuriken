@@ -264,6 +264,16 @@ public class Players
 	}
 
 	/**
+	 * Get players within a radius
+	 * @param l the center point
+	 * @param range the range
+	 * @return the players within
+	 */
+    public static Player[] within(Location l, double range) {
+		return new Area(l, range).getNearbyPlayers();
+    }
+
+    /**
 	 * Search for multiple player matches. If there is an identical match, nothing
 	 * else will be searched. If there is multiple ignored case matches, partials
 	 * will not be matched. Else it will match all partials.

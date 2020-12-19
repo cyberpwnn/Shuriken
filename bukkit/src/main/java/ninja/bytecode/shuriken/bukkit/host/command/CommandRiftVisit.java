@@ -6,6 +6,7 @@ import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.control.RiftController;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
 import ninja.bytecode.shuriken.bukkit.plugin.ShurikenBukkit;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CommandRiftVisit extends ShurikenCommand
 {
@@ -37,5 +38,16 @@ public class CommandRiftVisit extends ShurikenCommand
 		rift.send(sender.player());
 
 		return true;
+	}
+
+
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "<rift>";
 	}
 }

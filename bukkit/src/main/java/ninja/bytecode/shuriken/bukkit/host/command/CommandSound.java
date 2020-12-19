@@ -4,6 +4,7 @@ import ninja.bytecode.shuriken.bukkit.sound.Instrument;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CommandSound extends ShurikenCommand
 {
@@ -40,4 +41,16 @@ public class CommandSound extends ShurikenCommand
 		return true;
 	}
 
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+		if(args.length == 0)
+		{
+			list.addAll(new KList<Instrument>(Instrument.values()).convert(Enum::name));
+		}
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "[sound]";
+	}
 }

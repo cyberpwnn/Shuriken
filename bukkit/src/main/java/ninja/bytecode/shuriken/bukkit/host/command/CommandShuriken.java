@@ -4,12 +4,10 @@ import ninja.bytecode.shuriken.bukkit.command.Command;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CommandShuriken extends ShurikenCommand
 {
-	@Command
-	private CommandShurikenUpdate update;
-
 	@Command
 	private CommandSound sound;
 
@@ -24,5 +22,15 @@ public class CommandShuriken extends ShurikenCommand
 	{
 		sender.sendMessage("v" + ShurikenAPIPlugin.p.getDescription().getVersion());
 		return true;
+	}
+
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return "";
 	}
 }

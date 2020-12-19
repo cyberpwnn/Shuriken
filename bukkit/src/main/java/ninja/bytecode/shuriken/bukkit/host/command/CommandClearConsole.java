@@ -4,6 +4,7 @@ import ninja.bytecode.shuriken.bukkit.command.ShurikenCommand;
 import ninja.bytecode.shuriken.bukkit.command.ShurikenSender;
 import ninja.bytecode.shuriken.bukkit.logic.format.F;
 import ninja.bytecode.shuriken.bukkit.host.ShurikenAPIPlugin;
+import ninja.bytecode.shuriken.collections.KList;
 
 public class CommandClearConsole extends ShurikenCommand
 {
@@ -25,5 +26,15 @@ public class CommandClearConsole extends ShurikenCommand
 		sender.sendMessage(F.repeat("\n ", 80));
 		sender.sendMessage("Poof");
 		return true;
+	}
+
+	@Override
+	public void addTabOptions(ShurikenSender sender, String[] args, KList<String> list) {
+
+	}
+
+	@Override
+	protected String getArgsUsage() {
+		return null;
 	}
 }

@@ -10,11 +10,9 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
-import ninja.bytecode.shuriken.bukkit.host.control.GhostWorldController;
 import ninja.bytecode.shuriken.bukkit.host.permission.PermissionShuriken;
 import ninja.bytecode.shuriken.bukkit.nms.Catalyst;
 import ninja.bytecode.shuriken.bukkit.nms.NMP;
-import ninja.bytecode.shuriken.bukkit.scm.CommandSCM;
 import ninja.bytecode.shuriken.bukkit.host.command.CommandClearConsole;
 import ninja.bytecode.shuriken.bukkit.host.command.CommandRift;
 import ninja.bytecode.shuriken.bukkit.host.command.CommandShuriken;
@@ -27,7 +25,6 @@ import org.bukkit.Bukkit;
 
 import ninja.bytecode.shuriken.bukkit.config.Configurator;
 import ninja.bytecode.shuriken.bukkit.sched.J;
-import ninja.bytecode.shuriken.bukkit.scm.SCMController;
 import ninja.bytecode.shuriken.bukkit.tetris.JobScheduler;
 import ninja.bytecode.shuriken.bukkit.tome.CommandTome;
 import ninja.bytecode.shuriken.bukkit.host.control.CacheController;
@@ -56,9 +53,6 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 	@Command
 	private CommandClearConsole cls;
 
-	@Command
-	private CommandSCM scm;
-
 	@Control
 	private CacheController cacheController;
 
@@ -67,12 +61,6 @@ public class ShurikenAPIPlugin extends ShurikenPlugin
 
 	@Control
 	private RiftController riftController;
-
-	@Control
-	private GhostWorldController ghostWorldControlller;
-
-	@Control
-	private SCMController scmController;
 
 	@Command
 	private CommandTome tome;

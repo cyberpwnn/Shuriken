@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.bukkit.world;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -209,17 +210,34 @@ public class Area
 	 */
 	public Player[] getNearbyPlayers()
 	{
-		KList<Player> px = new KList<Player>();
-
-		for(Entity i : getNearbyEntities())
+		try
 		{
-			if(i.getType().equals(EntityType.PLAYER))
+			int chunkRadius = (int) (radius < 16 ? 1 : (radius - (radius % 16)) / 16);
+			KList<Player> radiusEntities = new KList<Player>();
+
+			for(int chX = -chunkRadius; chX <= chunkRadius; chX++)
 			{
-				px.add((Player) i);
+				for(int chZ = -chunkRadius; chZ <= chunkRadius; chZ++)
+				{
+					int x = (int) location.getX(), y = (int) location.getY(), z = (int) location.getZ();
+
+					for(Entity e : new Location(location.getWorld(), x + (chX * 16), y, z + (chZ * 16)).getChunk().getEntities())
+					{
+						if(e instanceof Player && e.getLocation().distanceSquared(location) <= radius * radius && e.getLocation().getBlock() != location.getBlock())
+						{
+							radiusEntities.add((Player) e);
+						}
+					}
+				}
 			}
+
+			return radiusEntities.toArray(new Player[0]);
 		}
 
-		return px.toArray(new Player[px.size()]);
+		catch(Exception e)
+		{
+			return new Player[0];
+		}
 	}
 
 	/**
