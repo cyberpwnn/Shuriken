@@ -14,6 +14,7 @@ import ninja.bytecode.shuriken.random.noise.stream.utility.*;
 
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public interface ProceduralStream<T> extends ProceduralLayer, Interpolated<T>
 {
@@ -45,6 +46,41 @@ public interface ProceduralStream<T> extends ProceduralLayer, Interpolated<T>
 	default ProceduralStream<T> profile()
 	{
 		return profile(10);
+	}
+
+	default T[] toArray(int size)
+	{
+		T[] t = (T[]) new Object[size];
+		fill(t);
+		return t;
+	}
+
+	default Stream<T> toJavaStream()
+	{
+		return Stream.generate(this::get);
+	}
+
+	default T[] toArray(int size, Function<Integer, Double> coordinateConverter)
+	{
+		T[] t = (T[]) new Object[size];
+		fill(t, coordinateConverter);
+		return t;
+	}
+
+	default void fill(T[] array)
+	{
+		for(int i = 0; i < array.length; i++)
+		{
+			array[i] = get(i);
+		}
+	}
+
+	default void fill(T[] array, Function<Integer, Double> coordinateConverter)
+	{
+		for(int i = 0; i < array.length; i++)
+		{
+			array[i] = get(coordinateConverter.apply(i));
+		}
 	}
 
 	default ProceduralStream<T> profile(int memory)
@@ -510,6 +546,16 @@ public interface ProceduralStream<T> extends ProceduralLayer, Interpolated<T>
 		return toDouble(get(x, z));
 	}
 
+	default double getDouble(double x)
+	{
+		return toDouble(get(x));
+	}
+
+	default double getDouble()
+	{
+		return toDouble(get());
+	}
+
 	default double getDouble(double x, double y, double z)
 	{
 		return toDouble(get(x, y, z));
@@ -518,6 +564,16 @@ public interface ProceduralStream<T> extends ProceduralLayer, Interpolated<T>
 	public ProceduralStream<T> getTypedSource();
 
 	public ProceduralStream<?> getSource();
+
+	public default T get()
+	{
+		return get(0);
+	}
+
+	public default T get(double x)
+	{
+		return get(x, 0);
+	}
 
 	public T get(double x, double z);
 

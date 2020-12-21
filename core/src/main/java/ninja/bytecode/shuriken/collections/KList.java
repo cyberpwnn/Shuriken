@@ -299,7 +299,28 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 */
 	public KList<T> sort()
 	{
-		Collections.sort(this, (a, b) -> a.toString().compareTo(b.toString()));
+		return sortToString();
+	}
+
+	/**
+	 * Sort the list (based on toString comparison)
+	 *
+	 * @return the same list
+	 */
+	public KList<T> sortToString()
+	{
+		this.sort(Comparator.comparing(Object::toString));
+		return this;
+	}
+
+	/**
+	 * Sort the list (based on hashCode comparison)
+	 *
+	 * @return the same list
+	 */
+	public KList<T> sortHashCode()
+	{
+		this.sort(Comparator.comparing(Object::hashCode));
 		return this;
 	}
 
@@ -312,6 +333,16 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	{
 		Collections.reverse(this);
 		return this;
+	}
+
+	/**
+	 * Reverse this list
+	 *
+	 * @return the same list
+	 */
+	public KList<T> reversedCopy()
+	{
+		return copy().reverse();
 	}
 
 	@Override
@@ -439,6 +470,34 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		return this;
 	}
 
+	public KList<T> moveToBack(int index)
+	{
+		if(hasIndex(index) && last() > index)
+		{
+			T t = remove(index);
+			add(t);
+		}
+
+		return this;
+	}
+
+	public KList<T> addFirst(T t)
+	{
+		add(0, t);
+		return this;
+	}
+
+	public KList<T> moveToFront(int index)
+	{
+		if(hasIndex(index) && index > 0)
+		{
+			T t = remove(index);
+			addFirst(t);
+		}
+
+		return this;
+	}
+
 	/**
 	 * Remove a number of elements from the list
 	 *
@@ -500,6 +559,16 @@ public class KList<T> extends ArrayList<T> implements List<T>
 		return size() > index && index >= 0;
 	}
 
+	public RoundRobin<T> roundRobin()
+	{
+		return new KListRoundRobin<>(this);
+	}
+
+	public T getOrNull(int index)
+	{
+		return hasIndex(index) ? get(index) : null;
+	}
+
 	/**
 	 * Get the last index of this list (size - 1)
 	 *
@@ -516,6 +585,16 @@ public class KList<T> extends ArrayList<T> implements List<T>
 	 * @return the deduplicated list
 	 */
 	public KList<T> dedupe()
+	{
+		return removeDuplicates();
+	}
+
+	/**
+	 * Deduplicate this list by converting to linked hash set and back
+	 *
+	 * @return the deduplicated list
+	 */
+	public KList<T> removeDuplicates()
 	{
 		LinkedHashSet<T> lhs = new LinkedHashSet<T>(this);
 		return qclear().add(lhs);
