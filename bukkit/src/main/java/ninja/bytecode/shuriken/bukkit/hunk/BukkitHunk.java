@@ -10,6 +10,7 @@ import org.bukkit.block.Biome;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 import org.bukkit.generator.ChunkGenerator.ChunkData;
+import org.bukkit.util.Vector;
 
 public class BukkitHunk<T> {
 	public static Hunk<Biome> view(BiomeGrid biome) {

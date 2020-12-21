@@ -1,5 +1,6 @@
 package ninja.bytecode.shuriken.collections.hunk;
 
+import com.sun.istack.internal.NotNull;
 import ninja.bytecode.shuriken.collections.KList;
 import ninja.bytecode.shuriken.collections.functional.*;
 import ninja.bytecode.shuriken.collections.hunk.io.HunkIOAdapter;
@@ -12,6 +13,7 @@ import ninja.bytecode.shuriken.io.bytetag.jnbt.ByteArrayTag;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -1400,5 +1402,114 @@ public interface Hunk<T>
 				}
 			}
 		}
+	}
+
+	default Hunk<T> rotate(double dx, double dy, double dz, Function3<Integer, Integer, Integer, Hunk<T>> factory)
+	{
+		int w = getWidth();
+		int h = getHeight();
+		int d = getDepth();
+		int x,y,z;
+
+		if(dx != 0)
+		{
+			double angleCos = Math.cos(dx);
+			double angleSin = Math.sin(dx);
+			double vy = angleCos * h - angleSin * d;
+			double vz = angleSin * h + angleCos * d;
+			h = (int) Math.round(vy);
+			d = (int) Math.round(vz);
+		}
+
+		if(dy != 0)
+		{
+			double angleCos = Math.cos(dy);
+			double angleSin = Math.sin(dy);
+			double vx = angleCos * w + angleSin * d;
+			double vz = -angleSin * w + angleCos * d;
+			w = (int) Math.round(vx);
+			d = (int) Math.round(vz);
+		}
+
+		if(dz != 0)
+		{
+			double angleCos = Math.cos(dz);
+			double angleSin = Math.sin(dz);
+			double vx = angleCos * w - angleSin * h;
+			double vy = angleSin * w + angleCos * h;
+			w = (int) Math.round(vx);
+			h = (int) Math.round(vy);
+		}
+
+		int xoff = 0;
+		int yoff = 0;
+		int zoff = 0;
+
+		if(w < 0)
+		{
+			w = Math.abs(w);
+			xoff = w;
+		}
+
+		if(h < 0)
+		{
+			h = Math.abs(h);
+			yoff = h;
+		}
+
+		if(w < 0)
+		{
+			d = Math.abs(d);
+			zoff = d;
+		}
+
+		Hunk<T> t = factory.apply(w,h,d);
+
+		for(x = 0; x < getWidth(); x++)
+		{
+			for(y = 0; y < getHeight(); y++)
+			{
+				for(z = 0; z < getDepth(); z++)
+				{
+					int xx = getWidth();
+					int yy = getHeight();
+					int zz = getDepth();
+
+					if(dx != 0)
+					{
+						double angleCos = Math.cos(dx);
+						double angleSin = Math.sin(dx);
+						double vy = angleCos * yy - angleSin * zz;
+						double vz = angleSin * yy + angleCos * zz;
+						yy = (int) Math.round(vy);
+						zz = (int) Math.round(vz);
+					}
+
+					if(dy != 0)
+					{
+						double angleCos = Math.cos(dy);
+						double angleSin = Math.sin(dy);
+						double vx = angleCos * xx + angleSin * zz;
+						double vz = -angleSin * xx + angleCos * zz;
+						xx = (int) Math.round(vx);
+						zz = (int) Math.round(vz);
+					}
+
+					if(dz != 0)
+					{
+						double angleCos = Math.cos(dz);
+						double angleSin = Math.sin(dz);
+						double vx = angleCos * xx - angleSin * yy;
+						double vy = angleSin * xx + angleCos * yy;
+						xx = (int) Math.round(vx);
+						yy = (int) Math.round(vy);
+					}
+
+					t.set(xx+xoff,yy+yoff,zz+zoff, get(x,y,z));
+				}
+			}
+		}
+
+		return t;
 	}
 }
