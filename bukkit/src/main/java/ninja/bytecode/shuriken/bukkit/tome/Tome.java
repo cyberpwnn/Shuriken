@@ -49,7 +49,7 @@ public class Tome
 	public static final char[] NUM = new char[] {'\u2780', '\u2781', '\u2782', '\u2783', '\u2784', '\u2785', '\u2786', '\u2787', '\u2788', '\u2789'};
 	public static final char[] NUM_FILLED = new char[] {'\u2776', '\u2777', '\u2778', '\u2779', '\u277A', '\u277B', '\u277C', '\u277D', '\u277E', '\u277F'};
 	private TomeComponentBook root;
-	private boolean preprocessed;
+	private transient boolean preprocessed;
 	private KList<BaseComponent> cache;
 
 	public Tome()

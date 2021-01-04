@@ -65,7 +65,7 @@ public interface PacketListener
 	 *            packet to the server (handled by craftbukkit) or not. Returning
 	 *            true sends the packet, false cancels it.
 	 */
-	public void addGlobalIncominKListener(PacketHandler<?> handler);
+	public void addGlobalIncomingListener(PacketHandler<?> handler);
 
 	/**
 	 * Remove all outgoing listeners for the given packet type

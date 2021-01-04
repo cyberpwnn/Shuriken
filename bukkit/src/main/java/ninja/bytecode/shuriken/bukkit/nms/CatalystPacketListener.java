@@ -34,7 +34,7 @@ public abstract class CatalystPacketListener implements PacketListener
 	{
 		if(protocol != null)
 		{
-			throw new RuntimeException("Listener is already open");
+			closeListener();
 		}
 
 		protocol = new TinyProtocol(ShurikenAPIPlugin.p)
@@ -143,7 +143,7 @@ public abstract class CatalystPacketListener implements PacketListener
 	{
 		if(protocol == null)
 		{
-			throw new RuntimeException("Listener is already closed");
+			return;
 		}
 
 		try
@@ -206,7 +206,7 @@ public abstract class CatalystPacketListener implements PacketListener
 	}
 
 	@Override
-	public void addGlobalIncominKListener(PacketHandler<?> handler)
+	public void addGlobalIncomingListener(PacketHandler<?> handler)
 	{
 		inGlobal.add(handler);
 	}

@@ -1,5 +1,9 @@
 package ninja.bytecode.shuriken.bukkit.nms;
 
+import net.minecraft.server.v1_16_R3.Chunk;
+import net.minecraft.server.v1_16_R3.World;
+import ninja.bytecode.shuriken.Shuriken;
+import ninja.bytecode.shuriken.bukkit.event.PacketOutSoundEvent;
 import ninja.bytecode.shuriken.bukkit.sched.J;
 import ninja.bytecode.shuriken.bukkit.world.Area;
 import ninja.bytecode.shuriken.bukkit.world.MaterialBlock;
@@ -15,11 +19,10 @@ import net.minecraft.server.v1_16_R3.IScoreboardCriteria.EnumScoreboardHealthDis
 import net.minecraft.server.v1_16_R3.PacketPlayOutEntity.PacketPlayOutRelEntityMove;
 import net.minecraft.server.v1_16_R3.PacketPlayOutTitle.EnumTitleAction;
 import ninja.bytecode.shuriken.collections.KList;
-import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.World;
+import org.bukkit.*;
+import org.bukkit.SoundCategory;
 import org.bukkit.craftbukkit.v1_16_R3.CraftChunk;
+import org.bukkit.craftbukkit.v1_16_R3.CraftSound;
 import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
@@ -35,6 +38,7 @@ import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.util.Vector;
 
 import java.awt.*;
+import java.awt.Color;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Field;
@@ -76,7 +80,7 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public MaterialBlock getBlock(World w, int x, int y, int z) {
+    public MaterialBlock getBlock(org.bukkit.World w, int x, int y, int z) {
         return null;
     }
 
@@ -110,7 +114,7 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public Object packetChunkFullSend(Chunk chunk) {
+    public Object packetChunkFullSend(org.bukkit.Chunk chunk) {
         return new PacketPlayOutMapChunk(((CraftChunk) chunk).getHandle(), 65535);
     }
 
@@ -221,10 +225,54 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     public void onOpened() {
-        addGlobalIncominKListener((player, packet) -> {
+        addGlobalIncomingListener((player, packet) -> {
             if (packet instanceof PacketPlayInSettings) {
                 PacketPlayInSettings s = (PacketPlayInSettings) packet;
                 playerSettings.put(player, new PlayerSettings(s.locale, s.viewDistance, ChatMode.values()[s.d().ordinal()], s.e(), s.f(), s.getMainHand().equals(EnumMainHand.RIGHT)));
+            }
+
+            if (packet instanceof PacketPlayOutEntitySound) {
+                if(PacketOutSoundEvent.getHandlerList().getRegisteredListeners().length == 0)
+                {
+                    return packet;
+                }
+
+                PacketPlayOutEntitySound s = (PacketPlayOutEntitySound) packet;
+                Sound sound = Catalyst.getSound(((MinecraftKey)new V(((SoundEffect)new V(s).get("a"))).get("b")).getKey());
+                int eid = new V(s).get("c");
+                Entity theEntity = null;
+                SoundCategory sc = SoundCategory.valueOf(((net.minecraft.server.v1_16_R3.SoundCategory)new V(s).get("b")).name().toUpperCase());
+                float volume = new V(s).get("d");
+                float pitch = new V(s).get("e");
+
+                for(org.bukkit.World i : Bukkit.getWorlds())
+                {
+                    net.minecraft.server.v1_16_R3.Entity ee = ((CraftWorld)i).getHandle().getEntity(eid);
+                    if(ee != null)
+                    {
+                        theEntity = ee.getBukkitEntity();
+                        break;
+                    }
+                }
+
+                if(theEntity == null)
+                {
+                    return packet;
+                }
+
+                PacketOutSoundEvent event = new PacketOutSoundEvent(packet, sound, theEntity, volume, pitch, sc);
+                Bukkit.getPluginManager().callEvent(event);
+
+                if(event.isCancelled())
+                {
+                    return null;
+                }
+
+                new V(s).set("a", CraftSound.getSoundEffect(event.getSound().getKey().getKey()));
+                new V(s).set("b", net.minecraft.server.v1_16_R3.SoundCategory.valueOf(event.getCategory().name().toUpperCase()));
+                new V(s).set("c", event.getEntity().getEntityId());
+                new V(s).set("d", event.getVolume());
+                new V(s).set("e", event.getPitch());
             }
 
             return packet;
@@ -246,7 +294,7 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public void sendGlobalPacket(World w, Object o) {
+    public void sendGlobalPacket(org.bukkit.World w, Object o) {
         for (Player i : w.getPlayers()) {
             sendPacket(i, o);
         }
@@ -260,14 +308,14 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public void sendViewDistancedPacket(Chunk c, Object o) {
+    public void sendViewDistancedPacket(org.bukkit.Chunk c, Object o) {
         for (Player i : getObservers(c)) {
             sendPacket(i, o);
         }
     }
 
     @Override
-    public boolean canSee(Chunk c, Player p) {
+    public boolean canSee(org.bukkit.Chunk c, Player p) {
         return isWithin(p.getLocation().getChunk(), c, getViewDistance(p));
     }
 
@@ -284,12 +332,12 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
         } else return Bukkit.getServer().getViewDistance();
     }
 
-    public boolean isWithin(Chunk center, Chunk check, int viewDistance) {
+    public boolean isWithin(org.bukkit.Chunk center, org.bukkit.Chunk check, int viewDistance) {
         return Math.abs(center.getX() - check.getX()) <= viewDistance && Math.abs(center.getZ() - check.getZ()) <= viewDistance;
     }
 
     @Override
-    public List<Player> getObservers(Chunk c) {
+    public List<Player> getObservers(org.bukkit.Chunk c) {
         List<Player> p = new ArrayList<>();
 
         for (Player i : c.getWorld().getPlayers()) {
@@ -317,13 +365,13 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public ShadowChunk shadowCopy(Chunk at) {
+    public ShadowChunk shadowCopy(org.bukkit.Chunk at) {
         return new ShadowChunk16(at);
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Set<Object> getTickList(World world) {
+    public Set<Object> getTickList(org.bukkit.World world) {
         TickListServer<Block> blockTickList = ((CraftWorld) world).getHandle().getBlockTickList();
         try {
             return (Set<Object>) nextTickListGetter.invoke(blockTickList);
@@ -334,7 +382,7 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
 
     @Override
     @SuppressWarnings("unchecked")
-    public Set<Object> getTickListFluid(World world) {
+    public Set<Object> getTickListFluid(org.bukkit.World world) {
         TickListServer<FluidType> fluidTickList = ((CraftWorld) world).getHandle().getFluidTickList();
         try {
             return (Set<Object>) nextTickListGetter.invoke(fluidTickList);
@@ -344,7 +392,7 @@ public class Catalyst16 extends CatalystPacketListener implements CatalystHost {
     }
 
     @Override
-    public org.bukkit.block.Block getBlock(World world, Object tickListEntry) {
+    public org.bukkit.block.Block getBlock(org.bukkit.World world, Object tickListEntry) {
         BlockPosition pos = ((NextTickListEntry<?>) tickListEntry).a;
         return world.getBlockAt(pos.getX(), pos.getY(), pos.getZ());
     }

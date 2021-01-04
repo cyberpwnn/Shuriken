@@ -2,7 +2,7 @@ package ninja.bytecode.shuriken.bukkit.event;
 
 import org.bukkit.event.Cancellable;
 
-public class MortarCancellableEvent extends MortarEvent implements Cancellable
+public class ShurikenCancellableEvent extends ShurikenEvent implements Cancellable
 {
 	private boolean cancelled = false;
 
